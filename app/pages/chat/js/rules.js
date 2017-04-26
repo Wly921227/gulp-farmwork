@@ -1,5 +1,5 @@
-// 简体中文
 const COPY_WRITE = {
+    // 简体中文
     CHS: {
         title: '提现规则',
         text: [
