@@ -10,6 +10,7 @@ const LessAutoPrefix = require('less-plugin-autoprefix');
 const imagemin = require('gulp-imagemin');
 const zip = require('gulp-zip');
 const clean = require('gulp-clean');
+const connect = require('gulp-connect');
 
 const args = require('process.args')();
 
@@ -79,13 +80,22 @@ gulp.task('other', function () {
         .pipe(plumber())
         .pipe(gulp.dest(OUTPUT_PATH))
         .pipe(browserSync.stream());
-})
+});
+
 // build
 gulp.task('build', ['default'], function () {
     return gulp.src(path.resolve(__dirname, 'static/**/*'))
         .pipe(plumber())
         .pipe(minify())
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist'));
+});
+
+// product
+gulp.task('product', ['build'], function () {
+    connect.server({
+        port: 3030,
+        root: 'dist'
+    });
 });
 
 // publish
