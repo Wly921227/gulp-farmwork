@@ -18,6 +18,7 @@ const OUTPUT_PATH = output = path.resolve(__dirname, 'static/');
 const SCRIPT_PATH = path.resolve(__dirname, 'app/pages/**/js/*.js');
 const LESS_PATH = path.resolve(__dirname, 'app/pages/**/css/*.less');
 const IMAGES_PATH = path.resolve(__dirname, 'app/pages/**/images/*.*');
+const OTHER_PATH = path.resolve(__dirname, 'app/pages/**/other/*');
 const HTML_PATH = path.resolve(__dirname, 'app/pages/**/*.html');
 
 gulp.task('serve', ['default'], function () {
@@ -73,6 +74,12 @@ gulp.task('image', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('other', function () {
+    return gulp.src(OTHER_PATH)
+        .pipe(plumber())
+        .pipe(gulp.dest(OUTPUT_PATH))
+        .pipe(browserSync.stream());
+})
 // build
 gulp.task('build', ['default'], function () {
     return gulp.src(path.resolve(__dirname, 'static/**/*'))
@@ -99,4 +106,4 @@ gulp.task('clean', function () {
 });
 
 // default
-gulp.task('default', ['html', 'js', 'less', 'image']);
+gulp.task('default', ['html', 'js', 'less', 'image', 'other']);
