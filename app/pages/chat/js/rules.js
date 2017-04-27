@@ -1,6 +1,6 @@
 const COPY_WRITE = {
     // 简体中文
-    CHS: {
+    'zh-CN': {
         title: '提现规则',
         text: [
             '系统根据用户可提现金币数（可提现金币数 = 收入金币数 - 已提现金币数），按照现金金币兑换比例（700 金币 = 1 美元）计算可提现金额，金额四舍五入，保留小数点后一位',
@@ -10,20 +10,39 @@ const COPY_WRITE = {
             '正确填写提现资料，申请通过后，会在10个工作日内到账',
         ],
         foot: '有其他提现相关问题可以发送邮件至 <a href="mailto:money@snapdt.com">money@snapdt.com</a>'
-    }
+    },
+    'zh-TW': {},
+    'en': {}
 };
 
 setFontSize();
 const params = urlParams();
-const loc = params.loc || 'CHS';
+// const loc = params.loc || 'CHS';
+const loc = getLocCode();
 
 let $title = document.querySelector('head title');
 let $textList = document.querySelector('.text-list ul');
 let $foot = document.querySelector('.foot .text');
 
-$title.innerHTML = COPY_WRITE[loc].title;
-$textList.innerHTML = getContentHtml(COPY_WRITE[loc].text);
-$foot.innerHTML = COPY_WRITE[loc].foot;
+const info = COPY_WRITE[loc] || COPY_WRITE['en'];
+$title.innerHTML = info.title;
+$textList.innerHTML = getContentHtml(info.text);
+$foot.innerHTML = info.foot;
+
+function getLocCode() {
+    let loc;
+    if (navigator.appName == 'Netscape')
+        loc = navigator.language;
+    else
+        loc = navigator.browserLanguage;
+    if (loc.indexOf('zh-CN') > -1) {
+        return loc
+    } else if (loc.indexOf('zh-') > -1) {
+        return 'zh-TW'
+    } else {
+        return 'en'
+    }
+}
 
 function getContentHtml(text) {
     let html = '';

@@ -1,6 +1,6 @@
 const COPY_WRITE = {
     // 简体中文
-    CHS: {
+    'zh-CN': {
         title: 'FAQ',
         content: [
             {
@@ -42,17 +42,37 @@ const COPY_WRITE = {
                 text: 'Snapdate可以通过首页右上角的隐身功能，自行决定是否出现在广场中'
             }
         ]
-    }
+    },
+    // 繁体中文
+    'zh-TW': {},
+    // 英文
+    'en': {}
 };
 setFontSize();
 const params = urlParams();
-const loc = params.loc || 'CHS';
+const loc = getLocCode();
 
 let $title = document.querySelector('head title');
 let $textList = document.querySelector('.text-list ul');
 
-$title.innerHTML = COPY_WRITE[loc].title;
-$textList.innerHTML = getContentHtml(COPY_WRITE[loc].content);
+const info = COPY_WRITE[loc] || COPY_WRITE['en'];
+$title.innerHTML = info.title;
+$textList.innerHTML = getContentHtml(info.content);
+
+function getLocCode() {
+    let loc;
+    if (navigator.appName == 'Netscape')
+        loc = navigator.language;
+    else
+        loc = navigator.browserLanguage;
+    if (loc.indexOf('zh-CN') > -1) {
+        return loc
+    } else if (loc.indexOf('zh-') > -1) {
+        return 'zh-TW'
+    } else {
+        return 'en'
+    }
+}
 
 function getContentHtml(text) {
     let html = '';

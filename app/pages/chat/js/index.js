@@ -4,7 +4,7 @@ const girlsCHS = 'images/girls-CHS.png';
 const girlsCHT = 'images/girls-CHT.png';
 const COPY_WRITE = {
     // 简体中文
-    CHS: {
+    'zh-CN': {
         boy: {
             title: '男生畅聊秘籍',
             titleImg: boysCHS,
@@ -48,7 +48,7 @@ const COPY_WRITE = {
         }
     },
     // 繁体中文
-    CHT: {
+    'zh-TW': {
         boy: {
             title: '男生暢聊秘籍',
             titleImg: boysCHT,
@@ -92,7 +92,7 @@ const COPY_WRITE = {
         }
     },
     // 英文
-    EN: {
+    'en': {
         boy: {
             title: 'Chat secrets for boys',
             titleImg: boysCHS,
@@ -139,7 +139,8 @@ const COPY_WRITE = {
 
 setFontSize();
 const params = urlParams();
-const loc = params.loc || 'CHS';
+// const loc = params.loc || 'CHS';
+const loc = getLocCode();
 const gender = params.gender || 'girl';
 
 let $title = document.querySelector('head title');
@@ -147,10 +148,26 @@ let $titleImg = document.querySelector('.title img');
 let $content = document.querySelector('.content');
 let $textList = document.querySelector('.text-list ul');
 
-$title.innerHTML = COPY_WRITE[loc][gender].title;
-$titleImg.src = COPY_WRITE[loc][gender].titleImg;
+const info = COPY_WRITE[loc] || COPY_WRITE['en'];
+$title.innerHTML = info[gender].title;
+$titleImg.src = info[gender].titleImg;
 $content.className += ' ' + gender;
-$textList.innerHTML = getContentHtml(COPY_WRITE[loc][gender].content);
+$textList.innerHTML = getContentHtml(info[gender].content);
+
+function getLocCode() {
+    let loc;
+    if (navigator.appName == 'Netscape')
+        loc = navigator.language;
+    else
+        loc = navigator.browserLanguage;
+    if (loc.indexOf('zh-CN') > -1) {
+        return loc
+    } else if (loc.indexOf('zh-') > -1) {
+        return 'zh-TW'
+    } else {
+        return 'en'
+    }
+}
 
 function getContentHtml(text) {
     let html = '';
