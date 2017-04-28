@@ -9,6 +9,6 @@ function urlParams() {
     return params;
 }
 
-const src = urlParams().src;
-
-document.querySelector('#movie source').src = src;
+const params = urlParams();
+document.querySelector('#video').poster = params.img;
+document.querySelector('#video source').src = params.src;
