@@ -1,0 +1,116 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-hightlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.content {
+  padding-bottom: 3rem;
+  li {
+    border-bottom: 1px solid #e0e0e0;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  .item {
+    padding: .5rem;
+    padding-bottom: .7rem;
+    box-sizing: border-box;
+    .player-box {
+      width: 100%;
+      height: 11.5rem;
+      position: relative;
+      .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -.83rem;
+        margin-left: -.83rem;
+        width: 1.66rem;
+        height: 1.66rem;
+      }
+      .img {
+        width: 100%;
+        height: 100%;
+      }
+      .info {
+        position: absolute;
+        bottom: .5rem;
+        right: .5rem;
+        float: right;
+        .info-item {
+          display: inline-block;
+          padding: 0 .3rem;
+          height: 1.17rem;
+          line-height: 1.17rem;
+          font-size: .5rem;
+          color: #fff;
+          background: rgba(0, 0, 0, .6);
+          margin-left: .5rem;
+        }
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .title {
+      padding: 0 .5rem;
+      padding-top: .3rem;
+      box-sizing: border-box;
+      line-height: 1.16rem;
+      height: 2.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    }
+  }
+}
+
+.download {
+  display: none;
+  color: #fff;
+  width: 100%;
+  height: 3rem;
+  position: fixed;
+  padding-left: 1rem;
+  padding-right: .5rem;
+  box-sizing: border-box;
+  bottom: 0;
+  left: 0;
+  background: #0092ff;
+  .download-text {
+    float: left;
+    line-height: 3rem;
+    font-size: .9rem;
+  }
+  .download-link {
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    margin-top: .5rem;
+    padding: 0 .5rem;
+    height: 2.1rem;
+    float: right;
+    a {
+      line-height: 2.1rem;
+      font-size: .9rem;
+      color: #fff;
+    }
+  }
+}

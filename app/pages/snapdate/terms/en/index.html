@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>SnapDate User Agreement</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+        }
+
         * {
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
         }
 
         .content {
-            margin-top: 10px;
+            padding-top: .5rem;
+            padding-bottom: 2rem;
         }
 
         p {
-            font-size: 14px;
-            line-height: 150%;
+            font-size: .6rem;
+            line-height: .9rem;
             color: #412d2f;
-            padding: 5px;
+            padding: .25rem;
         }
 
         p.h1 {
@@ -27,10 +38,10 @@
             background: linear-gradient(to top right, rgb(221, 27, 93), rgb(250, 22, 70));
             text-align: center;
             color: #ffffff;
-            font-size: 16px;
-            line-height: 150%;
-            padding: 0 10px;
-            margin-bottom: 5px;
+            font-size: .7rem;
+            line-height: 1.2rem;
+            padding: 0 .3rem;
+            margin-bottom: .2rem;
         }
     </style>
 </head>
@@ -74,7 +85,7 @@
     </p>
     <p class="h1">I. rules for using SnapDate</p>
     <p>
-        1, The users fully understand and agree: SnapDate only provides users with information storage, sharing platform
+        1. The users fully understand and agree: SnapDate only provides users with information storage, sharing platform
         services, and the users must be responsible for all the acts of their registered account including any damages
         which
         led to by the content and information they upload to the platform, including, but not limited to, damages,
@@ -89,12 +100,12 @@
         practicality and the like. 
     </p>
     <p>
-        2, Any content, information, etc. published by the users on SnapDate do not reflect or represent the views,
+        2. Any content, information, etc. published by the users on SnapDate do not reflect or represent the views,
         position
         or policy of SnapDate, and SnapDate does not assume any responsibility. 
     </p>
     <p>
-        3, The user fully understands and agrees that: SnapDate is a point-to-point information service platform based
+        3. The user fully understands and agrees that: SnapDate is a point-to-point information service platform based
         on
         the user-network, so the users must assume full responsibility for the authenticity, legitimacy, validity of
         registration information on it. The users shall not impersonate others or use the names of others to disseminate
@@ -104,12 +115,12 @@
         while the user should bear all the resulting legal liability. 
     </p>
     <p>
-        4, SnapDate does not take any single or joint responsibility for authenticity, legitimacy, harmlessness,
+        4. SnapDate does not take any single or joint responsibility for authenticity, legitimacy, harmlessness,
         effectiveness, etc. of the information uploaded by the users. The legal responsibility is arising by the
         dissemination of such information should be taken by the users themselves. 
     </p>
     <p>
-        5, The user fully understands and agrees that: SnapDate may temporarily change, suspend, limit or terminate
+        5. The user fully understands and agrees that: SnapDate may temporarily change, suspend, limit or terminate
         parts or
         all services of the platform due to the needs of business development needs, or emergent or sudden situation,
         and
@@ -118,12 +129,12 @@
         legal responsibilities. 
     </p>
     <p>
-        6, The user fully understands and agrees: Advertisement may appear in the services on the SnapDate. The users
+        6. The user fully understands and agrees: Advertisement may appear in the services on the SnapDate. The users
         agree
         the display of SnapDate, third-party suppliers and its partners advertisements when using the services. 
     </p>
     <p>
-        7, The user shall not use SnapDate or its video chat platform services to produce, upload disseminate contents
+        7. The user shall not use SnapDate or its video chat platform services to produce, upload disseminate contents
         containing any of the following information: 
     </p>
     <p>
@@ -360,5 +371,12 @@
         4. SnapDate reserves the entitlements of explaining and modifying of this Agreement. 
     </p>
 </div>
+<script>
+    var winWidth = window.innerWidth;
+    var defaultWidth = 750 / 2;
+    var itemSize = 20;
+    var fontSize = winWidth / defaultWidth * itemSize / 16 * 100;
+    document.querySelector('html').style.fontSize = fontSize + '%';
+</script>
 </body>
 </html>

@@ -15,20 +15,28 @@
         if (language.indexOf('zh') === -1) document.location.href = '../chat/terms/en/index.html';
     </script>
     <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+        }
+
         * {
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
         }
 
         .content {
-            margin-top: 10px;
+            padding-top: .5rem;
+            padding-bottom: 2rem;
         }
 
         p {
-            font-size: 14px;
-            line-height: 150%;
+            font-size: .6rem;
+            line-height: .9rem;
             color: #412d2f;
-            padding: 5px;
+            padding: .25rem;
         }
 
         p.h1 {
@@ -38,10 +46,10 @@
             background: linear-gradient(to top right, rgb(221, 27, 93), rgb(250, 22, 70));
             text-align: center;
             color: #ffffff;
-            font-size: 16px;
-            line-height: 150%;
-            padding: 0 10px;
-            margin-bottom: 5px;
+            font-size: .7rem;
+            line-height: 1.2rem;
+            padding: 0 .3rem;
+            margin-bottom: .2rem;
         }
     </style>
 </head>
@@ -133,5 +141,12 @@
     </p>
     <p>4、本《协议》的版权SnapDate所有，SnapDate保留一切解释和修改权利。</p>
 </div>
+<script>
+    var winWidth = window.innerWidth;
+    var defaultWidth = 750 / 2;
+    var itemSize = 20;
+    var fontSize = winWidth / defaultWidth * itemSize / 16 * 100;
+    document.querySelector('html').style.fontSize = fontSize + '%';
+</script>
 </body>
 </html>
