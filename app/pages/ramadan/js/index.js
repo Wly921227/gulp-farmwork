@@ -108,7 +108,7 @@ window.onload = () => {
     }
 
     function getViewsNum(cTime) {
-        const onlineDay = parseInt((now - cTime) / 60 / 60 / 24 / 1000);
+        const onlineDay = parseInt((now - new Date(cTime).getTime()) / 60 / 60 / 24 / 1000);
         let views = 0;
         for (let i = 0; i < onlineDay; i++) {
             views += (Math.random() * 100) + 1000;
@@ -124,7 +124,7 @@ window.onload = () => {
             $downloadBox.style.display = 'block';
             $download.addEventListener('click', operation.download);
         } else {
-            YC.hideNav(true);
+            window.YC.hideNav(true);
         }
     }
 

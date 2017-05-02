@@ -1,3 +1,14 @@
+const params = urlParams();
+
+let $video = document.querySelector('#video');
+$video.params = params.img;
+let $source = document.querySelector('#video source');
+$source.src = params.src;
+
+// $video.play();
+
+hiddenNav();
+
 function urlParams() {
     let url = window.location.search.split('?').pop();
     let paramList = url.split('&');
@@ -10,6 +21,9 @@ function urlParams() {
     return params;
 }
 
-const params = urlParams();
-document.querySelector('#video').poster = params.img;
-document.querySelector('#video source').src = params.src;
+function hiddenNav() {
+    const isYeeCall = /(YeeCall)/.test(window.navigator.userAgent);
+    if (isYeeCall) {
+        window.YC.hideNav(true);
+    }
+}
