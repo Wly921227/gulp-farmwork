@@ -5,8 +5,6 @@ $video.params = params.img;
 let $source = document.querySelector('#video source');
 $source.src = params.src;
 
-// $video.play();
-
 hiddenNav();
 
 function urlParams() {

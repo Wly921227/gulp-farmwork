@@ -15,7 +15,8 @@ const connect = require('gulp-connect');
 const args = require('process.args')();
 
 // const {OUTPUT_PATH, SCRIPT_PATH, LESS_PATH, HTML_PATH, IMAGES_PATH} = require('./config');
-const OUTPUT_PATH = output = path.resolve(__dirname, 'static/');
+const OUTPUT_PATH = path.resolve(__dirname, 'static/');
+const DIST_PATH = path.resolve(__dirname, 'static/');
 const SCRIPT_PATH = path.resolve(__dirname, 'app/pages/**/js/*.js');
 const LESS_PATH = path.resolve(__dirname, 'app/pages/**/css/*.less');
 const IMAGES_PATH = path.resolve(__dirname, 'app/pages/**/images/*.*');
@@ -110,7 +111,10 @@ gulp.task('publish', function () {
 
 // clean
 gulp.task('clean', function () {
-    return gulp.src(OUTPUT_PATH, {read: false})
+    gulp.src(DIST_PATH, {read: false})
+        .pipe(clean({force: true}))
+        .pipe(gulp.dest('../dist'));
+    gulp.src(OUTPUT_PATH, {read: false})
         .pipe(clean({force: true}))
         .pipe(gulp.dest('../static'));
 });
