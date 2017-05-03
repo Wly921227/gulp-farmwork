@@ -1,5 +1,22 @@
 window.onload = () => {
+    const CONTENT = {
+        en: {
+            title: 'Ramadan special',
+            views: 'views',
+            downloadView: 'Download YeeCall to see more',
+            downloadButton: 'DOWNLOAD'
+        },
+        ar: {
+            title: 'رمضان خاص',
+            views: 'مشاهدات',
+            downloadView: 'تحميل YeeCall لمشاهدة أكثر',
+            downloadButton: 'تحميل',
+            downloadPadding: '0 1rem'
+        }
+    };
     setFontSize();
+    const loc = getLocCode();
+    const content = CONTENT[loc];
     const iosDownloadUrl = "https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8";
     const androidDownloadUrl = "market://details?id=com.yeecall.app";
     const ua = navigator.userAgent;
@@ -10,9 +27,21 @@ window.onload = () => {
     const operation = {
         download() {
             if (isAndroid) {
-                window.location.href = androidDownloadUrl
+                ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Android Download',
+                    eventAction: 'download',
+                    eventValue: 1
+                });
+                window.location.href = androidDownloadUrl;
             } else {
-                window.location.href = iosDownloadUrl
+                ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'IOS Download',
+                    eventAction: 'download',
+                    eventValue: 1
+                });
+                window.location.href = iosDownloadUrl;
             }
         }
     };
@@ -21,7 +50,9 @@ window.onload = () => {
     const now = +new Date;
     // 创建时间排序
     Data.sort((a, b) => {
-        return a.cTime - b.cTime;
+        const aDate = new Date(a.cTime).getTime();
+        const bDate = new Date(b.cTime).getTime();
+        return bDate - aDate;
     });
     // 是否到可展示日期
     let List = [];
@@ -41,7 +72,7 @@ window.onload = () => {
         const time = formatTime(item.time);
         html.push(`<li>
             <div class="item">
-                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}">
+                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}&title=${item.title}">
                     <div class="player-box">
                         <div class="icon">
                         </div>
@@ -49,12 +80,12 @@ window.onload = () => {
                             <img src="${item.imageSrc}" alt="${item.title}">
                         </div>
                         <div class="info">
-                            <div class="info-item">${views} views</div>
+                            <div class="info-item">${views} ${content.views}</div>
                             <div class="info-item">${time}</div>
                         </div>
                     </div>
                 </a>
-                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}">
+                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}&title=${item.title}">
                     <div class="title">
                         ${item.title}
                     </div>
@@ -63,7 +94,15 @@ window.onload = () => {
         </li>`);
     }
 
-    const $list = document.querySelector('.content ul');
+    document.querySelector('title').innerHTML = content.title;
+    document.querySelector('.download-text').innerHTML = content.downloadView;
+    let $downloadA = document.querySelector('.download-link a');
+    $downloadA.innerHTML = content.downloadButton;
+    if (content.downloadPadding) {
+        $downloadA.style.padding = content.downloadPadding;
+    }
+
+    let $list = document.querySelector('.content ul');
     $list.className += isAndroid ? ' android' : ' ios';
     $list.innerHTML = html.join('');
     $list.addEventListener('contextmenu', function (event) {
@@ -73,6 +112,7 @@ window.onload = () => {
 
     showDownload();
     loadImg();
+    createGoogleAnalytics();
 
     function loadImg() {
         if (isAndroid) {
@@ -108,13 +148,10 @@ window.onload = () => {
     }
 
     function getViewsNum(cTime) {
-        const onlineDay = parseInt((now - new Date(cTime).getTime()) / 60 / 60 / 24 / 1000);
-        let views = 0;
-        for (let i = 0; i < onlineDay; i++) {
-            views += (Math.random() * 100) + 1000;
-        }
+        const onlineDay = parseInt(now - new Date(cTime).getTime());
+        let views = onlineDay / 77000;
 
-        return parseInt(views).toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        return parseInt(views);
     }
 
     function showDownload() {
@@ -136,5 +173,35 @@ window.onload = () => {
         let fontSize = oneRem / 16 * 100;
         document.querySelector('html').style.fontSize = `${fontSize}%`;
         window.addEventListener('resize', setFontSize);
+    }
+
+    function createGoogleAnalytics() {
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-63953912-1', 'auto', '2017 Ramadan');
+        ga('send', 'pageview');
+    }
+
+    function getLocCode() {
+        let loc;
+        if (navigator.appName == 'Netscape')
+            loc = navigator.language;
+        else
+            loc = navigator.browserLanguage;
+        if (loc.indexOf('ar') > -1) {
+            return 'ar'
+        } else {
+            return 'en'
+        }
     }
 };
