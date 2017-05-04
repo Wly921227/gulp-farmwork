@@ -110,11 +110,14 @@ gulp.task('publish', function () {
 });
 
 // clean
-gulp.task('clean', function () {
-    gulp.src(DIST_PATH, {read: false})
+gulp.task('clean', ['clean:dist', 'clean:static']);
+gulp.task('clean:dist', function () {
+    return gulp.src(DIST_PATH, {read: false})
         .pipe(clean({force: true}))
         .pipe(gulp.dest('../dist'));
-    gulp.src(OUTPUT_PATH, {read: false})
+});
+gulp.task('clean:static', function () {
+    return gulp.src(OUTPUT_PATH, {read: false})
         .pipe(clean({force: true}))
         .pipe(gulp.dest('../static'));
 });

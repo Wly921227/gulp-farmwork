@@ -13,9 +13,11 @@ let $title = document.querySelector('title');
 $title.innerHTML = decodeURI(params.title);
 let $video = document.querySelector('.video');
 $video.innerHTML = `<video id="video" src="${'./' + params.src}" autoplay controls="controls" poster="${'./' + params.src}">
-        <source src="${'./' + params.src}" type="video/mp4"/>
-    </video>`;
-document.querySelector('.back a').innerHTML = '&lt;&nbsp;' + CONTENT[loc].back;
+    <source src="${'./' + params.src}" type="video/mp4"/>
+</video>`;
+let $back = document.querySelector('.back a');
+$back.innerHTML = '&lt;&nbsp;' + CONTENT[loc].back;
+$back.href = 'index.html?top=' + params.top;
 
 hiddenNav();
 createGoogleAnalytics(params.title);

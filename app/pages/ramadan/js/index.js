@@ -66,13 +66,15 @@ window.onload = () => {
     List = isYeeCall ? List : List.slice(0, 3);
 
     let html = [];
+    const height = window.innerWidth * .72;
     for (let i = 0; i < List.length; i++) {
         let item = List[i];
         const views = getViewsNum(item.cTime);
         const time = formatTime(item.time);
+        const title = encodeURI(item.title);
         html.push(`<li>
             <div class="item">
-                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}&title=${item.title}">
+                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}&top=${i * height}&title=${title}">
                     <div class="player-box">
                         <div class="icon">
                         </div>
@@ -85,7 +87,7 @@ window.onload = () => {
                         </div>
                     </div>
                 </a>
-                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}&title=${item.title}">
+                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}&top=${i * height}&title=${title}">
                     <div class="title">
                         ${item.title}
                     </div>
@@ -109,6 +111,11 @@ window.onload = () => {
         event.preventDefault();
         return false;
     });
+
+    const params = urlParams();
+    if (params.top) {
+        window.scrollTo(0, params.top);
+    }
 
     showDownload();
     loadImg();
@@ -204,4 +211,17 @@ window.onload = () => {
             return 'en'
         }
     }
+
+    function urlParams() {
+        let url = window.location.search.split('?').pop();
+        let paramList = url.split('&');
+        let params = {};
+        for (let i = 0; i < paramList.length; i++) {
+            let value = paramList[i];
+            let map = value.split('=');
+            params[map[0]] = map[1];
+        }
+        return params;
+    }
 };
+

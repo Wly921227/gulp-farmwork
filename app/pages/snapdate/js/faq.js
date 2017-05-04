@@ -91,7 +91,6 @@ const COPY_WRITE = {
     'en': {}
 };
 setFontSize();
-const params = urlParams();
 const loc = getLocCode();
 
 let $title = document.querySelector('head title');
@@ -138,17 +137,6 @@ function getContentHtml(text) {
     return html;
 }
 
-function urlParams() {
-    let url = window.location.search.split('?').pop();
-    let paramList = url.split('&');
-    let params = {};
-    for (let i = 0; i < paramList.length; i++) {
-        let value = paramList[i];
-        let map = value.split('=');
-        params[map[0]] = map[1];
-    }
-    return params;
-}
 
 function setFontSize() {
     let winWidth = window.innerWidth;
