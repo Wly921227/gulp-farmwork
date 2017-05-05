@@ -156,7 +156,7 @@ window.onload = () => {
 
     function getViewsNum(cTime) {
         const onlineDay = parseInt(now - new Date(cTime).getTime());
-        let views = onlineDay / 77000;
+        let views = onlineDay / 107000;
 
         return parseInt(views);
     }

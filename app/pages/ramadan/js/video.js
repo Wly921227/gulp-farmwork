@@ -1,4 +1,3 @@
-const params = urlParams();
 const CONTENT = {
     en: {
         back: 'Back'
@@ -7,17 +6,19 @@ const CONTENT = {
         back: 'التراجع'
     }
 };
+const params = urlParams();
 const loc = getLocCode();
 
 let $title = document.querySelector('title');
-$title.innerHTML = decodeURI(params.title);
-let $video = document.querySelector('.video');
-$video.innerHTML = `<video id="video" src="${'./' + params.src}" autoplay controls="controls" poster="${'./' + params.src}">
-    <source src="${'./' + params.src}" type="video/mp4"/>
-</video>`;
 let $back = document.querySelector('.back a');
+let $video = document.querySelector('.video');
+$title.innerHTML = decodeURI(params.title);
 $back.innerHTML = '&lt;&nbsp;' + CONTENT[loc].back;
 $back.href = 'index.html?top=' + params.top;
+
+$video.innerHTML = `<video id="video" src="${params.src}" autoplay controls="controls" poster="${'./' + params.img}">
+    <source src="${params.src}" type="video/mp4"/>
+</video>`;
 
 hiddenNav();
 createGoogleAnalytics(params.title);
