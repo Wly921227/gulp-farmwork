@@ -21,7 +21,7 @@ a {
 }
 
 .content {
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   background: #ebebeb;
   .ios {
     .item {
@@ -121,6 +121,14 @@ a {
   }
 }
 
+.tip {
+  background: #ebebeb;
+  text-align: center;
+  padding-bottom: 1rem;
+  line-height: 1rem;
+  color: #999;
+}
+
 .download {
   display: none;
   color: #fff;
@@ -150,6 +158,39 @@ a {
       line-height: 2.1rem;
       font-size: .9rem;
       color: #fff;
+    }
+  }
+}
+
+.player {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  top: 0;
+  left: 0;
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  .video {
+    display: table-cell;
+    vertical-align: middle;
+    #video {
+      width: 100%;
+    }
+    video {
+      width: 100%;
+      height: auto;
     }
   }
 }

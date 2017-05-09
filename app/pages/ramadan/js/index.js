@@ -1,22 +1,26 @@
-window.onload = () => {
+$(document).ready(() => {
     const CONTENT = {
         en: {
             title: 'Ramadan special',
             views: 'views',
             downloadView: 'Download YeeCall to see more',
-            downloadButton: 'DOWNLOAD'
+            downloadButton: 'DOWNLOAD',
+            tips: 'Videos will be updated daily! Stay tuned.',
+            back: 'Back'
         },
         ar: {
             title: 'رمضان خاص',
             views: 'مشاهدات',
             downloadView: 'تحميل YeeCall لمشاهدة أكثر',
             downloadButton: 'تحميل',
-            downloadPadding: '0 1rem'
+            downloadPadding: '0 1rem',
+            tips: 'سيتم تحديث الفيديو يوميا! ابقي منتظمة في متابعته',
+            back: 'التراجع'
         }
     };
-    setFontSize();
     const loc = getLocCode();
     const content = CONTENT[loc];
+
     const iosDownloadUrl = "https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8";
     const androidDownloadUrl = "market://details?id=com.yeecall.app";
     const ua = navigator.userAgent;
@@ -66,7 +70,6 @@ window.onload = () => {
     List = isYeeCall ? List : List.slice(0, 3);
 
     let html = [];
-    const height = window.innerWidth * .72;
     for (let i = 0; i < List.length; i++) {
         let item = List[i];
         const views = getViewsNum(item.cTime);
@@ -74,52 +77,94 @@ window.onload = () => {
         const title = encodeURI(item.title);
         html.push(`<li>
             <div class="item">
-                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}&top=${i * height}&title=${title}">
-                    <div class="player-box">
-                        <div class="icon">
-                        </div>
-                        <div class="img">
-                            <img src="${item.imageSrc}" alt="${item.title}">
-                        </div>
-                        <div class="info">
-                            <div class="info-item">${views} ${content.views}</div>
-                            <div class="info-item">${time}</div>
-                        </div>
+                <div class="player-box link" data-src="${item.videoSrc}" data-img="${item.imageSrc}" data-title="${title}">
+                    <div class="icon">
                     </div>
-                </a>
-                <a href="./video.html?src=${item.videoSrc}&img=${item.imageSrc}&top=${i * height}&title=${title}">
-                    <div class="title">
-                        ${item.title}
+                    <div class="img">
+                        <img src="${item.imageSrc}" alt="${item.title}">
                     </div>
-                </a>
+                    <div class="info">
+                        <div class="info-item">${views} ${content.views}</div>
+                        <div class="info-item">${time}</div>
+                    </div>
+                </div>
+                <div class="title link" data-src="${item.videoSrc}" data-img="${item.imageSrc}" data-title="${title}">
+                    ${item.title}
+                </div>
             </div>
         </li>`);
     }
 
-    document.querySelector('title').innerHTML = content.title;
-    document.querySelector('.download-text').innerHTML = content.downloadView;
-    let $downloadA = document.querySelector('.download-link a');
-    $downloadA.innerHTML = content.downloadButton;
-    if (content.downloadPadding) {
-        $downloadA.style.padding = content.downloadPadding;
-    }
-
-    let $list = document.querySelector('.content ul');
-    $list.className += isAndroid ? ' android' : ' ios';
-    $list.innerHTML = html.join('');
-    $list.addEventListener('contextmenu', function (event) {
+    // 视频列表
+    let $list = $('.content ul');
+    $list.addClass(isAndroid ? 'android' : 'ios');
+    $list.html(html.join(''));
+    $list.on('contextmenu', function (event) {
         event.preventDefault();
         return false;
     });
-
-    const params = urlParams();
-    if (params.top) {
-        window.scrollTo(0, params.top);
+    // 显示播放器
+    $list.on('click', '.link', function (event) {
+        event.preventDefault();
+        const $this = $(this);
+        const src = $this.data('src');
+        const img = $this.data('img');
+        const title = $this.data('title');
+        setVideo({
+            src: src,
+            img: img
+        });
+        showVideo(true, title);
+    });
+    let $back = $('.back a');
+    $back.html('< ' + content.back);
+    $back.on('click', function (event) {
+        event.preventDefault();
+        showVideo(false, content.title);
+    });
+    // 拦截返回按钮事件
+    if (isAndroid) {
+        document.addEventListener('backbutton', function (event) {
+            event.preventDefault();
+            showVideo(false, content.title);
+        });
     }
+    // 底部提示
+    let $tip = $('.tip p');
+    $tip.html(content.tips);
 
+    setFontSize();
+    // 设置标题
+    setTitle(content.title);
     showDownload();
     loadImg();
     createGoogleAnalytics();
+
+    function setVideo(options) {
+        let $video = $('.video');
+        $video.html(`<video id="video" src="${options.src}" autoplay controls="controls" poster="${'./' + options.img}">
+            <source src="${options.src}" type="video/mp4"/>
+        </video>`);
+    }
+
+    function showVideo(show, title) {
+        let $player = $('.player');
+        if (show) {
+            setTitle(title);
+            $player.css({display: 'table'});
+        } else {
+            setTitle(title);
+            $player.find('.video').html('');
+            $player.css({display: 'none'});
+        }
+    }
+
+    function setTitle(title) {
+        let $title = $('title');
+        if (title) {
+            $title.html(decodeURI(title));
+        }
+    }
 
     function loadImg() {
         if (isAndroid) {
@@ -163,10 +208,17 @@ window.onload = () => {
 
     function showDownload() {
         if (!isYeeCall) {
-            const $downloadBox = document.querySelector('.download');
-            const $download = $downloadBox.querySelector('.download-link');
-            $downloadBox.style.display = 'block';
-            $download.addEventListener('click', operation.download);
+            const $download = $('.download .download-link');
+            const $downloadA = $('.download-link a');
+            const $downloadBox = $('.download');
+            const $downloadText = $('.download-text');
+            $download.on('click', operation.download);
+            $downloadA.html(content.downloadButton);
+            $downloadText.html(content.downloadView);
+            if (content.downloadPadding) {
+                $downloadA.css({padding: content.downloadPadding});
+            }
+            $downloadBox.show();
         } else {
             window.YC.hideNav(true);
         }
@@ -178,8 +230,8 @@ window.onload = () => {
         let itemSize = 24 * 2;          // 期望1rem=设计图24px * 2
         let oneRem = winWidth / (defaultWidth / itemSize);  // 屏幕1rem=Xpx
         let fontSize = oneRem / 16 * 100;
-        document.querySelector('html').style.fontSize = `${fontSize}%`;
-        window.addEventListener('resize', setFontSize);
+        $('html').css({fontSize: `${fontSize}%`});
+        $(window).on('resize', setFontSize)
     }
 
     function createGoogleAnalytics() {
@@ -211,17 +263,4 @@ window.onload = () => {
             return 'en'
         }
     }
-
-    function urlParams() {
-        let url = window.location.search.split('?').pop();
-        let paramList = url.split('&');
-        let params = {};
-        for (let i = 0; i < paramList.length; i++) {
-            let value = paramList[i];
-            let map = value.split('=');
-            params[map[0]] = map[1];
-        }
-        return params;
-    }
-};
-
+});
