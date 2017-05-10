@@ -20,6 +20,9 @@ $(document).ready(() => {
     };
     const loc = getLocCode();
     const content = CONTENT[loc];
+    let showPlayer = false;
+    // 设置标题
+    setTitle(content.title);
 
     const iosDownloadUrl = "https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8";
     const androidDownloadUrl = "market://details?id=com.yeecall.app";
@@ -110,11 +113,11 @@ $(document).ready(() => {
         const src = $this.data('src');
         const img = $this.data('img');
         const title = $this.data('title');
+        showVideo(true, title);
         setVideo({
             src: src,
             img: img
         });
-        showVideo(true, title);
     });
     let $back = $('.back a');
     $back.html('< ' + content.back);
@@ -122,6 +125,11 @@ $(document).ready(() => {
         event.preventDefault();
         showVideo(false, content.title);
     });
+    if (isYeeCall) {
+        // 底部提示
+        let $tip = $('.tip p');
+        $tip.html(content.tips);
+    }
     // 拦截返回按钮事件
     if (isAndroid) {
         document.addEventListener('backbutton', function (event) {
@@ -129,13 +137,8 @@ $(document).ready(() => {
             showVideo(false, content.title);
         });
     }
-    // 底部提示
-    let $tip = $('.tip p');
-    $tip.html(content.tips);
 
     setFontSize();
-    // 设置标题
-    setTitle(content.title);
     showDownload();
     loadImg();
     createGoogleAnalytics();
@@ -149,13 +152,21 @@ $(document).ready(() => {
 
     function showVideo(show, title) {
         let $player = $('.player');
+        let $body = $('body');
+        let $html = $('html');
         if (show) {
+            showPlayer = true;
             setTitle(title);
             $player.css({display: 'table'});
+            $html.css({overflow: 'hidden'});
+            $body.css({overflow: 'hidden'});
         } else {
+            showPlayer = false;
             setTitle(title);
             $player.find('.video').html('');
             $player.css({display: 'none'});
+            $html.css({overflow: 'scroll'});
+            $body.css({overflow: 'scroll'});
         }
     }
 
@@ -254,10 +265,10 @@ $(document).ready(() => {
     function getLocCode() {
         let loc;
         if (navigator.appName == 'Netscape')
-            loc = navigator.language;
+            loc = navigator.language.toLowerCase();
         else
-            loc = navigator.browserLanguage;
-        if (loc.indexOf('ar') > -1) {
+            loc = navigator.browserLanguage.toLowerCase();
+        if (/ar/.test(loc)) {
             return 'ar'
         } else {
             return 'en'
