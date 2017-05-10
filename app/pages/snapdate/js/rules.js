@@ -12,32 +12,30 @@ const COPY_WRITE = {
         foot: '有其他提现相关问题可以发送邮件至 <a href="mailto:money@snapdt.com">money@snapdt.com</a>'
     },
     'zh-TW': {
-        title: '提现规则',
+        title: '提現規則',
         text: [
-            '系统根据用户可提现金币数（可提现金币数 = 收入金币数 - 已提现金币数），按照现金金币兑换比例（700 金币 = 1 美元）计算可提现金额，金额四舍五入，保留小数点后一位',
-            '可提现金币大于等于35000金币即可申请提现，每天至多可提交一次提现申请，如当前有正在进行的提现申请，需处理完成后方可提交新的提现申请',
-            '非认证主播单笔提现金额上限为 70000 金币，认证主播单笔提现金额上限为140000金币',
-            '可以选择支付宝（Alipay）或 贝宝（Paypal）两种提现方式进行收款；提现时，收取每笔10%的提现手续费（相关支付平台费用）',
-            '正确填写提现资料，申请通过后，会在10个工作日内到账',
+            '系統根據用戶可提現金幣數（可提現金幣數 = 收入金幣數 - 已提現金幣數），按照現金金幣兌換比例（700 金幣 = 1 美元）計算可提現金額，金額四舍五入，保留小數點後壹位',
+            '可提現金幣大於等於35000金幣即可申請提現，每天至多可提交壹次提現申請，如當前有正在進行的提現申請，需處理完成後方可提交新的提現申請',
+            '非認證主播單筆提現金額上限為 70000 金幣，認證主播單筆提現金額上限為140000金幣',
+            '可以選擇支付寶（Alipay）或 貝寶（Paypal）兩種提現方式進行收款；提現時，收取每筆10%的提現手續費（相關支付平臺費用）',
+            '正確填寫提現資料，申請通過後，會在10個工作日內到賬',
         ],
-        foot: '有其他提现相关问题可以发送邮件至 <a href="mailto:money@snapdt.com">money@snapdt.com</a>'
+        foot: '有其他提現相關問題可以發送郵件至 <a href="mailto:money@snapdt.com">money@snapdt.com</a>'
     },
     'en': {
-        title: '提现规则',
+        title: '提現規則',
         text: [
-            '系统根据用户可提现金币数（可提现金币数 = 收入金币数 - 已提现金币数），按照现金金币兑换比例（700 金币 = 1 美元）计算可提现金额，金额四舍五入，保留小数点后一位',
-            '可提现金币大于等于35000金币即可申请提现，每天至多可提交一次提现申请，如当前有正在进行的提现申请，需处理完成后方可提交新的提现申请',
-            '非认证主播单笔提现金额上限为 70000 金币，认证主播单笔提现金额上限为140000金币',
-            '可以选择支付宝（Alipay）或 贝宝（Paypal）两种提现方式进行收款；提现时，收取每笔10%的提现手续费（相关支付平台费用）',
-            '正确填写提现资料，申请通过后，会在10个工作日内到账',
+            '系統根據用戶可提現金幣數（可提現金幣數 = 收入金幣數 - 已提現金幣數），按照現金金幣兌換比例（700 金幣 = 1 美元）計算可提現金額，金額四舍五入，保留小數點後壹位',
+            '可提現金幣大於等於35000金幣即可申請提現，每天至多可提交壹次提現申請，如當前有正在進行的提現申請，需處理完成後方可提交新的提現申請',
+            '非認證主播單筆提現金額上限為 70000 金幣，認證主播單筆提現金額上限為140000金幣',
+            '可以選擇支付寶（Alipay）或 貝寶（Paypal）兩種提現方式進行收款；提現時，收取每筆10%的提現手續費（相關支付平臺費用）',
+            '正確填寫提現資料，申請通過後，會在10個工作日內到賬',
         ],
-        foot: '有其他提现相关问题可以发送邮件至 <a href="mailto:money@snapdt.com">money@snapdt.com</a>'
+        foot: '有其他提現相關問題可以發送郵件至 <a href="mailto:money@snapdt.com">money@snapdt.com</a>'
     }
 };
 
 setFontSize();
-const params = urlParams();
-// const loc = params.loc || 'CHS';
 const loc = getLocCode();
 
 let $title = document.querySelector('head title');
@@ -52,12 +50,12 @@ $foot.innerHTML = info.foot;
 function getLocCode() {
     let loc;
     if (navigator.appName == 'Netscape')
-        loc = navigator.language;
+        loc = navigator.language.toLowerCase();
     else
-        loc = navigator.browserLanguage;
-    if (loc.indexOf('zh-CN') > -1) {
+        loc = navigator.browserLanguage.toLowerCase();
+    if (/zh-cn/.test(loc)) {
         return loc
-    } else if (loc.indexOf('zh-') > -1) {
+    } else if (/zh/.test(loc)) {
         return 'zh-TW'
     } else {
         return 'en'
@@ -76,18 +74,6 @@ function getContentHtml(text) {
         </li>`);
     }
     return html.join('');
-}
-
-function urlParams() {
-    let url = window.location.search.split('?').pop();
-    let paramList = url.split('&');
-    let params = {};
-    for (let i = 0; i < paramList.length; i++) {
-        let value = paramList[i];
-        let map = value.split('=');
-        params[map[0]] = map[1];
-    }
-    return params;
 }
 
 function setFontSize() {
