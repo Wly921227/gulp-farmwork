@@ -53,8 +53,8 @@ function getLocCode() {
         loc = navigator.language.toLowerCase();
     else
         loc = navigator.browserLanguage.toLowerCase();
-    if (/zh-cn/.test(loc)) {
-        return loc
+    if (/zh/.test(loc) && /cn/.test(loc)) {
+        return 'zh-CN'
     } else if (/zh/.test(loc)) {
         return 'zh-TW'
     } else {
