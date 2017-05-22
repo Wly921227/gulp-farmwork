@@ -102,7 +102,7 @@ window.onload = function () {
     }, false);
 
     scroolToPoint();
-    showDownload();
+    showDownload(content.title);
     loadImg();
     createGoogleAnalytics();
 
@@ -179,7 +179,7 @@ window.onload = function () {
         return parseInt(views);
     }
 
-    function showDownload() {
+    function showDownload(title) {
         if (!isYeeCall) {
             var $downloadBox = document.querySelector('.download');
             var $download = $downloadBox.querySelector('.download-link');
@@ -189,6 +189,29 @@ window.onload = function () {
             // 底部提示
             var $tip = document.querySelector('.tip p');
             $tip.innerHTML = content.tips;
+
+            var $metaTitle = document.querySelector('meta[name="keywords"]');
+            $metaTitle.content = title;
+            var $share = document.querySelector('.share');
+            $share.style.display = 'block';
+            var $shareLink = document.querySelector('.share .share-link');
+            $shareLink.addEventListener('click', function () {
+                ga('send', 'event', 'button', 'click', 'share');
+                var obj = {
+                    title: title,
+                    desc: '',
+                    imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
+                    link: location.href,
+                    textAndLink: location.href,
+                    success: function () {
+                        console.log('success~');
+                    },
+                    error: function () {
+                        console.log('error~');
+                    }
+                };
+                window.YC.share(obj);
+            });
 
             window.YC.hideNav(true);
         }
@@ -208,21 +231,21 @@ window.onload = function () {
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments);
-            }, i[r].l = 1 * new Date();
+                    (i[r].q = i[r].q || []).push(arguments);
+                }, i[r].l = 1 * new Date();
             a = s.createElement(o), m = s.getElementsByTagName(o)[0];
             a.async = 1;
             a.src = g;
             m.parentNode.insertBefore(a, m);
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-63953912-1', 'auto', '2017 Ramadan');
+        ga('create', 'UA-63953912-1', 'auto');
         ga('send', 'pageview');
     }
 
     function getLocCode() {
         var loc = void 0;
-        if (navigator.appName == 'Netscape') loc = navigator.language;else loc = navigator.browserLanguage;
+        if (navigator.appName == 'Netscape') loc = navigator.language; else loc = navigator.browserLanguage;
         if (loc.indexOf('ar') > -1) {
             return 'ar';
         } else {

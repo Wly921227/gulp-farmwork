@@ -53,7 +53,7 @@ function createGoogleAnalytics(title) {
         m.parentNode.insertBefore(a, m);
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-63953912-1', 'auto', '2017 Ramadan Player ' + title);
+    ga('create', 'UA-63953912-1', 'auto');
     ga('send', 'pageview');
 }
 
