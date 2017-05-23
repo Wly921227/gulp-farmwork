@@ -5,6 +5,8 @@ window.onload = function () {
         en: {
             title: 'Ramadan special',
             views: 'views',
+            shareTitle: '%F0%9F%94%A5Hot%202017%20Ramadan%20Videos',
+            shareDesc: 'New%20videos%20everyday!%20Tap%20to%20view%F0%9F%98%81',
             downloadView: 'Download YeeCall to see more',
             downloadButton: 'DOWNLOAD',
             tips: 'Videos will be updated daily! Stay tuned.'
@@ -12,6 +14,8 @@ window.onload = function () {
         ar: {
             title: 'رمضان خاص',
             views: 'مشاهدات',
+            shareTitle: '%F0%9F%94%A5Hot%202017%20Ramadan%20Videos',
+            shareDesc: 'New%20videos%20everyday!%20Tap%20to%20view%F0%9F%98%81',
             downloadView: 'تحميل YeeCall لمشاهدة أكثر',
             downloadButton: 'تحميل',
             downloadPadding: '0 1rem',
@@ -83,12 +87,34 @@ window.onload = function () {
 
     document.querySelector('title').innerHTML = content.title;
     document.querySelector('.download-text').innerHTML = content.downloadView;
-    var $downloadA = document.querySelector('.download-link a');
+    var $downloadA = document.querySelector('.download-link span');
     $downloadA.innerHTML = content.downloadButton;
     if (content.downloadPadding) {
         $downloadA.style.padding = content.downloadPadding;
     }
+    if (isYeeCall) {
+        var $share = document.querySelector('.share');
+        $share.style.display = 'block';
+    }
+    var $shareLink = document.querySelector('.share .share-link');
+    $shareLink.addEventListener('click', function () {
+        ga('send', 'event', 'button', 'click', 'share');
+        var obj = {
+            title: decodeURI(content.shareTitle),
+            desc: decodeURI(content.shareDesc),
+            imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
+            link: location.href,
+            textAndLink: 'Shared from YeeCall: ' + location.href,
+            success: function () {
+                console.log('success~');
+            },
+            error: function () {
+                console.log('error~');
+            }
+        };
 
+        YC.share(obj);
+    });
     var $list = document.querySelector('.content ul');
     $list.className += isAndroid ? ' android' : ' ios';
     $list.innerHTML = html.join('');
@@ -102,7 +128,7 @@ window.onload = function () {
     }, false);
 
     scroolToPoint();
-    showDownload(content.title);
+    showDownload(content.shareTitle, content.shareDesc);
     loadImg();
     createGoogleAnalytics();
 
@@ -179,41 +205,28 @@ window.onload = function () {
         return parseInt(views);
     }
 
-    function showDownload(title) {
+    function showDownload(title, desc) {
         if (!isYeeCall) {
             var $downloadBox = document.querySelector('.download');
             var $download = $downloadBox.querySelector('.download-link');
             $downloadBox.style.display = 'block';
             $download.addEventListener('click', operation.download);
-        } else {
             // 底部提示
             var $tip = document.querySelector('.tip p');
-            $tip.innerHTML = content.tips;
+            $tip.style.display = 'none';
+        } else {
+            setTimeout(() => {
+                // 底部提示
+                var $tip = document.querySelector('.tip p');
+                $tip.innerHTML = content.tips;
 
-            var $metaTitle = document.querySelector('meta[name="keywords"]');
-            $metaTitle.content = title;
-            var $share = document.querySelector('.share');
-            $share.style.display = 'block';
-            var $shareLink = document.querySelector('.share .share-link');
-            $shareLink.addEventListener('click', function () {
-                ga('send', 'event', 'button', 'click', 'share');
-                var obj = {
-                    title: title,
-                    desc: '',
-                    imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
-                    link: location.href,
-                    textAndLink: location.href,
-                    success: function () {
-                        console.log('success~');
-                    },
-                    error: function () {
-                        console.log('error~');
-                    }
-                };
-                window.YC.share(obj);
-            });
+                var $metaTitle = document.querySelector('meta[name="keywords"]');
+                $metaTitle.content = decodeURI(title);
+                var $metaDesc = document.querySelector('meta[name="description"]');
+                $metaDesc.content = decodeURI(desc);
 
-            window.YC.hideNav(true);
+                window.YC.hideNav(true);
+            }, 200);
         }
     }
 
