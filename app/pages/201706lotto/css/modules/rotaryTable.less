@@ -1,0 +1,41 @@
+@degree: 30;
+
+.rotary-table {
+  .rotary {
+    img {
+      width: 100%;
+      height: auto;
+      .stop-animation(360 / @degree - 1);
+      &.start {
+        animation: start-rotation 1s linear infinite forwards;
+      }
+    }
+  }
+}
+
+.stop-animation(@num: 0) when (isnumber(@num)) and (@num >= 0) {
+  @name: e("stop-animate-@{num}");
+
+  &.stop-@{num} {
+    animation: @name 3s ease-out 1 forwards;
+  }
+
+  @keyframes @name {
+    0% {
+      transform: rotateZ(0);
+    }
+    100% {
+      transform: rotateZ(@degree * @num + 480deg);
+    }
+  }
+  .stop-animation(@num - 1);
+}
+
+@keyframes start-rotation {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

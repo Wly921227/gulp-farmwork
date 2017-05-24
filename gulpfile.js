@@ -28,7 +28,8 @@ const args = require('process.args')();
 
 // const {OUTPUT_PATH, SCRIPT_PATH, LESS_PATH, HTML_PATH, IMAGES_PATH} = require('./config');
 const OUTPUT_PATH = path.resolve(__dirname, 'static/');
-const DIST_PATH = path.resolve(__dirname, 'static/');
+const DIST_PATH = path.resolve(__dirname, 'dist/');
+const RELEASE_PATH = path.resolve(__dirname, 'release/');
 const SCRIPT_PATH = path.resolve(__dirname, 'app/pages/**/*.js');
 const LESS_PATH = path.resolve(__dirname, 'app/pages/**/*.less');
 const IMAGES_PATH = path.resolve(__dirname, 'app/pages/**/*.?(jpg|png|ico|gif)');
