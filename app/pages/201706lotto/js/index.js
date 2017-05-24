@@ -2,8 +2,13 @@ requirejs.config({
     baseUrl: './js'
 });
 
-requirejs(['common/common'], function () {
-    requirejs(['modules/rotaryTable'], function (rotaryTable) {
+requirejs(['common/common'], function (common) {
+    common.setFontSize(750, 24);
+    requirejs([
+        'modules/rotaryTable',
+        'modules/marquee'
+    ], function (rotaryTable, marquee) {
         rotaryTable.doInit();
+        marquee.doInit();
     });
 });
