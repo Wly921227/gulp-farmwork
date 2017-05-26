@@ -1,8 +1,8 @@
 requirejs.config({
-    baseUrl: './'
+    baseUrl: './js'
 });
 
-requirejs(['js/common'], function () {
+requirejs(['common'], function () {
     requirejs([
         'utils',
         'modules/rotaryTable',

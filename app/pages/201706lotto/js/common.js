@@ -1,12 +1,12 @@
 requirejs.config({
-    baseUrl: './',
+    baseUrl: './js',
     paths: {
-        marquee: 'js/lib/jquery.liMarquee',
-        temp: 'js/lib/jquery.tmpl',
-        jquery: 'js/lib/jquery',
-        text: 'js/lib/text',
-        utils: 'js/common/utils',
-        modules: 'js/modules',
+        marquee: 'lib/jquery.liMarquee',
+        temp: 'lib/jquery.tmpl',
+        jquery: 'lib/jquery',
+        text: 'lib/text',
+        utils: 'common/utils',
+        modules: 'modules',
         template: 'templates'
     },
     shim: {

@@ -1,15 +1,15 @@
 ({
     appDir: '/Users/wangluyuan/workspace/webstormspace/gulp-farmwork/dist/201706lotto',
-    baseUrl: './',
+    baseUrl: './js',
     dir: '../../../../rjs',
     optimize: 'uglify',
     paths: {
-        marquee: 'js/lib/jquery.liMarquee',
-        temp: 'js/lib/jquery.tmpl',
-        jquery: 'js/lib/jquery',
-        text: 'js/lib/text',
-        utils: 'js/common/utils',
-        modules: 'js/modules',
+        marquee: 'lib/jquery.liMarquee',
+        temp: 'lib/jquery.tmpl',
+        jquery: 'lib/jquery',
+        text: 'lib/text',
+        utils: 'common/utils',
+        modules: 'modules',
         template: 'templates'
     },
     shim: {
@@ -18,7 +18,7 @@
     },
     modules: [
         {
-            name: 'js/common',
+            name: 'common',
             include: [
                 'jquery',
                 'marquee',
@@ -28,13 +28,13 @@
             ]
         },
         {
-            name: 'js/index',
+            name: 'index',
             include: [
-                'js/modules/marquee',
-                'js/modules/rotaryTable.js'
+                'modules/marquee',
+                'modules/rotaryTable'
             ],
             exclude: [
-                'js/common'
+                'common'
             ]
         }
     ]
