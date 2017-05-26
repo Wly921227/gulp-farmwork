@@ -9,7 +9,8 @@
     "build": "gulp build",
     "product": "gulp product",
     "clean": "gulp clean",
-    "publish": "gulp publish"
+    "publish": "gulp publish",
+    "build-rjs": "node node_modules/requirejs/bin/r.js -o app/pages/201706lotto/build/config.js"
   },
   "keywords": [
     "glup"
@@ -37,6 +38,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-zip": "^4.0.0",
     "less-plugin-autoprefix": "^1.5.1",
-    "process.args": "0.0.6"
+    "process.args": "0.0.6",
+    "requirejs": "^2.3.3"
   }
 }

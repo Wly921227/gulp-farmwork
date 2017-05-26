@@ -3,7 +3,6 @@ define(['jquery', 'text!templates/rotaryTable.html', 'utils', 'temp'],
         let $el = $('#rotaryTable');
         return {
             doInit () {
-                utils.log('do init');
                 $.tmpl(template, {test: 1}).appendTo($el);
                 let $rock = $('#rock');
                 let stopClass = '';
