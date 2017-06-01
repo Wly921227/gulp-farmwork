@@ -7,6 +7,7 @@ requirejs.config({
         text: 'lib/text',
         utils: 'common/utils',
         modules: 'modules',
+        loc: 'loc',
         template: 'templates'
     },
     shim: {

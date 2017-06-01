@@ -25,19 +25,19 @@ define(function () {
         },
         getLocCode() {
             let loc;
-            if (navigator.appName == 'Netscape')
-                loc = navigator.language;
+            if (navigator.appName === 'Netscape')
+                loc = navigator.language.toLowerCase();
             else
-                loc = navigator.browserLanguage;
+                loc = navigator.browserLanguage.toLowerCase();
             if (loc.indexOf('ar') > -1) {
                 // 阿语
                 return 'ar';
             } else if (/zh/.test(loc) && /cn/.test(loc)) {
                 // 简体中文
-                return 'zh-cn'
+                return 'zh_cn'
             } else if (/zh/.test(loc)) {
                 // 繁体中文
-                return 'zh-tw'
+                return 'zh_tw'
             } else {
                 // 英文
                 return 'en';
@@ -74,6 +74,9 @@ define(function () {
         },
         toDou(n) {
             return n < 10 ? '0' + n : '' + n;
+        },
+        setCookie() {
+            // TODO set cookie
         }
     }
 });

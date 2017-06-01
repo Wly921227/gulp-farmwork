@@ -10,7 +10,11 @@ define(['jquery', 'text!templates/marquee.html', 'temp', 'marquee'],
         return {
             doInit() {
                 $.tmpl(template, {list}).appendTo($marquee);
-                $marquee.find('.text-list').liMarquee();
+                $marquee.find('.text-list').liMarquee({
+                    scrollamount: 20,
+                    direction: 'up',
+                    circular: true
+                });
             }
         }
     });

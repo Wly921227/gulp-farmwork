@@ -1,15 +1,19 @@
-requirejs.config({
+window.requirejs.config({
     baseUrl: './js'
 });
 
-requirejs(['common'], function () {
-    requirejs([
-        'utils',
-        'modules/rotaryTable',
-        'modules/marquee'
-    ], function (utils, rotaryTable, marquee) {
-        utils.setFontSize(750, 24);
-        rotaryTable.doInit();
-        marquee.doInit();
+window.requirejs(['common'], function () {
+    window.requirejs([
+        'utils'
+    ], function (utils) {
+        utils.setFontSize(1080, 20);
+        utils.setCookie();
+        const loc = utils.getLocCode();
+        window.requirejs([
+            `loc/${loc}/index`,
+            'modules/indexBanner'
+        ], function (loc, indexBanner) {
+            indexBanner.doInit(loc);
+        });
     });
 });
