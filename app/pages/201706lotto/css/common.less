@@ -8,12 +8,13 @@ html, body {
 }
 
 * {
+  user-select: none;
   padding: 0;
   margin: 0;
 }
 
 .icon {
-  background: url(../images/icons.png);
+  background: url(../images/icons.png) no-repeat;
   display: inline-block;
   &.icon-banner-bg {
     background-position: 0 -10.7rem;
@@ -26,5 +27,71 @@ html, body {
     background-size: 142.8%;
     height: 10.2rem;
     width: 18.9rem;
+  }
+  &.icon-ticket {
+    background-position: 0 -30.5rem;
+    background-size: 109.1%;
+    width: 24.75rem;
+    height: 7.5rem;
+  }
+  &.icon-ticket-action {
+    background-position: 0 -22.5rem;
+    background-size: 109.1%;
+    width: 24.75rem;
+    height: 7.5rem;
+  }
+  &.icon-draw-btn {
+    background-position: 0 -52.2rem;
+    background-size: 360%;
+    height: 6.75rem;
+    width: 7.5rem;
+  }
+  &.icon-draw-btn-action {
+    background-position: -8rem -52.2rem;
+    background-size: 360%;
+    height: 6.75rem;
+    width: 7.5rem;
+  }
+  &.icon-gift {
+    background-position: -16rem -52.2rem;
+    background-size: 931%;
+    height: 2.65rem;
+    width: 2.9rem;
+  }
+  &.icon-start {
+    background-position: -22.5rem -39.74rem;
+    background-size: 947.37%;
+    height: 2.675rem;
+    width: 2.85rem;
+  }
+  &.icon-prize-iphone {
+    background-position: -22.5rem -43.5rem;
+    background-size: 1350%;
+    height: 4rem;
+    width: 2rem;
+  }
+  &.icon-prize-100 {
+    background-position: -12.25rem -59.7rem;
+    background-size: 432%;
+    width: 6.25rem;
+    height: 5rem;
+  }
+  &.icon-prize-50 {
+    background-position: -6rem -59.7rem;
+    background-size: 432%;
+    width: 6.25rem;
+    height: 5rem;
+  }
+  &.icon-prize-10 {
+    background-position: .25rem -59.7rem;
+    background-size: 432%;
+    width: 6.25rem;
+    height: 5rem;
+  }
+  &.icon-lock {
+    background-position: -19.675rem -52.1rem;
+    background-size: 964%;
+    height: 3.8rem;
+    width: 2.8rem;
   }
 }

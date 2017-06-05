@@ -1,4 +1,4 @@
-define(function () {
+define(['jquery'], function ($) {
     return {
         setFontSize(planSize, remSize) {
             const defaultWidth = planSize || 750;                           // 设计图宽度
@@ -31,16 +31,19 @@ define(function () {
                 loc = navigator.browserLanguage.toLowerCase();
             if (loc.indexOf('ar') > -1) {
                 // 阿语
-                return 'ar';
+                // return 'ar';
+                return 'zh_cn';
             } else if (/zh/.test(loc) && /cn/.test(loc)) {
                 // 简体中文
-                return 'zh_cn'
+                return 'zh_cn';
             } else if (/zh/.test(loc)) {
                 // 繁体中文
-                return 'zh_tw'
+                // return 'zh_tw'
+                return 'zh_cn';
             } else {
                 // 英文
-                return 'en';
+                // return 'en';
+                return 'zh_cn';
             }
         },
         timeFormat(time, _format) {
@@ -77,6 +80,15 @@ define(function () {
         },
         setCookie() {
             // TODO set cookie
+        },
+        setTitle(title) {
+            $('title').html(title);
+        },
+        noContextMenu() {
+            document.addEventListener('contextmenu', function (event) {
+                event.preventDefault();
+                return false;
+            });
         }
     }
 });

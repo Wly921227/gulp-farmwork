@@ -6,14 +6,18 @@ window.requirejs(['common'], function () {
     window.requirejs([
         'utils'
     ], function (utils) {
-        utils.setFontSize(1080, 20);
-        utils.setCookie();
         const loc = utils.getLocCode();
+        utils.setFontSize(1080, 20);
+        utils.noContextMenu();
+        utils.setCookie();
         window.requirejs([
             `loc/${loc}/index`,
-            'modules/indexBanner'
-        ], function (loc, indexBanner) {
+            'modules/indexBanner',
+            'modules/indexTickets'
+        ], function (loc, indexBanner, indexTickets) {
+            utils.setTitle(loc.title);
             indexBanner.doInit(loc);
+            indexTickets.doInit(loc);
         });
     });
 });

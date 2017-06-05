@@ -1,0 +1,178 @@
+@text-logo: rgba(255, 255, 255, .2);
+@shadow-bg: rgba(39, 39, 101, .1);
+@bar-bg: rgb(100, 123, 203);
+@text-massage: rgb(39, 39, 101);
+@text-invitation: rgb(66, 85, 169);
+@text-num: rgb(255, 198, 36);
+@text-un-win: rgb(255, 212, 42);
+@text-btn: rgb(255, 255, 255);
+@text-lock-tip: rgb(141, 145, 182);
+@lock-shadow-bg: rgba(141, 145, 182, .2);
+
+.index-tickets {
+  margin-top: .75rem;
+  .ticket-list {
+    text-align: center;
+    .ticket {
+      margin-bottom: .75rem;
+      display: inline-block;
+      position: relative;
+      width: 24.75rem;
+      height: 7.5rem;
+      .ticket-logo {
+        color: @text-logo;
+        position: absolute;
+        font-size: 3rem;
+        left: .9rem;
+        top: .1rem;
+      }
+      .massage-box {
+        box-sizing: border-box;
+        display: inline-block;
+        padding-left: 1.675rem;
+        position: absolute;
+        text-align: left;
+        width: 16.5rem;
+        height: 100%;
+        left: 0;
+        top: 0;
+        .msg {
+          color: @text-massage;
+          margin-top: 3.5rem;
+          font-size: 1.05rem;
+          &.win {
+            margin-top: 1.6rem;
+          }
+        }
+        .text {
+          margin-top: .3rem;
+          font-weight: 600;
+          font-size: .9rem;
+          color: @text-btn;
+        }
+        .call-us {
+          border: 1px solid @text-btn;
+          box-sizing: border-box;
+          display: inline-block;
+          border-radius: .7rem;
+          line-height: 1.5rem;
+          font-size: .9rem;
+          color: @text-btn;
+          padding: 0 .8rem;
+          height: 1.4rem;
+        }
+      }
+      .operation-box {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        .shadow {
+          background: @shadow-bg;
+          border-radius: .65rem;
+          display: inline-block;
+          height: 6.75rem;
+          width: 7.5rem;
+          position: absolute;
+          right: .375rem;
+          top: .375rem;
+          &.progress {
+            .text {
+              color: @text-invitation;
+              margin-bottom: .5rem;
+              margin-top: 1rem;
+              font-size: .9rem;
+            }
+            .people-num {
+              vertical-align: bottom;
+              line-height: 2.175rem;
+              padding-left: 2.3rem;
+              text-align: left;
+              color: @text-num;
+              height: 2.175rem;
+              font-size: .9rem;
+              .num {
+                font-size: 3rem;
+              }
+            }
+            .progress-bar {
+              display: inline-block;
+              position: absolute;
+              bottom: .65rem;
+              left: .5rem;
+              .bar {
+                border-radius: .25rem;
+                background: @bar-bg;
+                overflow: hidden;
+                width: 6.87rem;
+                height: .5rem;
+                .pro {
+                  background: @text-num;
+                  height: 100%;
+                }
+              }
+            }
+          }
+          &.un-win {
+            .start {
+              margin-top: 1.05rem;
+            }
+            .text {
+              color: @text-un-win;
+              font-size: 1.05rem;
+              margin-top: .2rem;
+            }
+          }
+        }
+        .btn {
+          display: inline-block;
+          height: 6.75rem;
+          width: 7.5rem;
+          position: absolute;
+          right: .375rem;
+          top: .375rem;
+          .gift {
+            margin-top: 1.3rem;
+          }
+          .text {
+            font-size: 1.05rem;
+            color: @text-btn;
+          }
+          &.win {
+            .iphone {
+              margin-top: .7rem;
+            }
+            .prize {
+              margin-top: .2rem;
+              margin-bottom: -.5rem;
+            }
+            .text {
+              margin-top: -.2rem;
+            }
+          }
+        }
+      }
+      &.lock {
+        .massage-box {
+          .msg {
+            color: @text-lock-tip;
+            padding-right: 1rem;
+            margin-top: 2.5rem;
+          }
+        }
+        .operation-box {
+          .shadow {
+            background: @lock-shadow-bg;
+          }
+          .lock {
+            position: absolute;
+            margin-left: -1.4rem;
+            margin-top: -1.9rem;
+            left: 50%;
+            top: 50%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ define({
     ticket: {
         bg: '奖券',
         unSuccessTip(num) {
-            return `邀请${num}3位好友加入可抽奖一次`
+            return `邀请${num}位好友加入可抽奖一次`
         },
         tipTwo: '完成第一张奖券任务可解锁这个抽奖任务',
         invited: '已邀请',
@@ -19,7 +19,19 @@ define({
         },
         winning: {
             tip(prize) {
-                return `恭喜您，抽中一部${prize}！`
+                switch (prize) {
+                    case 1:
+                        return '恭喜您，抽中一部iPhone7！';
+                    case 2:
+                        return '恭喜您，抽中100元话费卡！';
+                    case 3:
+                        return '恭喜您，抽中50元话费卡！';
+                    case 4:
+                        return '恭喜您，抽中10元话费卡！';
+
+                    default:
+                        return ''
+                }
             },
             callYC: 'YeeCall工作人员会在1周内联系你',
             callUs: '联系我们',

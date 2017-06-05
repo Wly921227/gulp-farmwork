@@ -1,0 +1,142 @@
+<div class="index-tickets">
+    <div class="ticket-list">
+        <div class="ticket ticket-one">
+            <div class="bg icon icon-ticket-action">
+                <div class="ticket-logo">${ticketLoc.bg}</div>
+            </div>
+            <div class="massage-box">
+                {{if num < 3 }}
+                <!-- 邀请进度中 -->
+                <div class="msg">${ticketLoc.unSuccessTip(num)}</div>
+                {{else}}
+                {{if prize != 0}}
+                <div class="msg win">${ticketLoc.winning.tip(prize)}</div>
+                <div class="text">${ticketLoc.winning.callYC}</div>
+                <div class="call-us">${ticketLoc.winning.callUs}</div>
+                {{else prize == 0}}
+                <!-- 未中奖 -->
+                <div class="msg">${ticketLoc.unWinning.tip}</div>
+                {{else}}
+                <!-- 可抽奖 -->
+                <div class="msg">${ticketLoc.successTip(num)}</div>
+                {{/if}}
+                {{/if}}
+            </div>
+            <div class="operation-box">
+                {{if num < 3 }}
+                <!-- 邀请进度中 -->
+                <div class="shadow progress">
+                    <div class="text">${ticketLoc.invited}</div>
+                    <div class="people-num">
+                        <span class="num">${num}</span> /3 ${ticketLoc.unit}
+                    </div>
+                    <div class="progress-bar">
+                        <div class="bar">
+                            <div class="pro" style="width: ${num / 3 * 100}%;"></div>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+                {{if prize != 0}}
+                <div class="btn win icon icon-draw-btn">
+                    {{if prize == 1}}
+                    <i class="prize iphone icon icon-prize-iphone"></i>
+                    {{else prize == 2}}
+                    <i class="prize icon icon-prize-100"></i>
+                    {{else prize == 3}}
+                    <i class="prize icon icon-prize-50"></i>
+                    {{else prize == 4}}
+                    <i class="prize icon icon-prize-10"></i>
+                    {{/if}}
+                    <div class="text">${ticketLoc.winning.share}</div>
+                </div>
+                {{else prize == 0}}
+                <div class="shadow un-win">
+                    <div class="start icon icon-start"></div>
+                    <div class="text">${ticketLoc.unWinning.text}</div>
+                </div>
+                {{else}}
+                <!-- 可抽奖 -->
+                <div class="btn draw icon icon-draw-btn">
+                    <div class="gift icon icon-gift"></div>
+                    <div class="text">${ticketLoc.lotto}</div>
+                </div>
+                {{/if}}
+                {{/if}}
+            </div>
+        </div>
+        <div class="ticket ticket-two{{if num < 3}} lock{{/if}}">
+            <div class="bg icon {{if num < 3}}icon-ticket{{else}}icon-ticket-action{{/if}}">
+                <div class="ticket-logo">${ticketLoc.bg}</div>
+            </div>
+            <div class="massage-box">
+                {{if num < 3 }}
+                <!-- 锁定 -->
+                <div class="msg">${ticketLoc.tipTwo}</div>
+                {{else num >= 3 && num < 10}}
+                <!-- 邀请进度中 -->
+                <div class="msg">${ticketLoc.unSuccessTip(num)}</div>
+                {{else}}
+                {{if prize != 0}}
+                <div class="msg win">${ticketLoc.winning.tip(prize)}</div>
+                <div class="text">${ticketLoc.winning.callYC}</div>
+                <div class="call-us">${ticketLoc.winning.callUs}</div>
+                {{else prize == 0}}
+                <!-- 未中奖 -->
+                <div class="msg">${ticketLoc.unWinning.tip}</div>
+                {{else}}
+                <!-- 可抽奖 -->
+                <div class="msg">${ticketLoc.successTip(num)}</div>
+                {{/if}}
+                {{/if}}
+            </div>
+            <div class="operation-box">
+                {{if num < 3}}
+                <!-- 锁定 -->
+                <div class="shadow">
+                    <div class="lock icon icon-lock"></div>
+                </div>
+                {{else num >= 3 && num < 10 }}
+                <!-- 邀请进度中 -->
+                <div class="shadow progress">
+                    <div class="text">${ticketLoc.invited}</div>
+                    <div class="people-num">
+                        <span class="num">${num}</span> /10 ${ticketLoc.unit}
+                    </div>
+                    <div class="progress-bar">
+                        <div class="bar">
+                            <div class="pro" style="width: ${num / 10 * 100}%;"></div>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+                {{if prize != 0}}
+                <div class="btn win icon icon-draw-btn">
+                    {{if prize == 1}}
+                    <i class="prize iphone icon icon-prize-iphone"></i>
+                    {{else prize == 2}}
+                    <i class="prize icon icon-prize-100"></i>
+                    {{else prize == 3}}
+                    <i class="prize icon icon-prize-50"></i>
+                    {{else prize == 4}}
+                    <i class="prize icon icon-prize-10"></i>
+                    {{/if}}
+                    <div class="text">${ticketLoc.winning.share}</div>
+                </div>
+                {{else prize == 0}}
+                <div class="shadow un-win">
+                    <div class="start icon icon-start"></div>
+                    <div class="text">${ticketLoc.unWinning.text}</div>
+                </div>
+                {{else}}
+                <!-- 可抽奖 -->
+                <div class="btn draw icon icon-draw-btn">
+                    <div class="gift icon icon-gift"></div>
+                    <div class="text">${ticketLoc.lotto}</div>
+                </div>
+                {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
