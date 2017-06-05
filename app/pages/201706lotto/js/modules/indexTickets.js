@@ -6,19 +6,27 @@ window.define([
     const $el = $('#indexTickets');
 
     // 按钮按下事件
-    $el.on('touchstart', '.operation-box .btn', function () {
+    $el.on('touchstart', '.operation-box .btn', function (event) {
+        event.preventDefault();
         const $this = $(this);
         $this.toggleClass('icon-draw-btn');
         $this.toggleClass('icon-draw-btn-action');
     });
-    $el.on('touchend', '.operation-box .btn', function () {
+    $el.on('touchend', '.operation-box .btn', function (event) {
+        event.preventDefault();
         const $this = $(this);
         $this.toggleClass('icon-draw-btn-action');
         $this.toggleClass('icon-draw-btn');
     });
-    $el.on('click', 'click', function () {
+    $el.on('click', '.operation-box .draw', function (event) {
+        event.preventDefault();
         // TODO 抽奖页面
     });
+    $el.on('click', '.operation-box .win', function (event) {
+        event.preventDefault();
+        // TODO 分享
+    });
+
 
     return {
         doInit(loc) {
