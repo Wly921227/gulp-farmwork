@@ -1,0 +1,44 @@
+@text-title: #ffbf24;
+@text-info: #e3e3fe;
+@item-bg: #212158;
+
+.index-prizes {
+  margin-top: .65rem;
+  .prizes-list {
+    width: 24.75rem;
+    margin: 0 auto;
+    height: 14rem;
+    .item {
+      float: left;
+      box-sizing: border-box;
+      margin-right: .375rem;
+      display: inline-block;
+      background: @item-bg;
+      border-radius: 4px;
+      text-align: center;
+      height: 14rem;
+      width: 8rem;
+      &:last-child {
+        margin: 0;
+      }
+      &.iphone {
+        .icon {
+          margin-top: 1.3rem;
+          margin-bottom: 0;
+        }
+      }
+      .icon {
+        margin-bottom: .95rem;
+        margin-top: 2.4rem;
+      }
+      .info {
+        line-height: 1.2rem;
+        margin-top: .3rem;
+        padding: 0 .75rem;
+        color: @text-info;
+        text-align: left;
+        font-size: .9rem;
+      }
+    }
+  }
+}

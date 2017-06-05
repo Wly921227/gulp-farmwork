@@ -22,6 +22,8 @@ window.requirejs(['common'], function () {
             indexBanner.doInit(loc);
             indexTickets.doInit(loc);
             indexShare.doInit(loc);
+            indexPrizeList.doInit(loc);
+            indexWinners.doInit(loc);
         });
     });
 });
