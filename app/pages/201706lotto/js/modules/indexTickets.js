@@ -33,7 +33,7 @@ window.define([
             // TODO 人数
             const num = 7;
             // TODO 奖品 0, 1
-            const prize = 4;
+            const prize = 2;
             // 语言
             const ticketLoc = loc.ticket;
             $.tmpl(temp, {

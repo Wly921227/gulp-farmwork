@@ -2,7 +2,8 @@
 
 @text-value: #e3e3fe;
 @text-time: #a2a2d0;
-@color-bg: #272766;
+@color-bg: rgba(39, 39, 102, 1);
+@color-bg-tran: rgba(39, 39, 102, 0);
 
 .index-winners {
   padding-bottom: 2rem;
@@ -15,7 +16,7 @@
     margin: 0 auto;
     margin-top: -.5rem;
     .cover {
-      background: linear-gradient(to top, @color-bg, transparent);
+      background: linear-gradient(to top, @color-bg, @color-bg-tran);
       position: absolute;
       height: 60%;
       width: 100%;

@@ -1,5 +1,17 @@
 define(['jquery'], function ($) {
     return {
+        getPrizeById(id) {
+            switch (id) {
+                case 1:
+                    return 1;
+                case 2:
+                    return 2;
+                case 3:
+                    return 3;
+                case 4:
+                    return 4;
+            }
+        },
         setFontSize(planSize, remSize) {
             const defaultWidth = planSize || 750;                           // 设计图宽度
             const itemSize = remSize ? (remSize * 2) : (24 * 2);            // 期望1rem=设计图每个格子 * 2px (避免字体出现小于12px，所以*2)
@@ -24,26 +36,42 @@ define(['jquery'], function ($) {
             ga('send', 'pageview');
         },
         getLocCode() {
-            let loc;
-            if (navigator.appName === 'Netscape')
-                loc = navigator.language.toLowerCase();
-            else
-                loc = navigator.browserLanguage.toLowerCase();
-            if (loc.indexOf('ar') > -1) {
-                // 阿语
-                // return 'ar';
-                return 'zh_cn';
-            } else if (/zh/.test(loc) && /cn/.test(loc)) {
-                // 简体中文
-                return 'zh_cn';
-            } else if (/zh/.test(loc)) {
-                // 繁体中文
-                // return 'zh_tw'
-                return 'zh_cn';
+            const ua = navigator.userAgent.toLowerCase();
+            if (/yeecall/.test(ua)) {
+                if (/yclan\/zh_cn/.test(ua)) {
+                    return 'zh_cn';
+                } else if (/yclan\/zh/.test(ua)) {
+                    // return 'zh_tw';
+                    return 'zh_cn';
+                } else if (/yclan\/ar/.test(ua)) {
+                    // return 'ar';
+                    return 'zh_cn';
+                } else {
+                    // return 'en';
+                    return 'zh_cn';
+                }
             } else {
-                // 英文
-                // return 'en';
-                return 'zh_cn';
+                let loc;
+                if (navigator.appName === 'Netscape')
+                    loc = navigator.language.toLowerCase();
+                else
+                    loc = navigator.browserLanguage.toLowerCase();
+                if (loc.indexOf('ar') > -1) {
+                    // 阿语
+                    // return 'ar';
+                    return 'zh_cn';
+                } else if (/zh/.test(loc) && /cn/.test(loc)) {
+                    // 简体中文
+                    return 'zh_cn';
+                } else if (/zh/.test(loc)) {
+                    // 繁体中文
+                    // return 'zh_tw'
+                    return 'zh_cn';
+                } else {
+                    // 英文
+                    // return 'en';
+                    return 'zh_cn';
+                }
             }
         },
         timeFormat(time, _format) {
@@ -78,9 +106,6 @@ define(['jquery'], function ($) {
         toDou(n) {
             return n < 10 ? '0' + n : '' + n;
         },
-        setCookie() {
-            // TODO set cookie
-        },
         setTitle(title) {
             $('title').html(title);
         },
@@ -89,6 +114,25 @@ define(['jquery'], function ($) {
                 event.preventDefault();
                 return false;
             });
+        },
+        // YeeCall
+        setCookie() {
+            if (/yeecall/.test(navigator.userAgent.toLowerCase()))
+                setTimeout(function () {
+                    window.YC.getCookie({
+                        success: function (res) {
+                            const cookie = JSON.parse(res.cookie);
+                            document.cookie = `name=${cookie.name};cookie=${cookie.cookie};expire=${cookie.expire}`;
+                        },
+                        error: function () {
+                            alert('用户信息获取失败，请重新打开');
+                        }
+                    });
+                }, 500);
+        },
+        hideNav(flag) {
+            if (/yeecall/.test(navigator.userAgent.toLowerCase()))
+                window.YC.hideNav(flag);
         }
     }
 });

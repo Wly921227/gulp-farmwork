@@ -9,7 +9,8 @@ window.requirejs(['common'], function () {
         const loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
-        utils.setCookie();
+        // utils.setCookie();
+        // utils.hideNav();
         window.requirejs([
             `loc/${loc}/index`,
             'modules/indexBanner',

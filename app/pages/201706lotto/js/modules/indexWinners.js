@@ -63,7 +63,7 @@ window.define([
             }).appendTo($el);
 
             $el.find('.winner-list ul').liMarquee({
-                scrollamount: 20,
+                scrollamount: 30,
                 direction: 'up',
                 circular: true
             });
