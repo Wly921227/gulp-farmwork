@@ -1,16 +1,23 @@
+const PRIZE = {
+    1: '一部iPhone7',
+    2: '100元话费卡',
+    3: '50元话费卡',
+    4: '10元话费卡'
+};
+
 define({
     title: '邀好友赢大奖',
     banner: '邀请WhatsApp好友加入YeeCall\n抽取iPhone7大奖！',
     ticket: {
         bg: '奖券',
         unSuccessTip(num) {
-            return `邀请${num}位好友加入可抽奖一次`
+            return `邀请${num}位好友加入可抽奖一次`;
         },
         tipTwo: '完成第一张奖券任务可解锁这个抽奖任务',
         invited: '已邀请',
         unit: '位',
         successTip(num) {
-            return `您已成功邀请${num}位好友！`
+            return `您已成功邀请${num}位好友！`;
         },
         lotto: '立即抽奖',
         unWinning: {
@@ -19,19 +26,7 @@ define({
         },
         winning: {
             tip(prize) {
-                switch (prize) {
-                    case 1:
-                        return '恭喜您，抽中一部iPhone7！';
-                    case 2:
-                        return '恭喜您，抽中100元话费卡！';
-                    case 3:
-                        return '恭喜您，抽中50元话费卡！';
-                    case 4:
-                        return '恭喜您，抽中10元话费卡！';
-
-                    default:
-                        return ''
-                }
+                return `恭喜您，抽中${PRIZE[prize]}！`
             },
             callYC: 'YeeCall工作人员会在1周内联系你',
             callUs: '联系我们',
@@ -56,6 +51,9 @@ define({
         }]
     },
     winnerList: {
-        title: '获奖名单'
+        title: '获奖名单',
+        prize(prize) {
+            return `抽到${PRIZE[prize]}`;
+        }
     }
 });

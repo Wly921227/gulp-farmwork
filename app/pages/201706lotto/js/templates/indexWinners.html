@@ -1,3 +1,16 @@
 <div class="index-winners">
     <div class="title">${winnerLoc.title}</div>
+    <div class="winner-list">
+        <ul>
+            {{each(key, value) list}}
+            <li>
+                <div class="item">
+                    <div class="text">${value.id + winnerLoc.prize(value.prize)}</div>
+                    <div class="time">${value.time}</div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="cover"></div>
+    </div>
 </div>
