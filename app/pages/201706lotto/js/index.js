@@ -13,7 +13,8 @@ window.requirejs(['common'], function () {
         // utils.hideNav();
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');
-        const turntableImg = utils.loadImage(`./images/disc_${loc}.png`);
+        utils.loadImage('./images/disc-bg.png');
+        const turntableImg = utils.loadImage(`./images/disc-${loc}.png`);
         window.requirejs([
             `loc/${loc}/index`,
             `loc/${loc}/loading`,

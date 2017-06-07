@@ -1,6 +1,9 @@
 @cover-bg: rgba(12, 0, 31, .85);
 @close: #878293;
 
+@degree: 60;
+@time-out: 4;
+
 .index-turntable {
   display: none;
   .cover {
@@ -22,17 +25,33 @@
       text-align: center;
       .disc-bg-icon {
         position: relative;
-      }
-      .turntable {
-        width: 20.2rem;
+        width: 23.25rem;
+        margin: 0 auto;
         img {
           height: auto;
           width: 100%;
         }
       }
-      .operation {
+      .turntable {
+        margin-left: -10.1rem;
+        margin-top: -10.25rem;
+        position: absolute;
+        height: 20.2rem;
+        width: 20.2rem;
+        left: 50%;
+        top: 50%;
+        img {
+          height: auto;
+          width: 100%;
+        }
+        &.running {
+          .start-animation(start-rotation, e("@{time-out}s"));
+        }
+        .stop-animation(360 / @degree);
+      }
+      .opt-btn {
         margin-left: -3.885rem;
-        margin-top: -4.45rem;
+        margin-top: -5rem;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -44,6 +63,69 @@
       top: 4.6rem;
     }
   }
+}
+
+.stop-rotation(@degree, @num) {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(750deg - @degree * @num);
+  }
+}
+
+.stop-animation(@num: 0) when (isnumber(@num)) and (@num > 0) {
+  @name: e("stop-animate-@{num}");
+
+  &.stop-@{num} {
+    -webkit-animation: @name 2s ease-out 1 forwards;
+    -o-animation: @name 2s ease-out 1 forwards;
+    animation: @name 2s ease-out 1 forwards;
+  }
+  @-webkit-keyframes @name {
+    .stop-rotation(@degree, @num);
+  }
+  @-ms-keyframes @name {
+    .stop-rotation(@degree, @num);
+  }
+  @-o-keyframes @name {
+    .stop-rotation(@degree, @num);
+  }
+  @keyframes @name {
+    .stop-rotation(@degree, @num);
+  }
+  .stop-animation(@num - 1);
+}
+
+.start-animation(@amt-name, @time) {
+  -webkit-animation: @amt-name @time linear 1 forwards;
+  -o-animation: @amt-name @time linear 1 forwards;
+  animation: @amt-name @time linear 1 forwards;
+}
+
+.start-rotation() {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(ceil(@time-out / .7) * 360deg);
+  }
+}
+
+@-webkit-keyframes start-rotation {
+  .start-rotation();
+}
+
+@-ms-keyframes start-rotation {
+  .start-rotation();
+}
+
+@-o-keyframes start-rotation {
+  .start-rotation();
+}
+
+@keyframes start-rotation {
+  .start-rotation();
 }
 
 html.no-scroll {
@@ -59,6 +141,7 @@ html.no-scroll {
   background: url(../images/disc-icon.png) no-repeat;
   display: inline-block;
   &.light-icon {
+    vertical-align: middle;
     background-position: 0 0;
     background-size: 100%;
     height: 33.25rem;
@@ -73,8 +156,8 @@ html.no-scroll {
   &.disc-bg-icon {
     background-position: 0 -33.8rem;
     background-size: 116.3%;
-    height: 24rem;
     width: 23.25rem;
+    height: 24rem;
   }
   &.pointer-icon {
     background-position: -0.05rem -58.1rem;

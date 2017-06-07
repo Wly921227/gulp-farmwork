@@ -10,6 +10,10 @@ define(['jquery'], function ($) {
                     return 3;
                 case 4:
                     return 4;
+                case 5:
+                    return 5;
+                case 6:
+                    return 6;
             }
         },
         setFontSize(planSize, remSize) {
@@ -133,7 +137,9 @@ define(['jquery'], function ($) {
                     window.YC.getCookie({
                         success: function (res) {
                             const cookie = JSON.parse(res.cookie);
-                            document.cookie = `name=${cookie.name};cookie=${cookie.cookie};expire=${cookie.expire}`;
+                            for (let key in cookie) {
+                                document.cookie = `${key}=${cookie[key]};`;
+                            }
                         },
                         error: function () {
                             alert('用户信息获取失败，请重新打开');
