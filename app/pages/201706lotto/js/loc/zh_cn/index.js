@@ -27,7 +27,7 @@ define(['utils'], function (utils) {
             lotto: '立即抽奖',
             unWinning: {
                 tip: '很遗憾您本次未中奖！',
-                text: '谢谢惠顾'
+                text: '感谢参与'
             },
             winning: {
                 tip(id) {

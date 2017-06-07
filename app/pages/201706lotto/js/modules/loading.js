@@ -12,7 +12,7 @@ window.define([
             $.tmpl(temp, {loc}).appendTo($el);
         },
         hide() {
-            $el.fadeOut(2000);
+            $el.fadeOut(200);
         }
     }
 });

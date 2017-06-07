@@ -121,6 +121,10 @@ define(['jquery'], function ($) {
                 .replace(/}\s+</g, '}<')
                 .replace(/}\s+{/g, '}{');
         },
+        loadImage(url) {
+            const images = new Image();
+            images.src = url;
+        },
         // YeeCall
         setCookie() {
             if (/yeecall/.test(navigator.userAgent.toLowerCase()))
