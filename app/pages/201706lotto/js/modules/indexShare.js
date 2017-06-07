@@ -6,14 +6,12 @@ window.define([
     const $el = $('#indexShare');
 
     // 分享按钮按下事件
-    $el.on('touchstart', '.btn', function (event) {
-        event.preventDefault();
+    $el.on('touchstart', '.btn', function () {
         const $this = $(this);
         $this.toggleClass('icon-share');
         $this.toggleClass('icon-share-action');
     });
-    $el.on('touchend', '.btn', function (event) {
-        event.preventDefault();
+    $el.on('touchend', '.btn', function () {
         const $this = $(this);
         $this.toggleClass('icon-share-action');
         $this.toggleClass('icon-share');

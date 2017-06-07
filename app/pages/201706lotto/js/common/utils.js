@@ -124,6 +124,7 @@ define(['jquery'], function ($) {
         loadImage(url) {
             const images = new Image();
             images.src = url;
+            return images;
         },
         // YeeCall
         setCookie() {

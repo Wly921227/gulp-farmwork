@@ -14,6 +14,18 @@ html, body {
   -webkit-tap-highlight-color: transparent;
 }
 
+.middle {
+  vertical-align: middle;
+  display: inline-block;
+  &:after {
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+    content: '';
+    width: 0;
+  }
+}
+
 .icon {
   background: url(../images/icons.png) no-repeat;
   display: inline-block;
