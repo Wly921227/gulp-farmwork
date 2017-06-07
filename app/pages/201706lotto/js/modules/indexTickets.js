@@ -1,8 +1,9 @@
 window.define([
     'jquery',
     'text!templates/indexTickets.html',
+    'utils',
     'temp'
-], function ($, temp) {
+], function ($, temp, utils) {
     const $el = $('#indexTickets');
 
     // 按钮按下事件
@@ -33,10 +34,10 @@ window.define([
             // TODO 人数
             const num = 7;
             // TODO 奖品 0, 1
-            const prize = 2;
+            const prize = 0;
             // 语言
             const ticketLoc = loc.ticket;
-            $.tmpl(temp, {
+            $.tmpl(utils.tempRemoveBlank(temp), {
                 ticketLoc,
                 num,
                 prize

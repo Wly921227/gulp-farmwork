@@ -12,9 +12,13 @@ define(['utils'], function (utils) {
         ticket: {
             bg: '奖券',
             unSuccessTip(num) {
-                return `邀请${num}位好友加入可抽奖一次`;
+                return `邀请${num}名好友加入YeeCall可抽奖一次`;
+            },
+            unSuccessTip2(num) {
+                return `邀请${num}名好友加入YeeCall参与抽奖`;
             },
             tipTwo: '完成第一张奖券任务可解锁这个抽奖任务',
+            tipTwo2: '中奖几率翻倍！',
             invited: '已邀请',
             unit: '位',
             successTip(num) {

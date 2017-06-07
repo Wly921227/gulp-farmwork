@@ -7,6 +7,8 @@
 @text-un-win: rgb(255, 212, 42);
 @text-btn: rgb(255, 255, 255);
 @text-lock-tip: rgb(141, 145, 182);
+@text-msg-tip: #f9db53;
+@text-msg-tip-shadow: rgba(39, 39, 102, .5);
 @lock-shadow-bg: rgba(141, 145, 182, .2);
 
 .index-tickets {
@@ -20,26 +22,46 @@
       width: 24.75rem;
       height: 7.5rem;
       .ticket-logo {
-        color: @text-logo;
         position: absolute;
+        color: @text-logo;
+        font-weight: 600;
         font-size: 3rem;
         left: .9rem;
         top: .1rem;
+        > span {
+          vertical-align: middle;
+          font-size: 3.7rem;
+        }
       }
       .massage-box {
         box-sizing: border-box;
         display: inline-block;
-        padding-left: 1.675rem;
+        padding-left: 1.7rem;
+        padding-right: 2rem;
         position: absolute;
         text-align: left;
         width: 16.5rem;
         height: 100%;
         left: 0;
         top: 0;
+        &:after {
+          vertical-align: middle;
+          display: inline-block;
+          height: 100%;
+          content: "";
+          width: 0;
+        }
         .msg {
+          vertical-align: middle;
+          display: inline-block;
           color: @text-massage;
-          margin-top: 3.5rem;
           font-size: 1.05rem;
+          span {
+            color: @text-msg-tip;
+            font-size: 1.35rem;
+            font-weight: 600;
+            text-shadow: 1px 1px @text-msg-tip-shadow;
+          }
           &.win {
             margin-top: 1.6rem;
           }

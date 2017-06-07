@@ -1,0 +1,94 @@
+@bg: #272766;
+@text-banner-title: #fff;
+@text-desc: #e5c1f9;
+@text-load: #ffcb37;
+@load-btm: #ffb347;
+@load-top: #ffe824;
+
+.loading {
+  text-align: center;
+  position: fixed;
+  background: @bg;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  .banner {
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+  .loading-title {
+    color: @text-banner-title;
+    margin-top: -2rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .desc {
+    line-height: 1.5rem;
+    font-size: 1.05rem;
+    color: @text-desc;
+    margin-top: 1rem;
+  }
+  .load-pic {
+    margin-top: 4rem;
+    .pic {
+      background: linear-gradient(to bottom, @load-top, @load-btm);
+      box-sizing: border-box;
+      border-radius: .35rem;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      width: 14.55rem;
+      height: .7rem;
+      &:before {
+        -webkit-animation: loading-animate 3s linear infinite;
+        -o-animation: loading-animate 3s linear infinite;
+        animation: loading-animate 3s linear infinite;
+        background: url("../images/loading.png") repeat-x;
+        background-size: auto 100%;
+        position: absolute;
+        content: ' ';
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
+    .text {
+      margin-top: .5rem;
+      color: @text-load;
+      font-size: .8rem;
+    }
+  }
+}
+
+.loading-keyframe() {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 290%;
+  }
+}
+
+@-webkit-keyframes loading {
+  .loading-keyframe();
+}
+
+@-moz-keyframes loading-animate {
+  .loading-keyframe();
+}
+
+@-ms-keyframes loading-animate {
+  .loading-keyframe();
+}
+
+@-o-keyframes loading-animate {
+  .loading-keyframe();
+}
+
+@keyframes loading-animate {
+  .loading-keyframe();
+}

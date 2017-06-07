@@ -115,6 +115,12 @@ define(['jquery'], function ($) {
                 return false;
             });
         },
+        tempRemoveBlank(temp) {
+            return temp.replace(/>\s+</g, '><')
+                .replace(/>\s+{/g, '>{')
+                .replace(/}\s+</g, '}<')
+                .replace(/}\s+{/g, '}{');
+        },
         // YeeCall
         setCookie() {
             if (/yeecall/.test(navigator.userAgent.toLowerCase()))

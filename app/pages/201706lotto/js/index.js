@@ -13,18 +13,23 @@ window.requirejs(['common'], function () {
         // utils.hideNav();
         window.requirejs([
             `loc/${loc}/index`,
+            `loc/${loc}/loading`,
             'modules/indexBanner',
             'modules/indexTickets',
             'modules/indexShare',
             'modules/indexPrizeList',
-            'modules/indexWinners'
-        ], function (loc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners) {
+            'modules/indexWinners',
+            'modules/loading'
+        ], function (loc, loadLoc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners, loading) {
             utils.setTitle(loc.title);
+            loading.doInit(loadLoc);
             indexBanner.doInit(loc);
             indexTickets.doInit(loc);
             indexShare.doInit(loc);
             indexPrizeList.doInit(loc);
             indexWinners.doInit(loc);
+            // TODO 在获取好友人数后回调，隐藏loading
+            setTimeout(loading.hide, 2000);
         });
     });
 });

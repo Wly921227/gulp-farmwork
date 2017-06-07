@@ -1,0 +1,17 @@
+<div class="loading">
+    <div class="banner"><img src="./images/loading-banner.png"></div>
+    <div class="loading-title">
+        {{each(key, value) loc.title}}
+        <p>${value}</p>
+        {{/each}}
+    </div>
+    <div class="desc">
+        {{each(key, value) loc.desc}}
+        <p>${value}</p>
+        {{/each}}
+    </div>
+    <div class="load-pic">
+        <div class="pic"></div>
+        <div class="text">${loc.loading}</div>
+    </div>
+</div>
