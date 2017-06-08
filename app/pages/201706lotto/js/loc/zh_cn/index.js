@@ -1,11 +1,11 @@
-const PRIZE = {
-    1: '一部iPhone7',
-    2: '100元话费卡',
-    3: '50元话费卡',
-    4: '10元话费卡'
-};
-
 define(['utils'], function (utils) {
+    const PRIZE = {
+        1: '一部iPhone7',
+        2: '100元话费卡',
+        3: '50元话费卡',
+        4: '10元话费卡'
+    };
+
     return {
         title: '邀好友赢大奖',
         banner: '邀请WhatsApp好友加入YeeCall\n抽取iPhone7大奖！',
