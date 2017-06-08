@@ -60,6 +60,17 @@ define(['utils'], function (utils) {
             prize(id) {
                 return `抽到${PRIZE[utils.getPrizeById(id)]}`;
             }
+        },
+        prizeTip: {
+            no: '再接再厉，继续邀请好友期待下一次能中奖！',
+            1: '恭喜你，抽中一部 iPhone 7！',
+            2: '恭喜你，中了100话费 ！',
+            3: '恭喜你，中了50话费 ！',
+            4: '恭喜你，中了10话费 ！',
+            noShare: '邀请 WhatsApp 好友',
+            share: '告诉好友一起来玩',
+            tips: 'YeeCall 工作人员会通过YeeCall  team 在3个工作日内联系你',
+            callUs: '联系我们'
         }
     }
 });

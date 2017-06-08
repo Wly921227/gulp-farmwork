@@ -1,5 +1,8 @@
 @cover-bg: rgba(12, 0, 31, .85);
 @close: #878293;
+@text-prize: #fff;
+@text-prize-tips: #e3e3fe;
+@text-prize-call-us: #92ff00;
 
 @degree: 60;
 @time-out: 4;
@@ -15,46 +18,113 @@
     z-index: 5;
     left: 0;
     top: 0;
-    .prize-icon {
-      margin-left: -8.675rem;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
+    .disc-show {
+      //display: none;
+      height: 100%;
+      width: 100%;
+      .prize-icon {
+        margin-left: -8.675rem;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+      }
+      .light-icon {
+        text-align: center;
+        .disc-bg-icon {
+          vertical-align: middle;
+          display: inline-block;
+          position: relative;
+          width: 23.25rem;
+          img {
+            height: auto;
+            width: 100%;
+          }
+        }
+        .turntable {
+          margin-left: -10.1rem;
+          margin-top: -10.25rem;
+          position: absolute;
+          height: 20.2rem;
+          width: 20.2rem;
+          left: 50%;
+          top: 50%;
+          img {
+            height: auto;
+            width: 100%;
+          }
+          &.running {
+            .start-animation(start-rotation, e("@{time-out}s"));
+          }
+          .stop-animation(360 / @degree);
+        }
+        .opt-btn {
+          margin-left: -3.885rem;
+          margin-top: -5rem;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+        }
+      }
     }
-    .light-icon {
-      text-align: center;
-      .disc-bg-icon {
-        position: relative;
-        width: 23.25rem;
-        margin: 0 auto;
-        img {
-          height: auto;
-          width: 100%;
+    .prize-show {
+      display: none;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      .no-light-icon {
+        display: none;
+        .prizes-no {
+          vertical-align: middle;
+          display: inline-block;
+          width: 13.5rem;
+          .text {
+            margin-bottom: 1rem;
+            line-height: 1.5rem;
+            color: @text-prize;
+            font-size: 1.2rem;
+          }
         }
       }
-      .turntable {
-        margin-left: -10.1rem;
-        margin-top: -10.25rem;
-        position: absolute;
-        height: 20.2rem;
-        width: 20.2rem;
-        left: 50%;
-        top: 50%;
-        img {
-          height: auto;
-          width: 100%;
-        }
-        &.running {
-          .start-animation(start-rotation, e("@{time-out}s"));
-        }
-        .stop-animation(360 / @degree);
-      }
-      .opt-btn {
-        margin-left: -3.885rem;
+      .light-icon {
+        display: none;
         margin-top: -5rem;
+        .prizes {
+          display: none;
+          //display: inline-block;
+          vertical-align: middle;
+          width: 20rem;
+          .text {
+            margin-bottom: 4rem;
+            color: @text-prize;
+            font-size: 1.5rem;
+          }
+          .tips {
+            color: @text-prize-tips;
+            line-height: 1.2rem;
+            margin-top: .7rem;
+            padding: 0 2.6rem;
+            font-size: .8rem;
+          }
+          .call-us {
+            border-bottom: 1px solid @text-prize-call-us;
+            color: @text-prize-call-us;
+            display: inline-block;
+            line-height: 0.7rem;
+            margin-top: .5rem;
+            font-size: .8rem;
+          }
+        }
+      }
+      .share {
+        margin-left: -11rem;
         position: absolute;
+        bottom: 3.5rem;
         left: 50%;
-        top: 50%;
+        .share-btn {
+          line-height: 6.35rem;
+          color: @text-prize;
+          font-size: 1.5rem;
+        }
       }
     }
     .close {
@@ -134,53 +204,5 @@ html.no-scroll {
   body {
     overflow: hidden;
     height: 100%;
-  }
-}
-
-.disc-icon {
-  background: url(../images/disc-icon.png) no-repeat;
-  display: inline-block;
-  &.light-icon {
-    vertical-align: middle;
-    background-position: 0 0;
-    background-size: 100%;
-    height: 33.25rem;
-    width: 100%;
-  }
-  &.prize-icon {
-    background-position: 0 -67.1rem;
-    background-size: 155.5%;
-    height: 8.45rem;
-    width: 17.35rem;
-  }
-  &.disc-bg-icon {
-    background-position: 0 -33.8rem;
-    background-size: 116.3%;
-    width: 23.25rem;
-    height: 24rem;
-  }
-  &.pointer-icon {
-    background-position: -0.05rem -58.1rem;
-    background-size: 348.22%;
-    height: 8.9rem;
-    width: 7.77rem;
-  }
-  &.pointer-run-icon {
-    background-position: -8.2rem -56.7rem;
-    background-size: 340%;
-    height: 8.9rem;
-    width: 7.77rem;
-  }
-  &.pointer-action-icon {
-    background-position: -17.4rem -58.1rem;
-    background-size: 348.22%;
-    height: 8.9rem;
-    width: 7.77rem;
-  }
-  &.close-icon {
-    background-position: -7.5rem -28.6rem;
-    background-size: 550%;
-    height: 2.1rem;
-    width: 2.1rem;
   }
 }

@@ -13,6 +13,7 @@ window.requirejs(['common'], function () {
         // utils.hideNav();
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');
+        utils.loadImage('./images/prize-icon.png');
         utils.loadImage('./images/disc-bg.png');
         const turntableImg = utils.loadImage(`./images/disc-${loc}.png`);
         window.requirejs([
@@ -33,7 +34,7 @@ window.requirejs(['common'], function () {
             indexShare.doInit(loc);
             indexPrizeList.doInit(loc);
             indexWinners.doInit(loc);
-            indexTurntable.doInit(turntableImg);
+            indexTurntable.doInit(loc, turntableImg);
             // TODO 在获取好友人数后回调，隐藏loading
             setTimeout(loading.hide, 2000);
         });

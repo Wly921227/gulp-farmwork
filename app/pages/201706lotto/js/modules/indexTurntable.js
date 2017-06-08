@@ -25,8 +25,19 @@ window.define([
             $operation.toggleClass(next);
         }
     };
-
+    const showPrizes = (num) => {
+        const $prizeShow = $('.prize-show');
+        $('.disc-show').hide();
+        if (num && num !== 6) {
+            $prizeShow.find(`.prizes.prizes-${num}`).css('display', 'inline-block');
+            $prizeShow.find(`.light-icon`).css('display', 'inline-block');
+        } else {
+            $prizeShow.find(`.no-light-icon`).css('display', 'inline-block');
+        }
+        $prizeShow.show();
+    };
     let num = 0;
+    let loc = {};
     let src = '';
     // 按钮按下事件
     $el.on('touchstart', '.operation', function () {
@@ -43,12 +54,16 @@ window.define([
         $turntable.toggleClass('running');
         // 开始按钮样式
         setBtnClass('pointer-icon', 'pointer-run-icon');
+        // 移除停止动画
+        if (num === 5) {
+            $turntable.toggleClass(`stop-${TURNTABLE_DEG[num]}`);
+        }
         // 移除抽奖按钮事件
         $operation.removeClass('operation');
         setTimeout(function () {
             // TODO 随机奖品 超时时间 3s
             const id = parseInt(Math.random() * 6 + 1);
-            num = TURNTABLE_DEG[utils.getPrizeById(id)];
+            num = utils.getPrizeById(id);
         }, 3000);
     });
     // 转盘动画停止事件
@@ -57,17 +72,18 @@ window.define([
         const $operation = $el.find('.opt-btn');
         if (num && $turntable.hasClass('running')) {
             $turntable.toggleClass('running');
-            $turntable.toggleClass(`stop-${num}`);
+            $turntable.toggleClass(`stop-${TURNTABLE_DEG[num]}`);
             // TODO 是否是再抽一次，取消抽奖按钮事件
-            if (num === 4) {
+            if (num === 5) {
                 $operation.addClass('operation');
             }
-        } else if (num === 4) {
+        } else if (num === 5) {
             setBtnClass('pointer-run-icon', 'pointer-icon');
-            return false;
         } else {
             setBtnClass('pointer-run-icon', 'pointer-action-icon');
-            return false;
+            setTimeout(function () {
+                showPrizes(num);
+            }, 500);
         }
     });
     // 关闭按钮
@@ -76,15 +92,32 @@ window.define([
         hide();
     });
 
+    // 分享按钮触摸
+    $el.on('touchstart', '.share-btn', function () {
+        const $this = $(this);
+        $this.toggleClass('icon-share');
+        $this.toggleClass('icon-share-action');
+    });
+    $el.on('touchend', '.share-btn', function () {
+        const $this = $(this);
+        $this.toggleClass('icon-share');
+        $this.toggleClass('icon-share-action');
+    });
+    $el.on('click', '.share-btn', function (event) {
+        event.preventDefault();
+        // TODO 分享
+    });
+
     return {
-        doInit(turntableImg) {
+        doInit(locTurntable, turntableImg) {
             src = turntableImg.src;
-            $.tmpl(temp, {src}).appendTo($el);
+            loc = locTurntable.prizeTip;
+            $.tmpl(temp, {src, loc}).appendTo($el);
         },
         show() {
             if (num) {
                 $el.html('');
-                $.tmpl(temp, {src}).appendTo($el);
+                $.tmpl(temp, {src, loc}).appendTo($el);
                 num = 0;
             }
             $('html').toggleClass('no-scroll');
