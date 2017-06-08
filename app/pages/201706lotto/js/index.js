@@ -15,6 +15,9 @@ window.requirejs(['common'], function () {
         utils.loadImage('./images/disc-icon.png');
         utils.loadImage('./images/prize-icon.png');
         utils.loadImage('./images/disc-bg.png');
+        utils.loadImage('./images/close.png');
+        utils.loadImage('./images/loading.png');
+        utils.loadImage('./images/loading-banner.png');
         const turntableImg = utils.loadImage(`./images/disc-${loc}.png`);
         window.requirejs([
             `loc/${loc}/index`,

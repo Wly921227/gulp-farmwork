@@ -137,9 +137,8 @@ define(['jquery'], function ($) {
                     window.YC.getCookie({
                         success: function (res) {
                             const cookie = JSON.parse(res.cookie);
-                            for (let key in cookie) {
-                                document.cookie = `${key}=${cookie[key]};`;
-                            }
+                            const date = new Date(cookie.expire).toUTCString();
+                            document.cookie = `${cookie.name}=${cookie.cookie};expires=${date}`;
                         },
                         error: function () {
                             alert('用户信息获取失败，请重新打开');

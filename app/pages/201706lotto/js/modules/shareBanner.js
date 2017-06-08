@@ -7,7 +7,7 @@ window.define([
 
     return {
         doInit(loc) {
-            // 好有名
+            // TODO 好友名
             const name = 'AAAA';
             $.tmpl(temp, {loc, name}).appendTo($el);
         }

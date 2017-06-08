@@ -16,15 +16,19 @@ window.define([
         $this.toggleClass('icon-share-action');
         $this.toggleClass('icon-share');
     });
-    $el.on('click', '.btn', function () {
-        // TODO 分享按钮
-    });
-
     return {
-        doInit(loc) {
+        doInit(loc, shareJoin) {
             $.tmpl(temp, {
                 loc
             }).appendTo($el);
+            $el.on('click', '.btn', function () {
+                if (shareJoin) {
+                    shareJoin.show();
+                } else {
+                    // TODO 分享按钮
+
+                }
+            });
         }
     }
 });

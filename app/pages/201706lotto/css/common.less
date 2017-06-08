@@ -7,6 +7,15 @@ html, body {
   width: 100%;
 }
 
+html.no-scroll {
+  overflow: hidden;
+  height: 100%;
+  body {
+    overflow: hidden;
+    height: 100%;
+  }
+}
+
 * {
   user-select: none;
   padding: 0;
@@ -136,6 +145,24 @@ html, body {
     background-size: 372.4%;
     height: 5.9rem;
     width: 7.25rem;
+  }
+  &.icon-close {
+    background: url(../images/close.png) no-repeat;
+    background-size: 100% 100%;
+    height: 2rem;
+    width: 2rem;
+  }
+  &.icon-yeecall {
+    background-position: -17.75rem -65.375rem;
+    background-size: 800%;
+    height: 3.75rem;
+    width: 3.375rem;
+  }
+  &.icon-btn-bg {
+    background-position: -0.2rem -59.6rem;
+    background-size: 220%;
+    height: 3.675rem;
+    width: 10.15rem;
   }
 }
 

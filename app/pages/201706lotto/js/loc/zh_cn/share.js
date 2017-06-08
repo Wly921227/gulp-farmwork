@@ -34,6 +34,18 @@ define(['utils'], function (utils) {
             prize(id) {
                 return `抽到${PRIZE[utils.getPrizeById(id)]}`;
             }
+        },
+        join: {
+            title: '我该如何参与活动？',
+            tip1: {
+                text: '下载并安装最新版YeeCall',
+                btn: '下载YeeCall'
+            },
+            tip2: {
+                text: '主界面进入活动参与抽奖',
+                btn: '邀好友 赢 iPhone 7'
+            },
+            open: '已经安装？点击这里'
         }
     }
 });
