@@ -8,7 +8,7 @@ requirejs.config({
         utils: 'common/utils',
         modules: 'modules',
         loc: 'loc',
-        template: 'templates'
+        templates: 'templates'
     },
     shim: {
         marquee: ['jquery'],

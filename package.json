@@ -1,8 +1,9 @@
 {
   "name": "gulp-farmwork",
   "version": "1.0.0",
-  "description": "",
+  "description": "简单静态页面",
   "main": "index.js",
+  "repository": "git@github.com:Wly921227/gulp-farmwork.git",
   "scripts": {
     "dev": "gulp serve",
     "default": "gulp default",
@@ -21,7 +22,7 @@
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "browser-sync": "^2.18.8",
+    "browser-sync": "^2.18.12",
     "browsersync-ssi": "^0.2.4",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -29,10 +30,11 @@
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
     "gulp-html-replace": "^1.6.2",
-    "gulp-imagemin": "^3.2.0",
+    "gulp-imagemin": "^3.3.0",
     "gulp-less": "^3.3.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^1.0.6",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
@@ -40,5 +42,8 @@
     "less-plugin-autoprefix": "^1.5.1",
     "process.args": "0.0.6",
     "requirejs": "^2.3.3"
+  },
+  "dependencies": {
+    "http-server": "^0.10.0"
   }
 }

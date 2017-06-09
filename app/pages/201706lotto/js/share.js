@@ -9,6 +9,7 @@ window.requirejs(['common'], function () {
         const loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
+        utils.hideNav(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/close.png');
         utils.loadImage('./images/loading.png');

@@ -1,5 +1,25 @@
 define(['jquery'], function ($) {
+    const ua = navigator.userAgent.toLowerCase();
+    const inYeeCall = /yeecall/.test(ua);
+    const isAndroid = ua.indexOf('android') > -1 || ua.indexOf('adr') > -1;
+    const iosDownloadUrl = 'https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8';
+    const androidDownloadUrl = 'market://details?id=com.yeecall.app';
+    let backCB = () => {
+    };
     return {
+        inYeeCall,
+        isAndroid,
+        urlParams(_url) {
+            let url = _url || window.location.search.split('?').pop();
+            let paramList = url.split('&');
+            let params = {};
+            for (let i = 0; i < paramList.length; i++) {
+                let value = paramList[i];
+                let map = value.split('=');
+                params[map[0]] = map[1];
+            }
+            return params;
+        },
         getPrizeById(id) {
             switch (id) {
                 case 1:
@@ -40,7 +60,6 @@ define(['jquery'], function ($) {
             ga('send', 'pageview');
         },
         getLocCode() {
-            const ua = navigator.userAgent.toLowerCase();
             if (/yeecall/.test(ua)) {
                 if (/yclan\/zh_cn/.test(ua)) {
                     return 'zh_cn';
@@ -132,23 +151,76 @@ define(['jquery'], function ($) {
         },
         // YeeCall
         setCookie() {
-            if (/yeecall/.test(navigator.userAgent.toLowerCase()))
-                setTimeout(function () {
+            if (inYeeCall) {
+                const self = this;
+                if (window.YC) {
                     window.YC.getCookie({
                         success: function (res) {
-                            const cookie = JSON.parse(res.cookie);
-                            const date = new Date(cookie.expire).toUTCString();
-                            document.cookie = `${cookie.name}=${cookie.cookie};expires=${date}`;
+                            if (res) {
+                                const cookie = JSON.parse(res);
+                                const date = new Date(cookie.expire).toUTCString();
+                                document.cookie = `${cookie.name}=${cookie.cookie};expires=${date};domain=yeecall.com;`;
+                            }
                         },
                         error: function () {
-                            alert('用户信息获取失败，请重新打开');
+                            // alert('用户信息获取失败，请重新打开');
                         }
                     });
-                }, 500);
+                } else {
+                    setTimeout(self.setCookie, 200);
+                }
+            }
+        },
+        getFriendCnt(callback) {
+            if (inYeeCall) {
+                const self = this;
+                if (window.YC) {
+                    window.YC.getFriendCnt({
+                        success: function (cnt) {
+                            window.FRIENDCNT = cnt;
+                            callback && callback(cnt);
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+                else {
+                    setTimeout(function () {
+                        self.getFriendCnt(callback);
+                    }, 200);
+                }
+            }
         },
         hideNav(flag) {
-            if (/yeecall/.test(navigator.userAgent.toLowerCase()))
-                window.YC.hideNav(flag);
+            if (inYeeCall) {
+                const self = this;
+                if (window.YC) {
+                    window.YC.hideNav(flag);
+                } else {
+                    setTimeout(function () {
+                        self.hideNav(flag);
+                    }, 200);
+                }
+            }
+        },
+        downloadYeeCall() {
+            if (isAndroid) {
+                window.location.href = androidDownloadUrl;
+            } else {
+                window.location.href = iosDownloadUrl;
+            }
+        },
+        backListener(callback) {
+            backCB = (event) => {
+                event.preventDefault();
+                callback();
+            };
+            document.addEventListener('backbutton', backCB, false);
+        },
+        removeBackListener() {
+            document.removeEventListener('backbutton', backCB);
         }
     }
-});
+})
+;

@@ -10,7 +10,8 @@
         text: 'lib/text',
         utils: 'common/utils',
         modules: 'modules',
-        template: 'templates'
+        templates: 'templates',
+        loc: 'loc'
     },
     shim: {
         marquee: ['jquery'],
@@ -28,10 +29,43 @@
             ]
         },
         {
+            name: 'test',
+            include: [
+                // 'modules/marquee',
+                'modules/rotaryTable'
+            ],
+            exclude: [
+                'common'
+            ]
+        },
+        {
             name: 'index',
             include: [
-                'modules/marquee',
-                'modules/rotaryTable'
+                'modules/indexBanner',
+                'modules/indexTickets',
+                'modules/indexShare',
+                'modules/indexPrizeList',
+                'modules/indexWinners',
+                'modules/indexTurntable',
+                'modules/loading',
+                'loc/zh_cn/index',
+                'loc/zh_cn/loading'
+            ],
+            exclude: [
+                'common'
+            ]
+        },
+        {
+            name: 'share',
+            include: [
+                'modules/shareBanner',
+                'modules/shareJoin',
+                'modules/indexShare',
+                'modules/indexPrizeList',
+                'modules/indexWinners',
+                'modules/loading',
+                'loc/zh_cn/share',
+                'loc/zh_cn/loading'
             ],
             exclude: [
                 'common'

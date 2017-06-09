@@ -1,4 +1,4 @@
-window.define([
+define([
     'jquery',
     'text!templates/shareJoin.html',
     'utils',
@@ -9,13 +9,15 @@ window.define([
     const hide = () => {
         $('html').toggleClass('no-scroll');
         $el.find('.share-join').hide();
+        utils.removeBackListener();
     };
     const show = () => {
         $('html').toggleClass('no-scroll');
         $el.find('.share-join').show();
+        utils.backListener(hide);
     };
 
-    // 分享按钮按下事件
+    // 下载按钮按下事件
     $el.on('touchstart', '.step-1 .btn', function () {
         const $this = $(this);
         $this.toggleClass('action');
@@ -24,6 +26,7 @@ window.define([
         const $this = $(this);
         $this.toggleClass('action');
     });
+    $el.on('click', '.step-1 .btn', utils.downloadYeeCall);
 
     $el.on('click', '.close', hide);
 

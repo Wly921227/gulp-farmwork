@@ -1,9 +1,13 @@
-window.define([
+define([
     'jquery',
     'text!templates/indexTurntable.html',
     'utils',
     'temp'
 ], function ($, temp, utils) {
+    let num = 0;
+    let loc = {};
+    let src = '';
+
     const $el = $('#indexTurntable');
     const TURNTABLE_DEG = {
         1: 6,
@@ -17,6 +21,17 @@ window.define([
     const hide = () => {
         $('html').toggleClass('no-scroll');
         $el.find('.index-turntable').fadeOut(200);
+        utils.removeBackListener();
+    };
+    const show = () => {
+        if (num) {
+            $el.html('');
+            $.tmpl(temp, {src, loc}).appendTo($el);
+            num = 0;
+        }
+        $('html').toggleClass('no-scroll');
+        $el.find('.index-turntable').fadeIn(200);
+        utils.backListener(hide);
     };
     const setBtnClass = (pre, next) => {
         const $operation = $el.find('.opt-btn');
@@ -36,9 +51,6 @@ window.define([
         }
         $prizeShow.show();
     };
-    let num = 0;
-    let loc = {};
-    let src = '';
     // 按钮按下事件
     $el.on('touchstart', '.operation', function () {
         setBtnClass('pointer-icon', 'pointer-action-icon');
@@ -114,15 +126,7 @@ window.define([
             loc = locTurntable.prizeTip;
             $.tmpl(temp, {src, loc}).appendTo($el);
         },
-        show() {
-            if (num) {
-                $el.html('');
-                $.tmpl(temp, {src, loc}).appendTo($el);
-                num = 0;
-            }
-            $('html').toggleClass('no-scroll');
-            $el.find('.index-turntable').fadeIn(200);
-        },
+        show,
         hide
     }
 });

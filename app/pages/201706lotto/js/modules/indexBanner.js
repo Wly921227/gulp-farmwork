@@ -1,4 +1,4 @@
-window.define([
+define([
     'jquery',
     'text!templates/indexBanner.html',
     'temp'

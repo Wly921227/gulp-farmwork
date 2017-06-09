@@ -6,11 +6,14 @@ window.requirejs(['common'], function () {
     window.requirejs([
         'utils'
     ], function (utils) {
+        if (!utils.inYeeCall) {
+            window.location.href = './share.html';
+        }
         const loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
-        // utils.setCookie();
-        // utils.hideNav();
+        utils.setCookie();
+        utils.hideNav(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');
         utils.loadImage('./images/prize-icon.png');
