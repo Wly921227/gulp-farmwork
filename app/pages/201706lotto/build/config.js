@@ -9,6 +9,8 @@
         jquery: 'lib/jquery',
         text: 'lib/text',
         utils: 'common/utils',
+        http: 'common/http',
+        urls: 'common/urls',
         modules: 'modules',
         templates: 'templates',
         loc: 'loc'
@@ -25,7 +27,9 @@
                 'marquee',
                 'temp',
                 'text',
-                'utils'
+                'utils',
+                'urls',
+                'http'
             ]
         },
         {

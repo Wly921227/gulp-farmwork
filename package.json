@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "gulp serve",
     "default": "gulp default",
+    "watch": "gulp watch",
     "build": "gulp build",
     "product": "gulp product",
     "clean": "gulp clean",
@@ -24,6 +25,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "browser-sync": "^2.18.12",
     "browsersync-ssi": "^0.2.4",
+    "express": "^4.15.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-clean": "^0.3.2",

@@ -150,7 +150,7 @@ define(['jquery'], function ($) {
             return images;
         },
         // YeeCall
-        setCookie() {
+        setCookie(callback) {
             if (inYeeCall) {
                 const self = this;
                 if (window.YC) {
@@ -159,7 +159,11 @@ define(['jquery'], function ($) {
                             if (res) {
                                 const cookie = JSON.parse(res);
                                 const date = new Date(cookie.expire).toUTCString();
-                                document.cookie = `${cookie.name}=${cookie.cookie};expires=${date};domain=yeecall.com;`;
+                                document.cookie = `${cookie.name}=${cookie.cookie};expires=${date};
+                                ${location.href.indexOf('yeecall.com') > -1 ? 'domain=yeecall.com;' : ''}`;
+                                if (callback && typeof callback === 'function') {
+                                    callback();
+                                }
                             }
                         },
                         error: function () {

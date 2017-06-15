@@ -26,7 +26,6 @@ const connect = require('gulp-connect');
 
 const args = require('process.args')();
 
-// const {OUTPUT_PATH, SCRIPT_PATH, LESS_PATH, HTML_PATH, IMAGES_PATH} = require('./config');
 const OUTPUT_PATH = path.resolve(__dirname, 'static/');
 const DIST_PATH = path.resolve(__dirname, 'dist/');
 const RELEASE_PATH = path.resolve(__dirname, 'release/');
@@ -54,6 +53,15 @@ gulp.task('serve', ['default'], function () {
     gulp.watch(IMAGES_PATH, ['image']);
     gulp.watch(TEMPLATE_PATH, ['template']);
     gulp.watch(path.resolve(__dirname, 'static/**/*.html')).on('change', browserSync.reload);
+});
+
+// watch
+gulp.task('watch', ['default'], function () {
+    gulp.watch(SCRIPT_PATH, ['js']);
+    gulp.watch(LESS_PATH, ['less']);
+    gulp.watch(HTML_PATH, ['html']);
+    gulp.watch(IMAGES_PATH, ['image']);
+    gulp.watch(TEMPLATE_PATH, ['template']);
 });
 
 // less

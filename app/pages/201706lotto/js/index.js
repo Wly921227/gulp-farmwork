@@ -4,15 +4,20 @@ window.requirejs.config({
 
 window.requirejs(['common'], function () {
     window.requirejs([
-        'utils'
-    ], function (utils) {
+        'utils',
+        'http'
+    ], function (utils, http) {
         if (!utils.inYeeCall) {
             window.location.href = './share.html';
         }
         const loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
-        utils.setCookie();
+        utils.setCookie(function () {
+            // http.get('/getTest', {activity: 1}, function (result) {
+            //     alert(result);
+            // });
+        });
         utils.hideNav(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');

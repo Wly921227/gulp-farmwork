@@ -6,6 +6,8 @@ requirejs.config({
         jquery: 'lib/jquery',
         text: 'lib/text',
         utils: 'common/utils',
+        http: 'common/http',
+        urls: 'common/urls',
         modules: 'modules',
         loc: 'loc',
         templates: 'templates'
