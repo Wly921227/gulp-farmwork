@@ -8,11 +8,10 @@ define([
 
     return {
         doInit(loc) {
-            // TODO 好友名
             const {
                 name,
             } = utils.urlParams();
-            $.tmpl(temp, {loc, name: name || ''}).appendTo($el);
+            $.tmpl(temp, {loc, name: decodeURI(name) || ''}).appendTo($el);
         }
     }
 });

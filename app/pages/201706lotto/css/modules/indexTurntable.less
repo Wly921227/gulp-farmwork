@@ -41,6 +41,7 @@
           }
         }
         .turntable {
+          transition: transform 2.5s ease-out;
           margin-left: -10.1rem;
           margin-top: -10.25rem;
           position: absolute;
@@ -55,7 +56,7 @@
           &.running {
             .start-animation(start-rotation, e("@{time-out}s"));
           }
-          .stop-animation(360 / @degree);
+          //.stop-animation(360 / @degree);
         }
         .opt-btn {
           margin-left: -3.885rem;
@@ -135,37 +136,37 @@
   }
 }
 
-.stop-rotation(@degree, @num) {
-  0% {
-    transform: rotateZ(0);
-  }
-  100% {
-    transform: rotateZ(750deg - @degree * @num);
-  }
-}
-
-.stop-animation(@num: 0) when (isnumber(@num)) and (@num > 0) {
-  @name: e("stop-animate-@{num}");
-
-  &.stop-@{num} {
-    -webkit-animation: @name 2s ease-out 1 forwards;
-    -o-animation: @name 2s ease-out 1 forwards;
-    animation: @name 2s ease-out 1 forwards;
-  }
-  @-webkit-keyframes @name {
-    .stop-rotation(@degree, @num);
-  }
-  @-ms-keyframes @name {
-    .stop-rotation(@degree, @num);
-  }
-  @-o-keyframes @name {
-    .stop-rotation(@degree, @num);
-  }
-  @keyframes @name {
-    .stop-rotation(@degree, @num);
-  }
-  .stop-animation(@num - 1);
-}
+//.stop-rotation(@degree, @num) {
+//  0% {
+//    transform: rotateZ(0);
+//  }
+//  100% {
+//    transform: rotateZ(750deg - @degree * @num);
+//  }
+//}
+//
+//.stop-animation(@num: 0) when (isnumber(@num)) and (@num > 0) {
+//  @name: e("stop-animate-@{num}");
+//
+//  &.stop-@{num} {
+//    -webkit-animation: @name 2s ease-out 1 forwards;
+//    -o-animation: @name 2s ease-out 1 forwards;
+//    animation: @name 2s ease-out 1 forwards;
+//  }
+//  @-webkit-keyframes @name {
+//    .stop-rotation(@degree, @num);
+//  }
+//  @-ms-keyframes @name {
+//    .stop-rotation(@degree, @num);
+//  }
+//  @-o-keyframes @name {
+//    .stop-rotation(@degree, @num);
+//  }
+//  @keyframes @name {
+//    .stop-rotation(@degree, @num);
+//  }
+//  .stop-animation(@num - 1);
+//}
 
 .start-animation(@amt-name, @time) {
   -webkit-animation: @amt-name @time linear 1 forwards;

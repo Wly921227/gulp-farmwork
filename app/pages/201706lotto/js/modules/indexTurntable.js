@@ -10,12 +10,12 @@ define([
 
     const $el = $('#indexTurntable');
     const TURNTABLE_DEG = {
-        1: 6,
+        1: 5,
         2: 1,
         3: 2,
         4: 3,
         5: 4,
-        6: 5,
+        6: 6,
     };
     temp = utils.tempRemoveBlank(temp);
     const hide = () => {
@@ -51,6 +51,19 @@ define([
         }
         $prizeShow.show();
     };
+    const getRotateZDeg = (num) => {
+        let offset = 0;
+        if (num === 6) {
+            offset = parseInt(Math.random() * 5 + 20);
+        } else {
+            offset = parseInt(Math.random() * 30);
+        }
+
+        offset = offset % 2 ? offset : offset * -1;
+
+        return 390 - 60 * num + 720 + offset;
+    };
+
     // 按钮按下事件
     $el.on('touchstart', '.operation', function () {
         setBtnClass('pointer-icon', 'pointer-action-icon');
@@ -67,9 +80,7 @@ define([
         // 开始按钮样式
         setBtnClass('pointer-icon', 'pointer-run-icon');
         // 移除停止动画
-        if (num === 5) {
-            $turntable.toggleClass(`stop-${TURNTABLE_DEG[num]}`);
-        }
+        $turntable.css('transform', `rotateZ(0deg)`);
         // 移除抽奖按钮事件
         $operation.removeClass('operation');
         setTimeout(function () {
@@ -84,18 +95,24 @@ define([
         const $operation = $el.find('.opt-btn');
         if (num && $turntable.hasClass('running')) {
             $turntable.toggleClass('running');
-            $turntable.toggleClass(`stop-${TURNTABLE_DEG[num]}`);
-            // TODO 是否是再抽一次，取消抽奖按钮事件
-            if (num === 5) {
-                $operation.addClass('operation');
-            }
-        } else if (num === 5) {
-            setBtnClass('pointer-run-icon', 'pointer-icon');
-        } else {
-            setBtnClass('pointer-run-icon', 'pointer-action-icon');
+            // 随机角度
+            console.log(TURNTABLE_DEG[num]);
+            const deg = getRotateZDeg(TURNTABLE_DEG[num]);
             setTimeout(function () {
-                showPrizes(num);
-            }, 500);
+                $turntable.css('transform', `rotateZ(${deg}deg)`);
+                setTimeout(function () {
+                    // TODO 是否是再抽一次，取消抽奖按钮事件
+                    if (num === 5) {
+                        setBtnClass('pointer-run-icon', 'pointer-icon');
+                        $operation.addClass('operation');
+                    } else {
+                        setBtnClass('pointer-run-icon', 'pointer-action-icon');
+                        setTimeout(function () {
+                            showPrizes(num);
+                        }, 500);
+                    }
+                }, 3500);
+            }, 20);
         }
     });
     // 关闭按钮
@@ -117,7 +134,7 @@ define([
     });
     $el.on('click', '.share-btn', function (event) {
         event.preventDefault();
-        // TODO 分享
+        utils.share(window.USERNAME);
     });
 
     return {

@@ -1,8 +1,9 @@
 define([
     'jquery',
     'text!templates/indexShare.html',
+    'utils',
     'temp'
-], function ($, temp) {
+], function ($, temp, utils) {
     const $el = $('#indexShare');
 
     // 分享按钮按下事件
@@ -21,12 +22,16 @@ define([
             $.tmpl(temp, {
                 loc
             }).appendTo($el);
-            $el.on('click', '.btn', function () {
+            let username = '';
+            utils.getUserName(function (name) {
+                username = name;
+            });
+            $el.on('click', '.btn', function (event) {
+                event.preventDefault();
                 if (shareJoin) {
                     shareJoin.show();
                 } else {
-                    // TODO 分享按钮
-
+                    utils.share(username);
                 }
             });
         }

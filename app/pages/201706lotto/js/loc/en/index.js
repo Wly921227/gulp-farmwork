@@ -73,8 +73,8 @@ define(['utils'], function (utils) {
             callUs: '联系我们'
         },
         share: {
-            title: '邀好友赢iPhone7',
-            desc: '邀请好友加入YeeCall有机会抽取大奖iPhone7'
+            title: 'Invite friends and win iPhone 7 together',
+            desc: 'Invite friends to join YeeCall to win iPhone 7'
         }
     }
 });

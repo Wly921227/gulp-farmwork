@@ -60,6 +60,7 @@ define(['jquery'], function ($) {
             ga('send', 'pageview');
         },
         getLocCode() {
+            // TODO
             if (/yeecall/.test(ua)) {
                 if (/yclan\/zh_cn/.test(ua)) {
                     return 'zh_cn';
@@ -196,6 +197,27 @@ define(['jquery'], function ($) {
                 }
             }
         },
+        getUserName(callback) {
+            if (inYeeCall) {
+                const self = this;
+                if (window.YC) {
+                    window.YC.getUserName({
+                        success: function (name) {
+                            window.USERNAME = name;
+                            callback && callback(name);
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+                else {
+                    setTimeout(function () {
+                        self.getUserName(callback);
+                    }, 200);
+                }
+            }
+        },
         hideNav(flag) {
             if (inYeeCall) {
                 const self = this;
@@ -224,7 +246,23 @@ define(['jquery'], function ($) {
         },
         removeBackListener() {
             document.removeEventListener('backbutton', backCB);
+        },
+        share(username) {
+            const link = `${location.origin}/201706lotto/share.html?name=${encodeURI(username)}`;
+            const obj = {
+                title: loc.share.title,
+                desc: loc.share.desc,
+                imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
+                link: link,
+                textAndLink: `${loc.share.desc}: ${link}`,
+                success: function () {
+                    console.log('Share success~');
+                },
+                error: function () {
+                    console.log('Share error~');
+                }
+            };
+            window.YC.share(obj);
         }
     }
-})
-;
+});
