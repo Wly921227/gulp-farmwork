@@ -33,16 +33,6 @@
             ]
         },
         {
-            name: 'test',
-            include: [
-                // 'modules/marquee',
-                'modules/rotaryTable'
-            ],
-            exclude: [
-                'common'
-            ]
-        },
-        {
             name: 'index',
             include: [
                 'modules/indexBanner',
@@ -53,7 +43,11 @@
                 'modules/indexTurntable',
                 'modules/loading',
                 'loc/zh_cn/index',
-                'loc/zh_cn/loading'
+                'loc/zh_cn/loading',
+                'loc/en/index',
+                'loc/en/loading',
+                'loc/ar/index',
+                'loc/ar/loading'
             ],
             exclude: [
                 'common'
@@ -69,7 +63,11 @@
                 'modules/indexWinners',
                 'modules/loading',
                 'loc/zh_cn/share',
-                'loc/zh_cn/loading'
+                'loc/zh_cn/loading',
+                'loc/en/share',
+                'loc/en/loading',
+                'loc/ar/share',
+                'loc/ar/loading'
             ],
             exclude: [
                 'common'

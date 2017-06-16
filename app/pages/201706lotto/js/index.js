@@ -5,19 +5,13 @@ window.requirejs.config({
 window.requirejs(['common'], function () {
     window.requirejs([
         'utils',
-        'http'
-    ], function (utils, http) {
+    ], function (utils) {
         if (!utils.inYeeCall) {
             window.location.href = './share.html';
         }
         const loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
-        utils.setCookie(function () {
-            // http.get('/getTest', {activity: 1}, function (result) {
-            //     alert(result);
-            // });
-        });
         utils.hideNav(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');
@@ -40,14 +34,18 @@ window.requirejs(['common'], function () {
         ], function (loc, loadLoc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners, indexTurntable, loading) {
             utils.setTitle(loc.title);
             loading.doInit(loadLoc);
+            utils.setCookie(function () {
+                indexWinners.doInit(loc);
+                utils.getFriendCnt(function (cnt) {
+                    indexTickets.doInit(loc, cnt);
+                });
+                // 隐藏loading
+                setTimeout(loading.hide, 2000);
+            });
             indexBanner.doInit(loc);
-            indexTickets.doInit(loc, indexTurntable);
             indexShare.doInit(loc);
             indexPrizeList.doInit(loc);
-            indexWinners.doInit(loc);
             indexTurntable.doInit(loc, turntableImg);
-            // TODO 在获取好友人数后回调，隐藏loading
-            setTimeout(loading.hide, 2000);
         });
     });
 });

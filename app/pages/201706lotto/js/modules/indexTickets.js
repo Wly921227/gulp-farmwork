@@ -3,8 +3,10 @@ define([
     'text!templates/indexTickets.html',
     'modules/indexTurntable',
     'utils',
+    'http',
+    'urls',
     'temp'
-], function ($, temp, indexTurntable, utils) {
+], function ($, temp, indexTurntable, utils, http, urls) {
     const $el = $('#indexTickets');
     temp = utils.tempRemoveBlank(temp);
     // 按钮按下事件
@@ -18,28 +20,48 @@ define([
         $this.toggleClass('icon-draw-btn-action');
         $this.toggleClass('icon-draw-btn');
     });
-    $el.on('click', '.operation-box .win', function (event) {
-        event.preventDefault();
-        // TODO 分享
-    });
     $el.on('click', '.operation-box .draw', function (event) {
         event.preventDefault();
-        indexTurntable.show();
+        const $this = $(this);
+        const item = $this.data('item');
+        indexTurntable.show(item);
     });
 
     return {
-        doInit(loc) {
-            // TODO 人数
-            const num = 7;
-            // TODO 奖品 0, 1
-            const prize = -1;
-            // 语言
-            const ticketLoc = loc.ticket;
-            $.tmpl(temp, {
-                ticketLoc,
-                num,
-                prize
-            }).appendTo($el);
+        doInit(loc, cnt) {
+            http.get(urls.getUserLotto, {
+                friendCnt: cnt
+            }, function (result) {
+                if (result && result.isLegal) {
+                    const num = cnt - result.initFriends;
+                    const status = result.lotteryStatus;
+                    let prize = {};
+                    if (result.lotteryRecord) {
+                        for (let key in result.lotteryRecord) {
+                            const item = result.lotteryRecord[key];
+                            prize[key] = utils.getPrizeById(item);
+                        }
+                    }
+                    // 语言
+                    const ticketLoc = loc.ticket;
+                    $el.html('');
+                    // 渲染页面
+                    $.tmpl(temp, {
+                        ticketLoc,
+                        num,
+                        prize,
+                        status
+                    }).appendTo($el);
+                    // 分享按钮
+                    $el.on('click', '.operation-box .win', function (event) {
+                        event.preventDefault();
+                        utils.share(loc.share, window.USERNAME);
+                    });
+                } else {
+                    alert('timeout~');
+                    utils.setCookie();
+                }
+            });
         }
     }
 });

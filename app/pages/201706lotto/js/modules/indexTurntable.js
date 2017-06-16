@@ -1,12 +1,16 @@
 define([
     'jquery',
     'text!templates/indexTurntable.html',
+    'modules/indexTickets',
     'utils',
+    'http',
+    'urls',
     'temp'
-], function ($, temp, utils) {
+], function ($, temp, indexTickets, utils, http, urls) {
     let num = 0;
     let loc = {};
     let src = '';
+    let item = '';
 
     const $el = $('#indexTurntable');
     const TURNTABLE_DEG = {
@@ -23,7 +27,8 @@ define([
         $el.find('.index-turntable').fadeOut(200);
         utils.removeBackListener();
     };
-    const show = () => {
+    const show = (_item) => {
+        item = _item
         if (num) {
             $el.html('');
             $.tmpl(temp, {src, loc}).appendTo($el);
@@ -83,11 +88,22 @@ define([
         $turntable.css('transform', `rotateZ(0deg)`);
         // 移除抽奖按钮事件
         $operation.removeClass('operation');
-        setTimeout(function () {
-            // TODO 随机奖品 超时时间 3s
-            const id = parseInt(Math.random() * 6 + 1);
-            num = utils.getPrizeById(id);
-        }, 3000);
+        // 抽奖事件
+        console.log(item);
+        http.get(urls.sendDraw, {
+            friendCnt: window.FRIENDCNT,
+            item: item
+        }, function (result) {
+            if (result) {
+                num = utils.getPrizeById(result.prize);
+                // 重置抽奖票
+                indexTickets.doInit(loc, window.FRIENDCNT);
+            }
+        });
+        // setTimeout(function () {
+        //     const id = parseInt(Math.random() * 6 + 1);
+        //     num = utils.getPrizeById(id);
+        // }, 3000);
     });
     // 转盘动画停止事件
     $el.on('webkitAnimationEnd', '.turntable', function () {
@@ -96,12 +112,10 @@ define([
         if (num && $turntable.hasClass('running')) {
             $turntable.toggleClass('running');
             // 随机角度
-            console.log(TURNTABLE_DEG[num]);
             const deg = getRotateZDeg(TURNTABLE_DEG[num]);
             setTimeout(function () {
                 $turntable.css('transform', `rotateZ(${deg}deg)`);
                 setTimeout(function () {
-                    // TODO 是否是再抽一次，取消抽奖按钮事件
                     if (num === 5) {
                         setBtnClass('pointer-run-icon', 'pointer-icon');
                         $operation.addClass('operation');
@@ -138,10 +152,15 @@ define([
     });
 
     return {
-        doInit(locTurntable, turntableImg) {
+        doInit(_loc, turntableImg) {
             src = turntableImg.src;
-            loc = locTurntable.prizeTip;
-            $.tmpl(temp, {src, loc}).appendTo($el);
+            loc = _loc;
+            $.tmpl(temp, {src, loc: loc.prizeTip}).appendTo($el);
+            // 分享按钮
+            $el.on('click', '.share-btn', function (event) {
+                event.preventDefault();
+                utils.share(loc.share, window.USERNAME);
+            });
         },
         show,
         hide

@@ -11,7 +11,7 @@ define([
             const {
                 name,
             } = utils.urlParams();
-            $.tmpl(temp, {loc, name: decodeURI(name) || ''}).appendTo($el);
+            $.tmpl(temp, {loc, name: decodeURI(name || '')}).appendTo($el);
         }
     }
 });

@@ -31,7 +31,7 @@ define([
                 if (shareJoin) {
                     shareJoin.show();
                 } else {
-                    utils.share(username);
+                    utils.share(loc.share, username);
                 }
             });
         }

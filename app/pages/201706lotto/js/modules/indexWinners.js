@@ -1,71 +1,43 @@
 define([
     'jquery',
     'text!templates/indexWinners.html',
+    'utils',
+    'http',
+    'urls',
     'temp',
     'marquee'
-], function ($, temp) {
+], function ($, temp, utils, http, urls) {
     const $el = $('#indexWinners');
-
-    const list = [
-        {
-            id: '+966****0874',
-            prize: 2,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 1,
-            time: '2017.06.08  13:05'
-        }, {
-            id: '+966****0874',
-            prize: 3,
-            time: '2017.06.08  13:05'
-        }
-    ];
 
     return {
         doInit(loc) {
             const winnerLoc = loc.winnerList;
-            $.tmpl(temp, {
-                winnerLoc,
-                list
-            }).appendTo($el);
+            http.get(urls.getWinnerList, {}, function (result) {
+                if (result) {
+                    const list = [];
+                    for (const key in result) {
+                        const item = result[key];
+                        list.push({
+                            id: item.uid,
+                            prize: utils.getPrizeById(item.prizeId),
+                            time: utils.dateFormat(item.ctime, 'YYYY.MM.DD H:M')
+                        });
+                    }
 
-            $el.find('.winner-list ul').liMarquee({
-                scrollamount: 30,
-                direction: 'up',
-                circular: true
+                    $.tmpl(temp, {
+                        winnerLoc,
+                        list
+                    }).appendTo($el);
+
+                    $el.find('.winner-list ul').liMarquee({
+                        scrollamount: 30,
+                        direction: 'up',
+                        circular: true
+                    });
+                } else {
+                    alert('timeout~');
+                    utils.setCookie();
+                }
             });
         }
     }

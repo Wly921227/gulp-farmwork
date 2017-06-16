@@ -2,6 +2,7 @@ define(['jquery'], function ($) {
     const ua = navigator.userAgent.toLowerCase();
     const inYeeCall = /yeecall/.test(ua);
     const isAndroid = ua.indexOf('android') > -1 || ua.indexOf('adr') > -1;
+    const isOffline = location.href.indexOf('.debug') > -1 || location.href.indexOf('10.18.101.') > -1;
     const iosDownloadUrl = 'https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8';
     const androidDownloadUrl = 'market://details?id=com.yeecall.app';
     let backCB = () => {
@@ -9,6 +10,42 @@ define(['jquery'], function ($) {
     return {
         inYeeCall,
         isAndroid,
+        getPrizeById(id) {
+            // TODO id映射
+            if (isOffline) {
+                // 线下
+                switch (id) {
+                    case 1:
+                        return 1;   // iPhone
+                    case 2:
+                        return 2;   // 100
+                    case 3:
+                        return 3;   // 50
+                    case 4:
+                        return 4;   // 10
+                    case 5:
+                        return 5;   // 再一次
+                    case 6:
+                        return 6;   // 谢谢
+                }
+            } else {
+                // 线上
+                switch (id) {
+                    case 1:
+                        return 1;   // iPhone
+                    case 2:
+                        return 2;   // 100
+                    case 3:
+                        return 3;   // 50
+                    case 4:
+                        return 4;   // 10
+                    case 5:
+                        return 5;   // 再一次
+                    case 6:
+                        return 6;   // 谢谢
+                }
+            }
+        },
         urlParams(_url) {
             let url = _url || window.location.search.split('?').pop();
             let paramList = url.split('&');
@@ -19,22 +56,6 @@ define(['jquery'], function ($) {
                 params[map[0]] = map[1];
             }
             return params;
-        },
-        getPrizeById(id) {
-            switch (id) {
-                case 1:
-                    return 1;
-                case 2:
-                    return 2;
-                case 3:
-                    return 3;
-                case 4:
-                    return 4;
-                case 5:
-                    return 5;
-                case 6:
-                    return 6;
-            }
         },
         setFontSize(planSize, remSize) {
             const defaultWidth = planSize || 750;                           // 设计图宽度
@@ -60,7 +81,7 @@ define(['jquery'], function ($) {
             ga('send', 'pageview');
         },
         getLocCode() {
-            // TODO
+            // TODO 语言码
             if (/yeecall/.test(ua)) {
                 if (/yclan\/zh_cn/.test(ua)) {
                     return 'zh_cn';
@@ -247,14 +268,14 @@ define(['jquery'], function ($) {
         removeBackListener() {
             document.removeEventListener('backbutton', backCB);
         },
-        share(username) {
-            const link = `${location.origin}/201706lotto/share.html?name=${encodeURI(username)}`;
+        share(share, username) {
+            const link = `${location.origin}/201706lotto/share.html?name=${encodeURI(username || window.USERNAME)}`;
             const obj = {
-                title: loc.share.title,
-                desc: loc.share.desc,
+                title: share.title,
+                desc: share.desc,
                 imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
                 link: link,
-                textAndLink: `${loc.share.desc}: ${link}`,
+                textAndLink: `${share.desc}: ${link}`,
                 success: function () {
                     console.log('Share success~');
                 },
