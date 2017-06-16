@@ -23,6 +23,7 @@ define(['jquery', 'urls'], function ($, urls) {
 
     return {
         get(url, data, callback) {
+            data.activityId = urls.activityId;
             const opt = makeOpt('GET', data, callback);
             $.ajax({
                 type: opt.type,
@@ -32,6 +33,7 @@ define(['jquery', 'urls'], function ($, urls) {
             });
         },
         post(url, data, callback) {
+            data.activityId = urls.activityId;
             const opt = makeOpt('POST', data, callback);
             $.ajax({
                 type: opt.type,
