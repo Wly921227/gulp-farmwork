@@ -90,7 +90,10 @@ gulp.task('js', function () {
     return gulp.src(SCRIPT_PATH)
         .pipe(plumber())
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['es2015', 'stage-2'],
+            plugins: [
+                'transform-class-properties'
+            ]
         }))
         .pipe(gulp.dest(OUTPUT_PATH))
         .pipe(browserSync.stream());
