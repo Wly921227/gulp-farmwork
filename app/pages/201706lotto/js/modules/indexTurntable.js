@@ -1,16 +1,16 @@
 define([
     'jquery',
     'text!templates/indexTurntable.html',
-    'modules/indexTickets',
     'utils',
     'http',
     'urls',
     'temp'
-], function ($, temp, indexTickets, utils, http, urls) {
+], function ($, temp, utils, http, urls) {
     let num = 0;
     let loc = {};
     let src = '';
     let item = '';
+    let indexTickets = {};
 
     const $el = $('#indexTurntable');
     const TURNTABLE_DEG = {
@@ -28,12 +28,17 @@ define([
         utils.removeBackListener();
     };
     const show = (_item) => {
-        item = _item
+        item = _item;
         if (num) {
             $el.html('');
             $.tmpl(temp, {src, loc}).appendTo($el);
             num = 0;
         }
+        // 移除动画
+        const $turntable = $el.find('.turntable');
+        $turntable.removeClass('running');
+        $turntable.css('transform', 'rotateZ(0deg)');
+
         $('html').toggleClass('no-scroll');
         $el.find('.index-turntable').fadeIn(200);
         utils.backListener(hide);
@@ -106,17 +111,13 @@ define([
                 indexTickets.doInit(loc, window.FRIENDCNT);
             }
         });
-        // setTimeout(function () {
-        //     const id = parseInt(Math.random() * 6 + 1);
-        //     num = utils.getPrizeById(id);
-        // }, 3000);
     });
     // 转盘动画停止事件
     $el.on('webkitAnimationEnd', '.turntable', function () {
         const $turntable = $el.find('.turntable');
         const $operation = $el.find('.opt-btn');
         if (num && $turntable.hasClass('running')) {
-            $turntable.toggleClass('running');
+            $turntable.removeClass('running');
             // 随机角度
             const deg = getRotateZDeg(TURNTABLE_DEG[num]);
             setTimeout(function () {
@@ -158,9 +159,10 @@ define([
     });
 
     return {
-        doInit(_loc, turntableImg) {
+        doInit(_loc, turntableImg, _indexTickets) {
             src = turntableImg.src;
             loc = _loc;
+            indexTickets = _indexTickets;
             $.tmpl(temp, {src, loc: loc.prizeTip}).appendTo($el);
             // 分享按钮
             $el.on('click', '.share-btn', function (event) {

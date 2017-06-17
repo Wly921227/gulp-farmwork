@@ -43,7 +43,7 @@ window.requirejs(['common'], function () {
             indexBanner.doInit(loc);
             indexShare.doInit(loc);
             indexPrizeList.doInit(loc);
-            indexTurntable.doInit(loc, turntableImg);
+            indexTurntable.doInit(loc, turntableImg, indexTickets);
         });
     });
 });
