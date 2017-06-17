@@ -13,8 +13,8 @@ define([
         doInit(loc) {
             const winnerLoc = loc.winnerList;
             http.get(urls.getWinnerList, {}, function (result) {
-                if (result) {
-                    const list = [];
+                let list = [];
+                if (result && Object.getOwnPropertyNames(result).length > 0) {
                     for (const key in result) {
                         const item = result[key];
                         list.push({
@@ -23,21 +23,19 @@ define([
                             time: utils.dateFormat(item.ctime, 'YYYY.MM.DD H:M')
                         });
                     }
-
-                    $.tmpl(temp, {
-                        winnerLoc,
-                        list
-                    }).appendTo($el);
-
-                    $el.find('.winner-list ul').liMarquee({
-                        scrollamount: 30,
-                        direction: 'up',
-                        circular: true
-                    });
                 } else {
-                    alert('timeout~');
                     utils.setCookie();
                 }
+                $.tmpl(temp, {
+                    winnerLoc,
+                    list
+                }).appendTo($el);
+
+                $el.find('.winner-list ul').liMarquee({
+                    scrollamount: 30,
+                    direction: 'up',
+                    circular: true
+                });
             });
         }
     }

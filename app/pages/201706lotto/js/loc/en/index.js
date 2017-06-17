@@ -1,4 +1,4 @@
-define(['utils'], function (utils) {
+define(function () {
     const PRIZE = {
         1: '一部iPhone7',
         2: '100元话费卡',
@@ -31,7 +31,7 @@ define(['utils'], function (utils) {
             },
             winning: {
                 tip(id) {
-                    return `恭喜您，抽中${PRIZE[utils.getPrizeById(id)]}！`
+                    return `恭喜您，抽中${PRIZE[id]}！`
                 },
                 callYC: 'YeeCall工作人员会在1周内联系你',
                 callUs: '联系我们',
@@ -58,7 +58,7 @@ define(['utils'], function (utils) {
         winnerList: {
             title: '获奖名单',
             prize(id) {
-                return `抽到${PRIZE[utils.getPrizeById(id)]}`;
+                return `抽到${PRIZE[id]}`;
             }
         },
         prizeTip: {
@@ -73,8 +73,8 @@ define(['utils'], function (utils) {
             callUs: '联系我们'
         },
         share: {
-            title: 'Invite friends and win iPhone 7 together',
-            desc: 'Invite friends to join YeeCall to win iPhone 7'
+            title: '邀好友赢iPhone7',
+            desc: '邀请好友加入YeeCall有机会抽取大奖iPhone7'
         }
     }
 });

@@ -28,7 +28,7 @@ define([
     });
 
     return {
-        doInit(loc, cnt) {
+        doInit(loc, cnt, loading) {
             http.get(urls.getUserLotto, {
                 friendCnt: cnt
             }, function (result) {
@@ -60,6 +60,10 @@ define([
                 } else {
                     alert('timeout~');
                     utils.setCookie();
+                }
+                // 隐藏loading
+                if (loading) {
+                    loading.hide();
                 }
             });
         }

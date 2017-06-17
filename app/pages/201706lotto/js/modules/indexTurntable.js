@@ -95,7 +95,13 @@ define([
             item: item
         }, function (result) {
             if (result) {
-                num = utils.getPrizeById(result.prize);
+                if (result.status === 1) {
+                    num = utils.getPrizeById(5);
+                } else if (result.status === 3) {
+                    num = utils.getPrizeById(6);
+                } else if (result.status === 2) {
+                    num = utils.getPrizeById(result.prize);
+                }
                 // 重置抽奖票
                 indexTickets.doInit(loc, window.FRIENDCNT);
             }

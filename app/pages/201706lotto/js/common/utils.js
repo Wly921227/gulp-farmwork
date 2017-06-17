@@ -11,17 +11,16 @@ define(['jquery'], function ($) {
         inYeeCall,
         isAndroid,
         getPrizeById(id) {
-            // TODO id映射
             if (isOffline) {
                 // 线下
                 switch (id) {
-                    case 1:
+                    case '5944a8ecbd85b11169f8cc1c':
                         return 1;   // iPhone
-                    case 2:
+                    case '5944a8ecbd85b11169f8cc1d':
                         return 2;   // 100
-                    case 3:
+                    case '5944a8ecbd85b11169f8cc1e':
                         return 3;   // 50
-                    case 4:
+                    case '5944a8ecbd85b11169f8cc1f':
                         return 4;   // 10
                     case 5:
                         return 5;   // 再一次

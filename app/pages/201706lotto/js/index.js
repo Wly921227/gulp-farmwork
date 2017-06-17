@@ -37,10 +37,8 @@ window.requirejs(['common'], function () {
             utils.setCookie(function () {
                 indexWinners.doInit(loc);
                 utils.getFriendCnt(function (cnt) {
-                    indexTickets.doInit(loc, cnt);
+                    indexTickets.doInit(loc, cnt, loading);
                 });
-                // 隐藏loading
-                setTimeout(loading.hide, 2000);
             });
             indexBanner.doInit(loc);
             indexShare.doInit(loc);
