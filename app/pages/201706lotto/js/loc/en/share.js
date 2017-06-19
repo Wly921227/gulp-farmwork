@@ -1,4 +1,4 @@
-define(['utils'], function (utils) {
+define(function () {
     const PRIZE = {
         1: '一部iPhone7',
         2: '100元话费卡',
@@ -32,7 +32,7 @@ define(['utils'], function (utils) {
         winnerList: {
             title: '获奖名单',
             prize(id) {
-                return `抽到${PRIZE[utils.getPrizeById(id)]}`;
+                return `抽到${PRIZE[id]}`;
             }
         },
         join: {

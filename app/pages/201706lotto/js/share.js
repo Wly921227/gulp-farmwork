@@ -26,15 +26,13 @@ window.requirejs(['common'], function () {
         ], function (loc, loadLoc, shareBanner, shareJoin, indexShare, indexPrizeList, indexWinners, loading) {
             utils.setTitle(loc.title);
             loading.doInit(loadLoc);
-            // utils.setCookie(function () {
-            //     indexWinners.doInit(loc);
-            //     // 隐藏loading
-                setTimeout(loading.hide, 2000);
-            // });
+            indexWinners.doInit(loc);
             shareBanner.doInit(loc);
             shareJoin.doInit(loc);
             indexShare.doInit(loc, shareJoin);
             indexPrizeList.doInit(loc);
+            // 隐藏loading
+            setTimeout(loading.hide, 2000);
         });
     });
 });

@@ -179,9 +179,7 @@ define(['jquery'], function ($) {
                         success: function (res) {
                             if (res) {
                                 const cookie = JSON.parse(res);
-                                const date = new Date(cookie.expire).toUTCString();
-                                document.cookie = `${cookie.name}=${cookie.cookie};expires=${date};
-                                ${location.href.indexOf('yeecall.com') > -1 ? 'domain=yeecall.com;' : ''}`;
+                                document.cookie = `${cookie.name}=${cookie.cookie};${location.href.indexOf('yeecall.com') > -1 ? 'domain=yeecall.com;' : ''}`;
                                 if (callback && typeof callback === 'function') {
                                     callback();
                                 }
@@ -270,7 +268,9 @@ define(['jquery'], function ($) {
             document.removeEventListener('backbutton', backCB);
         },
         share(share, username) {
-            const link = `${location.origin}/201706lotto/share.html?name=${encodeURI(username || window.USERNAME)}`;
+            const paths = location.pathname.split('/');
+            paths.pop();
+            const link = `${location.origin}${paths.join('/')}/share.html?name=${encodeURI(username || window.USERNAME)}`;
             const obj = {
                 title: share.title,
                 desc: share.desc,
