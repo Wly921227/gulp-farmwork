@@ -43,7 +43,7 @@ define(['utils'], function (utils) {
             },
             tip2: {
                 text: '主界面进入活动参与抽奖',
-                btn: '邀好友 赢 iPhone 7'
+                btn: 'Invite friends to win iPhone 7'
             },
             open: '已经安装？点击这里'
         }
