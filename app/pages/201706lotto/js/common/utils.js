@@ -88,11 +88,11 @@ define(['jquery'], function ($) {
                     // return 'zh_tw';
                     return 'zh_cn';
                 } else if (/yclan\/ar/.test(ua)) {
-                    // return 'ar';
-                    return 'zh_cn';
+                    return 'ar';
+                    // return 'zh_cn';
                 } else {
-                    // return 'en';
-                    return 'zh_cn';
+                    return 'en';
+                    // return 'zh_cn';
                 }
             } else {
                 let loc;
@@ -102,8 +102,8 @@ define(['jquery'], function ($) {
                     loc = navigator.browserLanguage.toLowerCase();
                 if (loc.indexOf('ar') > -1) {
                     // 阿语
-                    // return 'ar';
-                    return 'zh_cn';
+                    return 'ar';
+                    // return 'zh_cn';
                 } else if (/zh/.test(loc) && /cn/.test(loc)) {
                     // 简体中文
                     return 'zh_cn';
@@ -113,8 +113,8 @@ define(['jquery'], function ($) {
                     return 'zh_cn';
                 } else {
                     // 英文
-                    // return 'en';
-                    return 'zh_cn';
+                    return 'en';
+                    // return 'zh_cn';
                 }
             }
         },

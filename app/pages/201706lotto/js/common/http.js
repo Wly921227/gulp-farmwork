@@ -23,23 +23,38 @@ define(['jquery', 'urls'], function ($, urls) {
 
     return {
         get(url, data, callback) {
+            const cbName = url.split('/').pop().toUpperCase();
+            window[cbName] = function (res) {
+                let result;
+                if (res) {
+                    result = JSON.parse(res);
+                }
+                callback(result);
+            };
+            data.jsonpcallback = cbName;
             data.activityId = urls.activityId;
             const opt = makeOpt('GET', data, callback);
+
             $.ajax({
                 type: opt.type,
                 url: `${urls.base}${url}?${opt.data}`,
-                dataType: 'json',
+                dataType: 'jsonp',
+                jsonp: cbName,
                 success: opt.callback
             });
         },
         post(url, data, callback) {
+            const cbName = url.split('/').pop().toUpperCase();
+            window[cbName] = callback;
+            data.jsonpcallback = cbName;
             data.activityId = urls.activityId;
             const opt = makeOpt('POST', data, callback);
             $.ajax({
                 type: opt.type,
                 url: `${urls.base}${url}`,
                 data: opt.data,
-                dataType: 'json',
+                dataType: 'jsonp',
+                jsonp: cbName,
                 success: opt.callback
             });
         }
