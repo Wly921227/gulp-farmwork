@@ -202,11 +202,10 @@ define(['jquery'], function ($) {
                 if (window.YC) {
                     window.YC.getFriendCnt({
                         success: function (cnt) {
-                            // TODO
-                            // window.FRIENDCNT = cnt;
-                            // callback && callback(cnt);
-                            window.FRIENDCNT = 15;
-                            callback && callback(window.FRIENDCNT);
+                            window.FRIENDCNT = cnt;
+                            callback && callback(cnt);
+                            // window.FRIENDCNT = 15;
+                            // callback && callback(window.FRIENDCNT);
                         },
                         error: function (err) {
                             console.log(err);

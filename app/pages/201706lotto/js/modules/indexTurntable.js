@@ -105,7 +105,7 @@ define([
                 } else if (result.status === 3) {
                     num = utils.getPrizeById(6);
                 } else if (result.status === 2) {
-                    num = utils.getPrizeById(result.prize);
+                    num = utils.getPrizeById(result.prizeId);
                 }
                 // 重置抽奖票
                 indexTickets.doInit(loc, window.FRIENDCNT);

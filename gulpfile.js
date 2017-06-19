@@ -103,7 +103,10 @@ gulp.task('js:build', function () {
         .pipe(plumber())
         // .pipe(sourcemaps.init())
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['es2015', 'stage-2'],
+            plugins: [
+                'transform-class-properties'
+            ]
         }))
         .pipe(rename({suffix: ''}))
         .pipe(uglify())
