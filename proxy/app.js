@@ -7,8 +7,9 @@ const app = express();
 const config = require('./config');
 
 app.use(express.static(resolve(__dirname, '../static')));
+// app.use('/201706lotto', express.static(resolve(__dirname, '../rjs')));
 
-app.use('/', function (req, res, next) {
+app.use('/', function (req, res) {
     let link = req.originalUrl;
     if (link.indexOf('cordova_plugins') !== -1) {
         var err = new Error('Not Found');
@@ -35,18 +36,18 @@ app.use('/', function (req, res, next) {
                     headers: {}
                 };
                 // cookie
-                if (opt.cookie) {
-                    requestOpt.headers.cookie = opt.cookie;
-                } else if (req.headers.cookie) {
-                    console.log('---> header: ', req.headers);
+                if (req.headers.cookie.indexOf('user=') > -1) {
                     requestOpt.headers.cookie = req.headers.cookie;
+                }
+                else if (opt.cookie) {
+                    requestOpt.headers.cookie = opt.cookie;
                 }
                 // 参数
                 if (req.method === 'POST') {
                     requestOpt.body = req.params;
                     requestOpt.headers['content-type'] = 'application/json; charset=UTF-8';
                     console.info('---> POST Request: ', requestOpt);
-                    const request = Request(requestOpt, function (error, response) {
+                    Request(requestOpt, function (error, response) {
                         if (error) {
                             console.error('problem with request: ' + error);
                             res.send({
@@ -58,10 +59,6 @@ app.use('/', function (req, res, next) {
                             console.log('---> CODE: ' + JSON.stringify(response.statusCode));
                             console.log('---> BODY: ' + JSON.stringify(response.body));
                             res.send(response.body);
-                        } else {
-                            res.send({
-                                err: 404
-                            });
                         }
                     });
                 } else {
@@ -78,10 +75,6 @@ app.use('/', function (req, res, next) {
                             console.log('---> CODE: ' + JSON.stringify(response.statusCode));
                             console.log('---> BODY: ' + JSON.stringify(response.body));
                             res.send(response.body);
-                        } else {
-                            res.send({
-                                err: 404
-                            });
                         }
                     });
                 }
