@@ -80,7 +80,6 @@ define(['jquery'], function ($) {
             ga('send', 'pageview');
         },
         getLocCode() {
-            // TODO 语言码
             if (/yeecall/.test(ua)) {
                 if (/yclan\/zh_cn/.test(ua)) {
                     return 'zh_cn';
@@ -161,7 +160,7 @@ define(['jquery'], function ($) {
                 } else {
                     setTimeout(function () {
                         self.setTitle(title);
-                    }, 1000);
+                    }, 500);
                 }
             }
         },
@@ -186,7 +185,7 @@ define(['jquery'], function ($) {
         setCookie(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC) {
+                if (window.YC && window.YC.getCookie) {
                     window.YC.getCookie({
                         success: function (res) {
                             if (res) {
@@ -202,14 +201,14 @@ define(['jquery'], function ($) {
                         }
                     });
                 } else {
-                    setTimeout(self.setCookie, 1000);
+                    setTimeout(self.setCookie, 500);
                 }
             }
         },
         getFriendCnt(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC) {
+                if (window.YC && window.YC.getFriendCnt) {
                     window.YC.getFriendCnt({
                         success: function (cnt) {
                             window.FRIENDCNT = cnt;
@@ -225,14 +224,14 @@ define(['jquery'], function ($) {
                 else {
                     setTimeout(function () {
                         self.getFriendCnt(callback);
-                    }, 1000);
+                    }, 500);
                 }
             }
         },
         getUserName(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC) {
+                if (window.YC && window.YC.getUserName) {
                     window.YC.getUserName({
                         success: function (name) {
                             window.USERNAME = name;
@@ -246,19 +245,19 @@ define(['jquery'], function ($) {
                 else {
                     setTimeout(function () {
                         self.getUserName(callback);
-                    }, 200);
+                    }, 500);
                 }
             }
         },
         hideNav(flag) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC) {
+                if (window.YC && window.YC.getUserName) {
                     window.YC.hideNav(flag);
                 } else {
                     setTimeout(function () {
                         self.hideNav(flag);
-                    }, 200);
+                    }, 500);
                 }
             }
         },

@@ -1,7 +1,6 @@
 define({
     base: location.href.indexOf('yeecall') > -1 ?
         (location.href.indexOf('.debug') > -1 ?
-            // TODO 接口线下地址端口号
             'http://in.debug.yeecall.com:5080/lotto' :
             // TODO 接口线上地址端口号
             '') :

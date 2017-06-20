@@ -32,7 +32,7 @@ define([
             http.get(urls.getUserLotto, {
                 friendCnt: cnt
             }, function (result) {
-                if (result && result.isLegal) {
+                if (result) {
                     const num = cnt - result.initFriends;
                     const status = result.lotteryStatus;
                     let prize = {};
@@ -57,13 +57,10 @@ define([
                         event.preventDefault();
                         utils.share(loc.share, window.USERNAME);
                     });
-                } else {
-                    alert('timeout~');
-                    utils.setCookie();
                 }
                 // 隐藏loading
                 if (loading) {
-                    loading.hide();
+                    setTimeout(loading.hide, 500);
                 }
             });
         }

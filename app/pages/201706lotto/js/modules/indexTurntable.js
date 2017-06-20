@@ -38,9 +38,9 @@ define([
         const $turntable = $el.find('.turntable');
         $turntable.removeClass('running');
         $turntable.css('transform', 'rotateZ(0deg)');
-
         $('html').toggleClass('no-scroll');
-        $el.find('.index-turntable').fadeIn(200);
+
+        $el.find('.index-turntable').show();
         utils.backListener(hide);
     };
     const setBtnClass = (pre, next) => {
