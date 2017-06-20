@@ -60,7 +60,7 @@ define([
                 }
                 // 隐藏loading
                 if (loading) {
-                    setTimeout(loading.hide, 500);
+                    setTimeout(loading.hide, 1000);
                 }
             });
         }

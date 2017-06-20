@@ -6,6 +6,9 @@ window.requirejs(['common'], function () {
     window.requirejs([
         'utils'
     ], function (utils) {
+        if (utils.inYeeCall) {
+            window.location.href = './index.html';
+        }
         const loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.noContextMenu();

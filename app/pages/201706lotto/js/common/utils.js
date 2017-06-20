@@ -5,6 +5,17 @@ define(['jquery'], function ($) {
     const isOffline = location.href.indexOf('.debug') > -1 || location.href.indexOf('10.18.101.') > -1;
     const iosDownloadUrl = 'https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8';
     const androidDownloadUrl = 'market://details?id=com.yeecall.app';
+    let hasCordova = false;
+    const debug = () => {
+        if (cordova && cordova.exec && typeof cordova.exec === 'function') {
+            hasCordova = true;
+        } else {
+            setTimeout(debug, 20);
+        }
+    };
+    if (location.href.indexOf('.debug') > -1) {
+        debug();
+    }
     let backCB = () => {
     };
     return {
@@ -153,14 +164,14 @@ define(['jquery'], function ($) {
             $('title').html(title);
             if (!isAndroid) {
                 const self = this;
-                if (window.YC && window.YC.setTitle) {
+                if (window.YC && window.YC.setTitle && hasCordova) {
                     window.YC.setTitle({
                         title: title
                     });
                 } else {
                     setTimeout(function () {
                         self.setTitle(title);
-                    }, 500);
+                    }, 20);
                 }
             }
         },
@@ -185,7 +196,7 @@ define(['jquery'], function ($) {
         setCookie(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.getCookie) {
+                if (window.YC && window.YC.getCookie && hasCordova) {
                     window.YC.getCookie({
                         success: function (res) {
                             if (res) {
@@ -201,14 +212,14 @@ define(['jquery'], function ($) {
                         }
                     });
                 } else {
-                    setTimeout(self.setCookie, 500);
+                    setTimeout(self.setCookie, 20);
                 }
             }
         },
         getFriendCnt(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.getFriendCnt) {
+                if (window.YC && window.YC.getFriendCnt && hasCordova) {
                     window.YC.getFriendCnt({
                         success: function (cnt) {
                             window.FRIENDCNT = cnt;
@@ -224,14 +235,14 @@ define(['jquery'], function ($) {
                 else {
                     setTimeout(function () {
                         self.getFriendCnt(callback);
-                    }, 500);
+                    }, 20);
                 }
             }
         },
         getUserName(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.getUserName) {
+                if (window.YC && window.YC.getUserName && hasCordova) {
                     window.YC.getUserName({
                         success: function (name) {
                             window.USERNAME = name;
@@ -245,19 +256,19 @@ define(['jquery'], function ($) {
                 else {
                     setTimeout(function () {
                         self.getUserName(callback);
-                    }, 500);
+                    }, 20);
                 }
             }
         },
         hideNav(flag) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.getUserName) {
+                if (window.YC && window.YC.hideNav && hasCordova) {
                     window.YC.hideNav(flag);
                 } else {
                     setTimeout(function () {
                         self.hideNav(flag);
-                    }, 500);
+                    }, 20);
                 }
             }
         },
