@@ -8,6 +8,7 @@ define([
     'marquee'
 ], function ($, temp, utils, http, urls) {
     const $el = $('#indexWinners');
+    temp = utils.tempRemoveBlank(temp);
 
     return {
         doInit(loc) {

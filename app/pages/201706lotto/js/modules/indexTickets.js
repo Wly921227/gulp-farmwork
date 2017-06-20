@@ -48,7 +48,7 @@ define([
                     // 渲染页面
                     $.tmpl(temp, {
                         ticketLoc,
-                        num,
+                        num: num < 0 ? 0 : num,
                         prize,
                         status
                     }).appendTo($el);

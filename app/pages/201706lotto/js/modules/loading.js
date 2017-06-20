@@ -1,9 +1,11 @@
 define([
     'jquery',
     'text!templates/loading.html',
+    'utils',
     'temp'
-], function ($, temp) {
+], function ($, temp, utils) {
     const $el = $('#loading');
+    temp = utils.tempRemoveBlank(temp);
 
     return {
         doInit(loc) {

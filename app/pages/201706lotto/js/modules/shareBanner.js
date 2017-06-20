@@ -5,6 +5,7 @@ define([
     'temp'
 ], function ($, temp, utils) {
     const $el = $('#shareBanner');
+    temp = utils.tempRemoveBlank(temp);
 
     return {
         doInit(loc) {

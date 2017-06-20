@@ -1,9 +1,11 @@
 define([
     'jquery',
     'text!templates/indexPrizeList.html',
+    'utils',
     'temp'
-], function ($, temp) {
+], function ($, temp, utils) {
     const $el = $('#indexPrizeList');
+    temp = utils.tempRemoveBlank(temp);
 
     return {
         doInit(loc) {

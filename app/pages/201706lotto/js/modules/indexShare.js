@@ -5,6 +5,8 @@ define([
     'temp'
 ], function ($, temp, utils) {
     const $el = $('#indexShare');
+    temp = utils.tempRemoveBlank(temp);
+
 
     // 分享按钮按下事件
     $el.on('touchstart', '.btn', function () {

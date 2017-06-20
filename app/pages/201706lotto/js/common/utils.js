@@ -179,7 +179,7 @@ define(['jquery'], function ($) {
                         success: function (res) {
                             if (res) {
                                 const cookie = JSON.parse(res);
-                                document.cookie = `${cookie.name}=${cookie.cookie};${location.href.indexOf('yeecall.com') > -1 ? 'domain=yeecall.com;' : ''}`;
+                                document.cookie = `${cookie.name}=${cookie.cookie};${location.href.indexOf('yeecall.com') > -1 ? 'domain=yeecall.com;' : ''}path=/;`;
                                 if (callback && typeof callback === 'function') {
                                     callback();
                                 }
