@@ -152,6 +152,18 @@ define(['jquery'], function ($) {
         },
         setTitle(title) {
             $('title').html(title);
+            if (!isAndroid) {
+                const self = this;
+                if (window.YC && window.YC.setTitle) {
+                    window.YC.setTitle({
+                        title: title
+                    });
+                } else {
+                    setTimeout(function () {
+                        self.setTitle(title);
+                    }, 1000);
+                }
+            }
         },
         noContextMenu() {
             document.addEventListener('contextmenu', function (event) {
@@ -190,7 +202,7 @@ define(['jquery'], function ($) {
                         }
                     });
                 } else {
-                    setTimeout(self.setCookie, 200);
+                    setTimeout(self.setCookie, 1000);
                 }
             }
         },
@@ -213,7 +225,7 @@ define(['jquery'], function ($) {
                 else {
                     setTimeout(function () {
                         self.getFriendCnt(callback);
-                    }, 200);
+                    }, 1000);
                 }
             }
         },
