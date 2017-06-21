@@ -12,6 +12,7 @@ define([
     let src = '';
     let item = '';
     let indexTickets = {};
+    let timeout = 0;
 
     const $el = $('#indexTurntable');
     const TURNTABLE_DEG = {
@@ -26,6 +27,7 @@ define([
     resultTemp = utils.tempRemoveBlank(resultTemp);
 
     const hide = () => {
+        clearTimeout(timeout);
         $('html').toggleClass('no-scroll');
         $el.find('.index-turntable').fadeOut(200);
         utils.removeBackListener();
@@ -45,6 +47,8 @@ define([
 
         $el.find('.index-turntable').show();
         utils.backListener(hide);
+        // 箭头闪现
+        arrowFlash(3);
     };
     const setBtnClass = (pre, next) => {
         const $operation = $el.find('.opt-btn');
@@ -54,15 +58,8 @@ define([
         }
     };
     const showPrizes = (num) => {
-        const $prizeShow = $('.prize-show');
         $('.disc-show').hide();
-        if (num && num !== 6) {
-            $prizeShow.find(`.prizes.prizes-${num}`).css('display', 'inline-block');
-            $prizeShow.find(`.light-icon`).css('display', 'inline-block');
-        } else {
-            $prizeShow.find(`.no-light-icon`).css('display', 'inline-block');
-        }
-        $prizeShow.show();
+        $.tmpl(resultTemp, {num, loc: loc.prizeTip}).appendTo($el.find('.prize-show'));
     };
     const getRotateZDeg = (num) => {
         let offset = 0;
@@ -75,6 +72,18 @@ define([
         offset = offset % 2 ? offset : offset * -1;
 
         return 390 - 60 * num + 720 + offset;
+    };
+
+    const arrowFlash = (num) => {
+        if (num >= 0) {
+            setBtnClass('pointer-icon', 'pointer-action-icon');
+            setTimeout(function () {
+                setBtnClass('pointer-action-icon', 'pointer-icon');
+            }, 100);
+            setTimeout(function () {
+                arrowFlash(num - 1);
+            }, 200);
+        }
     };
 
     // 按钮按下事件
@@ -131,7 +140,7 @@ define([
                         $operation.addClass('operation');
                     } else {
                         setBtnClass('pointer-run-icon', 'pointer-action-icon');
-                        setTimeout(function () {
+                        timeout = setTimeout(function () {
                             showPrizes(num);
                         }, 3000);
                     }

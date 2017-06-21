@@ -189,7 +189,10 @@ define(['jquery'], function ($) {
                 .replace(/}\s+{/g, '}{');
         },
         loadImage(url) {
-            $('body').append(`<img src="${url}" style="display: none;">`);
+            const images = new Image();
+            images.src = url;
+            $('body').append(`<img src="${images.src}" style="display: none;">`);
+            return images;
         },
         // YeeCall
         setCookie(callback) {

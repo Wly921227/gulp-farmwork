@@ -1,0 +1,25 @@
+{{if num === 6}}
+<div class="no-light-icon disc-icon middle">
+    <div class="prizes-no">
+        <div class="text">${loc.no}</div>
+        <div class="prizes-no-icon prizes-icon"></div>
+        <div class="share">
+            <div class="icon icon-share share-btn">${loc.noShare}</div>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="light-icon disc-icon middle">
+    <div class="prizes-${num} prizes">
+        <div class="text">${loc[num]}</div>
+        <div class="prizes-had-icon prizes-icon">
+            <div class="prizes-iphone-icon prizes-icon"></div>
+        </div>
+        <div class="tips">${loc.tips}</div>
+        <div class="call-us">${loc.callUs}</div>
+        <div class="share">
+            <div class="icon icon-share share-btn">${loc.share}</div>
+        </div>
+    </div>
+</div>
+{{/if}}

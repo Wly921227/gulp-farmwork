@@ -7,10 +7,10 @@
             <div class="massage-box">
                 {{if !status || !status['001']}}
                 <!-- 邀请进度中 -->
-                <div class="msg">${ticketLoc.unSuccessTip(num)}</div>
+                <div class="msg">${ticketLoc.unSuccessTip(3)}</div>
                 {{else status['001'] === 1}}
                 <!-- 有抽奖资格 -->
-                <div class="msg">${ticketLoc.successTip(num, true)}</div>
+                <div class="msg">${ticketLoc.successTip(3, true)}</div>
                 {{else status['001'] === 2 && prize['001']}}
                 <!-- 中奖 -->
                 <div class="msg win">${ticketLoc.winning.tip(prize['001'])}</div>
@@ -77,7 +77,7 @@
                 <div class="msg">${ticketLoc.unSuccessTip2(10)}<br/><span>${ticketLoc.tipTwo2}</span></div>
                 {{else status['002'] === 1}}
                 <!-- 有抽奖资格 -->
-                <div class="msg">${ticketLoc.successTip(num)}</div>
+                <div class="msg">${ticketLoc.successTip(10)}</div>
                 {{else status['002'] === 2 && prize['002']}}
                 <!-- 中奖 -->
                 <div class="msg win">${ticketLoc.winning.tip(prize['002'])}</div>
