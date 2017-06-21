@@ -48,7 +48,7 @@ define([
         $el.find('.index-turntable').show();
         utils.backListener(hide);
         // 箭头闪现
-        arrowFlash(3);
+        arrowFlash(3, 300);
     };
     const setBtnClass = (pre, next) => {
         const $operation = $el.find('.opt-btn');
@@ -59,6 +59,8 @@ define([
     };
     const showPrizes = (num) => {
         $('.disc-show').hide();
+        // 显示关闭按钮
+        $el.find('.close').show();
         $.tmpl(resultTemp, {num, loc: loc.prizeTip}).appendTo($el.find('.prize-show'));
     };
     const getRotateZDeg = (num) => {
@@ -74,15 +76,15 @@ define([
         return 390 - 60 * num + 720 + offset;
     };
 
-    const arrowFlash = (num) => {
+    const arrowFlash = (num, time) => {
         if (num >= 0) {
             setBtnClass('pointer-icon', 'pointer-action-icon');
             setTimeout(function () {
                 setBtnClass('pointer-action-icon', 'pointer-icon');
-            }, 100);
+            }, time);
             setTimeout(function () {
-                arrowFlash(num - 1);
-            }, 200);
+                arrowFlash(num - 1, time);
+            }, time * 2);
         }
     };
 
@@ -105,6 +107,8 @@ define([
         $turntable.css('transform', `rotateZ(0deg)`);
         // 移除抽奖按钮事件
         $operation.removeClass('operation');
+        // 隐藏关闭按钮
+        $el.find('.close').hide();
         // 抽奖事件
         console.log(item);
         http.get(urls.sendDraw, {
@@ -142,7 +146,7 @@ define([
                         setBtnClass('pointer-run-icon', 'pointer-action-icon');
                         timeout = setTimeout(function () {
                             showPrizes(num);
-                        }, 3000);
+                        }, 1500);
                     }
                 }, 3500);
             }, 20);

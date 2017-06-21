@@ -49,6 +49,7 @@ window.requirejs(['common'], function () {
             indexTurntable.doInit(loc, turntableImg, indexTickets);
             // 隐藏loading
             setTimeout(loading.hide, 2000);
+            utils.callUs();
         });
     });
 });

@@ -187,6 +187,12 @@ define(['jquery'], function ($) {
             return images;
         },
         // YeeCall
+        callUs(email) {
+            $('body').on('click', '.call-us', function (event) {
+                event.preventDefault();
+                window.location.href = `mailto:${email || ''}`;
+            });
+        },
         setCookie(callback) {
             if (inYeeCall) {
                 const self = this;
