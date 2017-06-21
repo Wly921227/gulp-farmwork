@@ -32,8 +32,9 @@ window.requirejs(['common'], function () {
             'modules/indexPrizeList',
             'modules/indexWinners',
             'modules/indexTurntable',
-            'modules/loading'
-        ], function (loc, loadLoc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners, indexTurntable, loading) {
+            'modules/loading',
+            'modules/tipArrow'
+        ], function (loc, loadLoc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners, indexTurntable, loading, tipArrow) {
             window.INDEX_LOC = loc;
             utils.setTitle(loc);
             loading.doInit(loadLoc);
@@ -48,7 +49,10 @@ window.requirejs(['common'], function () {
             indexPrizeList.doInit(loc);
             indexTurntable.doInit(loc, turntableImg, indexTickets);
             // 隐藏loading
-            setTimeout(loading.hide, 2000);
+            setTimeout(function () {
+                loading.hide();
+                tipArrow.doInit();
+            }, 2000);
             utils.callUs();
         });
     });

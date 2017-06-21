@@ -24,6 +24,29 @@ html.no-scroll {
   -webkit-tap-highlight-color: transparent;
 }
 
+@tip-bg: rgba(10, 10, 73, .4);
+
+.tip-arrow {
+  text-align: center;
+  box-sizing: border-box;
+  margin-left: -1.5rem;
+  background: @tip-bg;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 1rem;
+  height: 3rem;
+  width: 3rem;
+  left: 50%;
+  .arr-down {
+    display: inline-block;
+    margin-top: .9rem;
+    width: 40%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
 .middle {
   vertical-align: middle;
   display: inline-block;
@@ -126,7 +149,7 @@ html.no-scroll {
 }
 
 .small-icon {
-  background: url(../images/small-icons.png) no-repeat;
+  background: url(../images/small-icon.png) no-repeat;
   display: inline-block;
   &.icon-start {
     background-position: 0 0;
