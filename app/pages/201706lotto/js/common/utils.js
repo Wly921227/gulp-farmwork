@@ -5,18 +5,6 @@ define(['jquery'], function ($) {
     const isOffline = location.href.indexOf('.debug') > -1 || location.href.indexOf('10.18.101.') > -1;
     const iosDownloadUrl = 'https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8';
     const androidDownloadUrl = 'market://details?id=com.yeecall.app';
-    // let hasCordova = false;
-    let hasCordova = true;
-    const debug = () => {
-        if (cordova && cordova.exec && typeof cordova.exec === 'function') {
-            hasCordova = true;
-        } else {
-            setTimeout(debug, 20);
-        }
-    };
-    if (location.href.indexOf('.debug') > -1 && inYeeCall) {
-        debug();
-    }
     let backCB = () => {
     };
     return {
@@ -169,13 +157,13 @@ define(['jquery'], function ($) {
             }
             if (!isAndroid && inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.setTitle && hasCordova) {
+                try {
                     window.YC.setTitle({
                         title: loc.title
                     });
-                } else {
+                } catch (e) {
                     setTimeout(function () {
-                        self.setTitle(loc.title);
+                        self.setTitle(loc);
                     }, 20);
                 }
             }
@@ -202,7 +190,7 @@ define(['jquery'], function ($) {
         setCookie(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.getCookie && hasCordova) {
+                try {
                     window.YC.getCookie({
                         success: function (res) {
                             if (res) {
@@ -217,7 +205,7 @@ define(['jquery'], function ($) {
                             // alert('用户信息获取失败，请重新打开');
                         }
                     });
-                } else {
+                } catch (e) {
                     setTimeout(self.setCookie, 20);
                 }
             }
@@ -225,7 +213,7 @@ define(['jquery'], function ($) {
         getFriendCnt(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.getFriendCnt && hasCordova) {
+                try {
                     window.YC.getFriendCnt({
                         success: function (cnt) {
                             window.FRIENDCNT = cnt;
@@ -237,8 +225,7 @@ define(['jquery'], function ($) {
                             console.log(err);
                         }
                     });
-                }
-                else {
+                } catch (e) {
                     setTimeout(function () {
                         self.getFriendCnt(callback);
                     }, 20);
@@ -248,7 +235,7 @@ define(['jquery'], function ($) {
         getUserName(callback) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.getUserName && hasCordova) {
+                try {
                     window.YC.getUserName({
                         success: function (name) {
                             window.USERNAME = name;
@@ -258,8 +245,7 @@ define(['jquery'], function ($) {
                             console.log(err);
                         }
                     });
-                }
-                else {
+                } catch (e) {
                     setTimeout(function () {
                         self.getUserName(callback);
                     }, 20);
@@ -269,9 +255,9 @@ define(['jquery'], function ($) {
         hideNav(flag) {
             if (inYeeCall) {
                 const self = this;
-                if (window.YC && window.YC.hideNav && hasCordova) {
+                try {
                     window.YC.hideNav(flag);
-                } else {
+                } catch (e) {
                     setTimeout(function () {
                         self.hideNav(flag);
                     }, 20);

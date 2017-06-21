@@ -1,4 +1,10 @@
 define(['jquery', 'urls'], function ($, urls) {
+    const errorCB = (a) => {
+        if (a.status !== 200) {
+            alert(INDEX_LOC.error);
+        }
+    };
+
     const makeOpt = (type, data, callback, error) => {
         let opt = {
             type: type,
@@ -14,10 +20,10 @@ define(['jquery', 'urls'], function ($, urls) {
                 opt.data = data;
             }
             opt.callback = callback;
-            opt.error = error;
+            opt.error = error || errorCB;
         } else if (data && typeof data === 'function') {
             opt.callback = data;
-            opt.error = callback;
+            opt.error = callback || errorCB;
         }
 
         return opt;

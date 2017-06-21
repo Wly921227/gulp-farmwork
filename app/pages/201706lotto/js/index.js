@@ -10,7 +10,6 @@ window.requirejs(['common'], function () {
             window.location.href = './share.html' + window.location.search;
         }
         const loc = utils.getLocCode();
-        window.INDEX_LOC = loc;
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
         utils.hideNav(true);
@@ -35,6 +34,7 @@ window.requirejs(['common'], function () {
             'modules/indexTurntable',
             'modules/loading'
         ], function (loc, loadLoc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners, indexTurntable, loading) {
+            window.INDEX_LOC = loc;
             utils.setTitle(loc);
             loading.doInit(loadLoc);
             utils.setCookie(function () {
