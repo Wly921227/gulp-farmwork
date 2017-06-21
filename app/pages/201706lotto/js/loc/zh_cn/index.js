@@ -1,6 +1,6 @@
 define(function () {
     const PRIZE = {
-        1: '一部iPhone7',
+        1: 'iPhone7一台',
         2: '100元话费卡',
         3: '50元话费卡',
         4: '10元话费卡'
@@ -29,7 +29,7 @@ define(function () {
             },
             lotto: '立即抽奖',
             unWinning: {
-                tip: '很遗憾您本次未中奖！',
+                tip: '真可惜你本次未中奖！',
                 text: '感谢参与'
             },
             winning: {

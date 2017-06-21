@@ -1,51 +1,51 @@
 define(function () {
     const PRIZE = {
-        1: '一部iPhone7',
-        2: '100元话费卡',
-        3: '50元话费卡',
-        4: '10元话费卡'
+        1: 'iPhone7',
+        2: 'كارت الشحن بمبلغ 100',
+        3: 'كارت الشحن بمبلغ 50',
+        4: 'كارت الشحن بمبلغ 10'
     };
 
     return {
-        title: '邀好友赢大奖',
+        title: 'دعوة الأصدقاء لفوز ب iPhone7',
         banner(name){
-            return `您的好友${name}正在参加`
+            return `يقوم صديقك ${name} بالاشتراك في`
         },
-        banner2: '邀请WhatsApp好友加入YeeCall抽取iPhone7大奖！',
-        shareButton: '我也要参加这个活动',
+        banner2: 'دعوة أصدقاء من WhatsApp للانضمام إلى YeeCall لانتزاع جائزة iPhone7',
+        shareButton: 'سأقوم بالاشتراك',
         prize: {
-            title: '奖项设置',
+            title: 'قائمة الجوائز',
             list: [{
-                level: '一等奖',
+                level: 'الجائزة الأولى',
                 name: 'iPhone 7',
                 price: '6999'
             }, {
-                level: '二等奖',
-                name: '100话费充值卡',
+                level: 'الجائزة الثانية',
+                name: 'كارت الشحن بمبلغ 100',
                 price: '100'
             }, {
-                level: '三等奖',
-                name: '50话费充值卡',
+                level: 'الجائزة الثالثة',
+                name: 'كارت الشحن بمبلغ 50',
                 price: '50'
             }]
         },
         winnerList: {
-            title: '获奖名单',
+            title: 'المستخدمون الفائزون',
             prize(id) {
-                return `抽到${PRIZE[id]}`;
+                return `الفوز ب${PRIZE[id]}`;
             }
         },
         join: {
-            title: '我该如何参与活动？',
+            title: '‫كيف أشارك في الأنشطة ؟',
             tip1: {
-                text: '下载并安装最新版YeeCall',
-                btn: '下载YeeCall'
+                text: 'تحميل وتثبيت برنامج YeeCall النسخة الاخيرة',
+                btn: 'تحميل YeeCall'
             },
             tip2: {
-                text: '主界面进入活动参与抽奖',
+                text: 'تدخول الى الأنشطة في الصفحة الرئيسية للاشتراك في اليانصيب',
                 btn: 'وة الأصدقاء للفوز ب iPhone 7'
             },
-            open: '已经安装？点击这里'
+            open: 'تم تثبيته بالفعل ؟ اضغط هنا'
         }
     }
 });

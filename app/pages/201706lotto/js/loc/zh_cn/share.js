@@ -1,6 +1,6 @@
 define(function () {
     const PRIZE = {
-        1: '一部iPhone7',
+        1: 'iPhone7一台',
         2: '100元话费卡',
         3: '50元话费卡',
         4: '10元话费卡'
