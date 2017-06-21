@@ -24,8 +24,6 @@ define([
                             time: utils.dateFormat(item.ctime, 'YYYY.MM.DD H:M')
                         });
                     }
-                } else {
-                    utils.setCookie();
                 }
                 $.tmpl(temp, {
                     winnerLoc,

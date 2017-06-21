@@ -37,7 +37,6 @@
         box-sizing: border-box;
         display: inline-block;
         padding-left: 1.7rem;
-        padding-right: 2rem;
         position: absolute;
         text-align: left;
         width: 16.5rem;
@@ -78,10 +77,12 @@
           display: inline-block;
           border-radius: .7rem;
           line-height: 1.4rem;
+          margin-top: .3rem;
           font-size: .9rem;
           color: @text-btn;
           padding: 0 .8rem;
           height: 1.4rem;
+          float: left;
         }
       }
       .operation-box {
@@ -161,15 +162,15 @@
             color: @text-btn;
           }
           &.win {
-            .iphone {
-              margin-top: .7rem;
-            }
             .prize {
-              margin-top: .2rem;
-              margin-bottom: -.5rem;
+              &.iphone {
+                margin-top: .7rem;
+              }
             }
             .text {
-              margin-top: -.2rem;
+              position: absolute;
+              bottom: 0.4rem;
+              width: 100%;
             }
           }
         }

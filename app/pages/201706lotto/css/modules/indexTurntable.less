@@ -5,7 +5,7 @@
 @text-prize-call-us: #92ff00;
 
 @degree: 60;
-@time-out: 4;
+@time-out: 1;
 
 .index-turntable {
   display: none;
@@ -13,9 +13,11 @@
     background: @cover-bg;
     text-align: center;
     position: fixed;
-    height: 100%;
-    width: 100%;
+    //height: 100%;
+    //width: 100%;
     z-index: 5;
+    bottom: 0;
+    right: 0;
     left: 0;
     top: 0;
     .disc-show {
@@ -56,14 +58,16 @@
           &.running {
             .start-animation(start-rotation, e("@{time-out}s"));
           }
-          //.stop-animation(360 / @degree);
         }
         .opt-btn {
-          margin-left: -3.885rem;
+          margin-left: -4.5rem;
           margin-top: -5rem;
           position: absolute;
           left: 50%;
           top: 50%;
+          &.pointer-run-icon {
+            margin-top: -5.5rem;
+          }
         }
       }
     }
@@ -130,43 +134,11 @@
     }
     .close {
       position: absolute;
-      right: 2rem;
       top: 2rem;
+      right: 0;
     }
   }
 }
-
-//.stop-rotation(@degree, @num) {
-//  0% {
-//    transform: rotateZ(0);
-//  }
-//  100% {
-//    transform: rotateZ(750deg - @degree * @num);
-//  }
-//}
-//
-//.stop-animation(@num: 0) when (isnumber(@num)) and (@num > 0) {
-//  @name: e("stop-animate-@{num}");
-//
-//  &.stop-@{num} {
-//    -webkit-animation: @name 2s ease-out 1 forwards;
-//    -o-animation: @name 2s ease-out 1 forwards;
-//    animation: @name 2s ease-out 1 forwards;
-//  }
-//  @-webkit-keyframes @name {
-//    .stop-rotation(@degree, @num);
-//  }
-//  @-ms-keyframes @name {
-//    .stop-rotation(@degree, @num);
-//  }
-//  @-o-keyframes @name {
-//    .stop-rotation(@degree, @num);
-//  }
-//  @keyframes @name {
-//    .stop-rotation(@degree, @num);
-//  }
-//  .stop-animation(@num - 1);
-//}
 
 .start-animation(@amt-name, @time) {
   -webkit-animation: @amt-name @time linear 1 forwards;

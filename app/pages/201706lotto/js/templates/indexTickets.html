@@ -10,13 +10,13 @@
                 <div class="msg">${ticketLoc.unSuccessTip(num)}</div>
                 {{else status['001'] === 1}}
                 <!-- 有抽奖资格 -->
-                <div class="msg">${ticketLoc.successTip(num)}</div>
+                <div class="msg">${ticketLoc.successTip(num, true)}</div>
                 {{else status['001'] === 2 && prize['001']}}
                 <!-- 中奖 -->
                 <div class="msg win">${ticketLoc.winning.tip(prize['001'])}</div>
                 <div class="text">${ticketLoc.winning.callYC}</div>
                 <div class="call-us">${ticketLoc.winning.callUs}</div>
-                {{else status['001'] === 3}}
+                {{else}}
                 <!-- 未中奖 -->
                 <div class="msg">${ticketLoc.unWinning.tip}</div>
                 {{/if}}
@@ -38,14 +38,14 @@
                 {{else status['001'] === 1}}
                 <!-- 有抽奖资格 -->
                 <div class="btn draw icon icon-draw-btn" data-item="001">
-                    <div class="gift icon icon-gift"></div>
+                    <div class="gift small-icon icon-gift"></div>
                     <div class="text">${ticketLoc.lotto}</div>
                 </div>
                 {{else status['001'] === 2 && prize['001']}}
                 <!-- 中奖 -->
                 <div class="btn win icon icon-draw-btn">
                     {{if prize['001'] == 1}}
-                    <i class="prize iphone icon icon-prize-iphone"></i>
+                    <i class="prize iphone small-icon icon-prize-iphone"></i>
                     {{else prize['001'] == 2}}
                     <i class="prize icon icon-prize-100"></i>
                     {{else prize['001'] == 3}}
@@ -55,10 +55,10 @@
                     {{/if}}
                     <div class="text">${ticketLoc.winning.share}</div>
                 </div>
-                {{else status['001'] === 3}}
+                {{else}}
                 <!-- 未中奖 -->
                 <div class="shadow un-win">
-                    <div class="start icon icon-start"></div>
+                    <div class="start small-icon icon-start"></div>
                     <div class="text">${ticketLoc.unWinning.text}</div>
                 </div>
                 {{/if}}
@@ -80,10 +80,10 @@
                 <div class="msg">${ticketLoc.successTip(num)}</div>
                 {{else status['002'] === 2 && prize['002']}}
                 <!-- 中奖 -->
-                <div class="msg win">${ticketLoc.winning.tip(prize)}</div>
+                <div class="msg win">${ticketLoc.winning.tip(prize['002'])}</div>
                 <div class="text">${ticketLoc.winning.callYC}</div>
                 <div class="call-us">${ticketLoc.winning.callUs}</div>
-                {{else status['002'] === 3}}
+                {{else}}
                 <!-- 未中奖 -->
                 <div class="msg">${ticketLoc.unWinning.tip}</div>
                 {{/if}}
@@ -92,7 +92,7 @@
                 {{if num < 3 }}
                 <!-- 锁定 -->
                 <div class="shadow">
-                    <div class="lock icon icon-lock"></div>
+                    <div class="lock small-icon icon-lock"></div>
                 </div>
                 {{else !status || !status['002']}}
                 <!-- 邀请进度中 -->
@@ -110,14 +110,14 @@
                 {{else status['002'] === 1}}
                 <!-- 有抽奖资格 -->
                 <div class="btn draw icon icon-draw-btn" data-item="002">
-                    <div class="gift icon icon-gift"></div>
+                    <div class="gift small-icon icon-gift"></div>
                     <div class="text">${ticketLoc.lotto}</div>
                 </div>
                 {{else status['002'] === 2 && prize['002']}}
                 <!-- 中奖 -->
                 <div class="btn win icon icon-draw-btn">
                     {{if prize['002'] == 1}}
-                    <i class="prize iphone icon icon-prize-iphone"></i>
+                    <i class="prize iphone small-icon icon-prize-iphone"></i>
                     {{else prize['002'] == 2}}
                     <i class="prize icon icon-prize-100"></i>
                     {{else prize['002'] == 3}}
@@ -127,10 +127,10 @@
                     {{/if}}
                     <div class="text">${ticketLoc.winning.share}</div>
                 </div>
-                {{else status['002'] === 3}}
+                {{else}}
                 <!-- 未中奖 -->
                 <div class="shadow un-win">
-                    <div class="start icon icon-start"></div>
+                    <div class="start small-icon icon-start"></div>
                     <div class="text">${ticketLoc.unWinning.text}</div>
                 </div>
                 {{/if}}

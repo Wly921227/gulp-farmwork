@@ -5,7 +5,8 @@ define(['jquery'], function ($) {
     const isOffline = location.href.indexOf('.debug') > -1 || location.href.indexOf('10.18.101.') > -1;
     const iosDownloadUrl = 'https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8';
     const androidDownloadUrl = 'market://details?id=com.yeecall.app';
-    let hasCordova = false;
+    // let hasCordova = false;
+    let hasCordova = true;
     const debug = () => {
         if (cordova && cordova.exec && typeof cordova.exec === 'function') {
             hasCordova = true;
@@ -13,7 +14,7 @@ define(['jquery'], function ($) {
             setTimeout(debug, 20);
         }
     };
-    if (location.href.indexOf('.debug') > -1) {
+    if (location.href.indexOf('.debug') > -1 && inYeeCall) {
         debug();
     }
     let backCB = () => {
@@ -188,9 +189,7 @@ define(['jquery'], function ($) {
                 .replace(/}\s+{/g, '}{');
         },
         loadImage(url) {
-            const images = new Image();
-            images.src = url;
-            return images;
+            $('body').append(`<img src="${url}" style="display: none;">`);
         },
         // YeeCall
         setCookie(callback) {
@@ -292,7 +291,7 @@ define(['jquery'], function ($) {
         share(share, username) {
             const paths = location.pathname.split('/');
             paths.pop();
-            const link = `${location.origin}${paths.join('/')}/share.html?name=${encodeURI(username || window.USERNAME)}`;
+            const link = `${location.origin}${paths.join('/')}/index.html?name=${encodeURI(username || window.USERNAME)}`;
             const obj = {
                 title: share.title,
                 desc: share.desc,

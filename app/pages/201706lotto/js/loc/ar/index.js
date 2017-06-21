@@ -21,7 +21,10 @@ define(function () {
             tipTwo2: '中奖几率翻倍！',
             invited: '已邀请',
             unit: '位',
-            successTip(num) {
+            successTip(num, flag) {
+                if (flag && num > 3) {
+                    num = 3;
+                }
                 return `您已成功邀请${num}位好友！`;
             },
             lotto: '立即抽奖',
@@ -63,6 +66,7 @@ define(function () {
         },
         prizeTip: {
             no: '再接再厉，继续邀请好友期待下一次能中奖！',
+            no2: 'شكرا على مشاركتك في هذا النشاط ولعلك فائز مرة تالية.',
             1: '恭喜你，抽中一部 iPhone 7！',
             2: '恭喜你，中了100话费 ！',
             3: '恭喜你，中了50话费 ！',
@@ -75,6 +79,7 @@ define(function () {
         share: {
             title: '邀好友赢iPhone7',
             desc: '邀请好友加入YeeCall有机会抽取大奖iPhone7'
-        }
+        },
+        error: 'خطأ في اتصال الشبكة'
     }
 });

@@ -28,13 +28,13 @@ define([
     });
 
     return {
-        doInit(loc, cnt, loading) {
+        doInit(loc, cnt) {
             http.get(urls.getUserLotto, {
                 friendCnt: cnt
             }, function (result) {
                 if (result) {
-                    const num = cnt - result.initFriends;
-                    const status = result.lotteryStatus;
+                    let num = cnt - result.initFriends;
+                    const status = result.lotteryStatus || {};
                     let prize = {};
                     if (result.lotteryRecord) {
                         for (let key in result.lotteryRecord) {
@@ -42,6 +42,12 @@ define([
                             prize[key] = utils.getPrizeById(item);
                         }
                     }
+                    // // TODO 测试奖品
+                    status['001'] = 3;
+                    prize['001'] = 1;
+                    status['002'] = 1;
+                    prize['002'] = 2;
+                    num = 10;
                     // 语言
                     const ticketLoc = loc.ticket;
                     $el.html('');
@@ -57,10 +63,6 @@ define([
                         event.preventDefault();
                         utils.share(loc.share, window.USERNAME);
                     });
-                }
-                // 隐藏loading
-                if (loading) {
-                    setTimeout(loading.hide, 1000);
                 }
             });
         }

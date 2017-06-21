@@ -7,15 +7,18 @@ window.requirejs(['common'], function () {
         'utils',
     ], function (utils) {
         if (!utils.inYeeCall) {
-            window.location.href = './share.html';
+            window.location.href = './index.html' + window.location.search;
         }
         const loc = utils.getLocCode();
+        window.INDEX_LOC = loc;
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
         utils.hideNav(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');
         utils.loadImage('./images/prize-icon.png');
+        utils.loadImage('./images/small-icon.png');
+        utils.loadImage('./images/arrow-icon.png');
         utils.loadImage('./images/disc-bg.png');
         utils.loadImage('./images/close.png');
         utils.loadImage('./images/loading.png');
@@ -37,13 +40,15 @@ window.requirejs(['common'], function () {
             utils.setCookie(function () {
                 indexWinners.doInit(loc);
                 utils.getFriendCnt(function (cnt) {
-                    indexTickets.doInit(loc, cnt, loading);
+                    indexTickets.doInit(loc, cnt);
                 });
             });
             indexBanner.doInit(loc);
             indexShare.doInit(loc);
             indexPrizeList.doInit(loc);
             indexTurntable.doInit(loc, turntableImg, indexTickets);
+            // 隐藏loading
+            setTimeout(loading.hide, 2000);
         });
     });
 });

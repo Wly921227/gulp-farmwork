@@ -1,11 +1,12 @@
 define([
     'jquery',
     'text!templates/indexTurntable.html',
+    'text!templates/indexResult.html',
     'utils',
     'http',
     'urls',
     'temp'
-], function ($, temp, utils, http, urls) {
+], function ($, temp, resultTemp, utils, http, urls) {
     let num = 0;
     let loc = {};
     let src = '';
@@ -22,6 +23,8 @@ define([
         6: 6,
     };
     temp = utils.tempRemoveBlank(temp);
+    resultTemp = utils.tempRemoveBlank(resultTemp);
+
     const hide = () => {
         $('html').toggleClass('no-scroll');
         $el.find('.index-turntable').fadeOut(200);
@@ -130,7 +133,7 @@ define([
                         setBtnClass('pointer-run-icon', 'pointer-action-icon');
                         setTimeout(function () {
                             showPrizes(num);
-                        }, 500);
+                        }, 3000);
                     }
                 }, 3500);
             }, 20);
