@@ -161,17 +161,21 @@ define(['jquery'], function ($) {
         toDou(n) {
             return n < 10 ? '0' + n : '' + n;
         },
-        setTitle(title) {
-            $('title').html(title);
-            if (!isAndroid) {
+        setTitle(loc) {
+            $('title').html(loc.title);
+            if (loc.share) {
+                $('meta[name="keywords"]').html(loc.share.title);
+                $('meta[name="description"]').html(loc.share.desc);
+            }
+            if (!isAndroid && inYeeCall) {
                 const self = this;
                 if (window.YC && window.YC.setTitle && hasCordova) {
                     window.YC.setTitle({
-                        title: title
+                        title: loc.title
                     });
                 } else {
                     setTimeout(function () {
-                        self.setTitle(title);
+                        self.setTitle(loc.title);
                     }, 20);
                 }
             }
