@@ -37,13 +37,13 @@
                 </div>
                 {{else status['001'] === 1}}
                 <!-- 有抽奖资格 -->
-                <div class="btn draw small-icon icon-draw-btn" data-item="001">
+                <div class="btn draw btn-icon icon-draw-btn" data-item="001">
                     <div class="gift small-icon icon-gift"></div>
                     <div class="text">${ticketLoc.lotto}</div>
                 </div>
                 {{else status['001'] === 2 && prize['001']}}
                 <!-- 中奖 -->
-                <div class="btn win small-icon icon-draw-btn">
+                <div class="btn win btn-icon icon-draw-btn">
                     {{if prize['001'] == 1}}
                     <i class="prize iphone small-icon icon-prize-iphone"></i>
                     {{else prize['001'] == 2}}
@@ -109,13 +109,13 @@
                 </div>
                 {{else status['002'] === 1}}
                 <!-- 有抽奖资格 -->
-                <div class="btn draw small-icon icon-draw-btn" data-item="002">
+                <div class="btn draw btn-icon icon-draw-btn" data-item="002">
                     <div class="gift small-icon icon-gift"></div>
                     <div class="text">${ticketLoc.lotto}</div>
                 </div>
                 {{else status['002'] === 2 && prize['002']}}
                 <!-- 中奖 -->
-                <div class="btn win small-icon icon-draw-btn">
+                <div class="btn win btn-icon icon-draw-btn">
                     {{if prize['002'] == 1}}
                     <i class="prize iphone small-icon icon-prize-iphone"></i>
                     {{else prize['002'] == 2}}

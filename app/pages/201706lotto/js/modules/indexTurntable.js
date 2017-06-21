@@ -61,7 +61,7 @@ define([
         $('.disc-show').hide();
         // 显示关闭按钮
         $el.find('.close').show();
-        $.tmpl(resultTemp, {num, loc: loc.prizeTip}).appendTo($el.find('.prize-show'));
+        $.tmpl(resultTemp, {num, item, loc: loc.prizeTip}).appendTo($el.find('.prize-show'));
     };
     const getRotateZDeg = (num) => {
         let offset = 0;
