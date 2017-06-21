@@ -75,12 +75,11 @@ define([
 
         return 390 - 60 * num + 720 + offset;
     };
-
     const arrowFlash = (num, time) => {
         if (num >= 0) {
-            setBtnClass('pointer-icon', 'pointer-action-icon');
+            setBtnClass('pointer-icon', 'pointer-flash-icon');
             setTimeout(function () {
-                setBtnClass('pointer-action-icon', 'pointer-icon');
+                setBtnClass('pointer-flash-icon', 'pointer-icon');
             }, time);
             setTimeout(function () {
                 arrowFlash(num - 1, time);

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="test"></div>
+<script src="./js/jquery.js"></script>
+<script src="./js/jquery.rules.js"></script>
+<script>
+    var data = '{' +
+        '"$eq": "4.0.0", "$in": ["4.0.1", "4.0.2", "4.0.3"], ' +
+        '"test": {"$eq": "4.0.0", "$in": ["4.0.1", "4.0.2", "4.0.3"]}' +
+        '}';
+
+    console.log(data);
+    $('.test').rules({
+//        key: 'rule',
+//        value: data
+    });
+</script>
+</body>
+</html>
