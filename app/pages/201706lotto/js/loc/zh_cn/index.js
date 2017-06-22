@@ -36,7 +36,7 @@ define(function () {
                 tip(id) {
                     return `恭喜你，抽中 ${PRIZE[id]}！`
                 },
-                callYC: 'YeeCall 工作人员会在 3 个工作日内联系你',
+                callYC: 'YeeCall工作人员会在3个工作日内联系你',
                 callUs: '联系我们',
                 share: '分享好友'
             }
@@ -73,7 +73,7 @@ define(function () {
             4: '恭喜你，中了10话费 ！',
             noShare: '邀请 WhatsApp 好友',
             share: '告诉好友一起来玩',
-            tips: 'YeeCall 工作人员会通过 YeeCall  team 在 3 个工作日内联系你',
+            tips: 'YeeCall工作人员会通过YeeCall team在3个工作日内联系你',
             callUs: '联系我们'
         },
         share: {

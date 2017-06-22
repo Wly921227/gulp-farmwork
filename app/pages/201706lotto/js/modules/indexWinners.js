@@ -34,7 +34,10 @@ define([
                 $el.find('.winner-list ul').liMarquee({
                     scrollamount: 30,
                     direction: 'up',
-                    circular: true
+                    circular: true,
+                    hoverstop: false,
+                    drag: false,
+                    loop: -1
                 });
             });
         }

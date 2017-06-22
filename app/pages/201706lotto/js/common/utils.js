@@ -188,10 +188,10 @@ define(['jquery'], function ($) {
         },
         // YeeCall
         callUs(email) {
-            $('body').on('click', '.call-us', function (event) {
-                event.preventDefault();
-                // window.location.href = `mailto:${email || '2017winiphone@yeecall.com'}`;
-            });
+            // $('body').on('click', '.call-us', function (event) {
+            //     event.preventDefault();
+            // window.location.href = `mailto:${email || '2017winiphone@yeecall.com'}`;
+            // });
         },
         setCookie(callback) {
             if (inYeeCall) {

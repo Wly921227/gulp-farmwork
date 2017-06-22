@@ -53,7 +53,7 @@ window.requirejs(['common'], function () {
                 loading.hide();
                 tipArrow.doInit();
             }, 2000);
-            utils.callUs();
+            // utils.callUs();
         });
     });
 });
