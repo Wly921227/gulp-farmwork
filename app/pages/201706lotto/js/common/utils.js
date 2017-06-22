@@ -87,6 +87,7 @@ define(['jquery'], function ($) {
                     // return 'zh_tw';
                     return 'zh_cn';
                 } else if (/yclan\/ar/.test(ua)) {
+                    $('body').addClass('ar');
                     return 'ar';
                     // return 'zh_cn';
                 } else {
@@ -101,6 +102,7 @@ define(['jquery'], function ($) {
                     loc = navigator.browserLanguage.toLowerCase();
                 if (loc.indexOf('ar') > -1) {
                     // 阿语
+                    $('body').addClass('ar');
                     return 'ar';
                     // return 'zh_cn';
                 } else if (/zh/.test(loc) && /cn/.test(loc)) {
