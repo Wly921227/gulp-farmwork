@@ -13,11 +13,18 @@
                 <div class="msg">${ticketLoc.successTip(3, true)}</div>
                 {{else status['001'] === 2 && prize['001']}}
                 <!-- 中奖 -->
-                <div class="msg win">${ticketLoc.winning.tip(prize['001'])}</div>
-                <div class="text">${ticketLoc.winning.callYC}</div>
-                <div class="call-us">
-                    <a href="mailto:2017winiphone@yeecall.com">${ticketLoc.winning.callUs}</a>
+                <div class="middle had-win">
+                    <div class="msg win">${ticketLoc.winning.tip(prize['002'])}</div>
+                    <div class="text">${ticketLoc.winning.callYC}</div>
+                    <div class="call-us">
+                        <a href="mailto:2017winiphone@yeecall.com">${ticketLoc.winning.callUs}</a>
+                    </div>
                 </div>
+                <!--<div class="msg win">${ticketLoc.winning.tip(prize['001'])}</div>-->
+                <!--<div class="text">${ticketLoc.winning.callYC}</div>-->
+                <!--<div class="call-us">-->
+                <!--<a href="mailto:2017winiphone@yeecall.com">${ticketLoc.winning.callUs}</a>-->
+                <!--</div>-->
                 {{else}}
                 <!-- 未中奖 -->
                 <div class="msg">${ticketLoc.unWinning.tip}</div>
@@ -82,10 +89,12 @@
                 <div class="msg">${ticketLoc.successTip(10)}</div>
                 {{else status['002'] === 2 && prize['002']}}
                 <!-- 中奖 -->
-                <div class="msg win">${ticketLoc.winning.tip(prize['002'])}</div>
-                <div class="text">${ticketLoc.winning.callYC}</div>
-                <div class="call-us">
-                    <a href="mailto:2017winiphone@yeecall.com">${ticketLoc.winning.callUs}</a>
+                <div class="middle had-win">
+                    <div class="msg win">${ticketLoc.winning.tip(prize['002'])}</div>
+                    <div class="text">${ticketLoc.winning.callYC}</div>
+                    <div class="call-us">
+                        <a href="mailto:2017winiphone@yeecall.com">${ticketLoc.winning.callUs}</a>
+                    </div>
                 </div>
                 {{else}}
                 <!-- 未中奖 -->
