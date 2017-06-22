@@ -7,11 +7,11 @@ define(function () {
     };
 
     return {
-        title: '邀好友赢大奖',
+        title: '邀好友赢 iPhone7',
         banner(name){
             return `您的好友${name}正在参加`
         },
-        banner2: '邀请WhatsApp好友加入YeeCall抽取iPhone7大奖！',
+        banner2: '邀请 WhatsApp 好友加入 YeeCall\n抽取 iPhone7 大奖！',
         shareButton: '我也要参加这个活动',
         prize: {
             title: '奖项设置',
@@ -32,7 +32,7 @@ define(function () {
         winnerList: {
             title: '获奖名单',
             prize(id) {
-                return `抽到${PRIZE[id]}`;
+                return `抽到 ${PRIZE[id]}`;
             }
         },
         join: {

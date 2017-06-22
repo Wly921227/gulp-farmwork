@@ -190,7 +190,7 @@ define(['jquery'], function ($) {
         callUs(email) {
             $('body').on('click', '.call-us', function (event) {
                 event.preventDefault();
-                window.location.href = `mailto:${email || '2017winiphone@yeecall.com'}`;
+                // window.location.href = `mailto:${email || '2017winiphone@yeecall.com'}`;
             });
         },
         setCookie(callback) {

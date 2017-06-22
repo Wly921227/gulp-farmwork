@@ -66,7 +66,7 @@ define(function () {
         },
         prizeTip: {
             no: 'Invite friends to try again!',
-            no2: '谢谢参与本次活动，期待你下次赢取大奖',
+            no2: 'Thanks for joining us! See you soon and we hope you win bigger next time!',
             1: `Congratulations! You win ${PRIZE[1]}!`,
             2: `Congratulations! You win ${PRIZE[2]}!`,
             3: `Congratulations! You win ${PRIZE[3]}!`,

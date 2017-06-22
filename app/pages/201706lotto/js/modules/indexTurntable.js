@@ -42,7 +42,9 @@ define([
         // 移除动画
         const $turntable = $el.find('.turntable');
         $turntable.removeClass('running');
+        $turntable.css('-webkit-transform', 'rotateZ(0deg)');
         $turntable.css('transform', 'rotateZ(0deg)');
+
         $('html').toggleClass('no-scroll');
 
         $el.find('.index-turntable').fadeIn(200);
@@ -103,7 +105,8 @@ define([
         // 开始按钮样式
         setBtnClass('pointer-icon', 'pointer-run-icon');
         // 移除停止动画
-        $turntable.css('transform', `rotateZ(0deg)`);
+        $turntable.css('-webkit-transform', 'rotateZ(0deg)');
+        $turntable.css('transform', 'rotateZ(0deg)');
         // 移除抽奖按钮事件
         $operation.removeClass('operation');
         // 隐藏关闭按钮
@@ -137,6 +140,7 @@ define([
             // 随机角度
             const deg = getRotateZDeg(TURNTABLE_DEG[num]);
             setTimeout(function () {
+                $turntable.css('-webkit-transform', `rotateZ(${deg}deg)`);
                 $turntable.css('transform', `rotateZ(${deg}deg)`);
                 setTimeout(function () {
                     if (num === 5) {

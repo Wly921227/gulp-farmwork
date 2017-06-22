@@ -43,7 +43,8 @@ define(function () {
             },
             tip2: {
                 text: 'Enter this page to win',
-                btn: 'Invite friends to win iPhone 7'
+                btn: 'Invite friends to win iPhone 7',
+                class: ''
             },
             open: 'Installed YeeCall already? Open'
         }

@@ -43,6 +43,9 @@
           }
         }
         .turntable {
+          -webkit-transition: -webkit-transform 2.5s ease-out;
+          transition: -webkit-transform 2.5s ease-out;
+          -webkit-transition: transform 2.5s ease-out;
           transition: transform 2.5s ease-out;
           margin-left: -10.1rem;
           margin-top: -10.25rem;
@@ -138,28 +141,21 @@
 
 .start-animation(@amt-name, @time) {
   -webkit-animation: @amt-name @time linear 1 forwards;
-  -o-animation: @amt-name @time linear 1 forwards;
   animation: @amt-name @time linear 1 forwards;
 }
 
 .start-rotation() {
   0% {
+    -webkit-transform: rotateZ(0);
     transform: rotateZ(0);
   }
   100% {
-    transform: rotateZ(ceil(@time-out / .7) * 360deg);
+    -webkit-transform: rotateZ(ceil(@time-out / .9) * 360deg);
+    transform: rotateZ(ceil(@time-out / .9) * 360deg);
   }
 }
 
 @-webkit-keyframes start-rotation {
-  .start-rotation();
-}
-
-@-ms-keyframes start-rotation {
-  .start-rotation();
-}
-
-@-o-keyframes start-rotation {
   .start-rotation();
 }
 

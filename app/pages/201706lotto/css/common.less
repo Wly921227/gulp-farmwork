@@ -18,19 +18,28 @@ html.no-scroll {
 }
 
 * {
+  -webkit-text-size-adjust: 100%;
+  -webkit-appearance: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
   user-select: none;
   padding: 0;
   margin: 0;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
-@tip-bg: rgba(10, 10, 73, .4);
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+}
 
 .tip-arrow {
   text-align: center;
   box-sizing: border-box;
   margin-left: -1.5rem;
-  background: @tip-bg;
   border-radius: 50%;
   position: fixed;
   bottom: 1rem;

@@ -36,7 +36,7 @@ app.use('/', function (req, res) {
                     headers: {}
                 };
                 // cookie
-                if (req.headers.cookie.indexOf('user=') > -1) {
+                if (req.headers.cookie && req.headers.cookie.indexOf('user=') > -1) {
                     requestOpt.headers.cookie = req.headers.cookie;
                 }
                 else if (opt.cookie) {

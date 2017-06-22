@@ -7,15 +7,15 @@ define(function () {
     };
 
     return {
-        title: '邀好友赢大奖',
+        title: '邀好友赢 iPhone7',
         banner: '邀请WhatsApp好友加入YeeCall\n抽取iPhone7大奖！',
         ticket: {
             bg: '奖券',
             unSuccessTip(num) {
-                return `邀请${num}名好友加入YeeCall可抽奖一次`;
+                return `邀请 ${num} 名好友加入 YeeCall 可参与抽奖`;
             },
             unSuccessTip2(num) {
-                return `邀请${num}名好友加入YeeCall参与抽奖`;
+                return `邀请 ${num} 名好友加入 YeeCall 可参与抽奖`;
             },
             tipTwo: '完成第一张奖券任务可解锁这个抽奖任务',
             tipTwo2: '中奖几率翻倍！',
@@ -34,9 +34,9 @@ define(function () {
             },
             winning: {
                 tip(id) {
-                    return `恭喜您，抽中${PRIZE[id]}！`
+                    return `恭喜你，抽中 ${PRIZE[id]}！`
                 },
-                callYC: 'YeeCall工作人员会在1周内联系你',
+                callYC: 'YeeCall 工作人员会在 3 个工作日内联系你',
                 callUs: '联系我们',
                 share: '分享好友'
             }
@@ -61,7 +61,7 @@ define(function () {
         winnerList: {
             title: '获奖名单',
             prize(id) {
-                return `抽到${PRIZE[id]}`;
+                return `抽到 ${PRIZE[id]}`;
             }
         },
         prizeTip: {
@@ -73,7 +73,7 @@ define(function () {
             4: '恭喜你，中了10话费 ！',
             noShare: '邀请 WhatsApp 好友',
             share: '告诉好友一起来玩',
-            tips: 'YeeCall 工作人员会通过YeeCall  team 在3个工作日内联系你',
+            tips: 'YeeCall 工作人员会通过 YeeCall  team 在 3 个工作日内联系你',
             callUs: '联系我们'
         },
         share: {
