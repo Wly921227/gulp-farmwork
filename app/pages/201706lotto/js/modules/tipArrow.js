@@ -6,6 +6,10 @@ define([
 ], function ($, temp, utils) {
     const $el = $('#tipArrow');
     temp = utils.tempRemoveBlank(temp);
+    $el.on('webkitAnimationEnd', '.tip-arrow', function () {
+        const $this = $(this);
+        $this.hide();
+    });
 
     return {
         doInit() {

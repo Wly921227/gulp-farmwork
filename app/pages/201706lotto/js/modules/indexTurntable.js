@@ -61,6 +61,8 @@ define([
     };
     const showPrizes = (num) => {
         $('.disc-show').hide();
+        // 绑定返回事件
+        utils.backListener(hide);
         // 显示关闭按钮
         $el.find('.close').show();
         $.tmpl(resultTemp, {num, item, loc: loc.prizeTip}).appendTo($el.find('.prize-show'));
@@ -109,6 +111,8 @@ define([
         $turntable.css('transform', 'rotateZ(0deg)');
         // 移除抽奖按钮事件
         $operation.removeClass('operation');
+        // 取消返回按钮事件
+        utils.removeBackListener();
         // 隐藏关闭按钮
         $el.find('.close').hide();
         // 抽奖事件
