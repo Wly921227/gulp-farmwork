@@ -9,10 +9,11 @@ window.requirejs(['common'], function () {
         if (!utils.inYeeCall) {
             window.location.href = './share.html' + window.location.search;
         }
-        const loc = utils.getLocCode();
+        const _loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
         utils.hideNav(true);
+        // utils.hideMenu(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');
         utils.loadImage('./images/prize-icon.png');
@@ -22,10 +23,10 @@ window.requirejs(['common'], function () {
         utils.loadImage('./images/close.png');
         utils.loadImage('./images/loading.png');
         utils.loadImage('./images/loading-banner.png');
-        const turntableImg = utils.loadImage(`./images/disc-${loc}.png`);
+        const turntableImg = utils.loadImage(`./images/disc-${_loc}.png`);
         window.requirejs([
-            `loc/${loc}/index`,
-            `loc/${loc}/loading`,
+            `loc/${_loc}/index`,
+            `loc/${_loc}/loading`,
             'modules/indexBanner',
             'modules/indexTickets',
             'modules/indexShare',
@@ -39,7 +40,7 @@ window.requirejs(['common'], function () {
             utils.setTitle(loc);
             loading.doInit(loadLoc);
             utils.setCookie(function () {
-                indexWinners.doInit(loc);
+                indexWinners.doInit(loc, _loc);
                 utils.getFriendCnt(function (cnt) {
                     indexTickets.doInit(loc, cnt);
                 });

@@ -3,12 +3,21 @@
     <div class="winner-list">
         <ul>
             {{each(key, value) list}}
+            {{if value}}
             <li>
                 <div class="item">
                     <div class="text">${value.id + winnerLoc.prize(value.prize)}</div>
                     <div class="time">${value.time}</div>
                 </div>
             </li>
+            {{else}}
+            <li>
+                <div class="item">
+                    <div class="text"></div>
+                    <div class="time"></div>
+                </div>
+            </li>
+            {{/if}}
             {{/each}}
         </ul>
         <div class="cover-top"></div>

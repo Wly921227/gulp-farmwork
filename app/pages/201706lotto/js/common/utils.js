@@ -273,6 +273,18 @@ define(['jquery'], function ($) {
                 }
             }
         },
+        hideMenu(flag) {
+            if (inYeeCall) {
+                const self = this;
+                try {
+                    window.YC.hideMenu(flag);
+                } catch (e) {
+                    setTimeout(function () {
+                        self.hideMenu(flag);
+                    }, 20);
+                }
+            }
+        },
         downloadYeeCall() {
             if (isAndroid) {
                 window.location.href = androidDownloadUrl;

@@ -9,7 +9,7 @@ window.requirejs(['common'], function () {
         if (utils.inYeeCall) {
             window.location.href = './index.html';
         }
-        const loc = utils.getLocCode();
+        const _loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
         utils.hideNav(true);
@@ -18,8 +18,8 @@ window.requirejs(['common'], function () {
         utils.loadImage('./images/loading.png');
         utils.loadImage('./images/loading-banner.png');
         window.requirejs([
-            `loc/${loc}/share`,
-            `loc/${loc}/loading`,
+            `loc/${_loc}/share`,
+            `loc/${_loc}/loading`,
             'modules/shareBanner',
             'modules/shareJoin',
             'modules/indexShare',
@@ -29,7 +29,7 @@ window.requirejs(['common'], function () {
         ], function (loc, loadLoc, shareBanner, shareJoin, indexShare, indexPrizeList, indexWinners, loading) {
             utils.setTitle(loc);
             loading.doInit(loadLoc);
-            indexWinners.doInit(loc);
+            indexWinners.doInit(loc, _loc);
             shareBanner.doInit(loc);
             shareJoin.doInit(loc);
             indexShare.doInit(loc, shareJoin);

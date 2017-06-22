@@ -47,8 +47,9 @@ define([
 
         $('html').toggleClass('no-scroll');
 
-        $el.find('.index-turntable').fadeIn(200);
         utils.backListener(hide);
+
+        $el.find('.index-turntable').show();
         // 箭头闪现
         arrowFlash(3, 300);
     };

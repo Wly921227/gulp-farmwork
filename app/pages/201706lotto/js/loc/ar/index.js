@@ -10,7 +10,7 @@ define(function () {
         title: 'دعوة الأصدقاء للفوز ب iPhone7',
         banner: 'دعوة أصدقاء من WhatsApp للانضمام إلى YeeCall \n لانتزاع جائزة iPhone7',
         ticket: {
-            bg: 'بطاقة اليانصيب',
+            bg: 'تذكرة',
             unSuccessTip(num) {
                 return `YeeCall من الأصدقاء للانضمام إلى ${num} يمكن الاشتراك في اليانصيب بعد دعوة `;
             },
@@ -38,7 +38,7 @@ define(function () {
                 },
                 callYC: 'سيقوم موظف YeeCall  بالاتصال بك في غضون 3 أيام عمل',
                 callUs: 'الاتصال بنا',
-                share: 'التشارك الى الأصدقاء'
+                share: 'التشارك'
             }
         },
         shareButton: 'دعوة أصدقاء من WhatsApp',

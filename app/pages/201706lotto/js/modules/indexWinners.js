@@ -11,7 +11,8 @@ define([
     temp = utils.tempRemoveBlank(temp);
 
     return {
-        doInit(loc) {
+        doInit(loc, _loc) {
+            const format = _loc === 'ar' ? 'DD/MM/YYYY H:M' : 'YYYY.MM.DD H:M';
             const winnerLoc = loc.winnerList;
             console.log('winners do init');
             http.get(urls.getWinnerList, {}, function (result) {
@@ -22,8 +23,11 @@ define([
                         list.push({
                             id: item.uid,
                             prize: utils.getPrizeById(item.prizeId),
-                            time: utils.dateFormat(item.ctime, 'YYYY.MM.DD H:M')
+                            time: utils.dateFormat(item.ctime, format)
                         });
+                    }
+                    for (let i = 0; i < 3; i++) {
+                        list.push(0);
                     }
                 }
                 $.tmpl(temp, {
