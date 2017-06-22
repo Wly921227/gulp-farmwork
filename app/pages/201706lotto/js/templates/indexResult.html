@@ -13,7 +13,15 @@
     <div class="prizes-${num} prizes">
         <div class="text">${loc[num]}</div>
         <div class="prizes-had-icon prizes-icon">
+            {{if num === 1}}
             <div class="prizes-iphone-icon prizes-icon"></div>
+            {{else num === 2}}
+            <div class="prizes-100-icon prizes-icon"></div>
+            {{else num === 3}}
+            <div class="prizes-50-icon prizes-icon"></div>
+            {{else num === 4}}
+            <div class="prizes-10-icon prizes-icon"></div>
+            {{/if}}
         </div>
         <div class="tips">${loc.tips}</div>
         <div class="call-us">${loc.callUs}</div>

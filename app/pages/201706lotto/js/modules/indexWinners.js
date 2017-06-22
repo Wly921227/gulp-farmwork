@@ -13,6 +13,7 @@ define([
     return {
         doInit(loc) {
             const winnerLoc = loc.winnerList;
+            console.log('winners do init');
             http.get(urls.getWinnerList, {}, function (result) {
                 let list = [];
                 if (result && Object.getOwnPropertyNames(result).length > 0) {

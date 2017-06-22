@@ -45,7 +45,7 @@ define([
         $turntable.css('transform', 'rotateZ(0deg)');
         $('html').toggleClass('no-scroll');
 
-        $el.find('.index-turntable').show();
+        $el.find('.index-turntable').fadeIn(200);
         utils.backListener(hide);
         // 箭头闪现
         arrowFlash(3, 300);
@@ -122,9 +122,10 @@ define([
                 } else if (result.status === 2) {
                     num = utils.getPrizeById(result.prizeId);
                 }
-                // 重置抽奖票
-                indexTickets.doInit(loc, window.FRIENDCNT);
             }
+            // num = 2;
+            // 重置抽奖票
+            indexTickets.doInit(loc, window.FRIENDCNT);
         });
     });
     // 转盘动画停止事件

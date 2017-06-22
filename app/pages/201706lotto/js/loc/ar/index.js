@@ -20,7 +20,7 @@ define(function () {
             tipTwo: 'سوف تفتح المهمة الجديدة بعد اكمال المهمة في بطاقة اليانصيب السابقة',
             tipTwo2: 'مضاعفة احتمال الفوز!',
             invited: 'قد تم دعوة ',
-            unit: 'من ألأصدقاء',
+            unit: '',
             successTip(num, flag) {
                 if (flag && num > 3) {
                     num = 3;

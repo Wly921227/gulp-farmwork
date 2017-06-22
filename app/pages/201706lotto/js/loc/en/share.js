@@ -1,51 +1,51 @@
 define(function () {
     const PRIZE = {
-        1: '一部iPhone7',
-        2: '100元话费卡',
-        3: '50元话费卡',
-        4: '10元话费卡'
+        1: 'iPhone 7 x1',
+        2: '100 Mobile Refill Card',
+        3: '50 Mobile Refill Card',
+        4: '10 Mobile Refill Card'
     };
 
     return {
-        title: '邀好友赢大奖',
+        title: 'Invite friends to win iPhone 7',
         banner(name){
-            return `您的好友${name}正在参加`
+            return `Your friends ${name} is playing`
         },
-        banner2: '邀请WhatsApp好友加入YeeCall抽取iPhone7大奖！',
-        shareButton: '我也要参加这个活动',
+        banner2: 'Invite WhatsApp friends to join YeeCall to win iPhone 7',
+        shareButton: 'Join to win',
         prize: {
-            title: '奖项设置',
+            title: 'Prize list',
             list: [{
-                level: '一等奖',
+                level: '1st Prize',
                 name: 'iPhone 7',
                 price: '6999'
             }, {
-                level: '二等奖',
-                name: '100话费充值卡',
+                level: '2nd Prize',
+                name: '100 Mobile Refill Card',
                 price: '100'
             }, {
-                level: '三等奖',
-                name: '50话费充值卡',
+                level: '3rd Prize',
+                name: '50 Mobile Refill Card',
                 price: '50'
             }]
         },
         winnerList: {
-            title: '获奖名单',
+            title: 'Winners',
             prize(id) {
-                return `抽到${PRIZE[id]}`;
+                return `Win ${PRIZE[id]}`;
             }
         },
         join: {
-            title: '我该如何参与活动？',
+            title: 'How to win?',
             tip1: {
-                text: '下载并安装最新版YeeCall',
-                btn: '下载YeeCall'
+                text: 'Download and Install the lastest version of YeeCall',
+                btn: 'Download YeeCall'
             },
             tip2: {
-                text: '主界面进入活动参与抽奖',
+                text: 'Enter this page to win',
                 btn: 'Invite friends to win iPhone 7'
             },
-            open: '已经安装？点击这里'
+            open: 'Installed YeeCall already? Open'
         }
     }
 });

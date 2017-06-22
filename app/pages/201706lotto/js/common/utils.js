@@ -190,13 +190,14 @@ define(['jquery'], function ($) {
         callUs(email) {
             $('body').on('click', '.call-us', function (event) {
                 event.preventDefault();
-                window.location.href = `mailto:${email || ''}`;
+                window.location.href = `mailto:${email || '2017winiphone@yeecall.com'}`;
             });
         },
         setCookie(callback) {
             if (inYeeCall) {
                 const self = this;
                 try {
+                    console.log('get cookie');
                     window.YC.getCookie({
                         success: function (res) {
                             if (res) {

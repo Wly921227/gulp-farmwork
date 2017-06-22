@@ -1,84 +1,84 @@
 define(function () {
     const PRIZE = {
-        1: '一部iPhone7',
-        2: '100元话费卡',
-        3: '50元话费卡',
-        4: '10元话费卡'
+        1: 'iPhone 7 x1',
+        2: '100 Mobile Refill Card',
+        3: '50 Mobile Refill Card',
+        4: '10 Mobile Refill Card'
     };
 
     return {
-        title: '邀好友赢大奖',
-        banner: '邀请WhatsApp好友加入YeeCall\n抽取iPhone7大奖！',
+        title: 'Invite friends to win iPhone 7',
+        banner: 'Invite WhatsApp friends to join YeeCall\nto win iPhone 7',
         ticket: {
-            bg: '奖券',
+            bg: 'Ticket',
             unSuccessTip(num) {
-                return `邀请${num}名好友加入YeeCall可抽奖一次`;
+                return `Invite ${num} friends to join YeeCall to win`;
             },
             unSuccessTip2(num) {
-                return `邀请${num}名好友加入YeeCall参与抽奖`;
+                return `Invite ${num} friends to join YeeCall to win`;
             },
-            tipTwo: '完成第一张奖券任务可解锁这个抽奖任务',
-            tipTwo2: '中奖几率翻倍！',
-            invited: '已邀请',
-            unit: '位',
+            tipTwo: 'Unlock 2nd ticket after using 1st ticket',
+            tipTwo2: 'Triple your chance to win!',
+            invited: 'Invited',
+            unit: 'friends',
             successTip(num, flag) {
                 if (flag && num > 3) {
                     num = 3;
                 }
-                return `您已成功邀请${num}位好友！`;
+                return `You already invited ${num} friends joining YeeCall successfully`;
             },
-            lotto: '立即抽奖',
+            lotto: 'Play Now',
             unWinning: {
-                tip: '很遗憾您本次未中奖！',
-                text: '感谢参与'
+                tip: 'Sorry, you didn\'t win this time.',
+                text: 'Thank you!'
             },
             winning: {
                 tip(id) {
-                    return `恭喜您，抽中${PRIZE[id]}！`
+                    return `Congratulations! You win ${PRIZE[id]}!`
                 },
-                callYC: 'YeeCall工作人员会在1周内联系你',
-                callUs: '联系我们',
-                share: '分享好友'
+                callYC: 'YeeCall team will contact you in 3 business days.',
+                callUs: 'Contact us',
+                share: 'Share to friends'
             }
         },
-        shareButton: '邀请 WhatsApp 好友',
+        shareButton: 'Invite WhatsApp friends',
         prize: {
-            title: '奖项设置',
+            title: 'Prize list',
             list: [{
-                level: '一等奖',
+                level: '1st Prize',
                 name: 'iPhone 7',
                 price: '6999'
             }, {
-                level: '二等奖',
-                name: '100话费充值卡',
+                level: '2nd Prize',
+                name: '100 Mobile Refill Card',
                 price: '100'
             }, {
-                level: '三等奖',
-                name: '50话费充值卡',
+                level: '3rd Prize',
+                name: '50 Mobile Refill Card',
                 price: '50'
             }]
         },
         winnerList: {
-            title: '获奖名单',
+            title: 'Winners',
             prize(id) {
-                return `抽到${PRIZE[id]}`;
+                return `Win ${PRIZE[id]}`;
             }
         },
         prizeTip: {
-            no: '再接再厉，继续邀请好友期待下一次能中奖！',
+            no: 'Invite friends to try again!',
             no2: '谢谢参与本次活动，期待你下次赢取大奖',
-            1: '恭喜你，抽中一部 iPhone 7！',
-            2: '恭喜你，中了100话费 ！',
-            3: '恭喜你，中了50话费 ！',
-            4: '恭喜你，中了10话费 ！',
-            noShare: '邀请 WhatsApp 好友',
-            share: '告诉好友一起来玩',
-            tips: 'YeeCall 工作人员会通过YeeCall  team 在3个工作日内联系你',
-            callUs: '联系我们'
+            1: `Congratulations! You win ${PRIZE[1]}!`,
+            2: `Congratulations! You win ${PRIZE[2]}!`,
+            3: `Congratulations! You win ${PRIZE[3]}!`,
+            4: `Congratulations! You win ${PRIZE[4]}!`,
+            noShare: 'Invite WhatsApp friends',
+            share: 'Invite friends to play',
+            tips: 'YeeCall team will contact you in 3 business days via YeeCall.',
+            callUs: 'Contact us'
         },
         share: {
-            title: '邀好友赢iPhone7',
-            desc: '邀请好友加入YeeCall有机会抽取大奖iPhone7'
+            title: 'Invite friends to win iPhone 7',
+            desc: 'Invite WhatsApp friends to join YeeCall to win iPhone 7'
         },
         error: 'Network Error!'
     }
