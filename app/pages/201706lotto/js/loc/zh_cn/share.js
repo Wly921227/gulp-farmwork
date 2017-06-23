@@ -37,6 +37,7 @@ define(function () {
         },
         join: {
             title: '我该如何参与活动？',
+            free: '免费',
             tip1: {
                 text: '下载最新版YeeCall',
                 btn: '下载YeeCall'

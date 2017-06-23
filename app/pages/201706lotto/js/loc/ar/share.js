@@ -41,6 +41,7 @@ define(function () {
         },
         join: {
             title: '‫كيف أشارك في الأنشطة ؟',
+            free: 'مجانا',
             tip1: {
                 text: 'النسخة الاخيرة YeeCall تحميل برنامج',
                 btn: ' YeeCall تحميل '

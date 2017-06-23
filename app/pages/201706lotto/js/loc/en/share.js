@@ -38,6 +38,7 @@ define(function () {
         },
         join: {
             title: 'How to win?',
+            free: 'free',
             tip1: {
                 text: 'Download the latest version of YeeCall',
                 btn: 'Download YeeCall'

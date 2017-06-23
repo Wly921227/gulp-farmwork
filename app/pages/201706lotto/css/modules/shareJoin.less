@@ -85,8 +85,23 @@
           .btn {
             background: @text-title;
             box-sizing: border-box;
+            position: relative;
             text-align: center;
             margin-top: .8rem;
+            .free {
+              position: absolute;
+              left: 0;
+              top: 0;
+              span {
+                -webkit-transform: rotateZ(-45deg);
+                transform: rotateZ(-45deg);
+                position: absolute;
+                font-size: .7rem;
+                width: 100%;
+                left: -23%;
+                top: -23%;
+              }
+            }
             &.action {
               background: @btn-action;
             }
