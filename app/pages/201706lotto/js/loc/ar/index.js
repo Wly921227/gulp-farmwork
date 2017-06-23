@@ -100,6 +100,11 @@ define(function () {
                 return n % 2 ? 'الانضمام إلى YeeCall للفوز ب iPhone' : 'تحميل YeeCall للفوز ب iPhone'
             }
         },
-        error: 'خطأ في اتصال الشبكة'
+        error: 'خطأ في اتصال الشبكة',
+        dialog: {
+            title: '如需联系我们',
+            text: '请搜索YeeCall ID：YeeCall2017winiPhone',
+            ok: '确认'
+        }
     }
 });

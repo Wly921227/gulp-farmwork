@@ -35,8 +35,9 @@ window.requirejs(['common'], function () {
             'modules/indexWinners',
             'modules/indexTurntable',
             'modules/loading',
+            'modules/dialog',
             'modules/tipArrow'
-        ], function (loc, loadLoc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners, indexTurntable, loading, tipArrow) {
+        ], function (loc, loadLoc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners, indexTurntable, loading, dialog, tipArrow) {
             window.INDEX_LOC = loc;
             utils.setTitle(loc);
             loading.doInit(loadLoc);
@@ -50,6 +51,7 @@ window.requirejs(['common'], function () {
             indexShare.doInit(loc);
             indexPrizeList.doInit(loc);
             indexTurntable.doInit(loc, turntableImg, indexTickets);
+            dialog.doInit(loc);
             // 隐藏loading
             setTimeout(function () {
                 loading.hide();

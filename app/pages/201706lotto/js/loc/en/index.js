@@ -26,9 +26,9 @@ define(function () {
             },
             lotto: 'Play Now',
             unWinning: {
-                tip: 'Sorry, you didn\'t win this time.',
+                tip: 'No worries! Invite friends to play again!',
                 text: 'Thank you!',
-                share: '邀朋友参加'
+                share: 'Invite friends'
             },
             winning: {
                 tip(id) {
@@ -85,13 +85,18 @@ define(function () {
         },
         winShare: {
             title(id) {
-                return `我在YeeCall赢了${PRIZE[id]}，还有更多奖品等着你！`
+                return `I won ${PRIZE[id]}! Download YeeCall now to win together!`
             },
             desc() {
                 const n = parseInt(Math.random() * 1000);
-                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone'
+                return n % 2 ? 'Join YeeCall to win iPhone 7' : 'Download YeeCall to win iPhone 7'
             }
         },
-        error: 'Network Error!'
+        error: 'Network Error!',
+        dialog: {
+            title: '如需联系我们',
+            text: '请搜索YeeCall ID：YeeCall2017winiPhone',
+            ok: 'OK'
+        }
     }
 });

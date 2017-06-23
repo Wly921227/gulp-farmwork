@@ -92,6 +92,11 @@ define(function () {
                 return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone'
             }
         },
-        error: '网络异常，请检查网络！'
+        error: '网络异常，请检查网络！',
+        dialog: {
+            title: '如需联系我们',
+            text: '请搜索YeeCall ID：YeeCall2017winiPhone',
+            ok: '确认'
+        }
     }
 });
