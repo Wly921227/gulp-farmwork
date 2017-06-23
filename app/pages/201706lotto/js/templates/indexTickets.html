@@ -20,11 +20,6 @@
                         <a href="mailto:2017winiphone@yeecall.com">${ticketLoc.winning.callUs}</a>
                     </div>
                 </div>
-                <!--<div class="msg win">${ticketLoc.winning.tip(prize['001'])}</div>-->
-                <!--<div class="text">${ticketLoc.winning.callYC}</div>-->
-                <!--<div class="call-us">-->
-                <!--<a href="mailto:2017winiphone@yeecall.com">${ticketLoc.winning.callUs}</a>-->
-                <!--</div>-->
                 {{else}}
                 <!-- 未中奖 -->
                 <div class="msg">${ticketLoc.unWinning.tip}</div>
@@ -56,19 +51,19 @@
                     {{if prize['001'] == 1}}
                     <i class="prize iphone small-icon icon-prize-iphone"></i>
                     {{else prize['001'] == 2}}
-                    <i class="prize icon icon-prize-100"></i>
+                    <i class="prize small-icon icon-prize-100"></i>
                     {{else prize['001'] == 3}}
-                    <i class="prize icon icon-prize-50"></i>
+                    <i class="prize small-icon icon-prize-50"></i>
                     {{else prize['001'] == 4}}
-                    <i class="prize icon icon-prize-10"></i>
+                    <i class="prize small-icon icon-prize-10"></i>
                     {{/if}}
                     <div class="text">${ticketLoc.winning.share}</div>
                 </div>
                 {{else}}
                 <!-- 未中奖 -->
-                <div class="shadow un-win">
-                    <div class="start small-icon icon-start"></div>
-                    <div class="text">${ticketLoc.unWinning.text}</div>
+                <div class="btn btn-icon icon-draw-btn un-win">
+                    <div class="share small-icon icon-share"></div>
+                    <div class="text">${ticketLoc.unWinning.share}</div>
                 </div>
                 {{/if}}
             </div>
@@ -132,19 +127,19 @@
                     {{if prize['002'] == 1}}
                     <i class="prize iphone small-icon icon-prize-iphone"></i>
                     {{else prize['002'] == 2}}
-                    <i class="prize icon icon-prize-100"></i>
+                    <i class="prize small-icon icon-prize-100"></i>
                     {{else prize['002'] == 3}}
-                    <i class="prize icon icon-prize-50"></i>
+                    <i class="prize small-icon icon-prize-50"></i>
                     {{else prize['002'] == 4}}
-                    <i class="prize icon icon-prize-10"></i>
+                    <i class="prize small-icon icon-prize-10"></i>
                     {{/if}}
                     <div class="text">${ticketLoc.winning.share}</div>
                 </div>
                 {{else}}
                 <!-- 未中奖 -->
-                <div class="shadow un-win">
-                    <div class="start small-icon icon-start"></div>
-                    <div class="text">${ticketLoc.unWinning.text}</div>
+                <div class="btn btn-icon icon-draw-btn un-win">
+                    <div class="share small-icon icon-share"></div>
+                    <div class="text">${ticketLoc.unWinning.share}</div>
                 </div>
                 {{/if}}
             </div>
