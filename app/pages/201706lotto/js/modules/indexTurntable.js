@@ -189,6 +189,7 @@ define([
             src = turntableImg.src;
             loc = _loc;
             loc.prizeTip.tips = loc.prizeTip.tips.split('\n');
+            loc.prizeTip.cardTip = loc.prize.tip;
             indexTickets = _indexTickets;
             $.tmpl(temp, {src, loc: loc.prizeTip}).appendTo($el);
             // 分享按钮
