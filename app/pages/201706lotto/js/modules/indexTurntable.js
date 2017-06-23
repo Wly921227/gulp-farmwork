@@ -131,6 +131,7 @@ define([
                     num = utils.getPrizeById(result.prizeId);
                 }
             }
+            // TODO
             // num = 2;
             // 重置抽奖票
             indexTickets.doInit(loc, window.FRIENDCNT);
@@ -187,6 +188,7 @@ define([
         doInit(_loc, turntableImg, _indexTickets) {
             src = turntableImg.src;
             loc = _loc;
+            loc.prizeTip.tips = loc.prizeTip.tips.split('\n');
             indexTickets = _indexTickets;
             $.tmpl(temp, {src, loc: loc.prizeTip}).appendTo($el);
             // 分享按钮

@@ -13,6 +13,7 @@ window.requirejs(['common'], function () {
         utils.setFontSize(1080, 20);
         utils.noContextMenu();
         utils.hideNav(true);
+        // TODO 隐藏右上角
         // utils.hideMenu(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');

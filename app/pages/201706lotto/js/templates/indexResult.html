@@ -23,7 +23,11 @@
             <div class="prizes-10-icon prizes-icon"></div>
             {{/if}}
         </div>
-        <div class="tips">${loc.tips}</div>
+        <div class="tips">
+            {{each(index, value) loc.tips}}
+            <p class="title-line">${value}</p>
+            {{/each}}
+        </div>
         <div class="call-us">
             <a href="mailto:2017winiphone@yeecall.com">${loc.callUs}</a>
         </div>

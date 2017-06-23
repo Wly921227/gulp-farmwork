@@ -1,18 +1,19 @@
 define(function () {
     const PRIZE = {
         1: 'iPhone7',
-        2: 'كارت الشحن بمبلغ 100',
-        3: 'كارت الشحن بمبلغ 50',
-        4: 'كارت الشحن بمبلغ 10'
+        2: 'كارت الشحن بمبلغ ١٠٠',
+        3: 'كارت الشحن بمبلغ ٥٠',
+        4: 'كارت الشحن بمبلغ ١٠'
     };
 
     return {
         title: 'دعوة الأصدقاء لفوز ب iPhone7',
         banner(name){
-            return `يقوم صديقك ${name} بالاشتراك في`
+            return `${(name ? name : ' ' + name + ' ') + ' صديقك '}\nيقوم بالاشتراك في أنشطة ”دعوة\n الآن “iPhone7 الأصدقاء للفوز ب`;
         },
-        banner2: 'دعوة أصدقاء من WhatsApp للانضمام إلى YeeCall لانتزاع جائزة iPhone7',
-        shareButton: 'سأقوم بالاشتراك',
+        banner2: ' WhatsApp دعوة أصدقاء من \nللفوز بجائزة YeeCall للانضمام إلى iPhone7',
+        // shareButton: '我也要赢iPhone7',
+        shareButton: 'أيضا iPhone 7 أريد الفوز ب',
         prize: {
             title: 'قائمة الجوائز',
             list: [{
@@ -32,18 +33,21 @@ define(function () {
         winnerList: {
             title: 'المستخدمون الفائزون',
             prize(id) {
-                return `الفوز ب${PRIZE[id]}`;
+                if (id === 1)
+                    return `${' ' + PRIZE[id]}الفوز ب `;
+                else
+                    return `الفوز ب${PRIZE[id]}`;
             }
         },
         join: {
             title: '‫كيف أشارك في الأنشطة ؟',
             tip1: {
-                text: 'تحميل وتثبيت برنامج YeeCall النسخة الاخيرة',
-                btn: 'تحميل YeeCall'
+                text: 'النسخة الاخيرة YeeCall تحميل برنامج',
+                btn: ' YeeCall تحميل '
             },
             tip2: {
-                text: 'دخول الى الأنشطة في الصفحة الرئيسية للاشتراك في اليانصيب',
-                btn: 'وة الأصدقاء للفوز ب iPhone 7',
+                text: 'للاشتراك في اليانصيب YeeCall دخول الى',
+                btn: ' iPhone 7 دعوة الأصدقاء للفوز ب ',
                 class: ''
             },
             open: 'تم تثبيته بالفعل ؟ اضغط هنا'

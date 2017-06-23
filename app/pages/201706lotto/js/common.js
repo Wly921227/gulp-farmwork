@@ -1,6 +1,6 @@
 requirejs.config({
     baseUrl: './js',
-    urlArgs: new Date().getTime(),
+    urlArgs: new Date().getTime() + '',
     paths: {
         marquee: 'lib/jquery.liMarquee',
         temp: 'lib/jquery.tmpl',

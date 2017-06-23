@@ -12,7 +12,9 @@ define([
             const {
                 name,
             } = utils.urlParams();
-            $.tmpl(temp, {loc, name: decodeURI(name || '')}).appendTo($el);
+            loc.banner = loc.banner(name || '').split('\n');
+            loc.banner2 = loc.banner2.split('\n');
+            $.tmpl(temp, {loc}).appendTo($el);
         }
     }
 });

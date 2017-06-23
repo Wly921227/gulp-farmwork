@@ -9,10 +9,10 @@ define(function () {
     return {
         title: '邀好友赢 iPhone7',
         banner(name){
-            return `您的好友${name}正在参加`
+            return `你的好友${name}正参加集YeeCall好友抽iPhone7的活动`;
         },
         banner2: '邀请 WhatsApp 好友加入 YeeCall\n抽取 iPhone7 大奖！',
-        shareButton: '我也要参加这个活动',
+        shareButton: '我也要赢iPhone7',
         prize: {
             title: '奖项设置',
             list: [{
@@ -38,11 +38,11 @@ define(function () {
         join: {
             title: '我该如何参与活动？',
             tip1: {
-                text: '下载并安装最新版YeeCall',
+                text: '下载最新版YeeCall',
                 btn: '下载YeeCall'
             },
             tip2: {
-                text: '主界面进入活动参与抽奖',
+                text: '进入YeeCall参与活动',
                 btn: '邀好友 赢 iPhone 7',
                 class: 'zh'
             },

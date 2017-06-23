@@ -14,9 +14,6 @@ define(function () {
             unSuccessTip(num) {
                 return `Invite ${num} friends to join YeeCall to win`;
             },
-            unSuccessTip2(num) {
-                return `Invite ${num} friends to join YeeCall to win`;
-            },
             tipTwo: 'Unlock 2nd ticket after using 1st ticket',
             tipTwo2: 'Triple your chance to win!',
             invited: 'Invited',
@@ -30,7 +27,8 @@ define(function () {
             lotto: 'Play Now',
             unWinning: {
                 tip: 'Sorry, you didn\'t win this time.',
-                text: 'Thank you!'
+                text: 'Thank you!',
+                share: '邀朋友参加'
             },
             winning: {
                 tip(id) {
@@ -41,6 +39,7 @@ define(function () {
                 share: 'Share to friends'
             }
         },
+        callUsTip: '如需联系我们，请搜索YeeCall ID：YeeCall2017winiPhone',
         shareButton: 'Invite WhatsApp friends',
         prize: {
             title: 'Prize list',
@@ -77,8 +76,20 @@ define(function () {
             callUs: 'Contact us'
         },
         share: {
-            title: 'Invite friends to win iPhone 7',
+            title() {
+                const n = parseInt(Math.random() * 1000);
+                return n % 2 ? 'Join YeeCall to win iPhone7' : 'Download YeeCall to win iPhone7'
+            },
             desc: 'Invite WhatsApp friends to join YeeCall to win iPhone 7'
+        },
+        winShare: {
+            title(id) {
+                return `我在YeeCall赢了${PRIZE[id]}，还有更多奖品等着你！`
+            },
+            desc() {
+                const n = parseInt(Math.random() * 1000);
+                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone'
+            }
         },
         error: 'Network Error!'
     }

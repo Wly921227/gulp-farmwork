@@ -14,9 +14,6 @@ define(function () {
             unSuccessTip(num) {
                 return `邀请 ${num} 名好友加入 YeeCall 可参与抽奖`;
             },
-            unSuccessTip2(num) {
-                return `邀请 ${num} 名好友加入 YeeCall 可参与抽奖`;
-            },
             tipTwo: '完成第一张奖券任务可解锁这个抽奖任务',
             tipTwo2: '中奖几率翻倍！',
             invited: '已邀请',
@@ -29,8 +26,9 @@ define(function () {
             },
             lotto: '立即抽奖',
             unWinning: {
-                tip: '真可惜你本次未中奖！',
-                text: '感谢参与'
+                tip: '没关系，邀请好友再玩一次',
+                text: '感谢参与',
+                share: '邀朋友参加'
             },
             winning: {
                 tip(id) {
@@ -41,6 +39,7 @@ define(function () {
                 share: '分享好友'
             }
         },
+        callUsTip: '如需联系我们，请搜索YeeCall ID：YeeCall2017winiPhone',
         shareButton: '邀请 WhatsApp 好友',
         prize: {
             title: '奖项设置',
@@ -77,8 +76,20 @@ define(function () {
             callUs: '联系我们'
         },
         share: {
-            title: '邀好友赢iPhone7',
-            desc: '邀请好友加入YeeCall有机会抽取大奖iPhone7'
+            title() {
+                const n = parseInt(Math.random() * 1000);
+                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone'
+            },
+            desc: '邀请更多好友加入YeeCall有机会抽取iPhone7'
+        },
+        winShare: {
+            title(id) {
+                return `我在YeeCall赢了${PRIZE[id]}，还有更多奖品等着你！`
+            },
+            desc() {
+                const n = parseInt(Math.random() * 1000);
+                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone'
+            }
         },
         error: '网络异常，请检查网络！'
     }

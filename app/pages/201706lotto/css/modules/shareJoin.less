@@ -48,16 +48,18 @@
             line-height: 1.8rem;
             border-radius: 50%;
             text-align: center;
+            font-family: Arial;
             font-size: 1.2rem;
             font-weight: 600;
             height: 1.8rem;
             width: 1.8rem;
-            font-family: Arial;
+            float: left;
           }
           .tip {
             display: inline-block;
             margin-left: .375rem;
             font-size: 1.2rem;
+            width: 22.5rem;
           }
           .btn {
             box-sizing: border-box;
@@ -97,6 +99,12 @@
             background: @btn-bg;
             text-align: center;
             margin-top: .8rem;
+            position: relative;
+            p {
+              position: absolute;
+              right: 1rem;
+              top: 0;
+            }
             &.zh {
               padding-right: 1.3rem;
               text-align: right;

@@ -2,6 +2,14 @@
     <div class="bg icon icon-banner-bg">
         <div class="banner icon icon-banner"></div>
     </div>
-    <div class="banner-title">${loc.banner(name)}</div>
-    <div class="banner-desc">${loc.banner2}</div>
+    <div class="banner-title">
+        {{each(index, value) loc.banner}}
+        <p class="title-line">${value}</p>
+        {{/each}}
+    </div>
+    <div class="banner-desc">
+        {{each(index, value) loc.banner2}}
+        <p class="title-line">${value}</p>
+        {{/each}}
+    </div>
 </div>
