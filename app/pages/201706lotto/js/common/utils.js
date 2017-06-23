@@ -10,6 +10,24 @@ define(['jquery'], function ($) {
     return {
         inYeeCall,
         isAndroid,
+        debounce (func, wait, immediate) {
+            let timeout;
+            return function () {
+                const context = this;
+                const args = arguments;
+                let later = function () {
+                    timeout = null;
+                    if (!immediate) {
+                        func.apply(context, args);
+                    }
+                };
+                if (immediate && !timeout) {
+                    func.apply(context, args);
+                }
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        },
         getPrizeById(id) {
             if (isOffline) {
                 // 线下
@@ -154,7 +172,7 @@ define(['jquery'], function ($) {
         setTitle(loc) {
             $('title').html(loc.title);
             if (loc.share) {
-                $('meta[name="keywords"]').html(loc.share.title);
+                $('meta[name="keywords"]').html(loc.share.title());
                 $('meta[name="description"]').html(loc.share.desc);
             }
             if (!isAndroid && inYeeCall) {
@@ -203,6 +221,8 @@ define(['jquery'], function ($) {
                     window.YC.getCookie({
                         success: function (res) {
                             if (res) {
+                                console.log('get cookie success');
+
                                 const cookie = JSON.parse(res);
                                 document.cookie = `${cookie.name}=${cookie.cookie};${location.href.indexOf('yeecall.com') > -1 ? 'domain=yeecall.com;' : ''}path=/;`;
                                 if (callback && typeof callback === 'function') {
@@ -211,10 +231,14 @@ define(['jquery'], function ($) {
                             }
                         },
                         error: function () {
-                            // alert('用户信息获取失败，请重新打开');
+                            console.log('get cookie error');
+
+                            setTimeout(self.setCookie, 20);
                         }
                     });
                 } catch (e) {
+                    console.log('get cookie catch');
+
                     setTimeout(self.setCookie, 20);
                 }
             }
@@ -223,8 +247,12 @@ define(['jquery'], function ($) {
             if (inYeeCall) {
                 const self = this;
                 try {
+                    console.log('get friend cnt');
+
                     window.YC.getFriendCnt({
                         success: function (cnt) {
+                            console.log('get friend cnt success');
+
                             window.FRIENDCNT = cnt;
                             callback && callback(cnt);
                             // window.FRIENDCNT = 15;
@@ -232,9 +260,13 @@ define(['jquery'], function ($) {
                         },
                         error: function (err) {
                             console.log(err);
+                            setTimeout(function () {
+                                self.getFriendCnt(callback);
+                            }, 20);
                         }
                     });
                 } catch (e) {
+                    console.log('get friend cnt catch');
                     setTimeout(function () {
                         self.getFriendCnt(callback);
                     }, 20);
@@ -252,9 +284,14 @@ define(['jquery'], function ($) {
                         },
                         error: function (err) {
                             console.log(err);
+                            setTimeout(function () {
+                                self.getUserName(callback);
+                            }, 20);
                         }
                     });
                 } catch (e) {
+                    console.log(e);
+
                     setTimeout(function () {
                         self.getUserName(callback);
                     }, 20);
@@ -307,7 +344,7 @@ define(['jquery'], function ($) {
             paths.pop();
             const link = `${location.origin}${paths.join('/')}/index.html?name=${encodeURI(username || window.USERNAME)}`;
             const obj = {
-                title: share.title,
+                title: share.title(),
                 desc: share.desc,
                 imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
                 link: link,

@@ -30,11 +30,6 @@ define([
 
     $el.on('click', '.close', hide);
 
-    // 参加活动按下
-    $('body').on('click', '.index-share .btn', function () {
-        location.href = 'yeecallinvite://';
-    });
-
     return {
         doInit(loc) {
             $.tmpl(temp, {join: loc.join}).appendTo($el);

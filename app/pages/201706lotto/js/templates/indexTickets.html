@@ -83,7 +83,7 @@
                 <div class="msg">${ticketLoc.tipTwo}</div>
                 {{else !status || !status['002']}}
                 <!-- 邀请进度中 -->
-                <div class="msg">${ticketLoc.unSuccessTip2(10)}<br/><span>${ticketLoc.tipTwo2}</span></div>
+                <div class="msg">${ticketLoc.unSuccessTip(10)}<br/><span>${ticketLoc.tipTwo2}</span></div>
                 {{else status['002'] === 1}}
                 <!-- 有抽奖资格 -->
                 <div class="msg">${ticketLoc.successTip(10)}</div>
