@@ -1,7 +1,7 @@
 <div class="index-tickets">
     <div class="ticket-list">
-        <div class="ticket ticket-one">
-            <div class="bg icon icon-ticket-action">
+        <div class="ticket ticket-one {{if status['001'] !== 1}} lock{{/if}}">
+            <div class="bg icon {{if status['001'] !== 1}}icon-ticket{{else}}icon-ticket-action{{/if}}">
                 <div class="ticket-logo">${ticketLoc.bg}<span>1</span></div>
             </div>
             <div class="massage-box">
@@ -48,7 +48,7 @@
                 </div>
                 {{else status['001'] === 2 && prize['001']}}
                 <!-- 中奖 -->
-                <div class="btn win btn-icon icon-draw-btn">
+                <div class="btn win btn-icon icon-draw-btn" data-prize="${prize['001']}">
                     {{if prize['001'] == 1}}
                     <i class="prize iphone small-icon icon-prize-iphone"></i>
                     {{else prize['001'] == 2}}
@@ -69,12 +69,12 @@
                 {{/if}}
             </div>
         </div>
-        <div class="ticket ticket-two{{if num < 3}} lock{{/if}}">
-            <div class="bg icon {{if num < 3}}icon-ticket{{else}}icon-ticket-action{{/if}}">
+        <div class="ticket ticket-two{{if status['002'] !== 1}} lock{{/if}}">
+            <div class="bg icon {{if status['002'] !== 1}}icon-ticket{{else}}icon-ticket-action{{/if}}">
                 <div class="ticket-logo">${ticketLoc.bg}<span>2</span></div>
             </div>
             <div class="massage-box">
-                {{if num < 3 }}
+                {{if !status['002']}}
                 <!-- 锁定 -->
                 <div class="msg">${ticketLoc.tipTwo}</div>
                 {{else !status || !status['002']}}
@@ -95,11 +95,11 @@
                 </div>
                 {{else}}
                 <!-- 未中奖 -->
-                <div class="msg">${ticketLoc.unWinning.tip}</div>
+                <div class="msg">${ticketLoc.unWinning.tip2}</div>
                 {{/if}}
             </div>
             <div class="operation-box">
-                {{if num < 3 }}
+                {{if !status['002']}}
                 <!-- 锁定 -->
                 <div class="shadow">
                     <div class="lock small-icon icon-lock"></div>
@@ -125,7 +125,7 @@
                 </div>
                 {{else status['002'] === 2 && prize['002']}}
                 <!-- 中奖 -->
-                <div class="btn win btn-icon icon-draw-btn">
+                <div class="btn win btn-icon icon-draw-btn" data-prize="${prize['001']}">
                     {{if prize['002'] == 1}}
                     <i class="prize iphone small-icon icon-prize-iphone"></i>
                     {{else prize['002'] == 2}}

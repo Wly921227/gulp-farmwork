@@ -338,7 +338,8 @@ define(['jquery'], function ($) {
             paths.pop();
             const link = `${location.origin}${paths.join('/')}/index.html?name=${encodeURI(username || window.USERNAME)}`;
             const obj = {
-                title: share.title(),
+                custom: 'WhatApp',
+                title: share.title,
                 desc: share.desc,
                 imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
                 link: link,
@@ -348,9 +349,11 @@ define(['jquery'], function ($) {
                 },
                 error: function () {
                     console.log('Share error~');
+                    obj.custom = undefined;
+                    window.YC.share(obj);
                 }
             };
-            window.YC.share(obj);
+            window.YC.shareToCustom(obj);
         }
     }
 });

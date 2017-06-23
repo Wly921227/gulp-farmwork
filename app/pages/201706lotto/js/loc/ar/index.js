@@ -28,6 +28,7 @@ define(function () {
             lotto: 'لليانصيب الآن',
             unWinning: {
                 tip: 'لا بأس! دعوة الأصدقاء تتيح لك فرصة أخرى',
+                tip2: 'شكرا على مشاركتك في هذا النشاط ولعلك فائز مرة تالية',
                 text: 'شكرا على الاشتراك',
                 share: 'دعوة الأصدقاء'
             },
@@ -87,7 +88,9 @@ define(function () {
                 const n = 2;
                 return n % 2 ? 'الانضمام إلى YeeCall للفوز ب iPhone7' : 'تحميل YeeCall للفوز ب iPhone7'
             },
-            desc: 'دعوة أكثر من الأصدقاء للانضمام إلى YeeCall للفوز ب iPhone7'
+            desc(){
+                return 'دعوة أكثر من الأصدقاء للانضمام إلى YeeCall للفوز ب iPhone7'
+            }
         },
         // TODO 检查分享文案
         winShare: {

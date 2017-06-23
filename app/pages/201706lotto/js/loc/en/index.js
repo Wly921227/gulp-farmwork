@@ -27,6 +27,7 @@ define(function () {
             lotto: 'Play Now',
             unWinning: {
                 tip: 'No worries! Invite friends to play again!',
+                tip2: 'Thanks for joining us! See you soon and we hope you win bigger next time!',
                 text: 'Thank you!',
                 share: 'Invite friends'
             },
@@ -81,7 +82,9 @@ define(function () {
                 const n = parseInt(Math.random() * 1000);
                 return n % 2 ? 'Join YeeCall to win iPhone7' : 'Download YeeCall to win iPhone7'
             },
-            desc: 'Invite WhatsApp friends to join YeeCall to win iPhone 7'
+            desc(){
+                return 'Invite WhatsApp friends to join YeeCall to win iPhone 7'
+            }
         },
         winShare: {
             title(id) {

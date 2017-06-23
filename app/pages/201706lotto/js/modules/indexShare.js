@@ -33,7 +33,11 @@ define([
                 if (shareJoin) {
                     shareJoin.show();
                 } else {
-                    utils.share(loc.share, username);
+                    const share = {
+                        title: loc.share.title(),
+                        desc: loc.share.desc(),
+                    };
+                    utils.share(share, username);
                 }
             });
         }

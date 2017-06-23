@@ -13,6 +13,7 @@ define([
     let item = '';
     let indexTickets = {};
     let timeout = 0;
+    let SHARE = {};
 
     const $el = $('#indexTurntable');
     const TURNTABLE_DEG = {
@@ -29,7 +30,7 @@ define([
     const hide = () => {
         clearTimeout(timeout);
         $('html').toggleClass('no-scroll');
-        $el.find('.index-turntable').fadeOut(200);
+        $el.find('.index-turntable').hide();
         utils.removeBackListener();
     };
     const show = (_item) => {
@@ -61,12 +62,19 @@ define([
         }
     };
     const showPrizes = (num) => {
-        $('.disc-show').hide();
+        const $turntable = $el.find('.index-turntable');
+        if ($turntable.is(':hidden'))
+            $turntable.show();
+        const $discShow = $el.find('.disc-show');
+        if (!$discShow.is(':hidden'))
+            $discShow.hide();
         // 绑定返回事件
         utils.backListener(hide);
         // 显示关闭按钮
         $el.find('.close').show();
-        $.tmpl(resultTemp, {num, item, loc: loc.prizeTip}).appendTo($el.find('.prize-show'));
+        const $prizeShow = $el.find('.prize-show');
+        $prizeShow.html('');
+        $.tmpl(resultTemp, {num, item, loc: loc.prizeTip}).appendTo($prizeShow);
     };
     const getRotateZDeg = (num) => {
         let offset = 0;
@@ -133,6 +141,11 @@ define([
             }
             // TODO
             // num = 2;
+            // 分享文案设置
+            SHARE = {
+                title: loc.winShare.title(num),
+                desc: loc.winShare.desc()
+            };
             // 重置抽奖票
             indexTickets.doInit(loc, window.FRIENDCNT);
         });
@@ -181,7 +194,7 @@ define([
     });
     $el.on('click', '.share-btn', function (event) {
         event.preventDefault();
-        utils.share(window.USERNAME);
+        utils.share(SHARE, window.USERNAME);
     });
 
     return {
@@ -192,13 +205,9 @@ define([
             loc.prizeTip.cardTip = loc.prize.tip;
             indexTickets = _indexTickets;
             $.tmpl(temp, {src, loc: loc.prizeTip}).appendTo($el);
-            // 分享按钮
-            $el.on('click', '.share-btn', function (event) {
-                event.preventDefault();
-                utils.share(loc.share, window.USERNAME);
-            });
         },
         show,
-        hide
+        hide,
+        showPrizes
     }
 });

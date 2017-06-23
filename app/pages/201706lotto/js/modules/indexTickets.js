@@ -44,10 +44,11 @@ define([
                         }
                     }
                     // TODO 测试奖品
-                    // status['001'] = 2;
+                    // status['001'] = 1;
                     // prize['001'] = 4;
-                    // status['002'] = 2;
+                    // status['002'] = 3;
                     // prize['002'] = 2;
+
                     // num = 12;
                     // 语言
                     const ticketLoc = loc.ticket;
@@ -62,7 +63,23 @@ define([
                     // 分享按钮
                     $el.on('click', '.operation-box .win', function (event) {
                         event.preventDefault();
-                        utils.share(loc.share, window.USERNAME);
+                        const prize = parseInt($(this).data('prize'));
+                        // 显示抽奖结果
+                        indexTurntable.showPrizes(prize);
+                        // const share = {
+                        //     title: loc.winShare.title(prize),
+                        //     desc: loc.share.desc()
+                        // };
+                        // utils.share(share, window.USERNAME);
+                    });
+                    // 未中奖分享按钮
+                    $el.on('click', '.operation-box .un-win', function (event) {
+                        event.preventDefault();
+                        const share = {
+                            title: loc.share.title(),
+                            desc: loc.share.desc()
+                        };
+                        utils.share(share, window.USERNAME);
                     });
                 }
             });

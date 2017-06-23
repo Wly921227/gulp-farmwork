@@ -27,6 +27,7 @@ define(function () {
             lotto: '立即抽奖',
             unWinning: {
                 tip: '没关系，邀请好友再玩一次',
+                tip2: '谢谢参与本次活动，期待你下次赢取大奖',
                 text: '感谢参与',
                 share: '邀朋友参加'
             },
@@ -81,7 +82,9 @@ define(function () {
                 const n = parseInt(Math.random() * 1000);
                 return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone'
             },
-            desc: '邀请更多好友加入YeeCall有机会抽取iPhone7'
+            desc() {
+                return '邀请更多好友加入YeeCall有机会抽取iPhone7'
+            }
         },
         winShare: {
             title(id) {
