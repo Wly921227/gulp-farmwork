@@ -2,6 +2,8 @@
 
 @text-value: #e3e3fe;
 @text-time: #a2a2d0;
+@text-iphone-value: #fcff01;
+@text-iphone-time: #e2e40d;
 @color-bg: rgba(39, 39, 102, 1);
 @color-bg-tran: rgba(39, 39, 102, 0);
 
@@ -45,6 +47,14 @@
         .time {
           color: @text-time;
           float: right;
+        }
+        &.iphone {
+          .text {
+            color: @text-iphone-value;
+          }
+          .time {
+            color: @text-iphone-time;
+          }
         }
       }
     }

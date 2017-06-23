@@ -43,6 +43,7 @@ define(function () {
         shareButton: '邀请 WhatsApp 好友',
         prize: {
             title: '奖项设置',
+            tip: '话费卡',
             list: [{
                 level: '一等奖',
                 name: 'iPhone 7',

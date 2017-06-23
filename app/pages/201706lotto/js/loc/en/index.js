@@ -43,6 +43,7 @@ define(function () {
         shareButton: 'Invite WhatsApp friends',
         prize: {
             title: 'Prize list',
+            tip: 'Mobile Refill Card',
             list: [{
                 level: '1st Prize',
                 name: 'iPhone 7',

@@ -2,19 +2,12 @@
     <div class="title">${prizeLoc.title}</div>
     <div class="prizes-list">
         <ul>
-            <li class="item iphone">
+            <li class="item p100">
                 <div>
-                    <div class="icon icon-prizes-iphone"></div>
-                    <div class="info">
-                        <div class="level">${prizeLoc.list[0].level}</div>
-                        <div class="name">${prizeLoc.list[0].name}</div>
-                        <!--<div class="price">${prizeLoc.list[0].price}</div>-->
+                    <div class="btn-icon icon-prizes-100 prize">
+                        <div class="small-icon icon-silver brand"></div>
+                        <p>${prizeLoc.tip}</p>
                     </div>
-                </div>
-            </li>
-            <li class="item">
-                <div>
-                    <div class="icon icon-prizes-100"></div>
                     <div class="info">
                         <div class="level">${prizeLoc.list[1].level}</div>
                         <div class="name">${prizeLoc.list[1].name}</div>
@@ -22,9 +15,24 @@
                     </div>
                 </div>
             </li>
-            <li class="item">
+            <li class="item iphone">
                 <div>
-                    <div class="icon icon-prizes-50"></div>
+                    <div class="btn-icon icon-prizes-iphone prize">
+                        <div class="small-icon icon-gold brand"></div>
+                    </div>
+                    <div class="info">
+                        <div class="level">${prizeLoc.list[0].level}</div>
+                        <div class="name">${prizeLoc.list[0].name}</div>
+                        <!--<div class="price">${prizeLoc.list[0].price}</div>-->
+                    </div>
+                </div>
+            </li>
+            <li class="item p50">
+                <div>
+                    <div class="btn-icon icon-prizes-50 prize">
+                        <div class="small-icon icon-copper brand"></div>
+                        <p>${prizeLoc.tip}</p>
+                    </div>
                     <div class="info">
                         <div class="level">${prizeLoc.list[2].level}</div>
                         <div class="name">${prizeLoc.list[2].name}</div>

@@ -44,8 +44,8 @@ define(function () {
         callUsTip: 'الاتصال بنا: YeeCall2017winiPhone (YeeCall ID)',
         shareButton: '\tWhatsApp\tدعوة أصدقاء من',
         prize: {
-
             title: 'قائمة الجوائز',
+            tip: 'كارت الشحن بمبلغ',
             list: [{
                 level: 'الجائزة الأولى',
                 name: 'iPhone 7',

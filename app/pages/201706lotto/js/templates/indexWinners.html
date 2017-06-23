@@ -5,7 +5,7 @@
             {{each(key, value) list}}
             {{if value}}
             <li>
-                <div class="item">
+                <div class="item {{if value.prize === 1}}iphone{{/if}}">
                     <div class="text">${value.id}&nbsp;${winnerLoc.prize(value.prize)}</div>
                     <div class="time">${value.time}</div>
                 </div>

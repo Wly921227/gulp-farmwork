@@ -1,42 +1,123 @@
 @text-info: #e3e3fe;
+@text-tip: rgba(255, 255, 255, .4);
+@text-iphone: #fff;
 @item-bg: #212158;
 
 .index-prizes {
   margin-top: .65rem;
   .prizes-list {
+    position: relative;
     width: 24.75rem;
     margin: 0 auto;
     height: 14rem;
+    ul {
+      list-style: none;
+    }
     .item {
-      float: left;
+      //float: left;
+      position: absolute;
+      bottom: 0;
       box-sizing: border-box;
-      margin-right: .375rem;
-      display: inline-block;
+      //margin-right: .375rem;
+      //display: inline-block;
       background: @item-bg;
       border-radius: 4px;
       text-align: center;
-      height: 14rem;
+      //height: 14rem;
       width: 8rem;
       &:last-child {
         margin: 0;
       }
-      &.iphone {
-        .icon {
-          margin-top: 1.3rem;
-          margin-bottom: 0;
+      &.p100 {
+        height: 6.55rem;
+        left: 0;
+        .prize {
+          margin-left: -3.06rem;
+          position: absolute;
+          top: -1.6rem;
+          left: 50%;
+          .brand {
+            left: -.6rem;
+            top: -.6rem;
+          }
+          p {
+            font-size: .7rem;
+            bottom: .3rem;
+          }
         }
       }
-      .icon {
-        margin-bottom: .95rem;
-        margin-top: 2.4rem;
+      &.p50 {
+        left: calc(66.6% + .375rem);
+        height: 4.82rem;
+        .prize {
+          margin-left: -2.21rem;
+          position: absolute;
+          top: -2.3rem;
+          left: 50%;
+          .brand {
+            left: -.8rem;
+            top: -.7rem;
+          }
+          p {
+            font-size: .6rem;
+            bottom: .2rem;
+          }
+        }
+      }
+      &.iphone {
+        left: calc(33.3% + .375rem);
+        height: 8.75rem;
+        .prize {
+          margin-left: -3.6rem;
+          position: absolute;
+          top: -2.9rem;
+          left: 50%;
+          .brand {
+            left: -.4rem;
+            top: -.8rem;
+          }
+        }
+        .info {
+          .level {
+            line-height: 1.8rem;
+            color: @text-iphone;
+            font-size: 1.35rem;
+          }
+          font-size: 1rem;
+        }
+      }
+      //&.iphone {
+      //  .icon {
+      //    margin-top: 1.3rem;
+      //    margin-bottom: 0;
+      //  }
+      //}
+      //.icon {
+      //  margin-bottom: .95rem;
+      //  margin-top: 2.4rem;
+      //}
+      .prize {
+        position: relative;
+        .brand {
+          position: absolute;
+        }
+        p {
+          position: absolute;
+          text-align: center;
+          color: @text-tip;
+          width: 100%;
+        }
       }
       .info {
         line-height: 1.2rem;
-        margin-top: .3rem;
-        padding: 0 .75rem;
+        position: absolute;
+        //margin-top: .3rem;
+        //padding: 0 .75rem;
+        text-align: center;
         color: @text-info;
-        text-align: left;
-        font-size: .9rem;
+        font-size: .8rem;
+        bottom: .8rem;
+        width: 100%;
       }
     }
   }
