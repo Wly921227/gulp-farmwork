@@ -11,6 +11,7 @@ window.requirejs(['common'], function () {
         }
         const _loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
+        utils.createGoogleAnalytics();
         utils.noContextMenu();
         utils.hideNav(true);
         // TODO 隐藏右上角
@@ -57,7 +58,6 @@ window.requirejs(['common'], function () {
                 loading.hide();
                 tipArrow.doInit();
             }, 2000);
-            // utils.callUs();
         });
     });
 });

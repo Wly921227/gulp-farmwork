@@ -11,6 +11,7 @@ window.requirejs(['common'], function () {
         }
         const _loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
+        utils.createGoogleAnalytics();
         utils.noContextMenu();
         utils.hideNav(true);
         utils.loadImage('./images/icons.png');

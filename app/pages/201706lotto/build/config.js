@@ -42,6 +42,7 @@
                 'modules/indexWinners',
                 'modules/indexTurntable',
                 'modules/loading',
+                'modules/dialog',
                 'modules/tipArrow',
                 'loc/zh_cn/index',
                 'loc/zh_cn/loading',

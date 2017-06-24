@@ -5,29 +5,30 @@ define(['jquery'], function ($) {
     const isOffline = location.href.indexOf('.debug') > -1 || location.href.indexOf('10.18.101.') > -1;
     const iosDownloadUrl = 'https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8';
     const androidDownloadUrl = 'market://details?id=com.yeecall.app';
+    const debounce = (func, wait, immediate) => {
+        let timeout;
+        return function () {
+            const context = this;
+            const args = arguments;
+            let later = function () {
+                timeout = null;
+                if (!immediate) {
+                    func.apply(context, args);
+                }
+            };
+            if (immediate && !timeout) {
+                func.apply(context, args);
+            }
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    };
     let backCB = () => {
     };
     return {
         inYeeCall,
         isAndroid,
-        debounce (func, wait, immediate) {
-            let timeout;
-            return function () {
-                const context = this;
-                const args = arguments;
-                let later = function () {
-                    timeout = null;
-                    if (!immediate) {
-                        func.apply(context, args);
-                    }
-                };
-                if (immediate && !timeout) {
-                    func.apply(context, args);
-                }
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        },
+        debounce,
         getPrizeById(id) {
             if (isOffline) {
                 // 线下
@@ -227,13 +228,17 @@ define(['jquery'], function ($) {
                         error: function () {
                             console.log('get cookie error');
 
-                            setTimeout(self.setCookie, 20);
+                            setTimeout(function () {
+                                self.setCookie(callback);
+                            }, 20);
                         }
                     });
                 } catch (e) {
                     console.log('get cookie catch');
 
-                    setTimeout(self.setCookie, 20);
+                    setTimeout(function () {
+                        self.setCookie(callback);
+                    }, 20);
                 }
             }
         },
@@ -333,7 +338,7 @@ define(['jquery'], function ($) {
         removeBackListener() {
             document.removeEventListener('backbutton', backCB);
         },
-        share(share, username) {
+        share: debounce(function (share, username) {
             const paths = location.pathname.split('/');
             paths.pop();
             const link = `${location.origin}${paths.join('/')}/index.html?name=${encodeURI(username || window.USERNAME)}`;
@@ -353,7 +358,12 @@ define(['jquery'], function ($) {
                     window.YC.share(obj);
                 }
             };
-            window.YC.shareToCustom(obj);
-        }
+            try {
+                window.YC.shareToCustom(obj);
+            } catch (e) {
+                window.YC.share(obj);
+            }
+        }, 1000, true)
+
     }
 });

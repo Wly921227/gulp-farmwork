@@ -44,12 +44,11 @@ define([
                         }
                     }
                     // TODO 测试奖品
-                    // status['001'] = 1;
+                    // status['001'] = 0;
                     // prize['001'] = 4;
-                    // status['002'] = 3;
+                    // status['002'] = 0;
                     // prize['002'] = 2;
-
-                    // num = 12;
+                    // num = 2;
                     // 语言
                     const ticketLoc = loc.ticket;
                     $el.html('');

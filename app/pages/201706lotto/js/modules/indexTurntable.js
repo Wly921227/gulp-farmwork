@@ -137,6 +137,8 @@ define([
                     num = utils.getPrizeById(6);
                 } else if (result.status === 2) {
                     num = utils.getPrizeById(result.prizeId);
+                } else {
+                    num = utils.getPrizeById(6);
                 }
             }
             // TODO
