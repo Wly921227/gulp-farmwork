@@ -15,7 +15,7 @@ window.requirejs(['common'], function () {
         utils.noContextMenu();
         utils.hideNav(true);
         // TODO 隐藏右上角
-        // utils.hideMenu(true);
+        utils.hideMenu(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');
         utils.loadImage('./images/prize-icon.png');

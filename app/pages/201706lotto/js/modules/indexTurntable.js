@@ -12,7 +12,6 @@ define([
     let src = '';
     let item = '';
     let indexTickets = {};
-    let timeout = 0;
     let SHARE = {};
 
     const $el = $('#indexTurntable');
@@ -28,7 +27,6 @@ define([
     resultTemp = utils.tempRemoveBlank(resultTemp);
 
     const hide = () => {
-        clearTimeout(timeout);
         $('html').toggleClass('no-scroll');
         $el.find('.index-turntable').hide();
         utils.removeBackListener();
@@ -42,7 +40,7 @@ define([
         }
         // 移除动画
         const $turntable = $el.find('.turntable');
-        $turntable.removeClass('running');
+        // $turntable.removeClass('running');
         $turntable.css('-webkit-transform', 'rotateZ(0deg)');
         $turntable.css('transform', 'rotateZ(0deg)');
 
@@ -86,7 +84,7 @@ define([
 
         offset = offset % 2 ? offset : offset * -1;
 
-        return 390 - 60 * num + 720 + offset;
+        return 390 - 60 * num + 1080 + offset;
     };
     const arrowFlash = (num, time) => {
         if (num >= 0) {
@@ -98,6 +96,25 @@ define([
                 arrowFlash(num - 1, time);
             }, time * 2);
         }
+    };
+    const animate = (num) => {
+        const $turntable = $el.find('.turntable');
+        const $operation = $el.find('.opt-btn');
+        // 随机角度
+        const deg = getRotateZDeg(TURNTABLE_DEG[num]);
+        $turntable.css('-webkit-transform', `rotateZ(${deg}deg)`);
+        $turntable.css('transform', `rotateZ(${deg}deg)`);
+        setTimeout(function () {
+            if (num === 5) {
+                setBtnClass('pointer-run-icon', 'pointer-icon');
+                $operation.addClass('operation');
+            } else {
+                setBtnClass('pointer-run-icon', 'pointer-action-icon');
+                setTimeout(function () {
+                    showPrizes(num);
+                }, 1500);
+            }
+        }, 3000);
     };
 
     // 按钮按下事件
@@ -112,7 +129,7 @@ define([
         const $turntable = $el.find('.turntable');
         const $operation = $el.find('.opt-btn');
         event.preventDefault();
-        $turntable.toggleClass('running');
+        // $turntable.toggleClass('running');
         // 开始按钮样式
         setBtnClass('pointer-icon', 'pointer-run-icon');
         // 移除停止动画
@@ -143,6 +160,8 @@ define([
             }
             // TODO
             // num = 2;
+            // 转盘动画
+            animate(2);
             // 分享文案设置
             SHARE = {
                 title: loc.winShare.title(num),
@@ -153,30 +172,31 @@ define([
         });
     });
     // 转盘动画停止事件
-    $el.on('webkitAnimationEnd', '.turntable', function () {
-        const $turntable = $el.find('.turntable');
-        const $operation = $el.find('.opt-btn');
-        if (num && $turntable.hasClass('running')) {
-            $turntable.removeClass('running');
-            // 随机角度
-            const deg = getRotateZDeg(TURNTABLE_DEG[num]);
-            setTimeout(function () {
-                $turntable.css('-webkit-transform', `rotateZ(${deg}deg)`);
-                $turntable.css('transform', `rotateZ(${deg}deg)`);
-                setTimeout(function () {
-                    if (num === 5) {
-                        setBtnClass('pointer-run-icon', 'pointer-icon');
-                        $operation.addClass('operation');
-                    } else {
-                        setBtnClass('pointer-run-icon', 'pointer-action-icon');
-                        timeout = setTimeout(function () {
-                            showPrizes(num);
-                        }, 1500);
-                    }
-                }, 3500);
-            }, 20);
-        }
-    });
+    // $el.on('webkitAnimationEnd', '.turntable', function () {
+    //     const $turntable = $el.find('.turntable');
+    //     const $operation = $el.find('.opt-btn');
+    //     // if (num && $turntable.hasClass('running'))
+    //     if (num) {
+    //         // $turntable.removeClass('running');
+    //         // 随机角度
+    //         const deg = getRotateZDeg(TURNTABLE_DEG[num]);
+    //         setTimeout(function () {
+    //             $turntable.css('-webkit-transform', `rotateZ(${deg}deg)`);
+    //             $turntable.css('transform', `rotateZ(${deg}deg)`);
+    //             setTimeout(function () {
+    //                 if (num === 5) {
+    //                     setBtnClass('pointer-run-icon', 'pointer-icon');
+    //                     $operation.addClass('operation');
+    //                 } else {
+    //                     setBtnClass('pointer-run-icon', 'pointer-action-icon');
+    //                     setTimeout(function () {
+    //                         showPrizes(num);
+    //                     }, 1500);
+    //                 }
+    //             }, 3500);
+    //         }, 20);
+    //     }
+    // });
     // 关闭按钮
     $el.on('click', '.close', function (event) {
         event.preventDefault();

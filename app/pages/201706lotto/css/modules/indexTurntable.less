@@ -22,7 +22,6 @@
     left: 0;
     top: 0;
     .disc-show {
-      //display: none;
       height: 100%;
       width: 100%;
       .prize-icon {
@@ -44,10 +43,10 @@
           }
         }
         .turntable {
-          -webkit-transition: -webkit-transform 2.5s ease-out;
-          transition: -webkit-transform 2.5s ease-out;
-          -webkit-transition: transform 2.5s ease-out;
-          transition: transform 2.5s ease-out;
+          -webkit-transition: -webkit-transform 4s cubic-bezier(0.440, 1.095, 0.390, 1.095);
+          transition: -webkit-transform 4s cubic-bezier(0.440, 1.095, 0.390, 1.095);
+          -webkit-transition: transform 4s cubic-bezier(0.440, 1.095, 0.390, 1.095);
+          transition: transform 4s cubic-bezier(0.440, 1.095, 0.390, 1.095);
           margin-left: -10.1rem;
           margin-top: -10.25rem;
           position: absolute;
@@ -59,9 +58,9 @@
             height: auto;
             width: 100%;
           }
-          &.running {
-            .start-animation(start-rotation, e("@{time-out}s"));
-          }
+          //&.running {
+          //  .start-animation(start-rotation, e("@{time-out}s"));
+          //}
         }
         .opt-btn {
           margin-left: -4.5rem;
@@ -152,26 +151,26 @@
   }
 }
 
-.start-animation(@amt-name, @time) {
-  -webkit-animation: @amt-name @time linear 1 forwards;
-  animation: @amt-name @time linear 1 forwards;
-}
-
-.start-rotation() {
-  0% {
-    -webkit-transform: rotateZ(0);
-    transform: rotateZ(0);
-  }
-  100% {
-    -webkit-transform: rotateZ(ceil(@time-out / .9) * 360deg);
-    transform: rotateZ(ceil(@time-out / .9) * 360deg);
-  }
-}
-
-@-webkit-keyframes start-rotation {
-  .start-rotation();
-}
-
-@keyframes start-rotation {
-  .start-rotation();
-}
+//.start-animation(@amt-name, @time) {
+//  -webkit-animation: @amt-name @time linear 1 forwards;
+//  animation: @amt-name @time linear 1 forwards;
+//}
+//
+//.start-rotation() {
+//  0% {
+//    -webkit-transform: rotateZ(0);
+//    transform: rotateZ(0);
+//  }
+//  100% {
+//    -webkit-transform: rotateZ(ceil(@time-out / .9) * 360deg);
+//    transform: rotateZ(ceil(@time-out / .9) * 360deg);
+//  }
+//}
+//
+//@-webkit-keyframes start-rotation {
+//  .start-rotation();
+//}
+//
+//@keyframes start-rotation {
+//  .start-rotation();
+//}
