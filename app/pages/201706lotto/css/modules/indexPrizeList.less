@@ -6,7 +6,6 @@
 .index-prizes {
   margin-top: .65rem;
   .prizes-list {
-    position: relative;
     width: 24.75rem;
     margin: 0 auto;
     height: 14rem;
@@ -14,25 +13,29 @@
       list-style: none;
     }
     .item {
-      //float: left;
-      position: absolute;
-      bottom: 0;
-      box-sizing: border-box;
-      //margin-right: .375rem;
-      //display: inline-block;
-      background: @item-bg;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
+      margin-right: .375rem;
+      display: inline-block;
+      position: relative;
       text-align: center;
-      //height: 14rem;
+      height: 14rem;
       width: 8rem;
       &:last-child {
         margin: 0;
       }
-      &.p100 {
-        height: 6.55rem;
+      > div {
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background: @item-bg;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
         left: 0;
+      }
+      .p100 {
+        height: 6.55rem;
+        //left: 0;
         .prize {
           margin-left: -3.06rem;
           position: absolute;
@@ -48,8 +51,8 @@
           }
         }
       }
-      &.p50 {
-        left: calc(66.6% + .375rem);
+      .p50 {
+        //left: calc(66.6% + .375rem);
         height: 4.82rem;
         .prize {
           margin-left: -2.21rem;
@@ -66,8 +69,8 @@
           }
         }
       }
-      &.iphone {
-        left: calc(33.3% + .375rem);
+      .iphone {
+        //left: calc(33.3% + .375rem);
         height: 8.75rem;
         .prize {
           margin-left: -3.6rem;
@@ -88,16 +91,6 @@
           font-size: 1rem;
         }
       }
-      //&.iphone {
-      //  .icon {
-      //    margin-top: 1.3rem;
-      //    margin-bottom: 0;
-      //  }
-      //}
-      //.icon {
-      //  margin-bottom: .95rem;
-      //  margin-top: 2.4rem;
-      //}
       .prize {
         position: relative;
         .brand {

@@ -82,21 +82,21 @@
         .prizes-no {
           vertical-align: middle;
           display: inline-block;
-          width: 13.5rem;
+          width: 100%;
           .text {
             margin-bottom: 1rem;
             line-height: 1.5rem;
             color: @text-prize;
+            padding: 0 6.75rem;
             font-size: 1.2rem;
           }
         }
       }
       .light-icon {
-        margin-top: -5rem;
         .prizes {
           vertical-align: middle;
           display: inline-block;
-          width: 20rem;
+          width: 100%;
           .text {
             margin-bottom: 4rem;
             color: @text-prize;
@@ -106,7 +106,7 @@
             color: @text-prize-tips;
             line-height: 1.2rem;
             margin-top: .7rem;
-            padding: 0 2.6rem;
+            padding: 0 7.6rem;
             font-size: .8rem;
           }
           .call-us {
@@ -132,16 +132,13 @@
           }
         }
       }
-      .share {
-        margin-left: -11rem;
-        position: absolute;
-        bottom: 3.5rem;
-        left: 50%;
-        .share-btn {
-          line-height: 6.35rem;
-          color: @text-prize;
-          font-size: 1.5rem;
-        }
+    }
+    .share {
+      margin-top: 2.5rem;
+      .share-btn {
+        line-height: 6.35rem;
+        color: @text-prize;
+        font-size: 1.5rem;
       }
     }
     .close {
@@ -152,26 +149,22 @@
   }
 }
 
-//.start-animation(@amt-name, @time) {
-//  -webkit-animation: @amt-name @time linear 1 forwards;
-//  animation: @amt-name @time linear 1 forwards;
-//}
-//
-//.start-rotation() {
-//  0% {
-//    -webkit-transform: rotateZ(0);
-//    transform: rotateZ(0);
-//  }
-//  100% {
-//    -webkit-transform: rotateZ(ceil(@time-out / .9) * 360deg);
-//    transform: rotateZ(ceil(@time-out / .9) * 360deg);
-//  }
-//}
-//
-//@-webkit-keyframes start-rotation {
-//  .start-rotation();
-//}
-//
-//@keyframes start-rotation {
-//  .start-rotation();
-//}
+@media (device-height: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* 兼容iphone4/4s */
+  .index-turntable {
+    .prize-show {
+      .prizes-no {
+
+      }
+      .prizes {
+        .text {
+          margin-bottom: 1rem;
+        }
+
+      }
+    }
+    .share {
+      margin-top: .5rem;
+    }
+  }
+}

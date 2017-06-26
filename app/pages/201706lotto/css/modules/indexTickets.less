@@ -6,6 +6,7 @@
 @text-num: rgb(255, 198, 36);
 @text-un-win: rgb(255, 212, 42);
 @text-btn: rgb(255, 255, 255);
+@text-win-tip: rgb(39, 39, 101);
 @text-lock-tip: rgb(141, 145, 182);
 @text-msg-tip: #f9db53;
 @text-msg-tip-shadow: rgba(39, 39, 102, .5);
@@ -180,8 +181,8 @@
                 color: rgba(255, 255, 255, .4);
                 position: absolute;
                 text-align: center;
-                font-size: .8rem;
-                bottom: .45rem;
+                font-size: .7rem;
+                bottom: .4rem;
                 width: 100%;
                 left: 0;
               }
@@ -204,6 +205,9 @@
           .msg {
             color: @text-lock-tip;
             //margin-top: 2.5rem;
+          }
+          .win.msg {
+            color: @text-win-tip;
           }
         }
         .operation-box {

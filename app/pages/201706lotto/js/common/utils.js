@@ -342,7 +342,7 @@ define(['jquery'], function ($) {
         share: debounce(function (share, username) {
             const paths = location.pathname.split('/');
             paths.pop();
-            const link = `${location.origin}${paths.join('/')}/index.html?name=${encodeURI(username || window.USERNAME)}`;
+            const link = `${location.origin}${paths.join('/')}/share.html?name=${encodeURI(username || window.USERNAME)}`;
             let obj = {
                 custom: 'WhatApp',
                 title: share.title,

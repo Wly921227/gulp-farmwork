@@ -9,10 +9,12 @@ define([
 
     return {
         doInit(loc) {
-            const {
+            let {
                 name,
             } = utils.urlParams();
-            loc.banner = loc.banner(name || '').split('\n');
+            name = decodeURI(name || '');
+
+            loc.banner = loc.banner(name).split('\n');
             loc.banner2 = loc.banner2.split('\n');
             $.tmpl(temp, {loc}).appendTo($el);
         }

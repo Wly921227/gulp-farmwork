@@ -121,6 +121,9 @@ define([
         const $operation = $el.find('.opt-btn');
         // 随机角度
         const deg = getRotateZDeg(TURNTABLE_DEG[num]);
+        console.log('num: ', num);
+        console.log('deg: ', deg);
+
         $turntable.css('-webkit-transform', `rotateZ(${deg}deg)`);
         $turntable.css('transform', `rotateZ(${deg}deg)`);
         setTimeout(function () {
@@ -178,9 +181,9 @@ define([
                 }
             }
             // TODO
-            // num = 2;
+            // num = 1;
             // 转盘动画
-            animate(2);
+            animate(num);
             // 重置抽奖票
             indexTickets.doInit(loc, window.FRIENDCNT);
         }, function (response) {
