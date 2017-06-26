@@ -80,6 +80,11 @@ define([
         utils.backListener(hide);
         // 显示关闭按钮
         $el.find('.close').show();
+        // 分享文案设置
+        SHARE = {
+            title: loc.winShare.title(num),
+            desc: loc.winShare.desc()
+        };
 
         if ($html.attr('class').indexOf('no-scroll') === -1)
             $html.toggleClass('no-scroll');
@@ -176,11 +181,6 @@ define([
             // num = 2;
             // 转盘动画
             animate(2);
-            // 分享文案设置
-            SHARE = {
-                title: loc.winShare.title(num),
-                desc: loc.winShare.desc()
-            };
             // 重置抽奖票
             indexTickets.doInit(loc, window.FRIENDCNT);
         });

@@ -34,7 +34,10 @@ define(function () {
             },
             winning: {
                 tip(id) {
-                    return `${'!' + PRIZE[id] + ' '} مبروك! تفوز ب`
+                    if (id === 1)
+                        return `${'!' + PRIZE[1] + ' '} مبروك! تفوز ب`;
+                    else
+                        return `${'!' + ' تفوز ب' + PRIZE[id]}`;
                 },
                 // callYC: 'سيقوم موظف YeeCall  بالاتصال بك في غضون 3 أيام عمل',
                 callYC: 'بالاتصال بك YeeCall سيقوم موظفن في غضون ثلاثة أيام عمل',
@@ -95,7 +98,7 @@ define(function () {
         winShare: {
             title(id) {
                 // return `我在YeeCall赢了${PRIZE[id]}，还有更多奖品等着你！`
-                return `فزت ب ${' ' + PRIZE[id] + ' '} في YeeCall! يوجد أكثر من الجوائز هنا!`
+                return `فزت ب${' ' + PRIZE[id] + ' '} في YeeCall! يوجد أكثر من الجوائز هنا!`
             },
             desc() {
                 const n = parseInt(Math.random() * 1000);
@@ -104,7 +107,8 @@ define(function () {
         },
         error: 'خطأ في اتصال الشبكة',
         dialog: {
-            text: 'الاتصال بنا: YeeCall2017winiPhone (YeeCall ID)',
+            title: 'الاتصال بنا',
+            text: 'YeeCall2017winiPhone (YeeCall ID)',
             ok: 'نعم'
         }
     }

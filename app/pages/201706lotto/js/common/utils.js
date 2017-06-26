@@ -315,6 +315,7 @@ define(['jquery'], function ($) {
                 try {
                     window.YC.hideMenu(flag);
                 } catch (e) {
+                    console.log('hide menu catch');
                     setTimeout(function () {
                         self.hideMenu(flag);
                     }, 20);
@@ -342,7 +343,7 @@ define(['jquery'], function ($) {
             const paths = location.pathname.split('/');
             paths.pop();
             const link = `${location.origin}${paths.join('/')}/index.html?name=${encodeURI(username || window.USERNAME)}`;
-            const obj = {
+            let obj = {
                 custom: 'WhatApp',
                 title: share.title,
                 desc: share.desc,
@@ -354,16 +355,23 @@ define(['jquery'], function ($) {
                 },
                 error: function () {
                     console.log('Share error~');
-                    obj.custom = undefined;
+                    const obj = {
+                        title: share.title,
+                        desc: share.desc,
+                        imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
+                        link: link,
+                        textAndLink: `${share.desc}: ${link}`,
+                    };
+                    console.log(obj);
                     window.YC.share(obj);
                 }
             };
+
             try {
                 window.YC.shareToCustom(obj);
             } catch (e) {
                 window.YC.share(obj);
             }
         }, 1000, true)
-
     }
 });
