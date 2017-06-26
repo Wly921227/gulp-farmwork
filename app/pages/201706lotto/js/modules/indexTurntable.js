@@ -15,6 +15,7 @@ define([
     let SHARE = {};
 
     const $el = $('#indexTurntable');
+    const $html = $('html');
     const TURNTABLE_DEG = {
         1: 5,
         2: 1,
@@ -27,7 +28,9 @@ define([
     resultTemp = utils.tempRemoveBlank(resultTemp);
 
     const hide = () => {
-        $('html').toggleClass('no-scroll');
+        if ($html.attr('class').indexOf('no-scroll') > -1)
+            $html.toggleClass('no-scroll');
+
         $el.find('.index-turntable').hide();
         utils.removeBackListener();
     };
@@ -44,9 +47,16 @@ define([
         $turntable.css('-webkit-transform', 'rotateZ(0deg)');
         $turntable.css('transform', 'rotateZ(0deg)');
 
-        $('html').toggleClass('no-scroll');
+        if ($html.attr('class').indexOf('no-scroll') === -1)
+            $html.toggleClass('no-scroll');
 
         utils.backListener(hide);
+        const $discShow = $el.find('.disc-show');
+        if ($discShow.is(':hidden'))
+            $discShow.show();
+        const $prizeShow = $el.find('.prize-show');
+        if (!$prizeShow.is(':hidden'))
+            $discShow.hide();
 
         $el.find('.index-turntable').show();
         // 箭头闪现
@@ -70,6 +80,10 @@ define([
         utils.backListener(hide);
         // 显示关闭按钮
         $el.find('.close').show();
+
+        if ($html.attr('class').indexOf('no-scroll') === -1)
+            $html.toggleClass('no-scroll');
+
         const $prizeShow = $el.find('.prize-show');
         $prizeShow.html('');
         $.tmpl(resultTemp, {num, item, loc: loc.prizeTip}).appendTo($prizeShow);

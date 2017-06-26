@@ -42,7 +42,6 @@ define(function () {
                 share: 'التشارك'
             }
         },
-        callUsTip: 'الاتصال بنا: YeeCall2017winiPhone (YeeCall ID)',
         shareButton: '\tWhatsApp\tدعوة أصدقاء من',
         prize: {
             title: 'قائمة الجوائز',
@@ -105,9 +104,8 @@ define(function () {
         },
         error: 'خطأ في اتصال الشبكة',
         dialog: {
-            title: '如需联系我们',
-            text: '请搜索YeeCall ID：YeeCall2017winiPhone',
-            ok: '确认'
+            text: 'الاتصال بنا: YeeCall2017winiPhone (YeeCall ID)',
+            ok: 'نعم'
         }
     }
 });

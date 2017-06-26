@@ -5,14 +5,17 @@ define([
     'temp'
 ], function ($, temp, utils) {
     const $el = $('#shareJoin');
+    const $html = $('html');
     temp = utils.tempRemoveBlank(temp);
     const hide = () => {
-        $('html').toggleClass('no-scroll');
+        if ($html.attr('class').indexOf('no-scroll') > -1)
+            $html.toggleClass('no-scroll');
         $el.find('.share-join').hide();
         utils.removeBackListener();
     };
     const show = () => {
-        $('html').toggleClass('no-scroll');
+        if ($html.attr('class').indexOf('no-scroll') === -1)
+            $html.toggleClass('no-scroll');
         $el.find('.share-join').show();
         utils.backListener(hide);
     };

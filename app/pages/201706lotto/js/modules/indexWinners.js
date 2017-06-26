@@ -23,9 +23,13 @@ define([
                         list.push({
                             id: item.uid,
                             prize: utils.getPrizeById(item.prizeId),
-                            time: utils.dateFormat(item.ctime, format)
+                            time: utils.dateFormat(item.ctime, format),
+                            ctime: item.ctime
                         });
                     }
+                    list.sort(function (a, b) {
+                        return b.ctime - a.ctime;
+                    });
                     for (let i = 0; i < 3; i++) {
                         list.push(0);
                     }

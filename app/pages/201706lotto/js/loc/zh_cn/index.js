@@ -40,7 +40,6 @@ define(function () {
                 share: '分享好友'
             }
         },
-        callUsTip: '如需联系我们，请搜索YeeCall ID：YeeCall2017winiPhone',
         shareButton: '邀请 WhatsApp 好友',
         prize: {
             title: '奖项设置',
