@@ -9,7 +9,7 @@ define([
     temp = utils.tempRemoveBlank(temp);
 
     const show = () => {
-        if ($html.attr('class').indexOf('no-scroll') === -1)
+        if (!$html.attr('class') || $html.attr('class').indexOf('no-scroll') === -1)
             $html.toggleClass('no-scroll');
         $el.find('#YeeCallDialog').show();
     };

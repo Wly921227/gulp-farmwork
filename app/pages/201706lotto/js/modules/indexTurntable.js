@@ -47,7 +47,7 @@ define([
         $turntable.css('-webkit-transform', 'rotateZ(0deg)');
         $turntable.css('transform', 'rotateZ(0deg)');
 
-        if ($html.attr('class').indexOf('no-scroll') === -1)
+        if (!$html.attr('class') || $html.attr('class').indexOf('no-scroll') === -1)
             $html.toggleClass('no-scroll');
 
         utils.backListener(hide);
@@ -86,7 +86,7 @@ define([
             desc: loc.winShare.desc()
         };
 
-        if ($html.attr('class').indexOf('no-scroll') === -1)
+        if (!$html.attr('class') || $html.attr('class').indexOf('no-scroll') === -1)
             $html.toggleClass('no-scroll');
 
         const $prizeShow = $el.find('.prize-show');
@@ -183,6 +183,12 @@ define([
             animate(2);
             // 重置抽奖票
             indexTickets.doInit(loc, window.FRIENDCNT);
+        }, function (response) {
+            if (response.status !== 200) {
+                alert(INDEX_LOC.error);
+            }
+            setBtnClass('pointer-run-icon', 'pointer-icon');
+            $operation.addClass('operation');
         });
     });
     // 转盘动画停止事件

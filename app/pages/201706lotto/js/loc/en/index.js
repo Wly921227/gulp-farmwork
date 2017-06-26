@@ -96,8 +96,8 @@ define(function () {
         },
         error: 'Network Error!',
         dialog: {
-            title: '如需联系我们',
-            text: '请搜索YeeCall ID：YeeCall2017winiPhone',
+            title: 'Contact us',
+            text: 'Please add YeeCall ID: YeeCall2017WiniPhone',
             ok: 'OK'
         }
     }

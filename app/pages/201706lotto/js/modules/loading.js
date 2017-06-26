@@ -16,7 +16,7 @@ define([
 
     return {
         doInit(loc) {
-            if ($html.attr('class').indexOf('no-scroll') === -1)
+            if (!$html.attr('class') || $html.attr('class').indexOf('no-scroll') === -1)
                 $html.toggleClass('no-scroll');
             loc.title = loc.title.split('\n');
             loc.desc = loc.desc.split('\n');
