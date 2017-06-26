@@ -185,10 +185,11 @@ define([
             indexTickets.doInit(loc, window.FRIENDCNT);
         }, function (response) {
             if (response.status !== 200) {
+                console.log('http error');
                 alert(INDEX_LOC.error);
+                setBtnClass('pointer-run-icon', 'pointer-icon');
+                $operation.addClass('operation');
             }
-            setBtnClass('pointer-run-icon', 'pointer-icon');
-            $operation.addClass('operation');
         });
     });
     // 转盘动画停止事件

@@ -8,6 +8,7 @@ define([
     'temp'
 ], function ($, temp, indexTurntable, utils, http, urls) {
     const $el = $('#indexTickets');
+    let loc = {};
     temp = utils.tempRemoveBlank(temp);
     // 按钮按下事件
     $el.on('touchstart', '.operation-box .btn', function () {
@@ -49,7 +50,8 @@ define([
     });
 
     return {
-        doInit(loc, cnt) {
+        doInit(_loc, cnt) {
+            loc = _loc;
             console.log('ticket do init');
             http.get(urls.getUserLotto, {
                 friendCnt: cnt
@@ -65,20 +67,22 @@ define([
                         }
                     }
                     // TODO 测试奖品
-                    // status['001'] = 2;
-                    // prize['001'] = 3;
-                    // status['002'] = 1;
-                    // prize['002'] = 2;
+                    status['001'] = 2;
+                    prize['001'] = 2;
+                    status['002'] = 2;
+                    prize['002'] = 3;
                     // num = 2;
                     // 语言
                     const ticketLoc = loc.ticket;
+                    const tip = loc.prize.tip;
                     $el.html('');
                     // 渲染页面
                     $.tmpl(temp, {
                         ticketLoc,
                         num: num < 0 ? 0 : num,
                         prize,
-                        status
+                        status,
+                        tip
                     }).appendTo($el);
                 }
             });
