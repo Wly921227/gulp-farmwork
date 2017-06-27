@@ -80,7 +80,7 @@
                 <div class="ticket-logo">${ticketLoc.bg}<span>2</span></div>
             </div>
             <div class="massage-box">
-                {{if !status['002']}}
+                {{if num < 3}}
                 <!-- 锁定 -->
                 <div class="msg">${ticketLoc.tipTwo}</div>
                 {{else !status || !status['002']}}

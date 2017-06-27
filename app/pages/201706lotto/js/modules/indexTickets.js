@@ -69,9 +69,9 @@ define([
                     // TODO 测试奖品
                     // status['001'] = 1;
                     // prize['001'] = 1;
-                    // status['002'] = 3;
+                    // status['002'] = 0;
                     // prize['002'] = 3;
-                    // num = 10;
+                    // num = 6;
                     // 语言
                     const ticketLoc = loc.ticket;
                     const tip = loc.prize.tip;

@@ -13,9 +13,6 @@ window.requirejs(['common'], function () {
         utils.setFontSize(1080, 20);
         utils.createGoogleAnalytics();
         utils.noContextMenu();
-        utils.hideNav(true);
-        // TODO 隐藏右上角
-        utils.hideMenu(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/disc-icon.png');
         utils.loadImage('./images/prize-icon.png');
@@ -42,10 +39,15 @@ window.requirejs(['common'], function () {
             window.INDEX_LOC = loc;
             utils.setTitle(loc);
             loading.doInit(loadLoc);
-            utils.setCookie(function () {
-                indexWinners.doInit(loc, _loc);
-                utils.getFriendCnt(function (cnt) {
-                    indexTickets.doInit(loc, cnt);
+            document.addEventListener("deviceready", function () {
+                utils.hideNav(true);
+                // TODO 隐藏右上角
+                utils.hideMenu(true);
+                utils.setCookie(function () {
+                    indexWinners.doInit(loc, _loc);
+                    utils.getFriendCnt(function (cnt) {
+                        indexTickets.doInit(loc, cnt);
+                    });
                 });
             });
             indexBanner.doInit(loc);

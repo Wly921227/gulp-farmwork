@@ -185,7 +185,7 @@ define(['jquery'], function ($) {
                 } catch (e) {
                     setTimeout(function () {
                         self.setTitle(loc);
-                    }, 20);
+                    }, 500);
                 }
             }
         },
@@ -230,7 +230,7 @@ define(['jquery'], function ($) {
 
                             setTimeout(function () {
                                 self.setCookie(callback);
-                            }, 20);
+                            }, 500);
                         }
                     });
                 } catch (e) {
@@ -238,7 +238,7 @@ define(['jquery'], function ($) {
 
                     setTimeout(function () {
                         self.setCookie(callback);
-                    }, 20);
+                    }, 500);
                 }
             }
         },
@@ -261,14 +261,14 @@ define(['jquery'], function ($) {
                             console.log(err);
                             setTimeout(function () {
                                 self.getFriendCnt(callback);
-                            }, 20);
+                            }, 500);
                         }
                     });
                 } catch (e) {
                     console.log('get friend cnt catch');
                     setTimeout(function () {
                         self.getFriendCnt(callback);
-                    }, 20);
+                    }, 500);
                 }
             }
         },
@@ -285,7 +285,7 @@ define(['jquery'], function ($) {
                             console.log(err);
                             setTimeout(function () {
                                 self.getUserName(callback);
-                            }, 20);
+                            }, 500);
                         }
                     });
                 } catch (e) {
@@ -293,7 +293,7 @@ define(['jquery'], function ($) {
 
                     setTimeout(function () {
                         self.getUserName(callback);
-                    }, 20);
+                    }, 500);
                 }
             }
         },
@@ -305,7 +305,7 @@ define(['jquery'], function ($) {
                 } catch (e) {
                     setTimeout(function () {
                         self.hideNav(flag);
-                    }, 20);
+                    }, 500);
                 }
             }
         },
@@ -321,7 +321,7 @@ define(['jquery'], function ($) {
                     console.log('catch flag is', flag);
                     setTimeout(function () {
                         self.hideMenu(flag);
-                    }, 20);
+                    }, 500);
                 }
             }
         },
