@@ -103,11 +103,12 @@ define([
     const getRotateZDeg = (num) => {
         let offset = 0;
         if (num === 6) {
-            offset = parseInt(Math.random() * 5 + 20);
+            offset = parseInt(Math.random() * 10 + 10);
         } else {
-            offset = parseInt(Math.random() * 25);
+            offset = parseInt(Math.random() * 20);
         }
 
+        console.log('offset: ', offset);
         offset = offset % 2 ? offset : offset * -1;
 
         return 390 - 60 * num + 1080 + offset;
@@ -164,6 +165,9 @@ define([
         // 开始按钮样式
         setBtnClass('pointer-icon', 'pointer-run-icon');
         // 移除停止动画
+        if ($turntable.attr('class').indexOf('animate') > -1) {
+            $turntable.toggleClass('animate');
+        }
         $turntable.css('-webkit-transform', 'rotateZ(0deg)');
         $turntable.css('transform', 'rotateZ(0deg)');
         // 移除抽奖按钮事件
@@ -192,6 +196,9 @@ define([
             // TODO
             // num = 5;
             // 转盘动画
+            if ($turntable.attr('class').indexOf('animate') === -1) {
+                $turntable.toggleClass('animate');
+            }
             animate(num);
             // 重置抽奖票
             indexTickets.doInit(loc, window.FRIENDCNT);
@@ -199,6 +206,8 @@ define([
             if (response.status !== 200) {
                 console.log('http error');
                 alert(INDEX_LOC.error);
+                // 显示关闭按钮
+                $el.find('.close').show();
                 setBtnClass('pointer-run-icon', 'pointer-icon');
                 $operation.addClass('operation');
             }
