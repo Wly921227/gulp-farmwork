@@ -105,7 +105,7 @@ define([
         if (num === 6) {
             offset = parseInt(Math.random() * 5 + 20);
         } else {
-            offset = parseInt(Math.random() * 30);
+            offset = parseInt(Math.random() * 25);
         }
 
         offset = offset % 2 ? offset : offset * -1;
@@ -137,6 +137,8 @@ define([
             if (num === 5) {
                 setBtnClass('pointer-run-icon', 'pointer-icon');
                 $operation.addClass('operation');
+                // 显示关闭按钮
+                $el.find('.close').show();
             } else {
                 setBtnClass('pointer-run-icon', 'pointer-action-icon');
                 setTimeout(function () {
@@ -188,7 +190,7 @@ define([
                 }
             }
             // TODO
-            // num = 1;
+            // num = 5;
             // 转盘动画
             animate(num);
             // 重置抽奖票
