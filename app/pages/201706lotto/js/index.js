@@ -41,7 +41,6 @@ window.requirejs(['common'], function () {
             loading.doInit(loadLoc);
             document.addEventListener("deviceready", function () {
                 utils.hideNav(true);
-                // TODO 隐藏右上角
                 utils.hideMenu(true);
                 utils.setCookie(function () {
                     indexWinners.doInit(loc, _loc);

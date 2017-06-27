@@ -8,7 +8,6 @@ define(function () {
 
     return {
         title: 'دعوة الأصدقاء للفوز ب iPhone7',
-        // banner: 'دعوة أصدقاء من WhatsApp للانضمام إلى YeeCall للفوز جائزة iPhone7',
         banner: 'للانضمام إلى WhatsApp دعوة أصدقاء من iPhone7 للفوز جائزة YeeCall',
         ticket: {
             bg: 'تذكرة',
@@ -39,7 +38,6 @@ define(function () {
                     else
                         return `${'!' + ' تفوز ب' + PRIZE[id]}`;
                 },
-                // callYC: 'سيقوم موظف YeeCall  بالاتصال بك في غضون 3 أيام عمل',
                 callYC: 'بالاتصال بك YeeCall سيقوم موظفن في غضون ثلاثة أيام عمل',
                 callUs: 'الاتصال بنا',
                 share: 'التشارك'
@@ -86,18 +84,15 @@ define(function () {
         },
         share: {
             title() {
-                // const n = parseInt(Math.random() * 1000);
-                const n = 2;
+                const n = parseInt(Math.random() * 1000);
                 return n % 2 ? 'الانضمام إلى YeeCall للفوز ب iPhone7' : 'تحميل YeeCall للفوز ب iPhone7'
             },
             desc(){
                 return 'دعوة أكثر من الأصدقاء للانضمام إلى YeeCall للفوز ب iPhone7'
             }
         },
-        // TODO 检查分享文案
         winShare: {
             title(id) {
-                // return `我在YeeCall赢了${PRIZE[id]}，还有更多奖品等着你！`
                 return `فزت ب${' ' + PRIZE[id] + ' '} في YeeCall! يوجد أكثر من الجوائز هنا!`
             },
             desc() {

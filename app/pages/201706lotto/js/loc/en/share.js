@@ -9,13 +9,13 @@ define(function () {
     return {
         title: 'Invite friends to win iPhone 7',
         banner(name){
-            // return `你的好友${name}正参加集YeeCall好友抽iPhone7的活动`
             return `Your friend ${name} just downloaded YeeCall to win iPhone 7`;
         },
         banner2: 'Invite WhatsApp friends to join YeeCall to win iPhone 7',
         shareButton: ' I want to win iPhone 7 too!',
         prize: {
             title: 'Prize list',
+            tip: 'Mobile Refill Card',
             list: [{
                 level: '1st Prize',
                 name: 'iPhone 7',

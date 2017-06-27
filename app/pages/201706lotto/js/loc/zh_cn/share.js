@@ -15,6 +15,7 @@ define(function () {
         shareButton: '我也要赢iPhone7',
         prize: {
             title: '奖项设置',
+            tip: '话费卡',
             list: [{
                 level: '一等奖',
                 name: 'iPhone 7',
