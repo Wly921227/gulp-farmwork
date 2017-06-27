@@ -219,7 +219,7 @@ define(['jquery'], function ($) {
                                 console.log('get cookie success');
 
                                 const cookie = JSON.parse(res);
-                                document.cookie = `${cookie.name}=${cookie.cookie};${location.href.indexOf('yeecall.com') > -1 ? 'domain=yeecall.com;' : ''}path=/;`;
+                                document.cookie = `${cookie.name.toLowerCase()}=${cookie.cookie};${location.href.indexOf('yeecall.com') > -1 ? 'domain=yeecall.com;' : ''}path=/;`;
                                 if (callback && typeof callback === 'function') {
                                     callback();
                                 }

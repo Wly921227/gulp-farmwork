@@ -1,7 +1,7 @@
 <div class="index-tickets">
     <div class="ticket-list">
-        <div class="ticket ticket-one {{if status['001'] !== 1}} lock{{/if}}">
-            <div class="bg icon {{if status['001'] !== 1}}icon-ticket{{else}}icon-ticket-action{{/if}}">
+        <div class="ticket ticket-one {{if status['001'] === 2}}ticket-win{{else status['001'] === 1}}{{else}}lock{{/if}}">
+            <div class="bg icon {{if status['001'] === 2}}icon-ticket-win{{else status['001'] === 1}}icon-ticket-action{{else}}icon-ticket{{/if}}">
                 <div class="ticket-logo">${ticketLoc.bg}<span>1</span></div>
             </div>
             <div class="massage-box">
@@ -75,8 +75,8 @@
                 {{/if}}
             </div>
         </div>
-        <div class="ticket ticket-two{{if status['002'] !== 1}} lock{{/if}}">
-            <div class="bg icon {{if status['002'] !== 1}}icon-ticket{{else}}icon-ticket-action{{/if}}">
+        <div class="ticket ticket-two {{if status['002'] === 2}}ticket-win{{else status['002'] === 1}}{{else}}lock{{/if}}">
+            <div class="bg icon {{if status['002'] === 2}}icon-ticket-win{{else status['002'] === 1}}icon-ticket-action{{else}}icon-ticket{{/if}}">
                 <div class="ticket-logo">${ticketLoc.bg}<span>2</span></div>
             </div>
             <div class="massage-box">
@@ -105,7 +105,7 @@
                 {{/if}}
             </div>
             <div class="operation-box">
-                {{if !status['002']}}
+                {{if num <= 3}}
                 <!-- 锁定 -->
                 <div class="shadow">
                     <div class="lock small-icon icon-lock"></div>

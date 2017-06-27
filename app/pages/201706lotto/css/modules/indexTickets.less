@@ -4,10 +4,10 @@
 @text-massage: rgb(39, 39, 101);
 @text-invitation: rgb(66, 85, 169);
 @text-num: rgb(255, 198, 36);
-@text-un-win: rgb(255, 212, 42);
 @text-btn: rgb(255, 255, 255);
-@text-win-tip: rgb(39, 39, 101);
-@text-lock-tip: rgb(141, 145, 182);
+@text-win-tip: #da550b;
+@text-win-msg: #e38118;
+@text-lock-tip: #63688f;
 @text-msg-tip: #f9db53;
 @text-msg-tip-shadow: rgba(39, 39, 102, .5);
 @lock-shadow-bg: rgba(141, 145, 182, .2);
@@ -60,16 +60,12 @@
           display: inline-block;
           color: @text-massage;
           font-size: 1.05rem;
-          //padding-right: 1rem;
           span {
             color: @text-msg-tip;
             font-size: 1.35rem;
             font-weight: 600;
             text-shadow: 1px 1px 2px @text-msg-tip-shadow;
           }
-          //&.win {
-          //  margin-top: 1.6rem;
-          //}
         }
         .text {
           //margin-top: .3rem;
@@ -137,7 +133,7 @@
               .bar {
                 -webkit-border-radius: .25rem;
                 -moz-border-radius: .25rem;
-                border-radius: .6525;
+                border-radius: .25rem;
                 background: @bar-bg;
                 overflow: hidden;
                 width: 6.87rem;
@@ -206,9 +202,6 @@
             color: @text-lock-tip;
             //margin-top: 2.5rem;
           }
-          .win.msg {
-            color: @text-win-tip;
-          }
         }
         .operation-box {
           .shadow {
@@ -220,6 +213,20 @@
             margin-top: -1.9rem;
             left: 50%;
             top: 50%;
+          }
+        }
+      }
+      &.ticket-win {
+        .massage-box {
+          .msg {
+            color: @text-win-tip;
+          }
+          .text {
+            color: @text-win-msg;
+            font-weight: 500;
+          }
+          .call-us {
+            color: @text-win-msg;
           }
         }
       }
