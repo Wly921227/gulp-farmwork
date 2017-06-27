@@ -313,9 +313,12 @@ define(['jquery'], function ($) {
             if (inYeeCall) {
                 const self = this;
                 try {
+                    console.log('hide menu try');
+                    console.log('try flag is', flag);
                     window.YC.hideMenu(flag);
                 } catch (e) {
                     console.log('hide menu catch');
+                    console.log('catch flag is', flag);
                     setTimeout(function () {
                         self.hideMenu(flag);
                     }, 20);

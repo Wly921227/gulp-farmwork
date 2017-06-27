@@ -81,10 +81,17 @@ define([
         // 显示关闭按钮
         $el.find('.close').show();
         // 分享文案设置
-        SHARE = {
-            title: loc.winShare.title(num),
-            desc: loc.winShare.desc()
-        };
+        if (num < 0 && num <= 4) {
+            SHARE = {
+                title: loc.winShare.title(num),
+                desc: loc.winShare.desc()
+            };
+        } else {
+            SHARE = {
+                title: loc.share.title(),
+                desc: loc.share.desc()
+            };
+        }
 
         if (!$html.attr('class') || $html.attr('class').indexOf('no-scroll') === -1)
             $html.toggleClass('no-scroll');

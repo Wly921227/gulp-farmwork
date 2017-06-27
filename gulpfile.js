@@ -80,7 +80,7 @@ gulp.task('less:build', function () {
         .pipe(less({
             plugins: [new LessAutoPrefix({browsers: ['last 2 versions'], remove: false})]
         }))
-        .pipe(minifycss())
+        // .pipe(minifycss())
         .pipe(gulp.dest(DIST_PATH))
         .pipe(browserSync.stream());
 });

@@ -79,19 +79,19 @@ define(function () {
         share: {
             title() {
                 const n = parseInt(Math.random() * 1000);
-                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone'
+                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone';
             },
             desc() {
-                return '邀请更多好友加入YeeCall有机会抽取iPhone7'
+                return '邀请更多好友加入YeeCall有机会抽取iPhone7';
             }
         },
         winShare: {
             title(id) {
-                return `我在YeeCall赢了${PRIZE[id]}，还有更多奖品等着你！`
+                return `我在YeeCall赢了${PRIZE[id]}，还有更多奖品等着你！`;
             },
             desc() {
                 const n = parseInt(Math.random() * 1000);
-                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone'
+                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone';
             }
         },
         error: '网络异常，请检查网络！',
