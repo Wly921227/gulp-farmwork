@@ -81,7 +81,7 @@ define([
         // 显示关闭按钮
         $el.find('.close').show();
         // 分享文案设置
-        if (num < 0 && num <= 4) {
+        if (num > 0 && num <= 4) {
             SHARE = {
                 title: loc.winShare.title(num),
                 desc: loc.winShare.desc()

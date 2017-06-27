@@ -67,7 +67,7 @@ define([
                         }
                     }
                     // TODO 测试奖品
-                    // status['001'] = 1;
+                    // status['001'] = 2;
                     // prize['001'] = 1;
                     // status['002'] = 0;
                     // prize['002'] = 3;
