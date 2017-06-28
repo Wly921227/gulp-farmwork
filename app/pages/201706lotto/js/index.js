@@ -45,14 +45,14 @@ window.requirejs(['common'], function () {
                 utils.setCookie(function () {
                     indexWinners.doInit(loc, _loc);
                     utils.getFriendCnt(function (cnt) {
-                        indexTickets.doInit(loc, cnt);
+                        indexTickets.doInit(loc, cnt, _loc);
                     });
                 });
             });
             indexBanner.doInit(loc);
             indexShare.doInit(loc);
-            indexPrizeList.doInit(loc);
-            indexTurntable.doInit(loc, turntableImg, indexTickets);
+            indexPrizeList.doInit(loc, _loc);
+            indexTurntable.doInit(loc, turntableImg, indexTickets, _loc);
             dialog.doInit(loc);
             // 隐藏loading
             setTimeout(function () {

@@ -82,8 +82,14 @@ define(['jquery'], function ($) {
             const fontSize = oneRem / 16 * 100;
             document.querySelector('html').style.fontSize = fontSize + '%';
             window.addEventListener('resize', this.setFontSize.bind(this, planSize, remSize));
+
+            // 开始load时间
+            window.STARTTIME = new Date().getTime();
         },
         createGoogleAnalytics() {
+            window._gaq = [];
+            _gaq.push(['pageTracker._setAccount', 'UA-63953912-1']);
+            _gaq.push(['pageTracker._trackPageview']);
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
                 i[r] = i[r] || function () {
@@ -101,17 +107,14 @@ define(['jquery'], function ($) {
         getLocCode() {
             if (/yeecall/.test(ua)) {
                 if (/yclan\/zh_cn/.test(ua)) {
-                    return 'zh_cn';
+                    return 'zh';
                 } else if (/yclan\/zh/.test(ua)) {
-                    // return 'zh_tw';
-                    return 'zh_cn';
+                    return 'zh';
                 } else if (/yclan\/ar/.test(ua)) {
                     $('body').addClass('ar');
                     return 'ar';
-                    // return 'zh_cn';
                 } else {
                     return 'en';
-                    // return 'zh_cn';
                 }
             } else {
                 let loc;
@@ -123,18 +126,15 @@ define(['jquery'], function ($) {
                     // 阿语
                     $('body').addClass('ar');
                     return 'ar';
-                    // return 'zh_cn';
                 } else if (/zh/.test(loc) && /cn/.test(loc)) {
                     // 简体中文
-                    return 'zh_cn';
+                    return 'zh';
                 } else if (/zh/.test(loc)) {
                     // 繁体中文
-                    // return 'zh_tw'
-                    return 'zh_cn';
+                    return 'zh';
                 } else {
                     // 英文
                     return 'en';
-                    // return 'zh_cn';
                 }
             }
         },
@@ -175,7 +175,7 @@ define(['jquery'], function ($) {
                 $('title').html(loc.title);
                 if (loc.share) {
                     $('meta[name="keywords"]').html(loc.share.title());
-                    $('meta[name="description"]').html(loc.share.desc);
+                    $('meta[name="description"]').html(loc.share.title());
                 }
             }
 
@@ -208,6 +208,14 @@ define(['jquery'], function ($) {
             const images = new Image();
             images.src = url;
             $('body').append(`<img src="${images.src}" style="display: none;">`);
+            if (window.STARTTIME) {
+                const endTime = new Date().getTime();
+
+                const loadTime = endTime - window.STARTTIME;
+
+                _gaq.push(['loadTracker._trackEvent', '加载图片时间(ms)', url, loadTime]);
+            }
+
             return images;
         },
         // YeeCall
@@ -257,8 +265,6 @@ define(['jquery'], function ($) {
 
                             window.FRIENDCNT = cnt;
                             callback && callback(cnt);
-                            // window.FRIENDCNT = 15;
-                            // callback && callback(window.FRIENDCNT);
                         },
                         error: function (err) {
                             console.log(err);
@@ -330,8 +336,12 @@ define(['jquery'], function ($) {
         },
         downloadYeeCall() {
             if (isAndroid) {
+                ga('send', 'event', '下载YeeCall', 'android');
+
                 window.location.href = androidDownloadUrl;
             } else {
+                ga('send', 'event', '下载YeeCall', 'IOS');
+
                 window.location.href = iosDownloadUrl;
             }
         },
@@ -355,7 +365,7 @@ define(['jquery'], function ($) {
                 desc: share.desc,
                 imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
                 link: link,
-                textAndLink: `${share.desc}: ${link}`,
+                textAndLink: `${share.title}: \n${link}`,
                 success: function () {
                     console.log('Share success~');
                 },

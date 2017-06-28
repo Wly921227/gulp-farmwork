@@ -20,7 +20,7 @@ window.requirejs(['common'], function () {
         utils.loadImage('./images/close.png');
         utils.loadImage('./images/loading.png');
         utils.loadImage('./images/loading-banner.png');
-        const img = utils.loadImage(`./images/pic_banner_${_loc}-min.png`);
+        // const img = utils.loadImage(`./images/pic_banner_${_loc}-min.png`);
         window.requirejs([
             `loc/${_loc}/share`,
             `loc/${_loc}/loading`,
@@ -35,9 +35,9 @@ window.requirejs(['common'], function () {
             loading.doInit(loadLoc);
             indexWinners.doInit(loc, _loc);
             shareBanner.doInit(loc);
-            shareJoin.doInit(loc, img);
+            shareJoin.doInit(loc);
             indexShare.doInit(loc, shareJoin);
-            indexPrizeList.doInit(loc);
+            indexPrizeList.doInit(loc, _loc);
             // 隐藏loading
             setTimeout(loading.hide, 2000);
         });

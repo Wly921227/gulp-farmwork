@@ -12,6 +12,7 @@ define([
     let src = '';
     let item = '';
     let indexTickets = {};
+    let locCode = '';
     let SHARE = {};
 
     const $el = $('#indexTurntable');
@@ -43,7 +44,6 @@ define([
         }
         // 移除动画
         const $turntable = $el.find('.turntable');
-        // $turntable.removeClass('running');
         $turntable.css('-webkit-transform', 'rotateZ(0deg)');
         $turntable.css('transform', 'rotateZ(0deg)');
 
@@ -98,7 +98,7 @@ define([
 
         const $prizeShow = $el.find('.prize-show');
         $prizeShow.html('');
-        $.tmpl(resultTemp, {num, item, loc: loc.prizeTip}).appendTo($prizeShow);
+        $.tmpl(resultTemp, {num, item, loc: loc.prizeTip, locCode}).appendTo($prizeShow);
     };
     const getRotateZDeg = (num) => {
         let offset = 0;
@@ -111,7 +111,7 @@ define([
         console.log('offset: ', offset);
         offset = offset % 2 ? offset : offset * -1;
 
-        return 390 - 60 * num + 1080 + offset;
+        return 390 - 60 * num + 720 + offset;
     };
     const arrowFlash = (num, time) => {
         if (num >= 0) {
@@ -146,7 +146,7 @@ define([
                     showPrizes(num);
                 }, 1500);
             }
-        }, 3000);
+        }, 4000);
     };
 
     // 按钮按下事件
@@ -161,7 +161,6 @@ define([
         const $turntable = $el.find('.turntable');
         const $operation = $el.find('.opt-btn');
         event.preventDefault();
-        // $turntable.toggleClass('running');
         // 开始按钮样式
         setBtnClass('pointer-icon', 'pointer-run-icon');
         // 移除停止动画
@@ -178,6 +177,12 @@ define([
         $el.find('.close').hide();
         // 抽奖事件
         console.log(item);
+        if (item === '001') {
+            ga('send', 'event', '开始抽奖', '第一次抽奖');
+        } else {
+            ga('send', 'event', '开始抽奖', '第二次抽奖');
+        }
+
         http.get(urls.sendDraw, {
             friendCnt: window.FRIENDCNT,
             item: item
@@ -195,13 +200,35 @@ define([
             }
             // TODO
             // num = 5;
+            if (num === 1) {
+                ga('send', 'event', '抽奖结果', 'iPhone');
+            }
+            else if (num === 2) {
+                ga('send', 'event', '抽奖结果', '100话费卡');
+            }
+            else if (num === 3) {
+                ga('send', 'event', '抽奖结果', '50话费卡');
+            }
+            else if (num === 4) {
+                ga('send', 'event', '抽奖结果', '10话费卡');
+            }
+            else if (num === 5) {
+                ga('send', 'event', '抽奖结果', '再抽一次');
+            }
+            else if (num === 6) {
+                ga('send', 'event', '抽奖结果', '未中奖');
+            }
+            else if (num === 1) {
+                ga('send', 'event', '抽奖结果', 'iPhone');
+            }
+
             // 转盘动画
             if ($turntable.attr('class').indexOf('animate') === -1) {
                 $turntable.toggleClass('animate');
             }
             animate(num);
             // 重置抽奖票
-            indexTickets.doInit(loc, window.FRIENDCNT);
+            indexTickets.doInit(loc, window.FRIENDCNT, locCode);
         }, function (response) {
             if (response.status !== 200) {
                 console.log('http error');
@@ -213,32 +240,6 @@ define([
             }
         });
     });
-    // 转盘动画停止事件
-    // $el.on('webkitAnimationEnd', '.turntable', function () {
-    //     const $turntable = $el.find('.turntable');
-    //     const $operation = $el.find('.opt-btn');
-    //     // if (num && $turntable.hasClass('running'))
-    //     if (num) {
-    //         // $turntable.removeClass('running');
-    //         // 随机角度
-    //         const deg = getRotateZDeg(TURNTABLE_DEG[num]);
-    //         setTimeout(function () {
-    //             $turntable.css('-webkit-transform', `rotateZ(${deg}deg)`);
-    //             $turntable.css('transform', `rotateZ(${deg}deg)`);
-    //             setTimeout(function () {
-    //                 if (num === 5) {
-    //                     setBtnClass('pointer-run-icon', 'pointer-icon');
-    //                     $operation.addClass('operation');
-    //                 } else {
-    //                     setBtnClass('pointer-run-icon', 'pointer-action-icon');
-    //                     setTimeout(function () {
-    //                         showPrizes(num);
-    //                     }, 1500);
-    //                 }
-    //             }, 3500);
-    //         }, 20);
-    //     }
-    // });
     // 关闭按钮
     $el.on('click', '.close', function (event) {
         event.preventDefault();
@@ -258,13 +259,19 @@ define([
     });
     $el.on('click', '.share-btn', function (event) {
         event.preventDefault();
+        if (num > 0 && num <= 4) {
+            ga('send', 'event', '分享', '中奖页面分享');
+        } else {
+            ga('send', 'event', '分享', '未中奖页面分享');
+        }
         utils.share(SHARE, window.USERNAME);
     });
 
     return {
-        doInit(_loc, turntableImg, _indexTickets) {
+        doInit(_loc, turntableImg, _indexTickets, _locCode) {
             src = turntableImg.src;
             loc = _loc;
+            locCode = _locCode;
             loc.prizeTip.tips = loc.prizeTip.tips.split('\n');
             loc.prizeTip.cardTip = loc.prize.tip;
             indexTickets = _indexTickets;

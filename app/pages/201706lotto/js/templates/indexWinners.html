@@ -1,7 +1,7 @@
 <div class="index-winners">
     <div class="title">${winnerLoc.title}</div>
     <div class="winner-list">
-        <ul>
+        <ul class="move">
             {{each(key, value) list}}
             {{if value}}
             <li>
@@ -19,6 +19,27 @@
             </li>
             {{/if}}
             {{/each}}
+            <div class="next">
+                <ul class="bottom">
+                    {{each(key, value) list}}
+                    {{if value}}
+                    <li>
+                        <div class="item {{if value.prize === 1}}iphone{{/if}}">
+                            <div class="text">${value.id}&nbsp;${winnerLoc.prize(value.prize)}</div>
+                            <div class="time">${value.time}</div>
+                        </div>
+                    </li>
+                    {{else}}
+                    <li>
+                        <div class="item">
+                            <div class="text"></div>
+                            <div class="time"></div>
+                        </div>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
         </ul>
         <div class="cover-top"></div>
         <div class="cover-bottom"></div>

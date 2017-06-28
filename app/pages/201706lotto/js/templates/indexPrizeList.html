@@ -4,14 +4,12 @@
         <ul>
             <li class="item">
                 <div class="p100">
-                    <div class="btn-icon icon-prizes-100 prize">
+                    <div class="card-${loc}-icon icon-prizes-100 prize">
                         <div class="brand-icon icon-silver brand"></div>
-                        <p>${prizeLoc.tip}</p>
                     </div>
                     <div class="info">
                         <div class="level">${prizeLoc.list[1].level}</div>
                         <div class="name">${prizeLoc.list[1].name}</div>
-                        <!--<div class="price">${prizeLoc.list[1].price}</div>-->
                     </div>
                 </div>
             </li>
@@ -23,23 +21,23 @@
                     <div class="info">
                         <div class="level">${prizeLoc.list[0].level}</div>
                         <div class="name">${prizeLoc.list[0].name}</div>
-                        <!--<div class="price">${prizeLoc.list[0].price}</div>-->
                     </div>
                 </div>
             </li>
             <li class="item">
                 <div class="p50">
-                    <div class="btn-icon icon-prizes-50 prize">
+                    <div class="card-${loc}-icon icon-prizes-50 prize">
                         <div class="brand-icon icon-copper brand"></div>
-                        <p>${prizeLoc.tip}</p>
                     </div>
                     <div class="info">
                         <div class="level">${prizeLoc.list[2].level}</div>
                         <div class="name">${prizeLoc.list[2].name}</div>
-                        <!--<div class="price">${prizeLoc.list[2].price}</div>-->
                     </div>
                 </div>
             </li>
         </ul>
+    </div>
+    <div class="statement">
+        ${statement}
     </div>
 </div>

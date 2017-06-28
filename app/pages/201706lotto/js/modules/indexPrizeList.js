@@ -8,9 +8,9 @@ define([
     temp = utils.tempRemoveBlank(temp);
 
     return {
-        doInit(loc) {
+        doInit(loc, locCode) {
             const prizeLoc = loc.prize;
-            $.tmpl(temp, {prizeLoc}).appendTo($el);
+            $.tmpl(temp, {prizeLoc, loc: locCode, statement: loc.statement}).appendTo($el);
         }
     }
 });

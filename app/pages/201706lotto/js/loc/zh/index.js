@@ -1,9 +1,9 @@
 define(function () {
     const PRIZE = {
         1: 'iPhone7一台',
-        2: '100话费卡',
-        3: '50话费卡',
-        4: '10话费卡'
+        2: '话费卡',
+        3: '话费卡',
+        4: '话费卡'
     };
 
     return {
@@ -50,11 +50,11 @@ define(function () {
                 price: '6999'
             }, {
                 level: '二等奖',
-                name: '100话费充值卡',
+                name: '话费充值卡',
                 price: '100'
             }, {
                 level: '三等奖',
-                name: '50话费充值卡',
+                name: '话费充值卡',
                 price: '50'
             }]
         },
@@ -64,6 +64,7 @@ define(function () {
                 return `抽到 ${PRIZE[id]}`;
             }
         },
+        statement: '本活动最终解释权归 YeeCall 所有',
         prizeTip: {
             no: '再接再厉，继续邀请好友期待下一次能中奖！',
             no2: '谢谢参与本次活动，期待你下次赢取大奖',
@@ -97,7 +98,8 @@ define(function () {
         error: '网络异常，请检查网络！',
         dialog: {
             title: '如需联系我们',
-            text: '请搜索YeeCall ID：YeeCall2017winiPhone',
+            text: '请搜索YeeCall ID：',
+            id: 'WiniPhone2017',
             ok: '确认'
         }
     }

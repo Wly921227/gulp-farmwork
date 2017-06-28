@@ -2,9 +2,17 @@
 @text-tip: rgba(255, 255, 255, .4);
 @text-iphone: #fff;
 @item-bg: #212158;
+@text-statement: #63688f;
 
 .index-prizes {
   margin-top: .65rem;
+  .statement {
+    color: @text-statement;
+    line-height: 1.2rem;
+    text-align: center;
+    font-size: .9rem;
+    margin: .7rem 0;
+  }
   .prizes-list {
     width: 24.75rem;
     margin: 0 auto;
@@ -35,7 +43,6 @@
       }
       .p100 {
         height: 6.55rem;
-        //left: 0;
         .prize {
           margin-left: -3.06rem;
           position: absolute;
@@ -45,14 +52,9 @@
             left: -.6rem;
             top: -.6rem;
           }
-          p {
-            font-size: .6rem;
-            bottom: .4rem;
-          }
         }
       }
       .p50 {
-        //left: calc(66.6% + .375rem);
         height: 4.82rem;
         .prize {
           margin-left: -2.21rem;
@@ -63,14 +65,9 @@
             left: -.8rem;
             top: -.7rem;
           }
-          p {
-            font-size: .5rem;
-            bottom: .3rem;
-          }
         }
       }
       .iphone {
-        //left: calc(33.3% + .375rem);
         height: 8.75rem;
         .prize {
           margin-left: -3.6rem;
@@ -96,18 +93,10 @@
         .brand {
           position: absolute;
         }
-        p {
-          position: absolute;
-          text-align: center;
-          color: @text-tip;
-          width: 100%;
-        }
       }
       .info {
         line-height: 1.2rem;
         position: absolute;
-        //margin-top: .3rem;
-        //padding: 0 .75rem;
         text-align: center;
         color: @text-info;
         font-size: .8rem;
@@ -115,14 +104,5 @@
         width: 100%;
       }
     }
-  }
-}
-
-@media (min-device-height: 510px) and (max-device-height: 600px) {
-  .index-prizes .prizes-list .item .p100 .prize p {
-    bottom: .7rem !important;
-  }
-  .index-prizes .prizes-list .item .p50 .prize p {
-    bottom: .4rem !important;
   }
 }

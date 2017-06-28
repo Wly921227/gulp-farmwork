@@ -31,12 +31,16 @@ define([
             $el.on('click', '.btn', function (event) {
                 event.preventDefault();
                 if (shareJoin) {
+                    ga('send', 'event', '外部点击我要参加活动');
+
                     shareJoin.show();
                 } else {
                     const share = {
                         title: loc.share.title(),
                         desc: loc.share.desc(),
                     };
+                    ga('send', 'event', '分享', '首页分享');
+
                     utils.share(share, username);
                 }
             });

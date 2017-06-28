@@ -1,9 +1,9 @@
 define(function () {
     const PRIZE = {
         1: 'iPhone 7 x1',
-        2: '100 Mobile Refill Card',
-        3: '50 Mobile Refill Card',
-        4: '10 Mobile Refill Card'
+        2: 'Mobile Refill Card',
+        3: 'Mobile Refill Card',
+        4: 'Mobile Refill Card'
     };
 
     return {
@@ -50,14 +50,15 @@ define(function () {
                 price: '6999'
             }, {
                 level: '2nd Prize',
-                name: '100 Mobile Refill Card',
+                name: 'Mobile Refill Card',
                 price: '100'
             }, {
                 level: '3rd Prize',
-                name: '50 Mobile Refill Card',
+                name: 'Mobile Refill Card',
                 price: '50'
             }]
         },
+        statement: 'YeeCall reserve the right to explain the terms of the event.',
         winnerList: {
             title: 'Winners',
             prize(id) {
@@ -97,7 +98,8 @@ define(function () {
         error: 'Network Error!',
         dialog: {
             title: 'Contact us',
-            text: 'Please add YeeCall ID: YeeCall2017WiniPhone',
+            text: 'Please add YeeCall ID: ',
+            id: 'WiniPhone2017',
             ok: 'OK'
         }
     }

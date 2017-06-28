@@ -34,8 +34,8 @@ define([
     $el.on('click', '.close', hide);
 
     return {
-        doInit(loc, img) {
-            $.tmpl(temp, {join: loc.join, url: img.src}).appendTo($el);
+        doInit(loc) {
+            $.tmpl(temp, {join: loc.join}).appendTo($el);
         },
         show,
         hide

@@ -16,17 +16,11 @@
             {{if num === 1}}
             <div class="prizes-iphone-icon prizes-icon"></div>
             {{else num === 2}}
-            <div class="icon-show-100 btn-icon">
-                <div class="card-tip">${loc.cardTip}</div>
-            </div>
+            <div class="icon-show-100 card-${locCode}-icon"></div>
             {{else num === 3}}
-            <div class="icon-show-50 btn-icon">
-                <div class="card-tip">${loc.cardTip}</div>
-            </div>
+            <div class="icon-show-50 card-${locCode}-icon"></div>
             {{else num === 4}}
-            <div class="icon-show-10 btn-icon">
-                <div class="card-tip">${loc.cardTip}</div>
-            </div>
+            <div class="icon-show-10 card-${locCode}-icon"></div>
             {{/if}}
         </div>
         <div class="tips">
@@ -35,7 +29,6 @@
             {{/each}}
         </div>
         <div class="call-us">
-            <!--<a href="mailto:2017winiphone@yeecall.com">${loc.callUs}</a>-->
             ${loc.callUs}
         </div>
         <div class="share">
