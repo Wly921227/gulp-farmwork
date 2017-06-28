@@ -34,7 +34,7 @@ define([
             title: loc.share.title(),
             desc: loc.share.desc()
         };
-        utils.share(share, window.USERNAME);
+        utils.share(share);
     });
     // 分享按钮
     $el.on('click', '.operation-box .win', function (event) {
@@ -67,11 +67,11 @@ define([
                         }
                     }
                     // TODO 测试奖品
-                    // status['001'] = 2;
+                    // status['001'] = 1;
                     // prize['001'] = 2;
-                    // status['002'] = 1;
+                    // status['002'] = 2;
                     // prize['002'] = 3;
-                    // num = 6;
+                    // num = 16;
                     // 语言
                     const ticketLoc = loc.ticket;
                     const tip = loc.prize.tip;

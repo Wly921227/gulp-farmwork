@@ -194,30 +194,6 @@ a {
     height: 3.5rem;
     width: 2.8rem;
   }
-  &.icon-gold {
-    background-position: 0 -15.3rem;
-    background-size: 100%;
-    height: 2.9rem;
-    width: 2.05rem;
-  }
-  &.icon-silver {
-    background-position: 0 -18.2rem;
-    background-size: 100%;
-    height: 2.9rem;
-    width: 2.05rem;
-  }
-  &.icon-copper {
-    background-position: 0 -21.6rem;
-    background-size: 100%;
-    height: 2.9rem;
-    width: 2.05rem;
-  }
-  &.icon-free {
-    background-position: 0 -38.9rem;
-    background-size: 100%;
-    height: 3rem;
-    width: 2.9rem;
-  }
 }
 
 .btn-icon {
@@ -422,19 +398,48 @@ a {
   }
 }
 
-@media (min-device-height: 510px) and (max-device-height: 600px) {
-  .small-icon {
-    &.icon-copper {
-      background-position: 0 -21rem;
-    }
-    &.icon-lock {
-      background-position: 0 -13.2rem;
-    }
-    &.icon-share {
-      background-position: 0 -33.9rem;
-    }
-    &.icon-free {
-      background-position: 0 -38rem;
-    }
+.brand-icon {
+  background: url(../images/brand-icon.png) no-repeat;
+  display: inline-block;
+  &.icon-gold {
+    background-position: 0 0;
+    background-size: 100%;
+    height: 2.9rem;
+    width: 2.05rem;
+  }
+  &.icon-silver {
+    background-position: 0 -2.9rem;
+    background-size: 100%;
+    height: 2.9rem;
+    width: 2.05rem;
+  }
+  &.icon-copper {
+    background-position: 0 -6rem;
+    background-size: 100%;
+    height: 2.9rem;
+    width: 2.05rem;
+  }
+  &.icon-free {
+    background-position: 0 -13.2rem;
+    background-size: 100%;
+    height: 3rem;
+    width: 2.9rem;
   }
 }
+
+//@media (min-device-height: 510px) and (max-device-height: 600px) {
+  //.small-icon {
+  //  &.icon-copper {
+  //    background-position: 0 -21rem;
+  //  }
+  //  &.icon-lock {
+  //    background-position: 0 -13.2rem;
+  //  }
+  //  &.icon-share {
+  //    background-position: 0 -33.9rem;
+  //  }
+  //  &.icon-free {
+  //    background-position: 0 -38rem;
+  //  }
+  //}
+//}

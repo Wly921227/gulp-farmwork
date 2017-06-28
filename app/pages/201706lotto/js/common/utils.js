@@ -171,12 +171,15 @@ define(['jquery'], function ($) {
             return n < 10 ? '0' + n : '' + n;
         },
         setTitle(loc) {
-            $('title').html(loc.title);
-            if (loc.share) {
-                $('meta[name="keywords"]').html(loc.share.title());
-                $('meta[name="description"]').html(loc.share.desc);
+            if (loc) {
+                $('title').html(loc.title);
+                if (loc.share) {
+                    $('meta[name="keywords"]').html(loc.share.title());
+                    $('meta[name="description"]').html(loc.share.desc);
+                }
             }
-            if (!isAndroid && inYeeCall) {
+
+            if (inYeeCall && !isAndroid) {
                 const self = this;
                 try {
                     window.YC.setTitle({

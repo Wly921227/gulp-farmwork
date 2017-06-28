@@ -13,7 +13,6 @@ window.requirejs(['common'], function () {
         utils.setFontSize(1080, 20);
         utils.createGoogleAnalytics();
         utils.noContextMenu();
-        utils.hideNav(true);
         utils.loadImage('./images/icons.png');
         utils.loadImage('./images/close.png');
         utils.loadImage('./images/small-icon.png');
