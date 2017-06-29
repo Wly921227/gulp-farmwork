@@ -8,6 +8,7 @@ define(function () {
 
     return {
         title: '邀好友赢 iPhone7',
+        error: '网络异常，请检查网络！',
         banner(name){
             return `你的好友${name}正参加集YeeCall好友抽iPhone7的活动`;
         },
@@ -50,6 +51,15 @@ define(function () {
                 class: 'zh'
             },
             open: '已经安装？点击这里'
+        },
+        share: {
+            title() {
+                const n = parseInt(Math.random() * 1000);
+                return n % 2 ? '加入YeeCall赢取iPhone' : '下载YeeCall赢取iPhone';
+            },
+            desc() {
+                return '邀请更多好友加入YeeCall有机会抽取iPhone7';
+            }
         }
     }
 });

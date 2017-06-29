@@ -8,6 +8,7 @@ define(function () {
 
     return {
         title: 'دعوة الأصدقاء لفوز ب iPhone7',
+        error: 'خطأ في اتصال الشبكة',
         banner(name){
             return `${(name ? name : ' ' + name + ' ') + ' صديقك '}\nيقوم بالاشتراك في أنشطة ”دعوة\n الآن “iPhone7 الأصدقاء للفوز ب`;
         },
@@ -53,6 +54,15 @@ define(function () {
                 class: ''
             },
             open: 'تم تثبيته بالفعل ؟ اضغط هنا'
+        },
+        share: {
+            title() {
+                const n = parseInt(Math.random() * 1000);
+                return n % 2 ? 'الانضمام إلى YeeCall للفوز ب iPhone7' : 'تحميل YeeCall للفوز ب iPhone7'
+            },
+            desc(){
+                return 'دعوة أكثر من الأصدقاء للانضمام إلى YeeCall للفوز ب iPhone7'
+            }
         }
     }
 });

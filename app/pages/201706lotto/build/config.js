@@ -4,7 +4,6 @@
     dir: '../../../../rjs',
     optimize: 'uglify',
     paths: {
-        marquee: 'lib/jquery.marquee',
         temp: 'lib/jquery.tmpl',
         jquery: 'lib/jquery',
         text: 'lib/text',
@@ -16,7 +15,6 @@
         loc: 'loc'
     },
     shim: {
-        marquee: ['jquery'],
         temp: ['jquery']
     },
     modules: [
@@ -24,7 +22,6 @@
             name: 'common',
             include: [
                 'jquery',
-                'marquee',
                 'temp',
                 'text',
                 'utils',

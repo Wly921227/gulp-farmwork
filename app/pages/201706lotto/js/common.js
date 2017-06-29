@@ -2,7 +2,6 @@ requirejs.config({
     baseUrl: './js',
     urlArgs: new Date().getTime() + '',
     paths: {
-        marquee: 'lib/jquery.marquee',
         temp: 'lib/jquery.tmpl',
         jquery: 'lib/jquery',
         text: 'lib/text',
@@ -14,7 +13,6 @@ requirejs.config({
         templates: 'templates'
     },
     shim: {
-        marquee: ['jquery'],
         temp: ['jquery']
     }
 });

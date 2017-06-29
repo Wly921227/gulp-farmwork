@@ -33,7 +33,7 @@ define(function () {
             },
             winning: {
                 tip(id) {
-                    return `恭喜你，抽中 ${PRIZE[id]}`
+                    return `恭喜你，抽中${PRIZE[id]}`
                 },
                 callYC: 'YeeCall工作人员会在3个工作日内联系你',
                 callUs: '联系我们',
@@ -61,7 +61,7 @@ define(function () {
         winnerList: {
             title: '获奖名单',
             prize(id) {
-                return `抽到 ${PRIZE[id]}`;
+                return `抽到${PRIZE[id]}`;
             }
         },
         statement: '本活动最终解释权归 YeeCall 所有',

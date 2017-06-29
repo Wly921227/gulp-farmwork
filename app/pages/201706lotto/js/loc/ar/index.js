@@ -66,7 +66,7 @@ define(function () {
             title: 'المستخدمون الفائزون',
             prize(id) {
                 if (id === 1)
-                    return `${' ' + PRIZE[id]}الفوز ب `;
+                    return `${' ' + PRIZE[id] + ' '}الفوز ب`;
                 else
                     return `الفوز ب${PRIZE[id]}`;
             }

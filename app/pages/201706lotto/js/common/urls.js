@@ -3,7 +3,7 @@ define({
         (location.href.indexOf('.debug') > -1 ?
             'http://in.debug.yeecall.com:5080/lotto' :
             // TODO 接口线上地址端口号
-            '') :
+            'https://loweb.gl.yeecall.com') :
         (location.href.indexOf('10.18.101.3') > -1 ?
             // 接口线下IP地址端口号
             'http://10.18.101.3:8906' :

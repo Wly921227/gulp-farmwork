@@ -31,6 +31,7 @@ window.requirejs(['common'], function () {
             'modules/indexWinners',
             'modules/loading'
         ], function (loc, loadLoc, shareBanner, shareJoin, indexShare, indexPrizeList, indexWinners, loading) {
+            window.INDEX_LOC = loc;
             utils.setTitle(loc);
             loading.doInit(loadLoc);
             indexWinners.doInit(loc, _loc);

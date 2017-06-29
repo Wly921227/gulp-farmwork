@@ -174,8 +174,12 @@ define(['jquery'], function ($) {
             if (loc) {
                 $('title').html(loc.title);
                 if (loc.share) {
-                    $('meta[name="keywords"]').html(loc.share.title());
-                    $('meta[name="description"]').html(loc.share.title());
+                    $('meta[name="keywords"]').attr('content', loc.share.title());
+                    $('meta[name="description"]').attr('content', loc.share.title());
+                    $('meta[property="og:url"]').attr('content', window.location.href);
+                    $('meta[property="og:title"]').attr('content', loc.share.title());
+                    $('meta[property="og:description"]').attr('content', loc.share.desc());
+                    $('meta[property="og:image"]').attr('content', 'http://ysubcdn.gl.yeecall.com/favicon.ico');
                 }
             }
 
@@ -365,7 +369,7 @@ define(['jquery'], function ($) {
                 desc: share.desc,
                 imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
                 link: link,
-                textAndLink: `${share.title}: \n${link}`,
+                textAndLink: `${share.title}\n${link}`,
                 success: function () {
                     console.log('Share success~');
                 },
@@ -376,7 +380,7 @@ define(['jquery'], function ($) {
                         desc: share.desc,
                         imgUrl: 'http://ysubcdn.gl.yeecall.com/favicon.ico',
                         link: link,
-                        textAndLink: `${share.desc}: ${link}`,
+                        textAndLink: `${share.title}\n${link}`,
                     };
                     console.log(obj);
                     window.YC.share(obj);

@@ -10,7 +10,7 @@ define([
     return {
         doInit(loc, locCode) {
             const prizeLoc = loc.prize;
-            $.tmpl(temp, {prizeLoc, loc: locCode, statement: loc.statement}).appendTo($el);
+            $.tmpl(temp, {prizeLoc, loc: locCode}).appendTo($el);
         }
     }
 });

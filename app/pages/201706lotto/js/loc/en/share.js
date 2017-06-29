@@ -8,6 +8,7 @@ define(function () {
 
     return {
         title: 'Invite friends to win iPhone 7',
+        error: 'Network Error!',
         banner(name){
             return `Your friend ${name} just downloaded YeeCall to win iPhone 7`;
         },
@@ -50,6 +51,15 @@ define(function () {
                 class: ''
             },
             open: 'Installed YeeCall already? Open'
+        },
+        share: {
+            title() {
+                const n = parseInt(Math.random() * 1000);
+                return n % 2 ? 'Join YeeCall to win iPhone7' : 'Download YeeCall to win iPhone7'
+            },
+            desc(){
+                return 'Invite WhatsApp friends to join YeeCall to win iPhone 7'
+            }
         }
     }
 });

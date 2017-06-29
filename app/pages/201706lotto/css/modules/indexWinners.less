@@ -1,15 +1,21 @@
-//@import url(../common/liMarquee);
-
 @text-value: #e3e3fe;
 @text-time: #a2a2d0;
 @text-iphone-value: #fcff01;
 @text-iphone-time: #e2e40d;
+@text-statement: #63688f;
 @color-bg: rgba(39, 39, 102, 1);
 @color-bg-tran: rgba(39, 39, 102, 0);
 
 .index-winners {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   margin-top: 2rem;
+  .statement {
+    color: @text-statement;
+    line-height: 1.2rem;
+    text-align: center;
+    font-size: .9rem;
+    margin-top: 1rem;
+  }
   .winner-list {
     position: relative;
     overflow: hidden;
@@ -18,6 +24,7 @@
     margin: 0 auto;
     margin-top: -.5rem;
     .cover-top {
+      background: -webkit-linear-gradient(to bottom, @color-bg, @color-bg-tran);
       background: linear-gradient(to bottom, @color-bg, @color-bg-tran);
       position: absolute;
       height: 30%;
@@ -26,17 +33,19 @@
       top: -1px;
     }
     .cover-bottom {
+      background: -webkit-linear-gradient(to top, @color-bg, @color-bg-tran);
       background: linear-gradient(to top, @color-bg, @color-bg-tran);
       position: absolute;
       height: 50%;
       width: 100%;
-      bottom: 0;
+      bottom: -1px;
       left: 0;
     }
     ul {
       background: transparent;
+      display: inline-block;
       list-style: none;
-      height: 100%;
+      width: 100%;
       .item {
         line-height: 2rem;
         font-size: .9rem;

@@ -5,7 +5,6 @@ define([
     'http',
     'urls',
     'temp',
-    'marquee'
 ], function ($, temp, utils, http, urls) {
     const $el = $('#indexWinners');
     temp = utils.tempRemoveBlank(temp);
@@ -153,29 +152,33 @@ define([
                 }
                 $.tmpl(temp, {
                     winnerLoc,
-                    list
+                    list,
+                    statement: loc.statement
                 }).appendTo($el);
 
                 // 滚动动画
-                // $el.find('.winner-list ul').liMarquee({
-                //     scrollamount: 30,
-                //     direction: 'up',
-                //     circular: true,
-                //     hoverstop: false,
-                //     drag: false
-                // });
-                $el.find('.winner-list ul').marquee({
-                    //speed in milliseconds of the marquee
-                    duration: 15000,
-                    //gap in pixels between the tickers
-                    gap: 50,
-                    //time in milliseconds before the marquee will start animating
-                    delayBeforeStart: 2000,
-                    //'left' or 'right'
-                    direction: 'up',
-                    //true or false - should the marquee be duplicated to show an effect of continues flow
-                    duplicated: true
-                });
+                const $list = $el.find('.winner-list');
+                const $move = $el.find('.winner-list .move');
+                const $first = $el.find('.winner-list .move .first');
+                const listHeight = $list.height();
+                const moveHeight = $first.height();
+                if (listHeight < moveHeight) {
+                    const speed = .3;
+                    let top = 0;
+                    const animate = function () {
+                        if (Math.abs(top) <= moveHeight) {
+                            top -= speed;
+                        } else {
+                            top = 0
+                        }
+                        $move.css('-webkit-transition', `-webkit-translate3d(0, ${top}px, 0)`);
+                        $move.css('transform', `-webkit-translate3d(0, ${top}px, 0)`);
+                        $move.css('-webkit-transition', `translate3d(0, ${top}px, 0)`);
+                        $move.css('transform', `translate3d(0, ${top}px, 0)`);
+                    };
+
+                    setInterval(animate, 10);
+                }
             });
         }
     }
