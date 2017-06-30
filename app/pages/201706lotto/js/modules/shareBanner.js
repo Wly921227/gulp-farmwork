@@ -12,7 +12,11 @@ define([
             let {
                 name,
             } = utils.urlParams();
-            name = decodeURI(name || '');
+            try {
+                name = ` ${decodeURI(atob(name || ''))} `;
+            } catch (e) {
+                name = ''
+            }
 
             loc.banner = loc.banner(name).split('\n');
             loc.banner2 = loc.banner2.split('\n');

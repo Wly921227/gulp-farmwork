@@ -31,7 +31,7 @@ app.use('/', function (req, res) {
                     }
                 }
                 let requestOpt = {
-                    url: `http://${opt.host}:${opt.port}${link}`,
+                    url: opt.port ? `http://${opt.host}:${opt.port}${link}` : `https://${opt.host}${link}`,
                     method: req.method,
                     json: true,
                     headers: {}

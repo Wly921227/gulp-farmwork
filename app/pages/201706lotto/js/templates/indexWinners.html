@@ -21,14 +21,23 @@
                 {{/if}}
                 {{/each}}
             </ul>
-            <ul>
+            <ul class="second">
                 {{each(key, value) list}}
+                {{if value}}
                 <li>
                     <div class="item {{if value.prize === 1}}iphone{{/if}}">
                         <div class="text">${value.id}&nbsp;${winnerLoc.prize(value.prize)}</div>
                         <div class="time">${value.time}</div>
                     </div>
                 </li>
+                {{else}}
+                <li>
+                    <div class="item">
+                        <div class="text"></div>
+                        <div class="time"></div>
+                    </div>
+                </li>
+                {{/if}}
                 {{/each}}
             </ul>
         </div>

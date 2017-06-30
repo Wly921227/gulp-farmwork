@@ -83,11 +83,11 @@ define([
                             prize[key] = utils.getPrizeById(item);
                         }
                     }
-                    // TODO 测试奖品
+                    // // TODO 测试奖品
                     // status['001'] = 2;
-                    // prize['001'] = 1;
-                    // status['002'] = 1;
-                    // prize['002'] = 1;
+                    // prize['001'] = 4;
+                    // status['002'] = 2;
+                    // prize['002'] = 3;
                     // num = 18;
                     // 语言
                     const ticketLoc = loc.ticket;
@@ -106,13 +106,6 @@ define([
                     setTimeout(function () {
                         btnFlash(2, 300);
                     }, 3000);
-                    // 统计
-                    if (window.STARTTIME) {
-                        const endTime = new Date().getTime();
-                        const loadTime = endTime - window.STARTTIME;
-
-                        _gaq.push(['loadTracker._trackEvent', '请求时间(ms)', 'ticket', loadTime]);
-                    }
                 }
             });
         }

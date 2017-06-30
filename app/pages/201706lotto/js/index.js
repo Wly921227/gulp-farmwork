@@ -6,9 +6,9 @@ window.requirejs(['common'], function () {
     window.requirejs([
         'utils',
     ], function (utils) {
-        if (!utils.inYeeCall) {
-            window.location.href = './share.html' + window.location.search;
-        }
+        // if (!utils.inYeeCall) {
+        //     window.location.href = './share.html' + window.location.search;
+        // }
         const _loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.createGoogleAnalytics();
@@ -43,12 +43,12 @@ window.requirejs(['common'], function () {
                 utils.hideNav(true);
                 utils.hideMenu(true);
                 utils.setCookie(function () {
-                    indexWinners.doInit(loc, _loc);
                     utils.getFriendCnt(function (cnt) {
                         indexTickets.doInit(loc, cnt, _loc);
                     });
                 });
             });
+            indexWinners.doInit(loc, _loc);
             indexBanner.doInit(loc);
             indexShare.doInit(loc);
             indexPrizeList.doInit(loc, _loc);

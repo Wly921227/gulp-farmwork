@@ -1,4 +1,4 @@
-define(['jquery', 'urls'], function ($, urls) {
+define(['jquery', 'urls', 'utils'], function ($, urls, utils) {
     const errorCB = (a) => {
         if (a.status !== 200) {
             alert(INDEX_LOC.error);
@@ -38,7 +38,7 @@ define(['jquery', 'urls'], function ($, urls) {
                     try {
                         result = JSON.parse(res);
                     } catch (e) {
-                        alert(INDEX_LOC.error);
+                        result = {};
                     }
                 } else {
                     alert(INDEX_LOC.error);
@@ -48,10 +48,16 @@ define(['jquery', 'urls'], function ($, urls) {
             data.jsonpcallback = cbName;
             data.activityId = urls.activityId;
             const opt = makeOpt('GET', data, callback, error);
+            let base = '';
+            if (utils.isAndroidLow) {
+                base = urls.base2;
+            } else {
+                base = urls.base;
+            }
 
             $.ajax({
                 type: opt.type,
-                url: `${urls.base}${url}?${opt.data}`,
+                url: `${base}${url}?${opt.data}`,
                 dataType: 'jsonp',
                 jsonp: cbName,
                 success: opt.callback,

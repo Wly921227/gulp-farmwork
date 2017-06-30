@@ -6,9 +6,6 @@ window.requirejs(['common'], function () {
     window.requirejs([
         'utils'
     ], function (utils) {
-        if (utils.inYeeCall) {
-            window.location.href = './index.html';
-        }
         const _loc = utils.getLocCode();
         utils.setFontSize(1080, 20);
         utils.createGoogleAnalytics();
@@ -34,7 +31,9 @@ window.requirejs(['common'], function () {
             window.INDEX_LOC = loc;
             utils.setTitle(loc);
             loading.doInit(loadLoc);
-            indexWinners.doInit(loc, _loc);
+            if (!utils.inYeeCall) {
+                indexWinners.doInit(loc, _loc);
+            }
             shareBanner.doInit(loc);
             shareJoin.doInit(loc);
             indexShare.doInit(loc, shareJoin);
