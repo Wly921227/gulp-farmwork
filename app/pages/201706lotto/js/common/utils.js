@@ -146,11 +146,11 @@ define(['jquery'], function ($) {
                 switch (id) {
                     case '5954da4ebc67881f2038b9e0':
                         return 1;   // iPhone
-                    case '5954da4ebc67881f2038b9e1':
+                    case '5954da60bc67881f2038b9e1':
                         return 2;   // 100
-                    case '5954da4ebc67881f2038b9e2':
+                    case '5954da63bc67881f2038b9e2':
                         return 3;   // 50
-                    case '5954da4ebc67881f2038b9e3':
+                    case '5954da66bc67881f2038b9e3':
                         return 4;   // 10
                     case 5:
                         return 5;   // 再一次
