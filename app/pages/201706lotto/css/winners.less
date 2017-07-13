@@ -1,0 +1,57 @@
+@import url(./modules/winnerBanner);
+@import url(./modules/winnerPrize);
+@import url(./modules/winnerShare);
+@import url(./modules/loading);
+
+@background: #272766;
+
+.main {
+  background: @background;
+  height: 100%;
+}
+
+.zh .winner-icon {
+  background: url(../images/winner-zh-icon.png) no-repeat;
+}
+
+.ar .winner-icon {
+  background: url(../images/winner-ar-icon.png) no-repeat;
+}
+
+.en .winner-icon {
+  background: url(../images/winner-en-icon.png) no-repeat;
+}
+
+.winner-icon {
+  display: inline-block;
+  &.banner {
+    background-position: 0 -5.2rem;
+    background-size: 100%;
+    height: 20.75rem;
+    width: 100%;
+  }
+  &.title-one {
+    background-position: 0 -25.8rem;
+    background-size: 100%;
+    height: 8.5rem;
+    width: 100%;
+  }
+  &.title-two {
+    background-position: 0 -35.2rem;
+    background-size: 100%;
+    height: 8.5rem;
+    width: 100%;
+  }
+  &.icon-share {
+    background-position: 0 -38.9rem;
+    background-size: 100%;
+    height: 6.35rem;
+    width: 22rem;
+  }
+  &.icon-share-action {
+    background-position: 0 -46.3rem;
+    background-size: 100%;
+    height: 6.35rem;
+    width: 22rem;
+  }
+}

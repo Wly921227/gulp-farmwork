@@ -39,7 +39,7 @@ window.requirejs(['common'], function () {
             window.INDEX_LOC = loc;
             utils.setTitle(loc);
             loading.doInit(loadLoc);
-            document.addEventListener("deviceready", function () {
+            document.addEventListener('deviceready', function () {
                 utils.hideNav(true);
                 utils.hideMenu(true);
                 utils.setCookie(function () {

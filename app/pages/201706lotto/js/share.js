@@ -14,7 +14,6 @@ window.requirejs(['common'], function () {
         utils.loadImage('./images/close.png');
         utils.loadImage('./images/small-icon.png');
         utils.loadImage('./images/arrow-icon.png');
-        utils.loadImage('./images/close.png');
         utils.loadImage('./images/loading.png');
         utils.loadImage('./images/loading-banner.png');
         // const img = utils.loadImage(`./images/pic_banner_${_loc}-min.png`);

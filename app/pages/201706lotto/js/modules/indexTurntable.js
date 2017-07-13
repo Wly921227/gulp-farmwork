@@ -199,7 +199,7 @@ define([
                 }
             }
             // TODO
-            // num = 5;
+            // num = 1;
             if (num === 1) {
                 ga('send', 'event', '抽奖结果', 'iPhone');
             }

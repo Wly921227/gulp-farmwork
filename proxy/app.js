@@ -7,13 +7,14 @@ const app = express();
 const config = require('./config');
 
 app.use(express.static(resolve(__dirname, '../static')));
+// app.use(express.static(resolve(__dirname, '../static/authorization')));
 // app.use(express.static(resolve(__dirname, '../dist')));
 // app.use('/201706lotto', express.static(resolve(__dirname, '../rjs')));
-
+    
 app.use('/', function (req, res) {
     let link = req.originalUrl;
     if (link.indexOf('cordova_plugins') !== -1) {
-        var err = new Error('Not Found');
+        let err = new Error('Not Found');
         err.status = 404;
         res.status = 404;
         res.json({
