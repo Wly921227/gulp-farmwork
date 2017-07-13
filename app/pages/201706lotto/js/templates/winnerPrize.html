@@ -1,10 +1,81 @@
 <div class="winner-prize">
     <div class="prize-one item">
         <div class="title-one winner-icon"></div>
-        <div class="prize-blank"></div>
+        <div class="prize-blank">
+            <div class="list">
+                {{each(key, value) oneList}}
+                <div class="winner-info">
+                    <div class="winner-head">
+                        <div class="icon">
+                            <img src="./images/medal.png">
+                        </div>
+                        <div class="header">
+                            <img src="${value.head}" alt="">
+                        </div>
+                    </div>
+                    <div class="winner-num">
+                        ${value.id}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
     </div>
     <div class="prize-two item">
         <div class="title-two winner-icon"></div>
-        <div class="prize-blank"></div>
+        <div class="prize-blank">
+            {{each(key, value) twoList}}
+            <div class="num-item">
+                ${value.id}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="prize-other">
+        <div class="title">${loc.winnerList}</div>
+        <div class="winner-list">
+            <div class="move">
+                <ul class="first">
+                    {{each(key, value) otherList}}
+                    {{if value}}
+                    <li>
+                        <div class="item {{if value.prize === 1}}iphone{{/if}}">
+                            <div class="text">${value.id}&nbsp;${loc.prize(value.prize)}</div>
+                            <div class="time">${value.time}</div>
+                        </div>
+                    </li>
+                    {{else}}
+                    <li>
+                        <div class="item">
+                            <div class="text"></div>
+                            <div class="time"></div>
+                        </div>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+                <ul class="second">
+                    {{each(key, value) otherList}}
+                    {{if value}}
+                    <li>
+                        <div class="item {{if value.prize === 1}}iphone{{/if}}">
+                            <div class="text">${value.id}&nbsp;${loc.prize(value.prize)}</div>
+                            <div class="time">${value.time}</div>
+                        </div>
+                    </li>
+                    {{else}}
+                    <li>
+                        <div class="item">
+                            <div class="text"></div>
+                            <div class="time"></div>
+                        </div>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="cover-top"></div>
+            <div class="cover-bottom"></div>
+        </div>
     </div>
 </div>

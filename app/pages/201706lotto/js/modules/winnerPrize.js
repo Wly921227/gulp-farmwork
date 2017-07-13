@@ -11,7 +11,7 @@ define([
     const falseData = utils.winnerList;
 
     return {
-        doInit(timeInterval, _loc) {
+        doInit(timeInterval, _loc, loc) {
             const format = _loc === 'ar' ? 'DD/MM/YYYY H:M' : 'YYYY.MM.DD H:M';
             http.get(urls.getWinnerList, {}, function (result) {
                 const oneList = [];
@@ -28,7 +28,8 @@ define([
                                 id: item.uid,
                                 prize: utils.getPrizeById(item.prizeId),
                                 time: utils.dateFormat(item.ctime, format),
-                                ctime: item.ctime
+                                ctime: item.ctime,
+                                head: item.head || ''
                             };
                             if (winner.prize === 1) {
                                 oneList.push(winner);
@@ -47,7 +48,8 @@ define([
                             id: value.uid,
                             prize: value.prizeId,
                             time: utils.dateFormat(ctime, format),
-                            ctime: ctime
+                            ctime: ctime,
+                            head: value.head || ''
                         };
                         if (winner.prize === 1) {
                             oneList.push(winner);
@@ -58,6 +60,9 @@ define([
                         }
                     }
                 });
+                for (let i = 0; i < 3; i++) {
+                    otherList.push(0);
+                }
                 console.log(oneList);
                 console.log(twoList);
                 console.log(otherList);
@@ -65,8 +70,43 @@ define([
                 $.tmpl(temp, {
                     oneList,
                     twoList,
-                    otherList
+                    otherList,
+                    loc
                 }).appendTo($el);
+
+                // 滚动动画
+                const $move = $el.find('.winner-list .move');
+                const $first = $el.find('.winner-list .move .first');
+                const moveHeight = $first.height();
+                const speed = .3;
+                let top = 0;
+                const animate = function () {
+                    if (Math.abs(top) <= moveHeight) {
+                        top -= speed;
+                    } else {
+                        top = 0
+                    }
+                    $move.css('-webkit-transition', `-webkit-translate3d(0, ${top}px, 0)`);
+                    $move.css('transform', `-webkit-translate3d(0, ${top}px, 0)`);
+                    $move.css('-webkit-transition', `translate3d(0, ${top}px, 0)`);
+                    $move.css('transform', `translate3d(0, ${top}px, 0)`);
+                };
+
+                const animateLow = function () {
+                    if (Math.abs(top) <= moveHeight) {
+                        top -= speed;
+                    } else {
+                        top = 0
+                    }
+                    $move.css('top', `${top}px`);
+                };
+
+                if (utils.isAndroidLow) {
+                    $move.css('position', 'absolute');
+                    setInterval(animateLow, 10);
+                } else {
+                    setInterval(animate, 10);
+                }
             });
         }
     }

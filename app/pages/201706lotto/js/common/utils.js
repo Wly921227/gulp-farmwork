@@ -50,6 +50,7 @@ define(['jquery'], function ($) {
             uid: '+967****5431'
         }, {
             ctime: '2017/07/17 14:26',
+            head: './images/head1.jpg',
             prizeId: 1,
             uid: '+63****5136'
         }, {
@@ -59,7 +60,7 @@ define(['jquery'], function ($) {
         }, {
             ctime: '2017/07/18 12:00',
             prizeId: 2,
-            uid: '+1****8486'
+            uid: '+81****8486'
         }, {
             ctime: '2017/07/18 12:58',
             prizeId: 3,

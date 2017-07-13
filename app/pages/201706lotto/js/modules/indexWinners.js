@@ -55,10 +55,8 @@ define([
                 }).appendTo($el);
 
                 // 滚动动画
-                const $list = $el.find('.winner-list');
                 const $move = $el.find('.winner-list .move');
                 const $first = $el.find('.winner-list .move .first');
-                const listHeight = $list.height();
                 const moveHeight = $first.height();
                 const speed = .3;
                 let top = 0;

@@ -8,34 +8,21 @@ define(function () {
 
     return {
         title: '中奖名单',
-        winnerList: {
-            title: 'Winners',
-            prize(id) {
-                return `Win ${PRIZE[id]}`;
-            }
+        joinIn: 'Join to win',
+        statement: 'YeeCall reserve the right to explain the terms of the event.',
+        callUs: {
+            callUs: 'Contact us',
+            tip: ', receive your prize'
         },
-        join: {
-            title: 'How to win?',
-            free: 'free',
-            tip1: {
-                text: 'Download the latest version of YeeCall',
-                btn: 'Download YeeCall'
-            },
-            tip2: {
-                text: 'Join YeeCall to win iPhone 7',
-                btn: 'Invite friends to win iPhone 7',
-                class: ''
-            },
-            open: 'Installed YeeCall already? Open'
+        prize(id) {
+            return `Win ${PRIZE[id]}`;
         },
-        share: {
-            title() {
-                const n = parseInt(Math.random() * 1000);
-                return n % 2 ? 'Join YeeCall to win iPhone7' : 'Download YeeCall to win iPhone7'
-            },
-            desc(){
-                return 'Invite WhatsApp friends to join YeeCall to win iPhone 7'
-            }
+        winnerList: 'Winners',
+        dialog: {
+            title: 'Contact us',
+            text: 'Please add YeeCall ID: ',
+            id: 'WiniPhone2017',
+            ok: 'OK'
         }
     }
 });

@@ -21,8 +21,9 @@ window.requirejs(['common'], function () {
             'modules/winnerBanner',
             'modules/winnerPrize',
             'modules/winnerShare',
+            'modules/dialog',
             'modules/loading'
-        ], function (loc, loadLoc, winnerBanner, winnerPrize, winnerShare, loading) {
+        ], function (loc, loadLoc, winnerBanner, winnerPrize, winnerShare, dialog, loading) {
             // loading.doInit(loadLoc);
             // 隐藏loading
             setTimeout(loading.hide, 2000);
@@ -52,8 +53,9 @@ window.requirejs(['common'], function () {
                 }
             }
             winnerBanner.doInit(timeInterval);
-            winnerPrize.doInit(timeInterval, _loc);
+            winnerPrize.doInit(timeInterval, _loc, loc);
             winnerShare.doInit(loc);
+            dialog.doInit(loc);
         });
     });
 });
