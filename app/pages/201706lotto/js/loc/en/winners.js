@@ -7,12 +7,12 @@ define(function () {
     };
 
     return {
-        title: '中奖名单',
+        title: 'Winner List of This Week',
         joinIn: 'Join to win',
         statement: 'YeeCall reserve the right to explain the terms of the event.',
         callUs: {
             callUs: 'Contact us',
-            tip: ', receive your prize'
+            tip: ', Get your prize'
         },
         prize(id) {
             return `Win ${PRIZE[id]}`;

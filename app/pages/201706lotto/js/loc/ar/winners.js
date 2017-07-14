@@ -7,12 +7,12 @@ define(function () {
     };
 
     return {
-        title: '中奖名单',
-        joinIn: '参加活动',
+        title: 'الفائزون في هذا الأسبوع',
+        joinIn: 'الاشتراك في النشاط',
         statement: 'YeeCall التفسير النهائي للنشاط محفوظ لشركة',
         callUs: {
             callUs: 'الاتصال بنا',
-            tip: '，获取你的奖品'
+            tip: ' للحصول على جائزتك'
         },
         prize(id) {
             if (id === 1)
@@ -20,12 +20,12 @@ define(function () {
             else
                 return `الفوز ب${PRIZE[id]}`;
         },
-        winnerList: '获奖列表',
+        winnerList: 'الجوائز الأخرى',
         dialog: {
             title: 'الاتصال بنا',
             text: ': YeeCall ID ابحثوا عن',
             id: 'WiniPhone2017',
-            ok: 'نعم'
+            ok: 'حسنا'
         }
     }
 });

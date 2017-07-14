@@ -7,7 +7,7 @@ define(function () {
     };
 
     return {
-        title: '中奖名单',
+        title: '本周获奖名单',
         joinIn: '参加活动',
         statement: '本活动最终解释权归 YeeCall 所有',
         callUs: {
@@ -17,7 +17,7 @@ define(function () {
         prize(id) {
             return `抽到${PRIZE[id]}`;
         },
-        winnerList: '获奖列表',
+        winnerList: '其他奖项',
         dialog: {
             title: '如需联系我们',
             text: '请搜索YeeCall ID：',

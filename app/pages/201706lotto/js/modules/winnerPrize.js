@@ -29,7 +29,7 @@ define([
                                 prize: utils.getPrizeById(item.prizeId),
                                 time: utils.dateFormat(item.ctime, format),
                                 ctime: item.ctime,
-                                head: item.head || ''
+                                head: item.head || './images/default-head.jpg'
                             };
                             if (winner.prize === 1) {
                                 oneList.push(winner);
@@ -49,7 +49,7 @@ define([
                             prize: value.prizeId,
                             time: utils.dateFormat(ctime, format),
                             ctime: ctime,
-                            head: value.head || ''
+                            head: value.head || './images/default-head.jpg'
                         };
                         if (winner.prize === 1) {
                             oneList.push(winner);

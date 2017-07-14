@@ -71,6 +71,25 @@
             exclude: [
                 'common'
             ]
+        },
+        {
+            name: 'winners',
+            include: [
+                'modules/winnerBanner',
+                'modules/winnerPrize',
+                'modules/winnerShare',
+                'modules/dialog',
+                'modules/loading',
+                'loc/zh/winners',
+                'loc/zh/loading',
+                'loc/en/winners',
+                'loc/en/loading',
+                'loc/ar/winners',
+                'loc/ar/loading'
+            ],
+            exclude: [
+                'common'
+            ]
         }
     ]
 })
