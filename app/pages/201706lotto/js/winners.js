@@ -37,10 +37,10 @@ window.requirejs(['common'], function () {
             const date = params.date ? new Date(params.date) : new Date();
             const time = date.getTime();
             const interval = [
-                {start: '2017/07/17', end: '2017/07/24'},
-                {start: '2017/07/24', end: '2017/07/31'},
+                {start: '2017/07/17', end: '2017/07/23'},
+                {start: '2017/07/24', end: '2017/07/30'},
                 {start: '2017/07/31', end: '2017/08/07'},
-                {start: '2017/08/07', end: '2017/08/14'},
+                {start: '2017/08/07', end: '2017/08/13'},
             ];
             let timeInterval;
             for (let i = 0; i < interval.length; i++) {

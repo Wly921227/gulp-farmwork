@@ -64,7 +64,7 @@ define(function () {
                 return `抽到${PRIZE[id]}`;
             }
         },
-        statement: '本活动最终解释权归 YeeCall 所有',
+        statement: '*本活动最终解释权归 YeeCall 所有',
         prizeTip: {
             no: '再接再厉，继续邀请好友期待下一次能中奖！',
             no2: '谢谢参与本次活动，期待你下次赢取大奖',

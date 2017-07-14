@@ -58,7 +58,7 @@ define(function () {
                 price: '50'
             }]
         },
-        statement: 'YeeCall reserve the right to explain the terms of the event.',
+        statement: '*YeeCall reserve the right to explain the terms of the event.',
         winnerList: {
             title: 'Winners',
             prize(id) {
@@ -68,10 +68,10 @@ define(function () {
         prizeTip: {
             no: 'Invite friends to try again!',
             no2: 'Thanks for joining us! See you soon and we hope you win bigger next time!',
-            1: `Congratulations! You win ${PRIZE[1]}!`,
-            2: `Congratulations! You win ${PRIZE[2]}!`,
-            3: `Congratulations! You win ${PRIZE[3]}!`,
-            4: `Congratulations! You win ${PRIZE[4]}!`,
+            1: `Congrats! You win ${PRIZE[1]}!`,
+            2: `Congrats! You win ${PRIZE[2]}!`,
+            3: `Congrats! You win ${PRIZE[3]}!`,
+            4: `Congrats! You win ${PRIZE[4]}!`,
             noShare: 'Invite WhatsApp friends',
             share: 'Invite friends to play',
             tips: 'YeeCall team will contact you in 3 business days via YeeCall.',

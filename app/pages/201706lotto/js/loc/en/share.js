@@ -31,7 +31,7 @@ define(function () {
                 price: '50'
             }]
         },
-        statement: 'YeeCall reserve the right to explain the terms of the event.',
+        statement: '*YeeCall reserve the right to explain the terms of the event.',
         winnerList: {
             title: 'Winners',
             prize(id) {

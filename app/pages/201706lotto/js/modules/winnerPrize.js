@@ -23,7 +23,7 @@ define([
                 if (result && Object.getOwnPropertyNames(result).length > 0) {
                     for (const key in result) {
                         const item = result[key];
-                        if (item.ctime >= startTime && item.ctime <= endTime) {
+                        if (item.ctime >= startTime && item.ctime <= (endTime + (1000 * 60 * 60 * 24))) {
                             const winner = {
                                 id: item.uid,
                                 prize: utils.getPrizeById(item.prizeId),

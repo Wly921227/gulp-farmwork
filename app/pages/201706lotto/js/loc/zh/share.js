@@ -37,7 +37,7 @@ define(function () {
                 return `抽到 ${PRIZE[id]}`;
             }
         },
-        statement: '本活动最终解释权归 YeeCall 所有',
+        statement: '*本活动最终解释权归 YeeCall 所有',
         join: {
             title: '我该如何参与活动？',
             free: '免费',

@@ -550,7 +550,7 @@ define(['jquery'], function ($) {
         removeBackListener() {
             document.removeEventListener('backbutton', backCB);
         },
-        share: debounce(function (share, username) {
+        share: debounce(function (share, username, toAll) {
             const paths = location.pathname.split('/');
             paths.pop();
             const link = `${location.origin}${paths.join('/')}/share.html?name=${btoa(encodeURI(username || window.USERNAME))}`;
@@ -579,7 +579,11 @@ define(['jquery'], function ($) {
             };
 
             try {
-                window.YC.shareToCustom(obj);
+                if (toAll) {
+                    window.YC.share(obj);
+                } else {
+                    window.YC.shareToCustom(obj);
+                }
             } catch (e) {
                 window.YC.share(obj);
             }

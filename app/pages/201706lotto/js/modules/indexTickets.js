@@ -83,11 +83,11 @@ define([
                             prize[key] = utils.getPrizeById(item);
                         }
                     }
-                    // // TODO 测试奖品
-                    // status['001'] = 1;
-                    // prize['001'] = 0;
-                    // status['002'] = 1;
-                    // prize['002'] = 3;
+                    // TODO 测试奖品
+                    // status['001'] = 2;
+                    // prize['001'] = 1;
+                    // status['002'] = 2;
+                    // prize['002'] = 2;
                     // num = 18;
                     // 语言
                     const ticketLoc = loc.ticket;

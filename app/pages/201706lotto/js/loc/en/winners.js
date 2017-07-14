@@ -9,7 +9,7 @@ define(function () {
     return {
         title: 'Winner List of This Week',
         joinIn: 'Join to win',
-        statement: 'YeeCall reserve the right to explain the terms of the event.',
+        statement: '*YeeCall reserve the right to explain the terms of the event.',
         callUs: {
             callUs: 'Contact us',
             tip: ', Get your prize'
@@ -17,7 +17,7 @@ define(function () {
         prize(id) {
             return `Win ${PRIZE[id]}`;
         },
-        winnerList: 'Winners',
+        winnerList: 'Other winners',
         dialog: {
             title: 'Contact us',
             text: 'Please add YeeCall ID: ',

@@ -9,7 +9,7 @@ define(function () {
     return {
         title: '本周获奖名单',
         joinIn: '参加活动',
-        statement: '本活动最终解释权归 YeeCall 所有',
+        statement: '*本活动最终解释权归 YeeCall 所有',
         callUs: {
             callUs: '联系我们',
             tip: '，获取你的奖品'

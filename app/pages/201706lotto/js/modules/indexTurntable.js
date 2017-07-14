@@ -84,7 +84,8 @@ define([
         if (num > 0 && num <= 4) {
             SHARE = {
                 title: loc.winShare.title(num),
-                desc: loc.winShare.desc()
+                desc: loc.winShare.desc(),
+                isAll: true
             };
         } else {
             SHARE = {
@@ -264,7 +265,7 @@ define([
         } else {
             ga('send', 'event', '分享', '未中奖页面分享');
         }
-        utils.share(SHARE, window.USERNAME);
+        utils.share(SHARE, window.USERNAME, SHARE.isAll);
     });
 
     return {
