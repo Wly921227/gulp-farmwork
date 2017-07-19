@@ -79,7 +79,7 @@ define(function () {
         },
         share: {
             title() {
-                return 'Download YeeCall to win iPhone7'
+                return 'Tap to win iPhone 7'
             },
             desc() {
                 return 'Invite WhatsApp friends to join YeeCall to win iPhone 7'

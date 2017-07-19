@@ -38,7 +38,7 @@ window.requirejs(['common'], function () {
         ], function (loc, loadLoc, indexBanner, indexTickets, indexShare, indexPrizeList, indexWinners, indexTurntable, loading, dialog, tipArrow) {
             window.INDEX_LOC = loc;
             utils.setTitle(loc);
-            loading.doInit(loadLoc);
+            // loading.doInit(loadLoc);
             document.addEventListener('deviceready', function () {
                 utils.hideNav(true);
                 utils.hideMenu(true);
@@ -56,7 +56,7 @@ window.requirejs(['common'], function () {
             dialog.doInit(loc);
             // 隐藏loading
             setTimeout(function () {
-                loading.hide();
+                // loading.hide();
                 tipArrow.doInit();
             }, 2000);
         });

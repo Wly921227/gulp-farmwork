@@ -13,7 +13,7 @@ define(function () {
             return `${(name ? name : ' ' + name + ' ') + ' صديقك '}\nيقوم بالاشتراك في أنشطة ”دعوة\n الآن “iPhone7 الأصدقاء للفوز ب`;
         },
         banner2: ' WhatsApp دعوة أصدقاء من \nللفوز بجائزة YeeCall للانضمام إلى iPhone7',
-        shareButton: 'الان iPhone 7 الفوز ب',
+        shareButton: 'التحميل للفوز',
         prize: {
             title: 'قائمة الجوائز',
             tip: 'كارت الشحن بمبلغ',
@@ -57,7 +57,7 @@ define(function () {
         },
         share: {
             title() {
-                return 'تحميل YeeCall للفوز ب iPhone7'
+                return 'الضغط للفوز ب iPhone7'
             },
             desc() {
                 return 'دعوة أكثر من الأصدقاء للانضمام إلى YeeCall للفوز ب iPhone7'

@@ -33,7 +33,8 @@ define([
                 if (shareJoin) {
                     ga('send', 'event', '外部点击我要参加活动');
 
-                    shareJoin.show();
+                    utils.downloadYeeCall();
+                    // shareJoin.show();
                 } else {
                     const share = {
                         title: loc.share.title(),

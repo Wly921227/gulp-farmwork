@@ -13,7 +13,7 @@ define(function () {
             return `Your friend ${name} just downloaded YeeCall to win iPhone 7`;
         },
         banner2: 'Invite WhatsApp friends to join YeeCall to win iPhone 7',
-        shareButton: 'Win iPhone7 now',
+        shareButton: 'Download to win',
         prize: {
             title: 'Prize list',
             tip: 'Mobile Refill Card',
@@ -54,7 +54,7 @@ define(function () {
         },
         share: {
             title() {
-                return 'Download YeeCall to win iPhone7'
+                return 'Tap to win iPhone 7'
             },
             desc() {
                 return 'Invite WhatsApp friends to join YeeCall to win iPhone 7'

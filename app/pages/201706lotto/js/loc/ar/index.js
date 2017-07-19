@@ -85,7 +85,7 @@ define(function () {
         },
         share: {
             title() {
-                return 'تحميل YeeCall للفوز ب iPhone7'
+                return 'الضغط للفوز ب iPhone7'
             },
             desc() {
                 return 'دعوة أكثر من الأصدقاء للانضمام إلى YeeCall للفوز ب iPhone7'
