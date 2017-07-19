@@ -24,9 +24,9 @@ window.requirejs(['common'], function () {
             'modules/dialog',
             'modules/loading'
         ], function (loc, loadLoc, winnerBanner, winnerPrize, winnerShare, dialog, loading) {
-            loading.doInit(loadLoc);
+            // loading.doInit(loadLoc);
             // 隐藏loading
-            setTimeout(loading.hide, 2000);
+            // setTimeout(loading.hide, 2000);
             // page modules
             document.addEventListener('deviceready', function () {
                 utils.setTitle(loc);

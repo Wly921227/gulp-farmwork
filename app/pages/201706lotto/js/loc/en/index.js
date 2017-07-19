@@ -79,10 +79,9 @@ define(function () {
         },
         share: {
             title() {
-                const n = parseInt(Math.random() * 1000);
-                return n % 2 ? 'Join YeeCall to win iPhone7' : 'Download YeeCall to win iPhone7'
+                return 'Download YeeCall to win iPhone7'
             },
-            desc(){
+            desc() {
                 return 'Invite WhatsApp friends to join YeeCall to win iPhone 7'
             }
         },
@@ -91,8 +90,7 @@ define(function () {
                 return `I won ${PRIZE[id]}! Download YeeCall now to win together!`
             },
             desc() {
-                const n = parseInt(Math.random() * 1000);
-                return n % 2 ? 'Join YeeCall to win iPhone 7' : 'Download YeeCall to win iPhone 7'
+                return 'Download YeeCall to win iPhone 7'
             }
         },
         error: 'Network Error!',

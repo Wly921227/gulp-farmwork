@@ -9,11 +9,11 @@ define(function () {
     return {
         title: 'Invite friends to win iPhone 7',
         error: 'Network Error!',
-        banner(name){
+        banner(name) {
             return `Your friend ${name} just downloaded YeeCall to win iPhone 7`;
         },
         banner2: 'Invite WhatsApp friends to join YeeCall to win iPhone 7',
-        shareButton: ' I want to win iPhone 7 too!',
+        shareButton: 'Win iPhone7 now',
         prize: {
             title: 'Prize list',
             tip: 'Mobile Refill Card',
@@ -46,18 +46,17 @@ define(function () {
                 btn: 'Download YeeCall'
             },
             tip2: {
-                text: 'Join YeeCall to win iPhone 7',
+                text: 'Win iPhone 7',
                 btn: 'Invite friends to win iPhone 7',
                 class: ''
             },
-            open: 'Installed YeeCall already? Open'
+            open: 'Already downloaded YeeCall? Open'
         },
         share: {
             title() {
-                const n = parseInt(Math.random() * 1000);
-                return n % 2 ? 'Join YeeCall to win iPhone7' : 'Download YeeCall to win iPhone7'
+                return 'Download YeeCall to win iPhone7'
             },
-            desc(){
+            desc() {
                 return 'Invite WhatsApp friends to join YeeCall to win iPhone 7'
             }
         }

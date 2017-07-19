@@ -3,8 +3,8 @@ define(['jquery'], function ($) {
     const inYeeCall = /yeecall/.test(ua);
     const isAndroid = ua.indexOf('android') > -1 || ua.indexOf('adr') > -1;
     const isOffline = location.href.indexOf('.debug') > -1 || location.href.indexOf('10.18.101.') > -1;
-    const iosDownloadUrl = 'https://itunes.apple.com/cn/app/yi-kuai-zui-ku-wang-luo-dian/id852211576?mt=8';
-    const androidDownloadUrl = 'market://details?id=com.yeecall.app';
+    const iosDownloadUrl = 'http://m.onelink.me/76f7fa7f';
+    const androidDownloadUrl = 'http://m.onelink.me/76f7fa7f';
     const debounce = (func, wait, immediate) => {
         let timeout;
         return function () {

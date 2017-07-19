@@ -29,7 +29,7 @@ window.requirejs(['common'], function () {
         ], function (loc, loadLoc, shareBanner, shareJoin, indexShare, indexPrizeList, indexWinners, loading) {
             window.INDEX_LOC = loc;
             utils.setTitle(loc);
-            loading.doInit(loadLoc);
+            // loading.doInit(loadLoc);
             if (!utils.inYeeCall) {
                 indexWinners.doInit(loc, _loc);
             }
@@ -38,7 +38,7 @@ window.requirejs(['common'], function () {
             indexShare.doInit(loc, shareJoin);
             indexPrizeList.doInit(loc, _loc);
             // 隐藏loading
-            setTimeout(loading.hide, 2000);
+            // setTimeout(loading.hide, 2000);
         });
     });
 });

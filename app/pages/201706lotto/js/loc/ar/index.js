@@ -85,10 +85,9 @@ define(function () {
         },
         share: {
             title() {
-                const n = parseInt(Math.random() * 1000);
-                return n % 2 ? 'الانضمام إلى YeeCall للفوز ب iPhone7' : 'تحميل YeeCall للفوز ب iPhone7'
+                return 'تحميل YeeCall للفوز ب iPhone7'
             },
-            desc(){
+            desc() {
                 return 'دعوة أكثر من الأصدقاء للانضمام إلى YeeCall للفوز ب iPhone7'
             }
         },
@@ -97,8 +96,7 @@ define(function () {
                 return `فزت ب${' ' + PRIZE[id] + ' '} في YeeCall! يوجد أكثر من الجوائز هنا!`
             },
             desc() {
-                const n = parseInt(Math.random() * 1000);
-                return n % 2 ? 'الانضمام إلى YeeCall للفوز ب iPhone' : 'تحميل YeeCall للفوز ب iPhone'
+                return 'تحميل YeeCall للفوز ب iPhone'
             }
         },
         error: 'خطأ في اتصال الشبكة',

@@ -73,6 +73,7 @@ define([
             http.get(urls.getUserLotto, {
                 friendCnt: cnt
             }, function (result) {
+                // result = {}
                 if (result) {
                     let num = cnt - result.initFriends;
                     const status = result.lotteryStatus || {};
@@ -86,9 +87,9 @@ define([
                     // TODO 测试奖品
                     // status['001'] = 2;
                     // prize['001'] = 1;
-                    // status['002'] = 2;
+                    // status['002'] = 3;
                     // prize['002'] = 2;
-                    // num = 18;
+                    // num = 10;
                     // 语言
                     const ticketLoc = loc.ticket;
                     const tip = loc.prize.tip;
