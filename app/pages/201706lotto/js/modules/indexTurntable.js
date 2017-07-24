@@ -200,7 +200,7 @@ define([
                 }
             }
             // TODO
-            // num = 1;
+            // num = 2;
             if (num === 1) {
                 ga('send', 'event', '抽奖结果', 'iPhone');
             }
