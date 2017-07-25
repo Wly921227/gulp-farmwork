@@ -38,6 +38,7 @@ define(function () {
             }
         },
         statement: '*本活动最终解释权归 YeeCall 所有',
+        statement2: '*本活动与苹果公司无关',
         join: {
             title: '我该如何参与活动？',
             free: '免费',

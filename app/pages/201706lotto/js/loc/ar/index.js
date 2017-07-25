@@ -62,6 +62,7 @@ define(function () {
             }]
         },
         statement: 'YeeCall التفسير النهائي للنشاط محفوظ لشركة',
+        statement2: 'Apple هذا النشاط لا يتعلق بشركة',
         winnerList: {
             title: 'المستخدمون الفائزون',
             prize(id) {

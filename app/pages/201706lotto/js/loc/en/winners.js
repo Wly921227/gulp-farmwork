@@ -10,6 +10,7 @@ define(function () {
         title: 'Winner List of This Week',
         joinIn: 'Join to win',
         statement: '*YeeCall reserve the right to explain the terms of the event.',
+        statement2: '*Apple Inc. is not a participant in or sponsor of this promotion.',
         callUs: {
             callUs: 'Contact us',
             tip: ', Get your prize'

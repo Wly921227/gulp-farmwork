@@ -58,7 +58,8 @@ define(function () {
                 price: '50'
             }]
         },
-        statement: '*YeeCall reserve the right to explain the terms of the event.',
+        statement: '*YeeCall reserves the right to explain the terms of the event.',
+        statement2: '*Apple Inc. is not a participant in or sponsor of this promotion.',
         winnerList: {
             title: 'Winners',
             prize(id) {

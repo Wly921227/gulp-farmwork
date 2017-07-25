@@ -10,6 +10,7 @@ define(function () {
         title: 'الفائزون في هذا الأسبوع',
         joinIn: 'الاشتراك في النشاط',
         statement: 'YeeCall التفسير النهائي للنشاط محفوظ لشركة',
+        statement2: 'Apple هذا النشاط لا يتعلق بشركة',
         callUs: {
             callUs: 'الاتصال بنا',
             tip: ' للحصول على جائزتك'

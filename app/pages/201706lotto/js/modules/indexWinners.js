@@ -51,7 +51,8 @@ define([
                 $.tmpl(temp, {
                     winnerLoc,
                     list,
-                    statement: loc.statement
+                    statement: loc.statement,
+                    statement2: loc.statement2
                 }).appendTo($el);
 
                 // 滚动动画

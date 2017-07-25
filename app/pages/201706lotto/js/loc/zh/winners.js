@@ -10,6 +10,7 @@ define(function () {
         title: '本周获奖名单',
         joinIn: '参加活动',
         statement: '*本活动最终解释权归 YeeCall 所有',
+        statement2: '*本活动与苹果公司无关',
         callUs: {
             callUs: '联系我们',
             tip: '，获取你的奖品'
