@@ -8,9 +8,10 @@ define([
     temp = utils.tempRemoveBlank(temp);
 
     return {
-        doInit(timeInterval) {
+        doInit(timeInterval, _loc) {
             console.log(timeInterval)
-            $.tmpl(temp, {timeInterval}).appendTo($el);
+            const src = `./images/winners-banner-${_loc}.png`
+            $.tmpl(temp, {timeInterval, src}).appendTo($el);
         }
     }
 });

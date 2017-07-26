@@ -17,46 +17,68 @@
   }
 }
 
+.title-one() {
+  background-position: 0 0;
+  background-size: 100%;
+  height: 8.5rem;
+  width: 100%;
+}
+
+.title-two() {
+  background-position: 0 -8.6rem;
+  background-size: 100%;
+  height: 8.8rem;
+  width: 100%;
+}
+
 .zh .winner-icon {
-  background: url(../images/winner-zh-icon.png) no-repeat;
+  display: inline-block;
+  &.title-one {
+    background: url(../images/title-banner-zh.png) no-repeat;
+    .title-one();
+  }
+  &.title-two {
+    background: url(../images/title-banner-zh.png) no-repeat;
+    .title-two();
+  }
 }
 
 .ar .winner-icon {
-  background: url(../images/winner-ar-icon.png) no-repeat;
+  display: inline-block;
+  &.title-one {
+    background: url(../images/title-banner-ar.png) no-repeat;
+    .title-one();
+  }
+  &.title-two {
+    background: url(../images/title-banner-ar.png) no-repeat;
+    .title-two();
+  }
 }
 
 .en .winner-icon {
-  background: url(../images/winner-en-icon.png) no-repeat;
+  display: inline-block;
+  &.title-one {
+    background: url(../images/title-banner-en.png) no-repeat;
+    .title-one();
+  }
+  &.title-two {
+    background: url(../images/title-banner-en.png) no-repeat;
+    .title-two();
+  }
 }
 
 .winner-icon {
   display: inline-block;
-  &.banner {
-    background-position: 0 -6rem;
-    background-size: 100%;
-    height: 20.75rem;
-    width: 100%;
-  }
-  &.title-one {
-    background-position: 0 -25.8rem;
-    background-size: 100%;
-    height: 8.5rem;
-    width: 100%;
-  }
-  &.title-two {
-    background-position: 0 -35.2rem;
-    background-size: 100%;
-    height: 8.5rem;
-    width: 100%;
-  }
   &.icon-share {
-    background-position: 0 -39.9rem;
+    background: url(../images/share-icon.png) no-repeat;
+    background-position: 0 -.2rem;
     background-size: 100%;
     height: 4.5rem;
     width: 22rem;
   }
   &.icon-share-action {
-    background-position: 0 -47.2rem;
+    background: url(../images/share-icon.png) no-repeat;
+    background-position: 0 -4.4rem;
     background-size: 100%;
     height: 4.5rem;
     width: 22rem;

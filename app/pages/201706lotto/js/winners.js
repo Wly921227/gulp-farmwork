@@ -52,7 +52,7 @@ window.requirejs(['common'], function () {
                     break;
                 }
             }
-            winnerBanner.doInit(timeInterval);
+            winnerBanner.doInit(timeInterval, _loc);
             winnerPrize.doInit(timeInterval, _loc, loc);
             winnerShare.doInit(loc);
             dialog.doInit(loc);
