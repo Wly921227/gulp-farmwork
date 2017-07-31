@@ -26,6 +26,11 @@ define([
             }).appendTo($el);
             $el.on('click', '.btn', function (event) {
                 event.preventDefault();
+                if (utils.inYeeCall) {
+                    ga('send', 'event', '我要参与', '客户端内点击');
+                } else {
+                    ga('send', 'event', '我要参与', '客户端外点击');
+                }
                 window.location.href = './index.html'
             });
         }
