@@ -21,6 +21,7 @@ define([
             loc.banner = loc.banner(name).split('\n');
             loc.banner2 = loc.banner2.split('\n');
             $.tmpl(temp, {loc}).appendTo($el);
+            $.tmpl(`<div class="add-text">${loc.addText}</div>`).appendTo($('#addText'));
         }
     }
 });

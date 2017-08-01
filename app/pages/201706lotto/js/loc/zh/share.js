@@ -13,6 +13,7 @@ define(function () {
             return `你的好友${name}正参加集YeeCall好友抽iPhone7的活动`;
         },
         banner2: '邀请 WhatsApp 好友加入 YeeCall\n抽取 iPhone7 大奖！',
+        addText: '1 in every 5 installed will win',
         shareButton: '我也要赢iPhone7',
         prize: {
             title: '奖项设置',
