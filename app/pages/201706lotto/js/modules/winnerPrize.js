@@ -18,12 +18,12 @@ define([
                 const twoList = [];
                 const otherList = [];
                 const startTime = new Date(timeInterval.start).getTime();
-                const endTime = new Date(timeInterval.end).getTime();
+                const endTime = new Date(timeInterval.end).getTime() + (1000 * 60 * 60 * 24);
 
                 if (result && Object.getOwnPropertyNames(result).length > 0) {
                     for (const key in result) {
                         const item = result[key];
-                        if (item.ctime >= startTime && item.ctime <= (endTime + (1000 * 60 * 60 * 24))) {
+                        if (item.ctime >= startTime && item.ctime <= endTime) {
                             const winner = {
                                 id: item.uid,
                                 prize: utils.getPrizeById(item.prizeId),
@@ -59,6 +59,15 @@ define([
                             otherList.push(winner);
                         }
                     }
+                });
+                oneList.sort(function (a, b) {
+                    return b.ctime - a.ctime;
+                });
+                twoList.sort(function (a, b) {
+                    return b.ctime - a.ctime;
+                });
+                otherList.sort(function (a, b) {
+                    return b.ctime - a.ctime;
                 });
                 for (let i = 0; i < 3; i++) {
                     otherList.push(0);

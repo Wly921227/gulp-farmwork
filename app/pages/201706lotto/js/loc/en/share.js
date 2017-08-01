@@ -14,7 +14,7 @@ define(function () {
         },
         banner2: 'Invite WhatsApp friends to join YeeCall to win iPhone 7',
         shareButton: 'Download to win',
-        addText: '1 in every 5 installed will win',
+        addText: '1 in every 5 installed will win!',
         prize: {
             title: 'Prize list',
             tip: 'Mobile Refill Card',

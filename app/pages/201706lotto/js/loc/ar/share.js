@@ -14,7 +14,7 @@ define(function () {
         },
         banner2: ' WhatsApp دعوة أصدقاء من \nللفوز بجائزة YeeCall للانضمام إلى iPhone7',
         shareButton: 'التحميل للفوز',
-        addText: 'خمس الذين ثبّتوا التطبيق سوف يفوز',
+        addText: '!خمس الذين ثبّتوا التطبيق سوف يفوز',
         prize: {
             title: 'قائمة الجوائز',
             tip: 'كارت الشحن بمبلغ',

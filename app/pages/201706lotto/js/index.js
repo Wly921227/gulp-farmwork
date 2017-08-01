@@ -1,5 +1,6 @@
 window.requirejs.config({
-    baseUrl: './js'
+    baseUrl: './js',
+    urlArgs: new Date().getTime() + ''
 });
 
 window.requirejs(['common'], function () {
