@@ -6,10 +6,10 @@ const app = express();
 
 const config = require('./config');
 
-app.use(express.static(resolve(__dirname, '../static')));
+// app.use(express.static(resolve(__dirname, '../static')));
 // app.use(express.static(resolve(__dirname, '../static/authorization')));
 // app.use(express.static(resolve(__dirname, '../dist')));
-// app.use('/201706lotto', express.static(resolve(__dirname, '../rjs')));
+app.use('/201706lotto', express.static(resolve(__dirname, '../rjs')));
     
 app.use('/', function (req, res) {
     let link = req.originalUrl;
