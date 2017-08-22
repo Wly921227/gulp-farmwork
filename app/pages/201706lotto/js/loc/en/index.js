@@ -80,7 +80,7 @@ define(function () {
         },
         share: {
             title() {
-                return 'Not Spam! It is TRUE! 😎1 in 5 who installed will win🎁 Win iPhone 7 now for Free!'
+                return 'Hey, it’s real! My friends already get their prizes🎁 Tap to win iPhone📱'
             },
             desc() {
                 return 'Invite WhatsApp friends to join YeeCall to win iPhone 7'

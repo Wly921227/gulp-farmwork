@@ -3685,6 +3685,11 @@ define(['jquery'], function ($) {
             prizeId: 4,
             uid: '+91****1907'
         }, {
+            ctime: '2017/08/17 14:26',
+            prizeId: 1,
+            head: './images/head6.jpg',
+            uid: '+964****2147'
+        }, {
             ctime: '2017/08/09 10:02',
             prizeId: 1,
             head: './images/head4.jpg',
