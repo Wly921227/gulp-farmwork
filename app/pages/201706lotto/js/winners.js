@@ -42,6 +42,9 @@ window.requirejs(['common'], function () {
                 {start: '2017/07/24', end: '2017/07/30'},
                 {start: '2017/07/31', end: '2017/08/07'},
                 {start: '2017/08/07', end: '2017/08/13'},
+                {start: '2017/08/14', end: '2017/08/20'},
+                {start: '2017/08/21', end: '2017/08/27'},
+                {start: '2017/08/28', end: '2017/09/03'}
             ];
             let timeInterval;
             for (let i = 0; i < interval.length; i++) {
