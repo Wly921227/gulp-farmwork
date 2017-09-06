@@ -3,7 +3,7 @@
 <head>
     <title>${news.title}</title>
     <meta charset="utf-8">
-    <meta name="description" content="${news.title}">
+    <meta name="Description" content="${news.title}">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="MobileOptimized" content="375"/>
@@ -11,9 +11,9 @@
     <meta http-equiv="Cache-Control" content="max-age=86400"/>
     <meta name="format-detection" content="telephone=no"/>
     <!-- facebook share -->
-    <meta property="og:title" content="${news.title}">
-    <meta property="og:image" content="${news.image}">
-    <meta property="og:description" content="${news.description}">
+    <meta property="og:title" content="${image.title}">
+    <meta property="og:image" content="${image.image}">
+    <meta property="og:detection" content="${image.detection}">
     <style>
         html, body {
             font-family: sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue";
@@ -25,7 +25,6 @@
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
-            padding: .8rem 0;
         }
 
         * {
@@ -33,142 +32,10 @@
             margin: 0;
         }
 
-        body > div {
-            margin: 0 auto;
-            width: 94%;
-        }
-
-        .wrap_w94 h1 {
-            line-height: 1.3rem;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: #262626;
-        }
-
-        .content {
-            padding-top: .3rem;
-            margin-top: .2rem;
-        }
-
-        table {
-            border-collapse: collapse;
-            display: inline-block;
-            overflow-x: scroll;
-            width: 100%;
-        }
-
-        .content table p, .content table span {
-            text-indent: 0;
-            padding-right: .4rem;
-        }
-
-        .content table th, .content table td {
-            border-bottom: 1px solid #ccc;
-            border-right: 1px solid #ccc;
-        }
-
-        .content table th:last-child, .content table td:last-child {
-            border-right: none
-        }
-
-        .content table tr:last-child th, .content table tr:last-child td {
-            border-bottom: none
-        }
-
-        .content * {
-            margin-top: 0.65rem;
-            margin-bottom: 0.45rem;
-            line-height: 1.3rem;
-            font-size: .85rem;
-            color: #262626;
-            font-style: normal;
-        }
-
-        .content l {
-            margin-top: 0.65rem;
-            margin-bottom: 0.45rem;
-            line-height: 1.3rem;
-            font-size: .85rem;
-            color: #262626;
-            font-style: normal;
-        }
-
-        .content img {
-            margin-bottom: 0.05rem;
-            margin-top: 0.05rem;
+        img {
+            vertical-align: middle;
             height: auto;
-            width: 100% !important;
-            text-align: center;
-            text-indent: 0;
-            opacity: 1;
-            transition: opacity 0.2s;
-        }
-
-        img.wp-smiley, img.emoji {
-            display: inline !important;
-            border: none !important;
-            box-shadow: none !important;
-            height: 1em !important;
-            width: 1em !important;
-            margin: 0 .07em !important;
-            vertical-align: -0.1em !important;
-            background: none !important;
-            padding: 0 !important;
-        }
-
-        .content img[data-src] {
-            opacity: 0;
-        }
-
-        .content p, .content span {
-
-            text-indent: 0;
-        }
-
-        figure {
-            display: block;
-            -webkit-margin-before: 0.1em;
-            -webkit-margin-after: 0.1em;
-            -webkit-margin-start: 0;
-            -webkit-margin-end: 0;
-        }
-
-        .uititle {
-            line-height: 1rem;
-            margin-top: .5rem;
-            font-size: 0.7rem;
-            padding: 0.1rem;
-            color: #777;
-        }
-
-        .w-article-summary {
-            margin: 1em;
-            position: relative;
-            color: #888;
-            line-height: 1.5em;
-            font-style: italic;
-            font-family: MinionPro-lt, times, serif;
-        }
-
-        .content img.rating {
-            width: 6em !important;
-            height: 1.2em;
-        }
-
-        .content iframe {
-            width: 22em !important;
-        }
-
-        .highlight {
-            font-size: .8em;
-            color: #666;
-            padding: .3em 0 .7em 0;
-            line-height: 1em;
-            margin: 0 1.2em 0.7em 1.2em;
-        }
-
-        ul, li {
-            list-style-type: none;
+            width: 100%;
         }
 
         /* 下载 */
@@ -220,19 +87,10 @@
             color: #fff;
             top: .6rem;
         }
-
     </style>
     <script src="http://ysubcdn.gl.yeecall.com/js-sdk/YeeCallJs-1.0.6.js"></script>
     <script type="text/javascript">
         window.onload = function () {
-            [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
-                var src = img.getAttribute('src');
-                var datasrc = img.getAttribute('data-src');
-                if (!src) {
-                    img.setAttribute('src', datasrc);
-                }
-                img.removeAttribute('data-src');
-            });
             var ua = navigator.userAgent.toLowerCase();
             var inYeeCall = /yeecall/.test(ua);
             var isAndroid = ua.indexOf('android') > -1 || ua.indexOf('adr') > -1;
@@ -275,29 +133,21 @@
     </script>
 </head>
 <body>
-<div class="acTxtTit wrap_w94" data-role="none">
-    <h1>
-        ${news.title}
-    </h1>
+<div class="title">
+    ${image.title}
 </div>
-
-<div class='uititle' data-role="none">
-    ${news.siteName}&nbsp;&nbsp;&nbsp;${news.newsDate}
+<div class="picture">
+    <img src="${image.src}">
 </div>
-
-<div id="overlay" data-role="none" class="content">
-    ${news.content}
-</div>
-
 <div class="download-warp" style="display: none;">
     <div class="logo">
         <img src="http://d3g9mc3tdku1jr.cloudfront.net/other/dev/2017_08_24/logo_1503557837583.png" alt="">
     </div>
     <div class="massage">
-        <p>${msgTitle}</p>
-        <p>${msgDesc}</p>
+        <p>${text.msgTitle}</p>
+        <p>${text.msgDesc}</p>
     </div>
-    <div class="download">${download}</div>
+    <div class="download">${text.download}</div>
 </div>
 </body>
 </html>
