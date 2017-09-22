@@ -1,0 +1,54 @@
+<div class="index-winners">
+    <div class="title">${winners.title}</div>
+    <div class="desc">${winners.desc}</div>
+    <div class="winner-list">
+        <div class="move">
+            <ul class="first">
+                {{each(key, value) list}}
+                {{if value}}
+                <li>
+                    <div class="item {{if value.prize === 1}}iphone{{/if}}">
+                        <div class="text">${value.id}&nbsp;${winners.msg}</div>
+                        <div class="time">${value.time}</div>
+                    </div>
+                </li>
+                {{else}}
+                <li>
+                    <div class="item">
+                        <div class="text"></div>
+                        <div class="time"></div>
+                    </div>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+            <ul class="second">
+                {{each(key, value) list}}
+                {{if value}}
+                <li>
+                    <div class="item {{if value.prize === 1}}iphone{{/if}}">
+                        <div class="text">${value.id}&nbsp;${winners.msg}</div>
+                        <div class="time">${value.time}</div>
+                    </div>
+                </li>
+                {{else}}
+                <li>
+                    <div class="item">
+                        <div class="text"></div>
+                        <div class="time"></div>
+                    </div>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="cover-top"></div>
+        <div class="cover-bottom"></div>
+    </div>
+    <!--<div class="statement">-->
+    <!--${winners.statement}-->
+    <!--</div>-->
+    <div class="statement2">
+        ${winners.statement}
+    </div>
+</div>

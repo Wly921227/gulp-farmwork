@@ -1,20 +1,20 @@
 module.exports = {
-    '^/201706lotto': {
-        host: 'loweb.gl.yeecall.com',
-        port: '',
-        // cookie: 'user=AQABAHulc4B+dvLbnLAB+UqcUPpwZjZ4ivm4AKUU2irrSW++ugamYLnL9QG+3MoAAAAAwbpV1A==',
-        pathRewrite: {
-            '/201706lotto': ''
-        }
-    },
     // '^/201706lotto': {
-    //     host: 'in.debug.yeecall.com',
-    //     port: '5080',
+    //     host: 'loweb.gl.yeecall.com',
+    //     port: '',
     //     // cookie: 'user=AQABAHulc4B+dvLbnLAB+UqcUPpwZjZ4ivm4AKUU2irrSW++ugamYLnL9QG+3MoAAAAAwbpV1A==',
     //     pathRewrite: {
-    //         '/201706lotto': '/lotto'
+    //         '/201706lotto': ''
     //     }
     // },
+    '^/201706lotto': {
+        host: 'in.debug.yeecall.com',
+        port: '5080',
+        // cookie: 'user=AQABAHulc4B+dvLbnLAB+UqcUPpwZjZ4ivm4AKUU2irrSW++ugamYLnL9QG+3MoAAAAAwbpV1A==',
+        pathRewrite: {
+            '/201706lotto': '/lotto'
+        }
+    },
     // '^/test': {
     //     host: '10.18.101.186',
     //     port: 3000,

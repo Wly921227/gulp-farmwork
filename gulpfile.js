@@ -69,7 +69,7 @@ gulp.task('less', function () {
     return gulp.src(LESS_PATH)
         .pipe(plumber())
         .pipe(less({
-            plugins: [new LessAutoPrefix({browsers: ['last 2 versions'], remove: false})]
+            plugins: [new LessAutoPrefix({browsers: ["last 2 version", "Android 4", "iOS 7"], remove: false})]
         }))
         .pipe(gulp.dest(OUTPUT_PATH))
         .pipe(browserSync.stream());
@@ -78,7 +78,7 @@ gulp.task('less:build', function () {
     return gulp.src(LESS_PATH)
         .pipe(plumber())
         .pipe(less({
-            plugins: [new LessAutoPrefix({browsers: ['last 2 versions'], remove: false})]
+            plugins: [new LessAutoPrefix({browsers: ["last 2 version", "Android 4", "iOS 7"], remove: false})]
         }))
         // .pipe(minifycss())
         .pipe(gulp.dest(DIST_PATH))

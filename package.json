@@ -12,7 +12,7 @@
     "product": "gulp product",
     "clean": "gulp clean",
     "publish": "gulp publish",
-    "build-rjs": "node node_modules/requirejs/bin/r.js -o app/pages/201706lotto/build/config.js"
+    "build-rjs": "node node_modules/requirejs/bin/r.js -o app/pages/201709lotto/build/config.js"
   },
   "keywords": [
     "glup"

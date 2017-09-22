@@ -1,0 +1,31 @@
+@text-share: #fff;
+@text-shadow: rgba(21, 98, 8, .5);
+
+.index-share {
+  text-align: center;
+  margin-top: 1.1rem;
+  @btn-height: 2.62rem;
+  .btn {
+    border-radius: @btn-height / 2;
+    box-shadow: 0 0 5px 1px rgba(220, 249, 255, 0.25);
+    box-sizing: border-box;
+    background: url("../images/btn.png") no-repeat;
+    background-size: 100%;
+    transition: box-shadow .1s ease, background .1s ease, transform .3s ease-out;
+    display: inline-block;
+    height: @btn-height;
+    width: 13.5rem;
+    &:active {
+      box-shadow: 0 0 20px 3px rgba(220, 249, 255, 0.25);
+      background: url("../images/btn-pressed.png") no-repeat 100% 100%;
+      background-size: 100%;
+    }
+    .text {
+      text-shadow: 1px 1px 2px @text-shadow;
+      line-height: @btn-height;
+      color: @text-share;
+      user-select: none;
+      font-size: 1rem;
+    }
+  }
+}

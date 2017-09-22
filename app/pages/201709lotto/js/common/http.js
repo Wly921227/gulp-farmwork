@@ -41,7 +41,7 @@ define(['jquery', 'urls', 'utils'], function ($, urls, utils) {
                         result = {};
                     }
                 } else {
-                    alert(INDEX_LOC.error);
+                    // alert(INDEX_LOC.error);
                 }
                 callback(result);
             };

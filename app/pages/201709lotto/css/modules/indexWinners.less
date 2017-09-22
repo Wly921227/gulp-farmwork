@@ -1,0 +1,94 @@
+@text-value: #e3e3fe;
+@text-time: #a2a2d0;
+@text-iphone-value: #fcff01;
+@text-iphone-time: #e2e40d;
+@text-statement: #63688f;
+@color-bg: rgba(39, 39, 102, 1);
+@color-bg-tran: rgba(39, 39, 102, 0);
+
+.index-winners {
+  margin-top: 2rem;
+  .title {
+    text-align: center;
+    font-size: .95rem;
+    color: #63c120;
+  }
+  .desc {
+    text-align: center;
+    color: @text-statement;
+    line-height: 1rem;
+    font-size: .8rem;
+    margin: .5rem 0;
+  }
+  .statement {
+    color: @text-statement;
+    line-height: .9rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: .7rem;
+  }
+  .statement2 {
+    color: @text-statement;
+    line-height: .9rem;
+    text-align: center;
+    margin-top: .5rem;
+    font-size: .7rem;
+  }
+  .winner-list {
+    position: relative;
+    overflow: hidden;
+    height: 13rem;
+    margin: 0 auto;
+    width: 92%;
+    .cover-top {
+      background: -webkit-linear-gradient(to bottom, @color-bg, @color-bg-tran);
+      background: linear-gradient(to bottom, @color-bg, @color-bg-tran);
+      position: absolute;
+      height: 30%;
+      width: 100%;
+      left: 0;
+      top: -1px;
+      z-index: 1;
+    }
+    .cover-bottom {
+      background: -webkit-linear-gradient(to top, @color-bg, @color-bg-tran);
+      background: linear-gradient(to top, @color-bg, @color-bg-tran);
+      position: absolute;
+      height: 50%;
+      width: 100%;
+      bottom: -1px;
+      left: 0;
+      z-index: 1;
+    }
+    ul {
+      background: transparent;
+      display: inline-block;
+      list-style: none;
+      width: 100%;
+      .item {
+        line-height: 1.5rem;
+        font-size: .7rem;
+        .text {
+          display: inline-block;
+          color: @text-value;
+        }
+        .time {
+          color: @text-time;
+          float: right;
+        }
+        &.iphone {
+          .text {
+            color: @text-iphone-value;
+          }
+          .time {
+            color: @text-iphone-time;
+          }
+        }
+      }
+    }
+    .move {
+      width: 100%;
+      left: 0;
+    }
+  }
+}

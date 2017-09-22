@@ -1,0 +1,39 @@
+@height: 1.4rem;
+
+.index-scroll-bar {
+  border-bottom-left-radius: @height / 2;
+  border-top-left-radius: @height / 2;
+  background: rgba(33, 33, 88, .9);
+  transition: width .5s ease;
+  position: absolute;
+  text-align: center;
+  overflow: hidden;
+  height: @height;
+  top: .5rem;
+  right: 0;
+  width: 0;
+  .scroll-warp {
+    position: relative;
+    font-size: .7rem;
+    .scroll-1 {
+      transition: transform .5s ease;
+      position: absolute;
+      width: 100%;
+    }
+    .scroll-2 {
+      transition: transform .5s ease;
+      position: absolute;
+      width: 100%;
+    }
+    .item {
+      text-overflow: ellipsis;
+      line-height: @height;
+      white-space: nowrap;
+      overflow: hidden;
+      color: #fff;
+      .phone {
+        color: #008dde;
+      }
+    }
+  }
+}

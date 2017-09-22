@@ -1,0 +1,15 @@
+<div class="index-tickets">
+    <div class="ticket-list">
+        <div class="tip">
+            {{each(i, value) loc.tip}}
+            <p>${value}</p>
+            {{/each}}
+        </div>
+        <div class="number">
+            <span class="big">0</span>/2 <strong>${loc.friends}</strong>
+        </div>
+        <div class="bar">
+            <div class="progress" style=""></div>
+        </div>
+    </div>
+</div>

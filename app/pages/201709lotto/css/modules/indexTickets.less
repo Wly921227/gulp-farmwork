@@ -1,0 +1,44 @@
+.index-tickets {
+  margin-top: -2.8rem;
+  .ticket-list {
+    box-sizing: border-box;
+    padding: 1.5rem 1.2rem;
+    border-radius: .5rem;
+    text-align: center;
+    background: #fff;
+    margin: 0 auto;
+    width: 92%;
+    .tip {
+      line-height: .9rem;
+      margin-top: 1.8rem;
+      font-size: .75rem;
+      color: #272766;
+    }
+    .number {
+      font-size: .75rem;
+      color: #ff00aa;
+      .big {
+        font-size: 3.6rem;
+      }
+    }
+    @bar-height: .375rem;
+    .bar {
+      border-radius: @bar-height / 2;
+      height: @bar-height;
+      background: #e9f0f4;
+      position: relative;
+      margin-top: 1rem;
+      overflow: hidden;
+      width: 100%;
+      .progress {
+        transition: width .5s ease;
+        background: #008dde;
+        position: absolute;
+        height: 100%;
+        width: 0;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+}
