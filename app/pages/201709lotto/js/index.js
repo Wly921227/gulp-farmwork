@@ -38,6 +38,7 @@ window.requirejs(['common'], function () {
             indexBanner.doInit();
             indexPrizeList.doInit(loc);
             indexWinners.doInit(loc);
+            ga('send', 'event', '抽奖二期', '进入', utils.inYeeCall ? 'in yeecall' : 'not in yeecall');
         });
     });
 });

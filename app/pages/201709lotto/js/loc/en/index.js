@@ -20,7 +20,7 @@ define(function () {
             desc: 'Winner list releases on every Friday',
             msg: ' win $50 gift card',
             statement: '*YeeCall reserves the right to explain the terms of the event.',
-            statement2: '*Apple Inc. is not a participant in or sponsor of this promotion.'
+            statement2: '*YeeCall team will contact all the winners in 3 business days'
         },
         share: {
             title() {
