@@ -34,6 +34,8 @@ window.requirejs(['common'], function () {
                     });
                 });
             });
+            indexTickets.doInit(loc, 0);
+
             indexShare.doInit(loc);
             indexBanner.doInit();
             indexPrizeList.doInit(loc);
