@@ -3,20 +3,20 @@ const config = {
         id: 'AAAAEttyHGk',
         name: 'मजेदार टुड',
         head: 'https://pfkcdn.meiduoyun.com/9f06/83835c69b0b20dba098cdc4ff342AAAAEttyHGk.jpeg',
-        desc: 'भारत की दैनिक मजेदार बातें!',
+        desc: 'भारत की दैनिक मजेदार बातें!'
     },
     'தமிழ் மொழி': {
         id: 'AAAAEttyHGs',
         name: 'குரல் படம்',
         head: 'https://pfkcdn.meiduoyun.com/9d4c/fc0ee523f95e9ecf63c2dab80a60AAAAEttyHGs.jpeg',
-        desc: 'இங்கே பல குரல் கதை மற்றும் சிறந்த படம்!',
+        desc: 'இங்கே பல குரல் கதை மற்றும் சிறந்த படம்!'
     },
     'മലയാളം': {
         id: 'AAAAEttyHGo',
         name: 'രസകരം',
         head: 'https://pfkcdn.meiduoyun.com/7c94/4cd27134c5cc6ad297bf26e329acAAAAEttyHGo.jpeg',
-        desc: '～～നിങ്ങൾ ഇഷ്ടപ്പെടുന്ന ദിവസമായ തമാശയുണ്ട്～～',
-    },
+        desc: '～～നിങ്ങൾ ഇഷ്ടപ്പെടുന്ന ദിവസമായ തമാശയുണ്ട്～～'
+    }
 }
 
 let data = {}
@@ -75,29 +75,26 @@ function initEvent() {
         e.preventDefault()
         const $active = $('.page-list .subs-list .active')
         if ($active.length) {
+            window.YC.loading()
             const loc = $active.data('item')
             data = config[loc]
             console.log(data)
-            YC.loading()
-            YC.follow({
+            window.YC.follow({
                 account: data.id,
                 success() {
                     console.log('follow success')
-                    // setTimeout(() => {
-                        YC.hideLoading()
-                        openSubsPage()
-                    // }, 5000)
+                    window.YC.hideLoading()
+                    openSubsPage()
                 },
                 error() {
+                    window.YC.hideLoading()
                     console.log('follow error')
-                    alert('关注失败，请稍后重试')
                 }
             })
         } else {
             return false
         }
     })
-    // TODO
     $('.page-list .open').on('click', e => {
         e.preventDefault()
         const $active = $('.page-list .subs-list .active')
@@ -135,7 +132,9 @@ function initEvent() {
 
 function openSubsPage() {
     const openSubs = `yeecall://ui/userprofile?hid=${data.id}`
-    YC.openYeeCallUI({
+    console.log('open subs')
+    console.log(openSubs)
+    window.YC.openYeeCallUI({
         link: openSubs,
         success: function () {
         },
@@ -147,9 +146,12 @@ function openSubsPage() {
 function modifyJsBridgeCallback() {
     if (/android/.test(navigator.userAgent.toLowerCase())) {
     } else {
-        if (YC.jsBridgeCallback && typeof YC.jsBridgeCallback === 'function') {
-            const callback = YC.jsBridgeCallback
-            YC.jsBridgeCallback = function (name, status) {
+        if (window.YC.jsBridgeCallback && typeof window.YC.jsBridgeCallback === 'function') {
+            const callback = window.YC.jsBridgeCallback
+            window.YC.jsBridgeCallback = function (name, status) {
+                console.log('jsBridgeCallback')
+                console.log('name', name)
+                console.log('status', status)
                 if (name === 'isFollow') {
                     if (status === 1) {
                         console.log('is follow')
@@ -159,7 +161,7 @@ function modifyJsBridgeCallback() {
                         $('.page-follow .follow').fadeIn()
                     }
                 } else if (name === 'follow') {
-                    YC.hideLoading()
+                    window.YC.hideLoading()
                     if (status === 1) {
                         console.log('follow success')
                         openSubsPage()
@@ -180,8 +182,8 @@ $(document).ready(() => {
     initEvent()
     initSubsList()
     document.addEventListener('deviceready', function () {
-        YC.hideNav(true)
-        YC.hideMenu(true)
+        window.YC.hideNav(true)
+        window.YC.hideMenu(true)
         if (!isAndroid) {
             modifyJsBridgeCallback()
         }
